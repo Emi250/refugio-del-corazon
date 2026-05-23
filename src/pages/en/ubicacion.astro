@@ -3,6 +3,7 @@ import Base from '~/layouts/Base.astro';
 import BigHeader from '~/components/BigHeader.astro';
 import CTABlock from '~/components/CTABlock.astro';
 import { t } from '~/i18n';
+import { BUSINESS } from '~/utils/seo';
 
 const lang = 'en' as const;
 
@@ -130,7 +131,7 @@ const clima = [
     </div>
   </section>
 
-  <CTABlock lang={lang} background="paper-2" mapsUrl="https://maps.app.goo.gl/bq9HnLudj3jFDMWz9" />
+  <CTABlock lang={lang} background="paper-2" mapsUrl={BUSINESS.mapsUrl} />
 </Base>
 
 <style>

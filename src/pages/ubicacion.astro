@@ -4,6 +4,7 @@ import BigHeader from '~/components/BigHeader.astro';
 import CTABlock from '~/components/CTABlock.astro';
 import { t } from '~/i18n';
 import { getCollection } from 'astro:content';
+import { BUSINESS } from '~/utils/seo';
 
 const lang = 'es' as const;
 const nearGroups = await getCollection('near');
@@ -131,7 +132,7 @@ const clima = [
     </div>
   </section>
 
-  <CTABlock lang={lang} background="paper-2" mapsUrl="https://maps.app.goo.gl/bq9HnLudj3jFDMWz9" />
+  <CTABlock lang={lang} background="paper-2" mapsUrl={BUSINESS.mapsUrl} />
 </Base>
 
 <style>

@@ -19,7 +19,7 @@ export const BUSINESS = {
   priceRange: '$$',
   whatsapp: import.meta.env.PUBLIC_WHATSAPP_NUMBER ?? '5493548000000',
   bookingUrl: 'https://www.booking.com/hotel/ar/refugio-del-corazon.html',
-  mapsUrl: 'https://maps.app.goo.gl/bq9HnLudj3jFDMWz9',
+  mapsUrl: 'https://maps.app.goo.gl/Zs3MGBP1naMxwqmt5',
 };
 
 function stripTrailingSlash(p: string): string {

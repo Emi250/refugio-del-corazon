@@ -21,6 +21,7 @@ const unidades = defineCollection({
     })),
     blurb: z.string(),
     blurb_en: z.string().optional(),
+    airbnb_url: z.string().url().optional(),
   }),
 });
 
