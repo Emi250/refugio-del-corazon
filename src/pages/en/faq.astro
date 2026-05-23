@@ -1,0 +1,87 @@
+---
+import Base from '~/layouts/Base.astro';
+import BigHeader from '~/components/BigHeader.astro';
+import FAQItem from '~/components/FAQItem.astro';
+import WhatsAppCTA from '~/components/WhatsAppCTA.astro';
+import FAQPageSchema from '~/components/seo/FAQPageSchema.astro';
+import BreadcrumbSchema from '~/components/seo/BreadcrumbSchema.astro';
+import { t } from '~/i18n';
+import { getCollection } from 'astro:content';
+
+const lang = 'en' as const;
+const groups = await getCollection('faq', ({ data }) => data.lang === 'en');
+const sorted = groups.sort((a, b) => a.data.order - b.data.order);
+const allQA = sorted.flatMap(g => g.data.qa);
+
+const crumbs = [
+  { name: 'Home', path: '/en' },
+  { name: 'FAQ', path: '/en/faq' },
+];
+---
+<Base
+  title="FAQ · Vacation rentals in Capilla del Monte | Refugio del Corazón"
+  description="Frequent questions about check-in, booking, payments, pets, parking and services at our short-term rental in Capilla del Monte, Argentina."
+>
+  <FAQPageSchema qa={allQA} />
+  <BreadcrumbSchema items={crumbs} />
+  <BigHeader
+    kicker="05 · FAQ"
+    title="Questions"
+    meta="MOST ASKED"
+    blurb="If your question isn't here, message us on WhatsApp. We reply within the day."
+  />
+
+  <section class="faq-layout">
+    <aside class="faq-aside">
+      <div class="kicker faq-aside-kicker">Categories</div>
+      {sorted.map((g, i) => (
+        <a href={`#cat-${g.data.order}`} class={`faq-aside-item ${i === 0 ? 'on' : ''}`}>
+          <span class="faq-aside-no">0{g.data.order}</span>
+          <span>{g.data.category}</span>
+        </a>
+      ))}
+      <div class="faq-aside-cta">
+        <div class="kicker" style="margin-bottom: 10px;">{t('faq.askMore', lang)}</div>
+        <WhatsAppCTA lang={lang} variant="big" label={t('faq.askMoreCta', lang)} />
+      </div>
+    </aside>
+
+    <div class="faq-main">
+      {sorted.map(g => (
+        <section class="faq-group" id={`cat-${g.data.order}`}>
+          <header class="faq-group-head">
+            <span class="faq-group-no spec-mono">0{g.data.order}</span>
+            <h3>{g.data.category}</h3>
+          </header>
+          {g.data.qa.map((qa, i) => (
+            <FAQItem no={`${g.data.order}.${i + 1}`} q={qa.q} a={qa.a} />
+          ))}
+        </section>
+      ))}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .faq-layout { display: grid; grid-template-columns: 280px 1fr; border-bottom: 1.5px solid var(--mf-ink); background: var(--mf-paper); }
+  .faq-aside { border-right: 1.5px solid var(--mf-ink); padding: 30px 24px; position: sticky; top: 70px; height: fit-content; }
+  .faq-aside-kicker { display: block; margin-bottom: 14px; }
+  .faq-aside-item { position: relative; display: flex; align-items: baseline; gap: 12px; padding: 11px 0 11px 10px; border-bottom: 1px solid var(--mf-hair); font-size: 13px; line-height: 1.3; letter-spacing: -0.005em; color: var(--mf-ink-soft); font-weight: 500; word-break: break-word; overflow-wrap: anywhere; transition: color 0.15s; }
+  .faq-aside-item::before { content: ''; position: absolute; left: 0; top: 11px; bottom: 11px; width: 2px; background: var(--mf-accent); transform: scaleY(0); transform-origin: top center; transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
+  .faq-aside-item > span:last-child { min-width: 0; flex: 1; }
+  .faq-aside-item.on, .faq-aside-item:hover { color: var(--mf-ink); font-weight: 600; border-bottom-color: var(--mf-accent); }
+  .faq-aside-item.on::before, .faq-aside-item:hover::before { transform: scaleY(1); }
+  .faq-aside-no { font-family: var(--mf-font-mono); font-size: 12px; font-weight: 600; color: var(--mf-ink); min-width: 22px; letter-spacing: 0.06em; }
+  .faq-aside-cta { margin-top: 30px; padding-top: 18px; border-top: 1px solid var(--mf-hair); }
+  .faq-main { padding: 0 32px; }
+  .faq-group { padding: 24px 0; border-bottom: 1.5px solid var(--mf-ink); }
+  .faq-group:last-child { border-bottom: 0; }
+  .faq-group-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .faq-group-no { letter-spacing: 0.1em; }
+  .faq-group-head h3 { font-size: 14px; line-height: 1; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: var(--mf-ink-soft); }
+  @media (max-width: 900px) {
+    .faq-layout { grid-template-columns: 1fr; }
+    .faq-aside { border-right: 0; border-bottom: 1.5px solid var(--mf-ink); position: static; padding: 22px 18px; }
+    .faq-main { padding: 0 18px; }
+  }
+</style>

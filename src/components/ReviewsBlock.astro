@@ -1,0 +1,103 @@
+---
+import { t, type Lang } from '~/i18n';
+
+interface Props {
+  lang?: Lang;
+  class?: string;
+}
+
+const { lang = 'es', class: className = '' } = Astro.props;
+
+// URL pública del listing de Booking. Si queda vacía, el link mono debajo del widget no se renderiza.
+const BOOKING_URL = 'https://www.booking.com/Share-hCZ4lTA';
+---
+<section class={`reviews ${className}`} aria-labelledby="reviews-heading" data-reviews-root>
+  <h2 id="reviews-heading" class="sr-only">{t('reviews.heading_sr', lang)}</h2>
+  <span class="kicker">{t('sections.reviews', lang)}</span>
+
+  <div class="widget-frame">
+    <div class="elfsight-app-e958aa7b-7c8f-4da7-9ca0-94674ae030c2" data-elfsight-app-lazy></div>
+  </div>
+
+  {BOOKING_URL && (
+    <a class="reviews-footer" href={BOOKING_URL} target="_blank" rel="noopener">
+      {t('reviews.verified', lang)}
+    </a>
+  )}
+</section>
+
+<script is:inline>
+  (function () {
+    var root = document.currentScript.previousElementSibling;
+    if (!root || !root.matches('[data-reviews-root]')) {
+      root = document.querySelector('[data-reviews-root]');
+    }
+    if (!root) return;
+    var loaded = false;
+    function load() {
+      if (loaded) return;
+      loaded = true;
+      var s = document.createElement('script');
+      s.src = 'https://elfsightcdn.com/platform.js';
+      s.async = true;
+      document.head.appendChild(s);
+    }
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { load(); io.disconnect(); }
+        });
+      }, { rootMargin: '400px 0px' });
+      io.observe(root);
+    } else {
+      window.addEventListener('load', load);
+    }
+  })();
+</script>
+
+<style>
+  .reviews {
+    padding: 80px 32px 70px;
+    background: var(--mf-paper);
+    border-bottom: 1.5px solid var(--mf-ink);
+  }
+  .reviews .kicker { display: block; margin-bottom: 24px; }
+
+  .widget-frame {
+    min-height: 420px;
+    max-width: 1280px;
+  }
+
+  .reviews-footer {
+    display: inline-block;
+    margin-top: 28px;
+    font-family: var(--mf-font-mono);
+    font-size: 11.5px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.06em;
+    color: var(--mf-ink-soft);
+    text-transform: uppercase;
+    transition: color 0.15s;
+  }
+  .reviews-footer:hover { color: var(--mf-accent); }
+
+  /* sr-only fallback (Tailwind ya provee la clase, esto es defensivo). */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  @media (max-width: 720px) {
+    .reviews { padding: 40px 18px 36px; }
+    .widget-frame { min-height: 520px; }
+    .reviews-footer { margin-top: 20px; font-size: 10px; }
+  }
+</style>

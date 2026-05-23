@@ -1,0 +1,94 @@
+---
+import WhatsAppCTA from './WhatsAppCTA.astro';
+import { t, type Lang } from '~/i18n';
+
+interface Props {
+  lang?: Lang;
+  title?: string;
+  subtitle?: string;
+  message?: string;
+  background?: 'paper' | 'paper-2';
+  mapsUrl?: string;
+}
+
+const {
+  lang = 'es',
+  title,
+  subtitle,
+  message,
+  background = 'paper-2',
+  mapsUrl,
+} = Astro.props;
+
+const defaultTitle = lang === 'es' ? 'Tu refugio te espera.' : 'Your refuge awaits.';
+const defaultSub = lang === 'es'
+  ? 'Escribinos por WhatsApp con las fechas que tenés en mente. Respondemos en el día desde Capilla del Monte.'
+  : "Message us on WhatsApp with the dates you have in mind. We reply within the day from Capilla del Monte.";
+const mapsLabel = lang === 'es' ? 'Ver en Google Maps' : 'View on Google Maps';
+---
+<section class={`cta-block bg-${background}`}>
+  <div>
+    <span class="kicker">CONSULTAR</span>
+    <h2>{title ?? defaultTitle}</h2>
+    <p>{subtitle ?? defaultSub}</p>
+  </div>
+  <div class="cta-actions">
+    <WhatsAppCTA lang={lang} variant="big" message={message} />
+    {mapsUrl && (
+      <a href={mapsUrl} target="_blank" rel="noopener" class="cta-pill cta-pill-outline">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+          <circle cx="12" cy="10" r="3" />
+        </svg>
+        <span>{mapsLabel}</span>
+      </a>
+    )}
+  </div>
+</section>
+
+<style>
+  .cta-block {
+    padding: 64px 32px;
+    border-bottom: 1.5px solid var(--mf-ink);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  .bg-paper { background: var(--mf-paper); }
+  .bg-paper-2 { background: var(--mf-paper-2); }
+  .cta-block .kicker { display: block; margin-bottom: 14px; }
+  .cta-block h2 {
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin: 0 0 14px;
+    font-weight: 800;
+  }
+  .cta-block p {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--mf-ink-soft);
+    max-width: 44ch;
+    margin: 0;
+  }
+  .cta-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .cta-pill-outline {
+    background: transparent;
+    color: var(--mf-ink);
+    border: 1.5px solid var(--mf-ink);
+    box-shadow: none;
+  }
+  .cta-pill-outline:hover { background: var(--mf-ink); color: var(--mf-paper); filter: none; }
+  @media (max-width: 720px) {
+    .cta-block { padding: 36px 18px; flex-direction: column; align-items: flex-start; }
+    .cta-actions { width: 100%; }
+    .cta-actions > * { flex: 1; justify-content: center; }
+  }
+</style>

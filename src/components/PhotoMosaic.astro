@@ -1,0 +1,139 @@
+---
+import { t, type Lang, localizedPath } from '~/i18n';
+
+interface MosaicImage { src: string; caption?: string }
+interface Props {
+  images: MosaicImage[];
+  lang?: Lang;
+  group?: string;
+  unitName?: string;
+}
+
+const { images, lang = 'es', group, unitName } = Astro.props;
+const altSuffix = unitName
+  ? (lang === 'en' ? ` — ${unitName}, apartment in Capilla del Monte` : ` — ${unitName}, departamento en Capilla del Monte`)
+  : '';
+const fallbackAlt = (i: number) => lang === 'en'
+  ? `Photo ${i + 1}${altSuffix}`
+  : `Foto ${i + 1}${altSuffix}`;
+const captionAlt = (cap: string) => `${cap}${altSuffix}`;
+const padded: (MosaicImage | null)[] = [...images];
+while (padded.length < 5) padded.push(null);
+const visible = padded.slice(0, 5);
+const hidden = group ? images.slice(5) : [];
+---
+<div class="mosaic">
+  {visible.map((img, i) => (
+    <div class={`mos-cell mos-cell-${i + 1}`} style={`--i:${i}`}>
+      {img && (group ? (
+        <a href={img.src} class="mos-link" data-lb-group={group} data-lb-index={i} data-lb-caption={img.caption ?? ''} aria-label={img.caption ?? `Foto ${i + 1}`}>
+          <img src={img.src} alt={img.caption ? captionAlt(img.caption) : fallbackAlt(i)} loading="lazy" decoding="async" width="1200" height="800" />
+          {img.caption && <span class="mos-cap">{img.caption}</span>}
+        </a>
+      ) : (
+        <>
+          <img src={img.src} alt={img.caption ? captionAlt(img.caption) : fallbackAlt(i)} loading="lazy" decoding="async" width="1200" height="800" />
+          {img.caption && <span class="mos-cap">{img.caption}</span>}
+        </>
+      ))}
+      {i === 4 && (
+        <a href={localizedPath('/galeria', lang)} class="mos-cta">{t('unit.viewGallery', lang)} →</a>
+      )}
+    </div>
+  ))}
+  {hidden.map((img, k) => (
+    <a hidden href={img.src} data-lb-group={group} data-lb-index={k + 5} data-lb-caption={img.caption ?? ''} aria-hidden="true" tabindex="-1"></a>
+  ))}
+</div>
+
+<style>
+  .mosaic {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 240px 240px;
+    border-bottom: 1.5px solid var(--mf-ink);
+    background: var(--mf-stone);
+  }
+  @keyframes mosIn {
+    from { opacity: 0; transform: translateY(10px) scale(0.985); }
+    to   { opacity: 1; transform: none; }
+  }
+  .mos-cell {
+    position: relative;
+    overflow: hidden;
+    border-right: 1px solid var(--mf-hair);
+    border-bottom: 1px solid var(--mf-hair);
+    opacity: 0;
+    animation: mosIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: calc(var(--i, 0) * 70ms);
+  }
+  .mos-cell-1 { grid-row: span 2; }
+  .mos-cell-3, .mos-cell-5 { border-right: 0; }
+  .mos-cell-4, .mos-cell-5 { border-bottom: 0; }
+  .mos-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: zoom-in;
+  }
+  .mos-cell img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+  .mos-link:hover img { transform: scale(1.03); }
+  .mos-cap {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    padding: 4px 8px;
+    background: rgba(27, 26, 22, 0.55);
+    backdrop-filter: blur(8px);
+    color: var(--mf-paper);
+    font-family: var(--mf-font-mono);
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .mos-cta {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: var(--mf-paper);
+    color: var(--mf-ink);
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid var(--mf-ink);
+    box-shadow: 3px 3px 0 var(--mf-ink);
+    transition: transform 0.15s;
+  }
+  .mos-cta:hover { transform: translate(-1px, -1px); }
+
+  @media (max-width: 720px) {
+    .mosaic {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: none;
+      grid-auto-rows: 1fr;
+      gap: 8px;
+      padding: 18px;
+      background: var(--mf-paper);
+      border-bottom: 0;
+    }
+    .mos-cell { border: 0; aspect-ratio: 1 / 1; }
+    .mos-cell-1 { grid-row: span 1; grid-column: span 2; aspect-ratio: 16 / 10; }
+    .mos-cta {
+      right: 8px;
+      bottom: 8px;
+      padding: 8px 10px;
+      font-size: 11px;
+      gap: 6px;
+      box-shadow: 2px 2px 0 var(--mf-ink);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .mosaic { padding: 16px; gap: 6px; }
+  }
+</style>

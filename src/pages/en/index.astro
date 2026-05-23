@@ -1,0 +1,81 @@
+---
+import Base from '~/layouts/Base.astro';
+import Hero from '~/components/Hero.astro';
+import SectionBar from '~/components/SectionBar.astro';
+import UnitRow from '~/components/UnitRow.astro';
+import GalleryStrip from '~/components/GalleryStrip.astro';
+import ServiceList from '~/components/ServiceList.astro';
+import LocationBlock from '~/components/LocationBlock.astro';
+import ReviewsBlock from '~/components/ReviewsBlock.astro';
+import FAQPreview from '~/components/FAQPreview.astro';
+import CTABlock from '~/components/CTABlock.astro';
+import Lightbox from '~/components/Lightbox.astro';
+import { t } from '~/i18n';
+import { getCollection } from 'astro:content';
+
+const lang = 'en' as const;
+const allUnits = await getCollection('unidades', ({ data }) => data.lang === 'en');
+const units = allUnits.sort((a, b) => a.data.order - b.data.order);
+
+const servicesEn = [
+  { k: 'Fiber-optic WiFi (300 Mbps)', v: 'INCLUDED' },
+  { k: 'Equipped kitchen + fridge with freezer', v: 'INCLUDED' },
+  { k: 'Linens and towels', v: 'INCLUDED' },
+  { k: 'Private parking (subject to availability)', v: 'INCLUDED' },
+  { k: 'Air conditioning', v: 'INCLUDED' },
+  { k: 'Grill', v: 'INCLUDED' },
+  { k: 'Shared inner courtyard', v: 'INCLUDED' },
+  { k: 'Smart TV with streaming', v: 'INCLUDED' },
+  { k: 'Host check-in', v: 'INCLUDED' },
+];
+---
+<Base
+  title="Refugio del Corazón · Vacation rentals in Capilla del Monte, Argentina"
+  description="Four short-term rental apartments at Río Negro 64, Capilla del Monte. 800 m from downtown, 2.3 km from Cerro Uritorco. Book via WhatsApp."
+  navVariant="hero"
+  preloadImage="/cerro%20uritorco.jpg"
+>
+  <Hero lang={lang} />
+
+  <section id="unidades">
+    <SectionBar no="1" title={t('sections.units', lang)} meta={t('sections.unitsMeta', lang)} />
+    {units.map((unit, i) => (
+      <UnitRow unit={unit} lang={lang} align={i % 2 === 0 ? 'left' : 'right'} />
+    ))}
+  </section>
+
+  <section id="galeria">
+    <SectionBar no="2" title={t('sections.gallery', lang)} meta={t('sections.galleryMeta', lang)} metaHref="/en/galeria" />
+    <GalleryStrip lang={lang} />
+  </section>
+
+  <section id="servicios">
+    <SectionBar no="3" title={t('sections.services', lang)} meta={t('sections.servicesMeta', lang)} metaHref="/en/servicios" background="paper-2" />
+    <div class="services-wrap">
+      <ServiceList lang={lang} items={servicesEn} />
+    </div>
+  </section>
+
+  <section id="ubicacion">
+    <SectionBar no="4" title={t('sections.location', lang)} meta={t('sections.locationMeta', lang)} metaHref="/en/ubicacion" />
+    <LocationBlock lang={lang} />
+  </section>
+
+  <ReviewsBlock lang={lang} />
+
+  <section id="faq">
+    <SectionBar no="5" title={t('sections.faq', lang)} meta={t('sections.faqMeta', lang)} metaHref="/en/faq" />
+    <FAQPreview lang={lang} limit={5} />
+  </section>
+
+  <CTABlock lang={lang} />
+  <Lightbox lang={lang} />
+</Base>
+
+<style>
+  .services-wrap {
+    background: var(--mf-paper-2);
+    padding-bottom: 28px;
+    border-bottom: 1.5px solid var(--mf-ink);
+  }
+</style>

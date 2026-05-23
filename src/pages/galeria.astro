@@ -1,0 +1,159 @@
+---
+import Base from '~/layouts/Base.astro';
+import BigHeader from '~/components/BigHeader.astro';
+import CTABlock from '~/components/CTABlock.astro';
+import Lightbox from '~/components/Lightbox.astro';
+import { getCollection } from 'astro:content';
+import { t, localizedPath } from '~/i18n';
+
+const lang = 'es' as const;
+const units = await getCollection('unidades', ({ data }) => data.lang === 'es');
+const sorted = units.sort((a, b) => a.data.order - b.data.order);
+
+function midPositions(n: number): Set<number> {
+  const midsNeeded = (3 - (n % 3)) % 3;
+  if (midsNeeded === 0) return new Set();
+  const candidates = Array.from({ length: n - 1 }, (_, i) => i + 1);
+  const step = Math.floor(candidates.length / (midsNeeded + 1));
+  const picks = new Set<number>();
+  for (let k = 1; k <= midsNeeded; k++) picks.add(candidates[k * step] ?? candidates[candidates.length - k]);
+  return picks;
+}
+---
+<Base
+  title="Galería de fotos · Departamentos en Capilla del Monte | Refugio del Corazón"
+  description="Fotos de los 4 departamentos de alquiler temporario en Capilla del Monte: interiores, exteriores, cocina, dormitorios y patio compartido."
+>
+  <BigHeader
+    kicker="04 · GALERÍA"
+    title="Cada rincón"
+    meta="FOTOS REALES · SIN FILTROS"
+    blurb="Un recorrido por las cuatro unidades, los exteriores y los detalles que dan la atmósfera al refugio."
+  />
+
+  {sorted.map(unit => (
+    <section class="gal-section" id={unit.slug}>
+      <header class="gal-head">
+        <span class="display-no display-md gal-no">0{unit.data.order}</span>
+        <div>
+          <div class="kicker">DEPARTAMENTO #{unit.data.order}</div>
+          <h2 class="gal-title">{unit.data.name}</h2>
+          <a href={localizedPath(`/unidades/${unit.slug}`, lang)} class="link-acc gal-detail-link">{t('galleryPage.viewDetail', lang)}</a>
+        </div>
+        <span class="spec-mono gal-meta">{unit.data.gallery.length} FOTOS · {unit.data.specs.metros}</span>
+      </header>
+      <div class="gal-grid">
+        {(() => {
+          const mids = midPositions(unit.data.gallery.length);
+          const groupName = `unit-${unit.data.order}`;
+          return unit.data.gallery.map((img, i) => {
+            const cls = i === 0 ? 'gal-cell-lead' : mids.has(i) ? 'gal-cell-mid' : '';
+            return (
+              <figure class={`gal-cell ${cls}`}>
+                <a href={img.src} class="gal-link" data-lb-group={groupName} data-lb-index={i} data-lb-caption={img.caption ?? ''} aria-label={img.caption ?? `Foto ${i + 1}`}>
+                  <img src={img.src} alt={img.caption ?? `${unit.data.name} — foto ${i + 1} del departamento en Capilla del Monte`} loading="lazy" decoding="async" width="1600" height="1200" />
+                </a>
+                {img.caption && <figcaption class="gal-cap">{img.caption}</figcaption>}
+              </figure>
+            );
+          });
+        })()}
+      </div>
+    </section>
+  ))}
+
+  <CTABlock lang={lang} />
+  <Lightbox lang={lang} />
+</Base>
+
+<style>
+  .gal-section {
+    border-bottom: 1.5px solid var(--mf-ink);
+    background: var(--mf-paper);
+  }
+  .gal-head {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: baseline;
+    gap: 24px;
+    padding: 30px 28px 22px;
+    border-bottom: 1px solid var(--mf-hair);
+  }
+  .gal-title {
+    font-size: 32px;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    font-weight: 700;
+    margin-top: 6px;
+  }
+  .gal-meta { letter-spacing: 0.1em; }
+  .gal-detail-link {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .gal-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    background: var(--mf-stone);
+  }
+  .gal-cell {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    margin: 0;
+    overflow: hidden;
+    border-right: 1px solid var(--mf-hair);
+    border-bottom: 1px solid var(--mf-hair);
+  }
+  .gal-cell-lead {
+    grid-column: span 2;
+    grid-row: span 2;
+    aspect-ratio: auto;
+  }
+  .gal-cell-mid {
+    grid-row: span 2;
+    aspect-ratio: auto;
+  }
+  .gal-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: zoom-in;
+  }
+  .gal-cell img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+  .gal-link:hover img { transform: scale(1.025); }
+  .gal-cap {
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    padding: 5px 9px;
+    background: rgba(27, 26, 22, 0.6);
+    backdrop-filter: blur(8px);
+    color: var(--mf-paper);
+    font-family: var(--mf-font-mono);
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 900px) {
+    .gal-grid { grid-template-columns: 1fr 1fr; }
+    .gal-cell-lead { grid-column: span 2; grid-row: span 1; aspect-ratio: 4 / 3; }
+    .gal-cell-mid { grid-column: span 1; grid-row: span 2; aspect-ratio: auto; }
+  }
+  @media (max-width: 720px) {
+    .gal-head { grid-template-columns: 1fr; padding: 20px 18px 16px; gap: 10px; }
+    .gal-title { font-size: 22px; }
+    .gal-meta { text-align: left; }
+    .gal-grid { grid-template-columns: 1fr; }
+    .gal-cell-lead, .gal-cell-mid {
+      grid-column: span 1;
+      grid-row: span 1;
+      aspect-ratio: 4 / 3;
+    }
+  }
+</style>

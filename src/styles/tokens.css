@@ -1,0 +1,20 @@
+:root {
+  --mf-paper:    #F4F0E6;
+  --mf-paper-2:  #E8E2D0;
+  --mf-stone:    #C9C0AC;
+  --mf-ink:      #1B1A16;
+  --mf-ink-soft: #6B6357;
+  --mf-hair:     rgba(27, 26, 22, 0.14);
+  --mf-accent:   oklch(0.61 0.14 38);
+
+  --mf-shadow-hard: 4px 6px 0 rgba(27, 26, 22, 0.85);
+  --mf-shadow-card: 6px 6px 0 var(--mf-ink);
+  --mf-shadow-cta:  0 6px 24px rgba(0, 0, 0, 0.25);
+
+  --mf-font-ui:   "Inter", ui-sans-serif, system-ui, sans-serif;
+  --mf-font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+[data-palette="olive"]  { --mf-accent: oklch(0.56 0.10 122); }
+[data-palette="indigo"] { --mf-accent: oklch(0.46 0.13 270); }
+[data-palette="ink"]    { --mf-accent: #1B1A16; }

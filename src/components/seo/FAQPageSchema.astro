@@ -1,0 +1,29 @@
+---
+interface QA { q: string; a: string }
+interface Props { qa: QA[] }
+const { qa } = Astro.props;
+
+function stripMd(s: string): string {
+  return s
+    .replace(/\r/g, '')
+    .replace(/\*\*(.+?)\*\*/g, '$1')
+    .replace(/\*(.+?)\*/g, '$1')
+    .replace(/`(.+?)`/g, '$1')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .trim();
+}
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: qa.map(item => ({
+    '@type': 'Question',
+    name: stripMd(item.q),
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: stripMd(item.a),
+    },
+  })),
+};
+---
+<script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />

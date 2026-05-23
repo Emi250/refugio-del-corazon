@@ -1,0 +1,99 @@
+---
+import { t, type Lang, localizedPath } from '~/i18n';
+
+interface Props { lang?: Lang; images?: { src: string; caption?: string }[] }
+
+const defaults = [
+  { src: '/images/unidades/unidad-2/exterior.jpg', caption: 'Exterior' },
+  { src: '/images/unidades/unidad-1/living.png', caption: 'Living' },
+  { src: '/images/unidades/unidad-4/cocina.jpg', caption: 'Cocina' },
+  { src: '/images/unidades/unidad-3/dormitorio.jpg', caption: 'Dormitorio' },
+  { src: '/images/unidades/unidad-1/detalle.jpg', caption: 'Detalles' },
+  { src: '/images/unidades/unidad-2/bano.jpg', caption: 'Baño' },
+];
+
+const { lang = 'es', images = defaults } = Astro.props;
+---
+<section class="gallery-strip">
+  <div class="gs-grid">
+    {images.slice(0, 6).map((img, i) => (
+      <a href={img.src} class="gs-cell" data-lb-group="home-strip" data-lb-index={i} data-lb-caption={img.caption ?? ''} aria-label={img.caption ?? `Foto ${i + 1}`}>
+        <img src={img.src} alt={img.caption ?? `Foto ${i + 1} — Refugio del Corazón, Capilla del Monte`} loading="lazy" decoding="async" width="600" height="600" />
+        {img.caption && <span class="gs-cap">{img.caption}</span>}
+      </a>
+    ))}
+  </div>
+  <a href={localizedPath('/galeria', lang)} class="gs-cta">{t('unit.viewGallery', lang)} →</a>
+</section>
+
+<style>
+  .gallery-strip {
+    background: var(--mf-paper);
+    border-bottom: 1.5px solid var(--mf-ink);
+  }
+  .gs-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    border-bottom: 1px solid var(--mf-hair);
+  }
+  .gs-cell {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: var(--mf-stone);
+    border-right: 1px solid var(--mf-hair);
+    display: block;
+    cursor: zoom-in;
+  }
+  .gs-cell:last-child { border-right: 0; }
+  .gs-cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  .gs-cell:hover img { transform: scale(1.04); }
+  .gs-cap {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    padding: 4px 8px;
+    background: rgba(27, 26, 22, 0.55);
+    backdrop-filter: blur(8px);
+    color: var(--mf-paper);
+    font-family: var(--mf-font-mono);
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .gs-cta {
+    display: block;
+    padding: 18px 28px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--mf-ink);
+    border-bottom: 2px solid var(--mf-accent);
+    width: fit-content;
+    margin: 0 28px;
+  }
+  .gs-cta:hover { color: var(--mf-accent); }
+
+  @media (max-width: 900px) {
+    .gs-grid { grid-template-columns: repeat(3, 1fr); }
+    .gs-cell { border-right: 1px solid var(--mf-hair); }
+    .gs-cell:nth-child(3n) { border-right: 0; }
+    .gs-cell:nth-child(n+4) { border-top: 1px solid var(--mf-hair); }
+    .gs-cta { margin: 0 18px; padding: 14px 0; }
+  }
+
+  @media (max-width: 480px) {
+    .gs-grid { grid-template-columns: repeat(2, 1fr); }
+    .gs-cell { border-right: 1px solid var(--mf-hair); }
+    .gs-cell:nth-child(3n) { border-right: 1px solid var(--mf-hair); }
+    .gs-cell:nth-child(2n) { border-right: 0; }
+    .gs-cell:nth-child(n+3) { border-top: 1px solid var(--mf-hair); }
+    .gs-cell:nth-child(-n+2) { border-top: 0; }
+    .gs-cap { font-size: 10px; padding: 4px 7px; left: 8px; bottom: 8px; }
+  }
+</style>

@@ -1,0 +1,28 @@
+---
+import WhatsAppCTA from './WhatsAppCTA.astro';
+import type { Lang } from '~/i18n';
+interface Props { lang?: Lang; message?: string }
+const { lang = 'es', message } = Astro.props;
+---
+<div class="m-sticky">
+  <WhatsAppCTA lang={lang} variant="big" message={message} fullWidth />
+</div>
+
+<style>
+  .m-sticky {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+    background: var(--mf-paper);
+    border-top: 1px solid var(--mf-hair);
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.06);
+    z-index: 30;
+  }
+  @media (max-width: 900px) {
+    .m-sticky { display: block; }
+    body { padding-bottom: 72px; }
+  }
+</style>

@@ -1,0 +1,30 @@
+---
+import WhatsAppIcon from './WhatsAppIcon.astro';
+import { waLink } from '~/utils/whatsapp';
+import { t, type Lang } from '~/i18n';
+
+interface Props {
+  lang?: Lang;
+  variant?: 'big' | 'small' | 'ink';
+  message?: string;
+  label?: string;
+  class?: string;
+  fullWidth?: boolean;
+}
+
+const { lang = 'es', variant = 'big', message, label, class: cls = '', fullWidth = false } = Astro.props;
+const href = waLink(message, lang);
+const text = label ?? t('hero.cta', lang);
+
+const variantClass = variant === 'small' ? 'cta-pill cta-pill-sm' : variant === 'ink' ? 'cta-pill cta-pill-ink' : 'cta-pill';
+const widthClass = fullWidth ? 'w-full justify-center' : '';
+---
+<a
+  href={href}
+  target="_blank"
+  rel="noopener"
+  class={`${variantClass} ${widthClass} ${cls}`}
+>
+  <WhatsAppIcon size={variant === 'small' ? 13 : 16} />
+  <span>{text}</span>
+</a>

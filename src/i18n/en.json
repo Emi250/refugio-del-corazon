@@ -1,0 +1,86 @@
+{
+  "nav": {
+    "units": "Apartments",
+    "services": "Services",
+    "location": "Location",
+    "gallery": "Gallery",
+    "faq": "FAQ"
+  },
+  "hero": {
+    "kicker": "Capilla del Monte · Córdoba",
+    "title": "Refugio del Corazón",
+    "subtitle": "Four short-stay apartments in the heart of the sierras.",
+    "cta": "Ask on WhatsApp",
+    "scrollHint": "Meet the apartments"
+  },
+  "sections": {
+    "units": "The apartments",
+    "unitsMeta": "Four unique spaces",
+    "gallery": "Gallery",
+    "galleryMeta": "Every corner",
+    "services": "Services",
+    "servicesMeta": "All included",
+    "location": "Location",
+    "locationMeta": "How to get here",
+    "reviews": "Verified reviews",
+    "faq": "Frequent questions",
+    "faqMeta": "Most asked"
+  },
+  "unit": {
+    "viewMore": "View apartment",
+    "viewGallery": "View gallery",
+    "otherUnits": "Other apartments",
+    "shortSpecs": "In short",
+    "amenities": "What's included",
+    "plan": "The space",
+    "ctaTitle": "Interested in this apartment?",
+    "ctaSubtitle": "We reply on WhatsApp within the day · Capilla del Monte, Córdoba.",
+    "miniFaqKicker": "Before you ask",
+    "miniFaqTitle": "What guests ask the most",
+    "miniFaqAllLink": "See all questions →"
+  },
+  "services": {
+    "title": "Everything you need",
+    "included": "INCLUDED",
+    "notIncluded": "NOT INCLUDED",
+    "noTenemosTitle": "What we don't offer",
+    "noTenemosLead": "So your stay is exactly what you expect, here's what we don't provide."
+  },
+  "location": {
+    "title": "Rio Negro 64, Capilla del Monte",
+    "lead": "A few blocks from downtown Capilla del Monte. Perfect to rest and explore.",
+    "howToGet": "How to get here",
+    "nearby": "Featured places",
+    "weather": "Weather by season"
+  },
+  "faq": {
+    "askMore": "Have another question?",
+    "askMoreCta": "Message us on WhatsApp"
+  },
+  "reviews": {
+    "heading_sr": "Guest reviews",
+    "verified": "Verified reviews on Booking.com →"
+  },
+  "footer": {
+    "tagline": "Your refuge in the Córdoba sierras.",
+    "explore": "EXPLORE",
+    "units": "APARTMENTS",
+    "contact": "CONTACT",
+    "rights": "© Refugio del Corazón. All rights reserved.",
+    "address": "Rio Negro 64, Capilla del Monte, Córdoba"
+  },
+  "common": {
+    "viewMore": "View more",
+    "back": "Back",
+    "menu": "Menu",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "servicesPage": {
+    "browseKicker": "THE APARTMENTS",
+    "browseTitle": "Pick where to stay"
+  },
+  "galleryPage": {
+    "viewDetail": "View apartment →"
+  }
+}

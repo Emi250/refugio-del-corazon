@@ -1,0 +1,91 @@
+---
+import type { Lang } from '~/i18n';
+import { SITE_URL, SITE_NAME, BUSINESS, absoluteUrl } from '~/utils/seo';
+
+interface Unit {
+  slug: string;
+  data: {
+    name: string;
+    name_en?: string;
+    order: number;
+    specs: { capacidad: string; ambientes: string; metros: string; vista?: string };
+    chips: string[];
+    hero_image: string;
+    gallery: { src: string; caption?: string }[];
+    blurb: string;
+    blurb_en?: string;
+  };
+}
+
+interface Props { unit: Unit; lang: Lang }
+const { unit, lang } = Astro.props;
+const { data } = unit;
+
+const name = lang === 'en' && data.name_en ? data.name_en : data.name;
+const blurb = lang === 'en' && data.blurb_en ? data.blurb_en : data.blurb;
+
+const m2 = parseInt(String(data.specs.metros).replace(/\D/g, ''), 10);
+const cap = parseInt(String(data.specs.capacidad).match(/\d+/g)?.pop() ?? '0', 10);
+
+const unitPath = lang === 'es' ? `/unidades/${unit.slug}` : `/en/unidades/${unit.slug}`;
+const unitUrl = absoluteUrl(unitPath);
+
+const images = [
+  absoluteUrl(data.hero_image),
+  ...data.gallery.slice(0, 6).map(g => absoluteUrl(g.src)),
+];
+
+const amenityMap: Record<string, string> = {
+  'WiFi': 'WiFi',
+  'Cocina equipada': 'Equipped kitchen',
+  'Calefacción': 'Heating',
+  'Estufa a leña': 'Wood stove',
+  'Aire acondicionado': 'Air conditioning',
+  'Smart TV': 'Smart TV',
+  'Parrilla': 'BBQ',
+  'Cochera': 'Parking',
+};
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Accommodation',
+  '@id': `${unitUrl}#accommodation`,
+  additionalType: 'https://schema.org/Apartment',
+  name,
+  description: blurb,
+  url: unitUrl,
+  image: images,
+  ...(Number.isFinite(m2) && m2 > 0 ? {
+    floorSize: { '@type': 'QuantitativeValue', value: m2, unitCode: 'MTK', unitText: 'm²' },
+  } : {}),
+  ...(Number.isFinite(cap) && cap > 0 ? {
+    occupancy: { '@type': 'QuantitativeValue', maxValue: cap, unitText: lang === 'es' ? 'personas' : 'guests' },
+  } : {}),
+  amenityFeature: data.chips.map(c => ({
+    '@type': 'LocationFeatureSpecification',
+    name: amenityMap[c] ?? c,
+    value: true,
+  })),
+  petsAllowed: false,
+  smokingAllowed: false,
+  containedInPlace: {
+    '@type': 'LodgingBusiness',
+    '@id': `${SITE_URL}/#lodging`,
+    name: SITE_NAME,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: BUSINESS.street,
+      addressLocality: BUSINESS.locality,
+      addressRegion: BUSINESS.region,
+      postalCode: BUSINESS.postalCode,
+      addressCountry: BUSINESS.country,
+    },
+  },
+  potentialAction: {
+    '@type': 'ReserveAction',
+    target: `https://wa.me/${BUSINESS.whatsapp}`,
+    name: lang === 'es' ? `Consultar por ${name}` : `Ask about ${name}`,
+  },
+};
+---
+<script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />

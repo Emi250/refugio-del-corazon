@@ -1,0 +1,86 @@
+{
+  "nav": {
+    "units": "Departamentos",
+    "services": "Servicios",
+    "location": "Ubicación",
+    "gallery": "Galería",
+    "faq": "FAQ"
+  },
+  "hero": {
+    "kicker": "Capilla del Monte · Córdoba",
+    "title": "Refugio del Corazón",
+    "subtitle": "Cuatro departamentos de alquiler temporario en el corazón de las sierras.",
+    "cta": "Consultar por WhatsApp",
+    "scrollHint": "Conocé los departamentos"
+  },
+  "sections": {
+    "units": "Los departamentos",
+    "unitsMeta": "Cuatro espacios únicos",
+    "gallery": "Galería",
+    "galleryMeta": "Mirá cada rincón",
+    "services": "Servicios",
+    "servicesMeta": "Todo incluido",
+    "location": "Ubicación",
+    "locationMeta": "Cómo llegar",
+    "reviews": "Palabras de huéspedes",
+    "faq": "Preguntas frecuentes",
+    "faqMeta": "Lo que más nos consultan"
+  },
+  "unit": {
+    "viewMore": "Ver departamento",
+    "viewGallery": "Ver galería",
+    "otherUnits": "Otros departamentos",
+    "shortSpecs": "En pocas palabras",
+    "amenities": "Lo que incluye",
+    "plan": "El espacio",
+    "ctaTitle": "¿Te interesa este departamento?",
+    "ctaSubtitle": "Respondemos por WhatsApp en el día · Capilla del Monte, Córdoba.",
+    "miniFaqKicker": "Antes de consultar",
+    "miniFaqTitle": "Lo que más nos preguntan",
+    "miniFaqAllLink": "Ver todas las preguntas →"
+  },
+  "services": {
+    "title": "Todo lo que necesitás",
+    "included": "INCLUIDO",
+    "notIncluded": "NO INCLUIDO",
+    "noTenemosTitle": "Lo que no tenemos",
+    "noTenemosLead": "Para que tu estadía sea como esperás, te contamos también lo que no ofrecemos."
+  },
+  "location": {
+    "title": "Rio Negro 64, Capilla del Monte",
+    "lead": "A pocas cuadras del centro de Capilla del Monte. Ideal para descansar y recorrer la zona.",
+    "howToGet": "Cómo llegar",
+    "nearby": "Lugares destacados",
+    "weather": "Clima por estación"
+  },
+  "faq": {
+    "askMore": "¿Tenés otra pregunta?",
+    "askMoreCta": "Escribinos por WhatsApp"
+  },
+  "reviews": {
+    "heading_sr": "Reseñas de huéspedes",
+    "verified": "Reseñas verificadas en Booking.com →"
+  },
+  "footer": {
+    "tagline": "Tu refugio en las sierras de Córdoba.",
+    "explore": "EXPLORAR",
+    "units": "DEPARTAMENTOS",
+    "contact": "CONTACTO",
+    "rights": "© Refugio del Corazón. Todos los derechos reservados.",
+    "address": "Rio Negro 64, Capilla del Monte, Córdoba"
+  },
+  "common": {
+    "viewMore": "Ver más",
+    "back": "Volver",
+    "menu": "Menú",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú"
+  },
+  "servicesPage": {
+    "browseKicker": "LOS DEPARTAMENTOS",
+    "browseTitle": "Elegí dónde alojarte"
+  },
+  "galleryPage": {
+    "viewDetail": "Ver departamento →"
+  }
+}

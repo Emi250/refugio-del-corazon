@@ -1,0 +1,42 @@
+# robots.txt — Refugio del Corazón
+# https://refugiodelcorazon.com.ar
+
+User-agent: *
+Allow: /
+Disallow: /404
+
+# Crawlers de motores de búsqueda impulsados por IA
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://refugiodelcorazon.com.ar/sitemap-index.xml

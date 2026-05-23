@@ -1,0 +1,132 @@
+---
+import Base from '~/layouts/Base.astro';
+import BigHeader from '~/components/BigHeader.astro';
+import ServiceList from '~/components/ServiceList.astro';
+import CTABlock from '~/components/CTABlock.astro';
+import { t, localizedPath } from '~/i18n';
+import { getCollection } from 'astro:content';
+
+const lang = 'en' as const;
+const units = (await getCollection('unidades', ({ data }) => data.lang === 'en'))
+  .sort((a, b) => a.data.order - b.data.order);
+
+const incluidos = [
+  { k: 'Fiber-optic WiFi (300 Mbps)', v: 'INCLUDED' },
+  { k: 'Equipped kitchen + fridge with freezer', v: 'INCLUDED' },
+  { k: 'Linens', v: 'INCLUDED' },
+  { k: 'Towels', v: 'INCLUDED' },
+  { k: 'Air conditioning', v: 'INCLUDED' },
+  { k: 'Private parking (subject to availability)', v: 'INCLUDED' },
+  { k: 'Grill', v: 'INCLUDED' },
+  { k: 'Shared inner courtyard', v: 'INCLUDED' },
+  { k: 'Smart TV with streaming', v: 'INCLUDED' },
+  { k: 'Host check-in', v: 'INCLUDED' },
+];
+
+const noTenemos = [
+  { k: 'Pool', v: 'There are rivers to swim in at the base of the mountain.' },
+  { k: 'Room service', v: "We're a short-stay rental, not a hotel." },
+  { k: 'Breakfast included', v: 'The equipped kitchen lets you set your own rhythm.' },
+  { k: 'Cable TV', v: 'But we have a Smart TV with Netflix (account included at no cost), YouTube and other streaming apps.' },
+  { k: 'Cleaning', v: 'We provide cleaning supplies. For stays longer than 7 nights, we offer cleaning at no extra cost.' },
+];
+---
+<Base
+  title="Services included · Vacation rental in Capilla del Monte | Refugio del Corazón"
+  description="Everything your stay in Capilla del Monte includes: equipped kitchen, linens, fiber WiFi (300 Mbps), air conditioning, private parking and grill."
+>
+  <BigHeader
+    kicker="02 · SERVICES"
+    title="All included"
+    meta="04 APARTMENTS · CAPILLA DEL MONTE"
+    blurb="Come with the essentials. Each unit is equipped so you arrive, drop your bag, and start resting."
+  />
+
+  <section class="serv-section">
+    <div class="serv-head">
+      <h2>What your stay includes</h2>
+      <span class="spec-mono">10 ITEMS</span>
+    </div>
+    <ServiceList lang={lang} items={incluidos} />
+  </section>
+
+  <section class="serv-section bg-paper-2">
+    <div class="serv-head">
+      <h2>{t('services.noTenemosTitle', lang)}</h2>
+      <span class="spec-mono">TRANSPARENCY</span>
+    </div>
+    <p class="serv-lead">{t('services.noTenemosLead', lang)}</p>
+    <div class="nt-grid">
+      {noTenemos.map(it => (
+        <div class="nt-row">
+          <span class="nt-x">×</span>
+          <div>
+            <div class="nt-k">{it.k}</div>
+            <div class="nt-v">{it.v}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="serv-units">
+    <header class="serv-units-head">
+      <span class="kicker">{t('servicesPage.browseKicker', lang)}</span>
+      <h2>{t('servicesPage.browseTitle', lang)}</h2>
+    </header>
+    <div class="serv-units-grid">
+      {units.map(u => (
+        <a href={localizedPath(`/unidades/${u.slug.replace(/^en\//, '')}`, lang)} class="serv-units-item">
+          <div class="display-no serv-units-no">0{u.data.order}</div>
+          <div class="serv-units-info">
+            <div class="serv-units-name">{u.data.name_en ?? u.data.name}</div>
+            <div class="serv-units-meta spec-mono">{u.data.specs.capacidad} · {u.data.specs.metros}</div>
+          </div>
+          <span class="serv-units-arrow">→</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <CTABlock lang={lang} />
+</Base>
+
+<style>
+  .serv-section { padding: 30px 28px; border-bottom: 1.5px solid var(--mf-ink); background: var(--mf-paper); }
+  .bg-paper-2 { background: var(--mf-paper-2); }
+  .serv-head { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--mf-hair); padding-bottom: 14px; margin-bottom: 14px; }
+  .serv-head h2 { font-size: 26px; letter-spacing: -0.025em; font-weight: 700; }
+  .serv-lead { font-size: 14px; line-height: 1.55; color: var(--mf-ink-soft); margin: 0 0 18px; max-width: 60ch; }
+  .nt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; }
+  .nt-row { display: grid; grid-template-columns: 18px 1fr; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--mf-hair); align-items: flex-start; }
+  .nt-x { font-size: 18px; color: var(--mf-ink-soft); line-height: 1; }
+  .nt-k { font-size: 14.5px; font-weight: 500; letter-spacing: -0.005em; }
+  .nt-v { font-size: 12.5px; line-height: 1.5; color: var(--mf-ink-soft); margin-top: 4px; }
+  .serv-units { padding: 30px 28px; background: var(--mf-paper); border-bottom: 1.5px solid var(--mf-ink); }
+  .serv-units-head { margin-bottom: 18px; }
+  .serv-units-head .kicker { display: block; margin-bottom: 8px; }
+  .serv-units-head h2 { font-size: 28px; line-height: 1; letter-spacing: -0.025em; font-weight: 700; }
+  .serv-units-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--mf-ink); }
+  .serv-units-item { padding: 22px 24px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 18px; border-right: 1px solid var(--mf-hair); color: var(--mf-ink); transition: background 0.15s, color 0.15s; }
+  .serv-units-item:last-child { border-right: 0; }
+  .serv-units-item:hover { background: var(--mf-paper-2); color: var(--mf-accent); }
+  .serv-units-no { font-size: 36px; }
+  .serv-units-name { font-size: 16px; font-weight: 600; letter-spacing: -0.015em; }
+  .serv-units-meta { margin-top: 4px; }
+  .serv-units-arrow { font-size: 16px; }
+
+  @media (max-width: 900px) {
+    .serv-units-grid { grid-template-columns: 1fr 1fr; }
+    .serv-units-item:nth-child(2n) { border-right: 0; }
+    .serv-units-item { border-bottom: 1px solid var(--mf-hair); }
+    .serv-units-item:nth-child(n+3) { border-bottom: 0; }
+  }
+  @media (max-width: 720px) {
+    .serv-section, .serv-units { padding: 22px 18px; }
+    .nt-grid { grid-template-columns: 1fr; }
+    .serv-units-grid { grid-template-columns: 1fr; }
+    .serv-units-item { border-right: 0; border-bottom: 1px solid var(--mf-hair); }
+    .serv-units-item:last-child { border-bottom: 0; }
+    .serv-units-head h2 { font-size: 22px; }
+  }
+</style>

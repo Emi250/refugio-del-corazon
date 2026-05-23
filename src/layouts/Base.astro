@@ -1,0 +1,119 @@
+---
+import '~/styles/global.css';
+import NavBar from '~/components/NavBar.astro';
+import Footer from '~/components/Footer.astro';
+import MobileStickyCTA from '~/components/MobileStickyCTA.astro';
+import OrganizationSchema from '~/components/seo/OrganizationSchema.astro';
+import { detectLang, t } from '~/i18n';
+import {
+  SITE_NAME,
+  getCanonical,
+  getAlternates,
+  getOgImage,
+  getOgLocale,
+} from '~/utils/seo';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  keywords?: string;
+  navVariant?: 'hero' | 'paper';
+  hideStickyCTA?: boolean;
+  noindex?: boolean;
+  preloadImage?: string;
+}
+
+const {
+  title,
+  description,
+  ogImage,
+  ogType = 'website',
+  keywords,
+  navVariant = 'paper',
+  hideStickyCTA = false,
+  noindex = false,
+  preloadImage,
+} = Astro.props;
+
+const lang = detectLang(Astro.url.pathname);
+const desc = description ?? t('hero.subtitle', lang);
+const canonical = getCanonical(Astro.url.pathname);
+const alts = getAlternates(Astro.url.pathname);
+const ogUrl = canonical;
+const ogImageAbs = getOgImage(ogImage);
+const ogLocale = getOgLocale(lang);
+const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_AR';
+const defaultKeywords = lang === 'es'
+  ? 'alquiler temporario Capilla del Monte, departamentos Capilla del Monte, alojamiento sierras de Córdoba, Cerro Uritorco, Refugio del Corazón'
+  : 'vacation rental Capilla del Monte, apartments Córdoba sierras, lodging near Uritorco, Refugio del Corazón';
+const metaKeywords = keywords ?? defaultKeywords;
+---
+
+<!doctype html>
+<html lang={lang === 'es' ? 'es-AR' : 'en'}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={desc} />
+    <meta name="keywords" content={metaKeywords} />
+    <meta name="author" content={SITE_NAME} />
+    {noindex
+      ? <meta name="robots" content="noindex,nofollow" />
+      : <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />}
+
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="es-AR" href={alts.es} />
+    <link rel="alternate" hreflang="en" href={alts.en} />
+    <link rel="alternate" hreflang="x-default" href={alts.es} />
+    <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:image" content={ogImageAbs} />
+    <meta property="og:image:alt" content={title} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={ogUrl} />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:locale:alternate" content={ogLocaleAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={desc} />
+    <meta name="twitter:image" content={ogImageAbs} />
+
+    <meta name="theme-color" content="#1B1A16" />
+    <meta name="geo.region" content="AR-X" />
+    <meta name="geo.placename" content="Capilla del Monte, Córdoba, Argentina" />
+    <meta name="geo.position" content="-30.8615;-64.5306" />
+    <meta name="ICBM" content="-30.8615, -64.5306" />
+
+    <link rel="icon" type="image/jpeg" href="/logo-refugio.jpeg" />
+    <link rel="apple-touch-icon" href="/logo-refugio.jpeg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    {preloadImage && (
+      <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />
+    )}
+    <meta name="generator" content={Astro.generator} />
+
+    <OrganizationSchema lang={lang} />
+  </head>
+  <body>
+    <NavBar variant={navVariant} lang={lang} />
+    <main>
+      <slot />
+    </main>
+    <Footer lang={lang} />
+    {!hideStickyCTA && <MobileStickyCTA lang={lang} />}
+    <script>
+      import '~/scripts/reveal';
+    </script>
+  </body>
+</html>

@@ -1,0 +1,317 @@
+---
+import Base from '~/layouts/Base.astro';
+import PhotoMosaic from '~/components/PhotoMosaic.astro';
+import EnPocasPalabras from '~/components/EnPocasPalabras.astro';
+import ServiceList from '~/components/ServiceList.astro';
+import CTABlock from '~/components/CTABlock.astro';
+import WhatsAppCTA from '~/components/WhatsAppCTA.astro';
+import FAQItem from '~/components/FAQItem.astro';
+import UnitSchema from '~/components/seo/UnitSchema.astro';
+import BreadcrumbSchema from '~/components/seo/BreadcrumbSchema.astro';
+import Lightbox from '~/components/Lightbox.astro';
+import { t, localizedPath } from '~/i18n';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const units = await getCollection('unidades', ({ data }) => data.lang === 'es');
+  return units.map(unit => ({
+    params: { slug: unit.slug },
+    props: { unit },
+  }));
+}
+
+interface Props { unit: CollectionEntry<'unidades'> }
+const { unit } = Astro.props;
+const { data } = unit;
+const { Content } = await unit.render();
+
+const lang = 'es' as const;
+
+const allUnits = await getCollection('unidades', ({ data }) => data.lang === 'es');
+const others = allUnits
+  .filter(u => u.slug !== unit.slug)
+  .sort((a, b) => a.data.order - b.data.order);
+
+const specs = [
+  { k: 'Capacidad', v: data.specs.capacidad },
+  { k: 'Ambientes', v: data.specs.ambientes },
+  { k: 'Metros', v: data.specs.metros },
+  { k: 'Baño', v: 'Privado' },
+];
+
+const waMessage = `Hola, me interesa el ${data.name} de Refugio del Corazón. ¿Podemos coordinar fechas?`;
+
+const seoTitle = `${data.name} · ${data.specs.capacidad} · Capilla del Monte | Refugio del Corazón`;
+const seoDesc = `${data.name}: ${data.specs.capacidad}, ${data.specs.ambientes}, ${data.specs.metros}. Departamento en Río Negro 64, Capilla del Monte. ${data.blurb}`.slice(0, 200);
+
+const faqGroups = await getCollection('faq', ({ data }) => data.lang === 'es');
+const byCat = (cat: string) => faqGroups.find(g => g.data.category === cat)?.data.qa ?? [];
+const miniFaqEntries = [
+  { src: byCat('Check-in y check-out')[0], no: '1.1' },
+  { src: byCat('Reservas y pagos')[1], no: '2.2' },
+  { src: byCat('Reservas y pagos')[2], no: '2.3' },
+  { src: byCat('Durante la estadía')[0], no: '3.1' },
+].filter(e => e.src);
+
+const crumbs = [
+  { name: 'Inicio', path: '/' },
+  { name: 'Departamentos', path: '/#unidades' },
+  { name: data.name, path: `/unidades/${unit.slug}` },
+];
+---
+<Base
+  title={seoTitle}
+  description={seoDesc}
+  ogImage={data.hero_image}
+  ogType="article"
+  preloadImage={data.hero_image}
+>
+  <UnitSchema unit={unit} lang={lang} />
+  <BreadcrumbSchema items={crumbs} />
+  <section class="d-title">
+    <nav class="crumb">
+      <a href={localizedPath('/', lang)}>Inicio</a>
+      <span>/</span>
+      <a href={localizedPath('/#unidades', lang)}>Departamentos</a>
+      <span>/</span>
+      <b>{data.name}</b>
+    </nav>
+    <div class="title-row">
+      <div>
+        <span class="kicker kicker-lg">DEPARTAMENTO #{data.order} · {data.specs.metros}</span>
+        <h1 class="d-title-h">{data.name}</h1>
+      </div>
+      <div class="title-side">
+        <div class="d-specs spec-mono">
+          <span>{data.specs.capacidad}</span>
+          <span aria-hidden="true">·</span>
+          <span>{data.specs.ambientes}</span>
+        </div>
+        <WhatsAppCTA lang={lang} variant="big" message={waMessage} />
+      </div>
+    </div>
+  </section>
+
+  <PhotoMosaic images={data.gallery} lang={lang} group={`unit-${data.order}`} unitName={data.name} />
+
+  <section class="d-slab">
+    <div class="d-slab-head">
+      <h2>El espacio</h2>
+    </div>
+    <div class="d-slab-grid">
+      <div class="d-slab-text">
+        <Content />
+      </div>
+      <EnPocasPalabras lang={lang} specs={specs} chips={[]} />
+    </div>
+  </section>
+
+  <section class="d-slab d-slab-paper2">
+    <div class="d-slab-head">
+      <h2>{t('unit.amenities', lang)}</h2>
+    </div>
+    <ServiceList lang={lang} items={data.chips.map(c => ({ k: c, v: 'INCLUIDO' }))} />
+  </section>
+
+  <CTABlock
+    lang={lang}
+    title={t('unit.ctaTitle', lang)}
+    subtitle={t('unit.ctaSubtitle', lang)}
+    message={waMessage}
+    background="paper"
+  />
+
+  <Lightbox lang={lang} />
+
+  {miniFaqEntries.length > 0 && (
+    <section class="d-mini-faq">
+      <div class="d-mini-faq-head">
+        <span class="kicker">{t('unit.miniFaqKicker', lang)}</span>
+        <h2>{t('unit.miniFaqTitle', lang)}</h2>
+      </div>
+      <div class="d-mini-faq-list">
+        {miniFaqEntries.map(e => (
+          <FAQItem no={e.no} q={e.src!.q} a={e.src!.a} />
+        ))}
+      </div>
+      <div class="d-mini-faq-foot">
+        <a href={localizedPath('/faq', lang)} class="link-acc">{t('unit.miniFaqAllLink', lang)}</a>
+        <WhatsAppCTA lang={lang} variant="big" message={waMessage} />
+      </div>
+    </section>
+  )}
+
+  <section class="other-units">
+    <h3 class="other-title kicker kicker-lg">{t('unit.otherUnits', lang)}</h3>
+    <div class="other-grid">
+      {others.map(u => (
+        <a href={localizedPath(`/unidades/${u.slug}`, lang)} class="other-item">
+          <div class="other-no display-no">0{u.data.order}</div>
+          <div class="other-info">
+            <div class="other-name">{u.data.name}</div>
+            <div class="other-meta spec-mono">{u.data.specs.capacidad} · {u.data.specs.metros}</div>
+          </div>
+          <span class="other-arrow">→</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .d-title {
+    padding: 30px 28px 36px;
+    border-bottom: 1.5px solid var(--mf-ink);
+  }
+  .crumb {
+    display: flex;
+    gap: 8px;
+    font-family: var(--mf-font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--mf-ink-soft);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .crumb a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .crumb a:hover { color: var(--mf-accent); }
+  .crumb b { color: var(--mf-ink); }
+
+  .title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  .d-title-h {
+    font-size: clamp(56px, 8vw, 128px);
+    line-height: 0.88;
+    letter-spacing: -0.045em;
+    font-weight: 800;
+    margin-top: 14px;
+  }
+  .title-side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 16px;
+    padding-bottom: 8px;
+  }
+  .d-specs {
+    display: flex;
+    gap: 10px;
+  }
+
+  .d-slab {
+    padding: 36px 28px;
+    border-bottom: 1.5px solid var(--mf-ink);
+    background: var(--mf-paper);
+  }
+  .d-slab-paper2 { background: var(--mf-paper-2); }
+  .d-slab-head {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    margin-bottom: 22px;
+  }
+  .d-slab-no { font-size: 76px; }
+  .d-slab h2 {
+    font-size: 28px;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    font-weight: 700;
+  }
+  .d-slab-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 50px;
+  }
+  .d-slab-text :global(p) {
+    font-size: 15.5px;
+    line-height: 1.65;
+    color: var(--mf-ink);
+    max-width: 60ch;
+    margin: 0 0 18px;
+  }
+
+  .d-mini-faq {
+    padding: 36px 28px;
+    border-bottom: 1.5px solid var(--mf-ink);
+    background: var(--mf-paper);
+  }
+  .d-mini-faq-head {
+    margin-bottom: 18px;
+  }
+  .d-mini-faq-head .kicker { display: block; margin-bottom: 8px; }
+  .d-mini-faq-head h2 {
+    font-size: 28px;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    font-weight: 700;
+  }
+  .d-mini-faq-list {
+    border-top: 1px solid var(--mf-hair);
+    margin: 0 -28px;
+  }
+  .d-mini-faq-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    padding-top: 22px;
+  }
+
+  .other-units {
+    padding: 36px 28px;
+    background: var(--mf-paper);
+  }
+  .other-title { display: block; margin-bottom: 18px; }
+  .other-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 1px solid var(--mf-ink);
+  }
+  .other-item {
+    padding: 22px 24px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 18px;
+    border-right: 1px solid var(--mf-hair);
+    color: var(--mf-ink);
+    transition: background 0.15s, color 0.15s;
+  }
+  .other-item:last-child { border-right: 0; }
+  .other-item:hover { background: var(--mf-paper-2); color: var(--mf-accent); }
+  .other-no { font-size: 36px; }
+  .other-name {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+  }
+  .other-meta { margin-top: 4px; }
+  .other-arrow { font-size: 18px; }
+
+  @media (max-width: 900px) {
+    .d-slab-grid { grid-template-columns: 1fr; gap: 28px; }
+    .other-grid { grid-template-columns: 1fr; }
+    .other-item { border-right: 0; border-bottom: 1px solid var(--mf-hair); }
+    .other-item:last-child { border-bottom: 0; }
+  }
+  @media (max-width: 720px) {
+    .d-title, .d-slab, .other-units, .d-mini-faq { padding: 24px 18px; }
+    .d-slab-no { font-size: 48px; }
+    .d-slab-head { margin-bottom: 14px; gap: 12px; }
+    .d-slab h2 { font-size: 22px; }
+    .d-mini-faq-head h2 { font-size: 22px; }
+    .d-mini-faq-list { margin: 0 -18px; }
+    .d-mini-faq-foot { padding-top: 16px; }
+  }
+</style>

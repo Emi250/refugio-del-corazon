@@ -1,0 +1,79 @@
+---
+import { t, type Lang } from '~/i18n';
+
+interface SpecPair { k: string; v: string }
+interface Props {
+  lang?: Lang;
+  specs: SpecPair[];
+  chips?: string[];
+}
+const { lang = 'es', specs, chips = [] } = Astro.props;
+---
+<aside class="pocas">
+  <span class="kicker pocas-kicker">{t('unit.shortSpecs', lang)}</span>
+  <div class="pocas-grid">
+    {specs.map(s => (
+      <div class="pocas-row">
+        <div class="pocas-k">{s.k}</div>
+        <div class="pocas-v">{s.v}</div>
+      </div>
+    ))}
+  </div>
+  {chips.length > 0 && (
+    <div class="pocas-chips">
+      {chips.map(c => <span class="chip chip-light">{c}</span>)}
+    </div>
+  )}
+</aside>
+
+<style>
+  .pocas {
+    padding: 24px 26px;
+    background: var(--mf-paper-2);
+    border: 1px solid var(--mf-ink);
+    align-self: start;
+  }
+  .pocas-kicker { display: block; margin-bottom: 18px; }
+  .pocas-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 30px;
+  }
+  .pocas-k {
+    font-family: var(--mf-font-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    color: var(--mf-ink-soft);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .pocas-v {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -0.005em;
+  }
+  .pocas-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid var(--mf-hair);
+  }
+  .chip-light {
+    padding: 5px 10px;
+    background: var(--mf-paper);
+    font-size: 11px;
+  }
+
+  @media (max-width: 600px) {
+    .pocas { padding: 20px 18px; }
+    .pocas-grid { grid-template-columns: 1fr; gap: 14px; }
+    .pocas-row { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--mf-hair); }
+    .pocas-row:last-child { border-bottom: 0; padding-bottom: 0; }
+    .pocas-k { margin-bottom: 0; flex-shrink: 0; }
+    .pocas-v { text-align: right; }
+  }
+</style>

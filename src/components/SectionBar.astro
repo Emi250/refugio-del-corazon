@@ -1,0 +1,64 @@
+---
+interface Props {
+  no: string;
+  title: string;
+  meta?: string;
+  metaHref?: string;
+  class?: string;
+  background?: 'paper' | 'paper-2';
+}
+const { no, title, meta, metaHref, class: cls = '', background = 'paper' } = Astro.props;
+---
+<div class={`sec-bar bg-${background} ${cls}`} data-reveal>
+  <span class="sec-no display-no display-lg">{no}</span>
+  <h2 class="sec-title">{title}</h2>
+  <span class="sec-rule"></span>
+  {meta && (
+    metaHref
+      ? <a class="sec-meta sec-meta-link" href={metaHref}>{meta}</a>
+      : <span class="sec-meta">{meta}</span>
+  )}
+</div>
+
+<style>
+  .sec-bar {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding: 24px 28px 18px;
+    border-bottom: 1.5px solid var(--mf-ink);
+  }
+  .bg-paper { background: var(--mf-paper); }
+  .bg-paper-2 { background: var(--mf-paper-2); }
+  .sec-title {
+    font-size: 24px;
+    line-height: 1.05;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+  .sec-rule {
+    flex: 1;
+    height: 1px;
+    background: var(--mf-hair);
+  }
+  .sec-meta {
+    font-family: var(--mf-font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    color: var(--mf-ink-soft);
+    text-transform: uppercase;
+  }
+  .sec-meta-link {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: color 0.15s;
+  }
+  .sec-meta-link:hover { color: var(--mf-accent); }
+
+  @media (max-width: 720px) {
+    .sec-bar { padding: 20px 18px 14px; gap: 12px; flex-wrap: wrap; }
+    .sec-title { font-size: 18px; }
+    .sec-rule { display: none; }
+  }
+</style>

@@ -1,0 +1,187 @@
+---
+import BrandMark from './BrandMark.astro';
+import { t, type Lang, localizedPath } from '~/i18n';
+import { getCollection } from 'astro:content';
+
+interface Props { lang?: Lang }
+const { lang = 'es' } = Astro.props;
+
+const allUnits = await getCollection('unidades', ({ data }) => data.lang === lang);
+const units = allUnits.sort((a, b) => a.data.order - b.data.order);
+
+const year = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="footer-top">
+    <a href={localizedPath('/', lang)} class="footer-brand">
+      <BrandMark inverted />
+      <span>Refugio del Corazón</span>
+    </a>
+    <p class="footer-tag">{t('footer.tagline', lang)}</p>
+  </div>
+
+  <div class="footer-units">
+    {units.map(u => (
+      <a href={localizedPath(`/unidades/${u.slug.split('/').pop()}`, lang)} class="footer-unit">
+        <span class="footer-unit-name">
+          <span class="footer-unit-no">0{u.data.order}</span>
+          {lang === 'en' && u.data.name_en ? u.data.name_en : u.data.name}
+        </span>
+        <span class="footer-unit-meta">{u.data.specs.capacidad} · {u.data.specs.metros}</span>
+      </a>
+    ))}
+  </div>
+
+  <div class="footer-cols">
+    <div>
+      <div class="footer-kicker">{t('footer.explore', lang)}</div>
+      <a href={localizedPath('/servicios', lang)}>{t('nav.services', lang)}</a>
+      <a href={localizedPath('/ubicacion', lang)}>{t('nav.location', lang)}</a>
+      <a href={localizedPath('/galeria', lang)}>{t('nav.gallery', lang)}</a>
+      <a href={localizedPath('/faq', lang)}>{t('nav.faq', lang)}</a>
+    </div>
+    <div>
+      <div class="footer-kicker">{t('footer.contact', lang)}</div>
+      <a href="https://wa.me/message/G2SJBL3SDPAMB1" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <div>
+      <div class="footer-kicker">{lang === 'es' ? 'UBICACIÓN' : 'LOCATION'}</div>
+      <span class="footer-addr">{t('footer.address', lang)}</span>
+    </div>
+    <div>
+      <div class="footer-kicker">SOCIAL</div>
+      <a href="https://www.booking.com/Share-hCZ4lTA" target="_blank" rel="noopener">Booking.com</a>
+    </div>
+  </div>
+
+  <div class="footer-bot">
+    <span>{t('footer.rights', lang).replace('©', `© ${year}`)}</span>
+    <span>HECHO EN CAPILLA DEL MONTE</span>
+  </div>
+</footer>
+
+<style>
+  .footer { background: var(--mf-ink); color: var(--mf-paper); }
+  .footer-top {
+    padding: 40px 28px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    border-bottom: 1px solid rgba(244, 240, 230, 0.15);
+  }
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--mf-paper);
+  }
+  .footer-brand span {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .footer-tag {
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: 30ch;
+    opacity: 0.85;
+    margin: 0;
+  }
+
+  .footer-units {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-bottom: 1px solid rgba(244, 240, 230, 0.15);
+  }
+  .footer-unit {
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: var(--mf-paper);
+    border-right: 1px solid rgba(244, 240, 230, 0.15);
+    transition: background 0.15s, color 0.15s;
+  }
+  .footer-unit:last-child { border-right: 0; }
+  .footer-unit:hover { background: rgba(244, 240, 230, 0.06); color: var(--mf-accent); }
+  .footer-unit-name {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  .footer-unit-no {
+    font-size: 12px;
+    color: var(--mf-accent);
+    font-weight: 500;
+  }
+  .footer-unit-meta {
+    font-family: var(--mf-font-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  .footer-cols {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    padding: 30px 28px;
+    border-bottom: 1px solid rgba(244, 240, 230, 0.15);
+  }
+  .footer-kicker {
+    font-family: var(--mf-font-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    opacity: 0.6;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .footer-cols a, .footer-addr {
+    display: block;
+    padding: 5px 0;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    opacity: 0.9;
+    color: var(--mf-paper);
+  }
+  .footer-cols a:hover { opacity: 1; color: var(--mf-accent); }
+
+  .footer-bot {
+    padding: 18px 28px;
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    font-family: var(--mf-font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    opacity: 0.6;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 900px) {
+    .footer-top { padding: 28px 18px 22px; flex-direction: column; align-items: flex-start; gap: 14px; }
+    .footer-units { grid-template-columns: 1fr 1fr; }
+    .footer-unit { padding: 18px; border-bottom: 1px solid rgba(244, 240, 230, 0.15); }
+    .footer-unit:nth-child(odd) { border-right: 1px solid rgba(244, 240, 230, 0.15); }
+    .footer-unit:nth-child(even) { border-right: 0; }
+    .footer-cols { grid-template-columns: 1fr 1fr; padding: 22px 18px; gap: 22px; }
+    .footer-bot { padding: 14px 18px; }
+  }
+
+  @media (max-width: 480px) {
+    .footer-units { grid-template-columns: 1fr; }
+    .footer-unit { border-right: 0 !important; }
+    .footer-unit-name { font-size: 16px; }
+    .footer-cols { grid-template-columns: 1fr; gap: 18px; }
+  }
+</style>

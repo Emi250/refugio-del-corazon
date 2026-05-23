@@ -1,0 +1,61 @@
+---
+interface Props {
+  kicker?: string;
+  title: string;
+  meta?: string;
+  blurb?: string;
+}
+const { kicker, title, meta, blurb } = Astro.props;
+---
+<header class="big-header">
+  {kicker && <span class="kicker kicker-lg bh-kicker">{kicker}</span>}
+  <div class="bh-row">
+    <h1 class="bh-h1">{title}</h1>
+    {meta && <div class="bh-meta spec-mono">{meta}</div>}
+  </div>
+  {blurb && <p class="bh-blurb">{blurb}</p>}
+</header>
+
+<style>
+  .big-header {
+    padding: 30px 28px 32px;
+    border-bottom: 1.5px solid var(--mf-ink);
+    background: var(--mf-paper);
+  }
+  .bh-kicker { display: block; margin-bottom: 18px; }
+  .bh-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  .bh-h1 {
+    font-size: clamp(56px, 8.5vw, 128px);
+    line-height: 0.88;
+    letter-spacing: -0.045em;
+    font-weight: 800;
+  }
+  .bh-meta {
+    text-align: right;
+    line-height: 1.5;
+    padding-bottom: 12px;
+  }
+  .bh-blurb {
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--mf-ink);
+    margin: 24px 0 0;
+    max-width: 62ch;
+  }
+  @media (max-width: 720px) {
+    .big-header { padding: 22px 18px 24px; }
+    .bh-blurb { font-size: 14px; margin-top: 16px; }
+    .bh-h1 { font-size: clamp(44px, 12vw, 80px); }
+  }
+
+  @media (max-width: 600px) {
+    .bh-row { flex-direction: column; align-items: flex-start; gap: 14px; }
+    .bh-meta { text-align: left; padding-bottom: 0; }
+  }
+</style>

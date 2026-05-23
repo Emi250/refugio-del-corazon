@@ -1,0 +1,86 @@
+---
+import type { Lang } from '~/i18n';
+import { SITE_URL, SITE_NAME, BUSINESS, absoluteUrl } from '~/utils/seo';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+
+const description = lang === 'es'
+  ? 'Cuatro departamentos de alquiler temporario en Río Negro 64, Capilla del Monte, Córdoba. A pasos del centro y del Cerro Uritorco, en las sierras de Córdoba.'
+  : 'Four short-term rental apartments at Río Negro 64, Capilla del Monte, Córdoba. Steps from downtown and Cerro Uritorco, in the Córdoba sierras.';
+
+const amenities = [
+  'WiFi',
+  'Air conditioning',
+  'Heating',
+  'Equipped kitchen',
+  'Smart TV with streaming',
+  'Private parking',
+  'BBQ',
+  'Linens and towels',
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'LodgingBusiness',
+  '@id': `${SITE_URL}/#lodging`,
+  name: SITE_NAME,
+  legalName: BUSINESS.legalName,
+  url: SITE_URL,
+  description,
+  image: [
+    absoluteUrl('/cerro%20uritorco.jpg'),
+    absoluteUrl('/logo-refugio.jpeg'),
+  ],
+  logo: absoluteUrl('/logo-refugio.jpeg'),
+  priceRange: BUSINESS.priceRange,
+  telephone: `+${BUSINESS.whatsapp}`,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: BUSINESS.street,
+    addressLocality: BUSINESS.locality,
+    addressRegion: BUSINESS.region,
+    postalCode: BUSINESS.postalCode,
+    addressCountry: BUSINESS.country,
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: BUSINESS.latitude,
+    longitude: BUSINESS.longitude,
+  },
+  hasMap: BUSINESS.mapsUrl,
+  areaServed: {
+    '@type': 'AdministrativeArea',
+    name: 'Capilla del Monte, Córdoba, Argentina',
+  },
+  amenityFeature: amenities.map(name => ({
+    '@type': 'LocationFeatureSpecification',
+    name,
+    value: true,
+  })),
+  numberOfRooms: 4,
+  petsAllowed: true,
+  smokingAllowed: false,
+  checkinTime: '14:00',
+  checkoutTime: '10:00',
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+      opens: '14:00',
+      closes: '23:00',
+      description: lang === 'es' ? 'Horario de check-in' : 'Check-in hours',
+    },
+  ],
+  sameAs: [
+    BUSINESS.bookingUrl,
+  ],
+  potentialAction: {
+    '@type': 'ReserveAction',
+    target: `https://wa.me/${BUSINESS.whatsapp}`,
+    name: lang === 'es' ? 'Consultar por WhatsApp' : 'Ask on WhatsApp',
+  },
+  inLanguage: ['es-AR', 'en'],
+};
+---
+<script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />

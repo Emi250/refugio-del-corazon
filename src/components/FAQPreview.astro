@@ -1,0 +1,54 @@
+---
+import FAQItem from './FAQItem.astro';
+import { t, type Lang, localizedPath } from '~/i18n';
+import { getCollection } from 'astro:content';
+
+interface Props { lang?: Lang; limit?: number }
+const { lang = 'es', limit = 5 } = Astro.props;
+
+const PICKS: Record<Lang, { cat: string; i: number }[]> = {
+  es: [
+    { cat: 'Check-in y check-out', i: 0 },
+    { cat: 'Reservas y pagos', i: 1 },
+    { cat: 'Reservas y pagos', i: 2 },
+    { cat: 'Durante la estadía', i: 0 },
+    { cat: 'Durante la estadía', i: 1 },
+  ],
+  en: [
+    { cat: 'Check-in and check-out', i: 0 },
+    { cat: 'Booking and payments', i: 1 },
+    { cat: 'Booking and payments', i: 2 },
+    { cat: 'During your stay', i: 0 },
+    { cat: 'During your stay', i: 1 },
+  ],
+};
+
+const groups = await getCollection('faq', ({ data }) => data.lang === lang);
+const byCat = (cat: string) => groups.find(g => g.data.category === cat)?.data.qa ?? [];
+
+const curated = PICKS[lang]
+  .map(p => {
+    const qa = byCat(p.cat)[p.i];
+    return qa ? { ...qa, category: p.cat } : null;
+  })
+  .filter(Boolean) as Array<{ q: string; a: string; category: string }>;
+
+const fallback = groups
+  .sort((a, b) => a.data.order - b.data.order)
+  .flatMap(g => g.data.qa.map(qa => ({ ...qa, category: g.data.category })));
+
+const flat = (curated.length >= limit ? curated : fallback).slice(0, limit);
+---
+<div class="faq-list">
+  {flat.map((it, i) => (
+    <FAQItem no={`0${i + 1}`} q={it.q} a={it.a} />
+  ))}
+</div>
+<div class="faq-foot">
+  <a href={localizedPath('/faq', lang)} class="link-acc">{t('common.viewMore', lang)} →</a>
+</div>
+
+<style>
+  .faq-foot { padding: 22px 28px; }
+  @media (max-width: 720px) { .faq-foot { padding: 18px; } }
+</style>

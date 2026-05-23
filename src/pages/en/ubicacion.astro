@@ -1,0 +1,181 @@
+---
+import Base from '~/layouts/Base.astro';
+import BigHeader from '~/components/BigHeader.astro';
+import CTABlock from '~/components/CTABlock.astro';
+import { t } from '~/i18n';
+
+const lang = 'en' as const;
+
+const origins = [
+  { name: 'From Córdoba City', distance: '105 km', time: '1h 45min', steps: ['Route E-53 to La Falda', 'Continue on Route 38 toward Cosquín', 'Take Route 38 north to Capilla del Monte'] },
+  { name: 'From Buenos Aires', distance: '780 km', time: '9h drive', steps: ['Highway to Córdoba', 'Continue on Route E-53 to Capilla del Monte', 'Or flight to Córdoba + 2h drive'] },
+  { name: 'From Rosario', distance: '460 km', time: '5h drive', steps: ['Autovía 9 to Villa María', 'Route 158 to Río Tercero', 'Route E-55 toward the Sierras'] },
+];
+
+const nearGroups = [
+  { category: 'Walking distance', items: [
+    { name: 'Valpisa Pizzería', note: 'Wood-fired oven — the town\'s pizza reference', distance: '700 m · 10 min walk' },
+    { name: 'Covered pedestrian street & Plaza San Martín', note: 'The only covered street in South America, artisan walk', distance: '800 m · 10 min walk' },
+    { name: 'City Bar', note: 'Coffee, cakes and meals on the covered street', distance: '800 m · 10 min walk' },
+  ]},
+  { category: 'By car · Capilla & surroundings', items: [
+    { name: 'Dique El Cajón & El Zapato', note: 'Natural overlook and sunsets over the reservoir', distance: '2.2 km · 5 min drive' },
+    { name: 'Cerro Uritorco (trailhead)', note: 'Iconic trek with sweeping views of the Punilla valley', distance: '2.3 km · 5 min drive' },
+    { name: 'La Toma · Río Calabalumba', note: 'Waterfalls and natural pools', distance: '2.3 km · 5 min drive' },
+    { name: 'Los Mogotes', note: 'Rounded granite formations along the Río Dolores', distance: '4.3 km · 13 min drive' },
+    { name: 'La Tramontana', note: 'Top-rated Argentine restaurant — one of the highest-rated in the area', distance: '13 km · 23 min drive' },
+    { name: 'Los Terrones Park', note: 'Rock formations: The Armchair, Finger of God, Indian Face', distance: '14 km · 25 min drive' },
+  ]},
+];
+
+const clima = [
+  { k: 'SUMMER', m: 'Dec · Jan · Feb', t: '28° / 16°', n: 'Dry heat, cool nights. Perfect for the river.' },
+  { k: 'AUTUMN', m: 'Mar · Apr · May', t: '22° / 8°', n: 'Mild days, golden light.' },
+  { k: 'WINTER', m: 'Jun · Jul · Aug', t: '15° / 2°', n: 'Dry cold.' },
+  { k: 'SPRING', m: 'Sep · Oct · Nov', t: '24° / 10°', n: 'The best season. Green and blooming.' },
+];
+---
+<Base
+  title="Where to stay in Capilla del Monte · Río Negro 64 | Refugio del Corazón"
+  description="How to get to Capilla del Monte from Córdoba City, Buenos Aires or Rosario. Distance to Cerro Uritorco, El Zapato, Los Terrones. Weather by season."
+  ogType="article"
+>
+  <BigHeader
+    kicker="03 · LOCATION"
+    title="Rio Negro 64"
+    meta="CAPILLA DEL MONTE · CÓRDOBA"
+    blurb="800 m from downtown, 1 km from the bus terminal and 2.3 km from Cerro Uritorco. A strategic base to rest and explore."
+  />
+
+  <section class="loc-map-wrap">
+    <div class="loc-map">
+      <iframe
+        class="loc-iframe"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3424.7409753491656!2d-64.52738632470985!3d-30.865926269856615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x942d8df5395e1ead%3A0xa4dc4f4097366c7f!2sR%C3%ADo%20Negro%2064%2C%20X5184%20Capilla%20del%20Monte%2C%20C%C3%B3rdoba!5e0!3m2!1ses!2sar!4v1779458249290!5m2!1ses!2sar"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Rio Negro 64, Capilla del Monte"
+      ></iframe>
+      <article class="loc-card frame-card">
+        <span class="kicker">PIN</span>
+        <h3>Rio Negro 64</h3>
+        <p>Quiet street, parking included, steps away from the pedestrian center.</p>
+        <div class="loc-chips">
+          <span class="chip">Center · 800 m</span>
+          <span class="chip">Terminal · 1 km</span>
+          <span class="chip">Uritorco · 2.3 km</span>
+          <a class="chip chip-maps" href="https://maps.app.goo.gl/bq9HnLudj3jFDMWz9" target="_blank" rel="noopener">View on Google Maps ↗</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="block-head">
+      <h2>{t('location.howToGet', lang)}</h2>
+      <span class="spec-mono">3 ORIGINS</span>
+    </div>
+    <div class="origins-grid">
+      {origins.map(o => (
+        <div class="origin">
+          <span class="kicker">{o.name}</span>
+          <div class="origin-dist display-no display-sm">{o.distance}</div>
+          <div class="origin-time spec-mono">≈ {o.time}</div>
+          <ol class="origin-steps">
+            {o.steps.map(s => <li>{s}</li>)}
+          </ol>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="block bg-paper-2">
+    <div class="block-head">
+      <h2>{t('location.nearby', lang)}</h2>
+      <span class="spec-mono">TOP RATED</span>
+    </div>
+    <div class="near-grid">
+      {nearGroups.map(g => (
+        <div class="near-col">
+          <div class="near-cat kicker">{g.category}</div>
+          {g.items.map(it => (
+            <div class="near-row">
+              <div>
+                <div class="near-name">{it.name}</div>
+                {it.note && <div class="near-note">{it.note}</div>}
+              </div>
+              <span class="near-dist">{it.distance}</span>
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="block-head">
+      <h2>{t('location.weather', lang)}</h2>
+      <span class="spec-mono">WHEN TO VISIT</span>
+    </div>
+    <div class="clima-grid">
+      {clima.map(c => (
+        <div class="clima-cell">
+          <div class="clima-k">{c.k}</div>
+          <div class="clima-m">{c.m}</div>
+          <div class="clima-t display-no display-sm">{c.t}</div>
+          <div class="clima-n">{c.n}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <CTABlock lang={lang} background="paper-2" mapsUrl="https://maps.app.goo.gl/bq9HnLudj3jFDMWz9" />
+</Base>
+
+<style>
+  .bg-paper-2 { background: var(--mf-paper-2); }
+  .chip-maps { background: var(--mf-accent); color: var(--mf-paper); border-color: var(--mf-accent); }
+  .chip-maps:hover { background: var(--mf-ink); border-color: var(--mf-ink); color: var(--mf-paper); }
+  .loc-map-wrap { background: var(--mf-paper-2); border-bottom: 1.5px solid var(--mf-ink); }
+  .loc-map { position: relative; min-height: 480px; background-color: var(--mf-stone); overflow: hidden; }
+  .loc-iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; z-index: 1; display: block; }
+  .loc-card { position: absolute; left: 32px; top: 32px; padding: 24px 26px; max-width: 360px; z-index: 3; }
+  .loc-card h3 { font-size: 28px; margin: 12px 0 10px; letter-spacing: -0.02em; font-weight: 700; }
+  .loc-card p { font-size: 13.5px; line-height: 1.55; color: var(--mf-ink-soft); margin: 0 0 14px; }
+  .loc-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .block { padding: 36px 28px; border-bottom: 1.5px solid var(--mf-ink); background: var(--mf-paper); }
+  .block-head { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--mf-hair); padding-bottom: 14px; margin-bottom: 22px; }
+  .block-head h2 { font-size: 26px; letter-spacing: -0.025em; font-weight: 700; }
+  .origins-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--mf-ink); }
+  .origin { padding: 22px 24px; border-right: 1px solid var(--mf-hair); }
+  .origin:last-child { border-right: 0; }
+  .origin-dist { margin-top: 14px; }
+  .origin-time { margin-top: 6px; }
+  .origin-steps { padding-left: 20px; margin: 18px 0 0; font-size: 13px; line-height: 1.55; color: var(--mf-ink-soft); }
+  .origin-steps li { margin-bottom: 5px; }
+  .near-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; }
+  .near-cat { padding: 18px 0 10px; border-top: 1px solid var(--mf-hair); letter-spacing: 0.18em; }
+  .near-row { display: flex; justify-content: space-between; padding: 11px 0; border-top: 1px solid var(--mf-hair); align-items: flex-start; gap: 10px; }
+  .near-name { font-size: 13.5px; font-weight: 500; letter-spacing: -0.005em; }
+  .near-note { font-size: 11px; color: var(--mf-ink-soft); margin-top: 2px; }
+  .near-dist { font-size: 13px; font-weight: 600; }
+  .clima-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--mf-ink); }
+  .clima-cell { padding: 20px 22px; border-right: 1px solid var(--mf-hair); }
+  .clima-cell:last-child { border-right: 0; }
+  .clima-k { font-family: var(--mf-font-mono); font-size: 10.5px; font-weight: 500; letter-spacing: 0.14em; color: var(--mf-ink-soft); text-transform: uppercase; }
+  .clima-m { font-size: 13px; font-weight: 600; margin-top: 10px; }
+  .clima-t { margin-top: 14px; }
+  .clima-n { font-size: 12px; line-height: 1.45; color: var(--mf-ink-soft); margin-top: 10px; }
+  @media (max-width: 900px) {
+    .origins-grid, .clima-grid { grid-template-columns: 1fr; }
+    .origin, .clima-cell { border-right: 0; border-bottom: 1px solid var(--mf-hair); }
+    .origin:last-child, .clima-cell:last-child { border-bottom: 0; }
+    .near-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 720px) {
+    .block { padding: 22px 18px; }
+    .loc-map { min-height: auto; padding: 18px; aspect-ratio: 4/3; }
+    .loc-card { position: static; max-width: none; }
+  }
+</style>
