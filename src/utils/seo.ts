@@ -2,7 +2,7 @@ import type { Lang } from '~/i18n';
 
 export const SITE_URL = 'https://refugiodelcorazon.com.ar';
 export const SITE_NAME = 'Refugio del Corazón';
-export const DEFAULT_OG_IMAGE = '/cerro%20uritorco.jpg';
+export const DEFAULT_OG_IMAGE = '/og/default.jpg';
 
 export const BUSINESS = {
   name: SITE_NAME,
