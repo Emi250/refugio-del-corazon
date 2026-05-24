@@ -20,6 +20,7 @@ gallery:
   - { src: "/images/unidades/unidad-3/dormitorio-individual.jpg", caption: "Second bedroom" }
   - { src: "/images/unidades/unidad-3/bano-02.jpg", caption: "Bathroom · vanity" }
 blurb: "Two bedrooms designed so families or groups of friends can rest without crowding each other. The right balance between space and warmth."
+airbnb_url: "https://airbnb.com.ar/h/capilladelmonte1"
 ---
 
 Two bedrooms, a wide living-dining room, and a kitchen designed for comfort. Ideal for families or groups of friends.

@@ -23,6 +23,7 @@ gallery:
   - { src: "/images/unidades/unidad-1/bano-03.jpg", caption: "Baño · detalle" }
   - { src: "/images/unidades/unidad-1/detalle.jpg", caption: "Detalle ropa de cama" }
 blurb: "Un espacio ideal para una o dos personas que buscan tranquilidad sin resignar comodidad."
+airbnb_url: "https://airbnb.com.ar/h/capilladelmonte3"
 blurb_en: "An ideal space for one or two people seeking peace without compromising comfort."
 ---
 

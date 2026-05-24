@@ -21,6 +21,7 @@ gallery:
   - { src: "/images/unidades/unidad-3/bano-02.jpg", caption: "Baño · vanity" }
 blurb: "Dos habitaciones pensadas para que familias o grupos de amigos descansen sin amontonarse. La medida exacta entre amplitud y calidez."
 blurb_en: "Two bedrooms designed so families or groups of friends can rest without crowding each other. The right balance between space and warmth."
+airbnb_url: "https://airbnb.com.ar/h/capilladelmonte1"
 ---
 
 Dos dormitorios, living comedor amplio y una cocina pensada para estar cómodo. Ideal para familias o grupos de amigos.

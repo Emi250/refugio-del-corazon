@@ -23,6 +23,7 @@ gallery:
   - { src: "/images/unidades/unidad-1/bano-03.jpg", caption: "Bathroom · detail" }
   - { src: "/images/unidades/unidad-1/detalle.jpg", caption: "Bed linen detail" }
 blurb: "An ideal space for one or two people seeking peace without compromising comfort."
+airbnb_url: "https://airbnb.com.ar/h/capilladelmonte3"
 ---
 
 Designed so that the moment you step in, you feel at home. The living room is the heart of the apartment — where long conversations and slow coffee mornings happen — and it has a Smart TV with Netflix included.

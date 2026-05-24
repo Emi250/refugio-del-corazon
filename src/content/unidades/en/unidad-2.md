@@ -21,6 +21,7 @@ gallery:
   - { src: "/images/unidades/unidad-2/bano-02.jpg", caption: "Bathroom · vanity" }
   - { src: "/images/unidades/unidad-2/detalle.jpg", caption: "Linens and amenities" }
 blurb: "Designed for two guests in search of an intimate, light-filled hideaway. Every detail chosen so calm and comfort go hand in hand."
+airbnb_url: "https://airbnb.com.ar/h/capilladelmonte"
 ---
 
 A two-room apartment with a queen bed.
