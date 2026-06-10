@@ -42,9 +42,9 @@ const enPath = lang === 'en' ? currentPath : otherLangPath;
 
   <div class="nav-actions">
     <div class="nav-lang" role="group" aria-label="Language">
-      <a href={esPath} class={`nav-lang-btn ${lang === 'es' ? 'on' : ''}`}>ES</a>
+      <a href={esPath} class={`nav-lang-btn ${lang === 'es' ? 'on' : ''}`} onclick="localStorage.setItem('pref-lang', 'es')">ES</a>
       <span class="nav-lang-sep">/</span>
-      <a href={enPath} class={`nav-lang-btn ${lang === 'en' ? 'on' : ''}`}>EN</a>
+      <a href={enPath} class={`nav-lang-btn ${lang === 'en' ? 'on' : ''}`} onclick="localStorage.setItem('pref-lang', 'en')">EN</a>
     </div>
     <WhatsAppCTA lang={lang} variant="small" class="nav-cta" />
   </div>
@@ -69,9 +69,9 @@ const enPath = lang === 'en' ? currentPath : otherLangPath;
   ))}
   <div class="nav-mobile-foot">
     <div class="nav-lang">
-      <a href={esPath} class={`nav-lang-btn ${lang === 'es' ? 'on' : ''}`}>ES</a>
+      <a href={esPath} class={`nav-lang-btn ${lang === 'es' ? 'on' : ''}`} onclick="localStorage.setItem('pref-lang', 'es')">ES</a>
       <span class="nav-lang-sep">/</span>
-      <a href={enPath} class={`nav-lang-btn ${lang === 'en' ? 'on' : ''}`}>EN</a>
+      <a href={enPath} class={`nav-lang-btn ${lang === 'en' ? 'on' : ''}`} onclick="localStorage.setItem('pref-lang', 'en')">EN</a>
     </div>
     <WhatsAppCTA lang={lang} variant="big" fullWidth />
   </div>

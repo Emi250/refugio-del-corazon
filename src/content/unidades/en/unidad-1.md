@@ -11,7 +11,7 @@ specs:
 chips: ["WiFi", "Equipped kitchen", "Grill", "Linens", "Air Conditioning", "Bed linens", "Fridge with Freezer", "Smart TV (no cable)"]
 hero_image: "/images/unidades/unidad-1/hero.jpg"
 gallery:
-  - { src: "/images/unidades/unidad-1/living.png", caption: "Living room with Smart TV and kitchenette" }
+  - { src: "/images/unidades/unidad-1/living.png", caption: "Living room with Smart TV and electric burners" }
   - { src: "/images/unidades/unidad-1/cocina.jpg", caption: "Equipped kitchen" }
   - { src: "/images/unidades/unidad-1/dormitorio.jpg", caption: "Main bedroom" }
   - { src: "/images/unidades/unidad-1/bano.jpg", caption: "Bathroom with shower" }

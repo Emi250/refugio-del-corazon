@@ -104,6 +104,26 @@ const metaKeywords = keywords ?? defaultKeywords;
     <meta name="generator" content={Astro.generator} />
 
     <OrganizationSchema lang={lang} />
+    <script is:inline>
+      (function() {
+        try {
+          var stored = localStorage.getItem('pref-lang');
+          if (!stored) {
+            var isEs = (navigator.language || '').toLowerCase().startsWith('es');
+            var pref = isEs ? 'es' : 'en';
+            localStorage.setItem('pref-lang', pref);
+            var path = window.location.pathname;
+            var isEnPath = path.startsWith('/en');
+            if (pref === 'en' && !isEnPath) {
+              window.location.replace('/en' + (path === '/' ? '' : path));
+            } else if (pref === 'es' && isEnPath) {
+              var newPath = path.replace(/^\/en/, '');
+              window.location.replace(newPath || '/');
+            }
+          }
+        } catch(e) {}
+      })();
+    </script>
   </head>
   <body>
     <NavBar variant={navVariant} lang={lang} />

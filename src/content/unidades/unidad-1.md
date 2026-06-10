@@ -11,7 +11,7 @@ specs:
 chips: ["WiFi", "Cocina equipada", "Parrilla", "Ropa de cama", "Aire Acondicionado", "Ropa blanca", "Heladera con Freezer", "Smart TV (sin cable)"]
 hero_image: "/images/unidades/unidad-1/hero.jpg"
 gallery:
-  - { src: "/images/unidades/unidad-1/living.png", caption: "Living con Smart TV y kitchenette" }
+  - { src: "/images/unidades/unidad-1/living.png", caption: "Living con Smart TV y hornallas eléctricas" }
   - { src: "/images/unidades/unidad-1/cocina.jpg", caption: "Cocina equipada" }
   - { src: "/images/unidades/unidad-1/dormitorio.jpg", caption: "Dormitorio principal" }
   - { src: "/images/unidades/unidad-1/bano.jpg", caption: "Baño con ducha" }
