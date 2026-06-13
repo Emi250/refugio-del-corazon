@@ -4,7 +4,7 @@ name_en: "Apartment #4"
 order: 4
 lang: es
 specs:
-  capacidad: "Hasta 4 personas"
+  capacidad: "Hasta 5 personas"
   ambientes: "2 dormitorios · living comedor"
   metros: "65 m²"
 chips: ["WiFi", "Cocina equipada", "Aire acondicionado", "Parrilla", "Ropa de cama", "Ropa blanca", "Smart TV (sin cable)", "Heladera con Freezer"]

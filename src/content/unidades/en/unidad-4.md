@@ -4,7 +4,7 @@ name_en: "Apartment #4"
 order: 4
 lang: en
 specs:
-  capacidad: "Up to 4 guests"
+  capacidad: "Up to 5 guests"
   ambientes: "2 bedrooms · living-dining"
   metros: "65 m²"
 chips: ["WiFi", "Equipped kitchen", "Air conditioning", "Grill", "Linens", "Bed linens", "Smart TV (no cable)", "Fridge with Freezer"]
