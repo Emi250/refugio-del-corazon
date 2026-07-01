@@ -10,7 +10,6 @@ const { lang = 'es', class: className = '' } = Astro.props;
 
 const BOOKING_URL = 'https://www.booking.com/Share-hCZ4lTA';
 const ELFSIGHT_APP_ID = 'elfsight-app-e958aa7b-7c8f-4da7-9ca0-94674ae030c2';
-const WIDGET_TIMEOUT_MS = 12000;
 ---
 <section class={`reviews ${className}`} aria-labelledby="reviews-heading" id="reviews-root">
   <h2 id="reviews-heading" class="sr-only">{t('reviews.heading_sr', lang)}</h2>
@@ -18,20 +17,6 @@ const WIDGET_TIMEOUT_MS = 12000;
 
   <div class="widget-frame" id="reviews-widget-frame">
     <div class={ELFSIGHT_APP_ID} id={ELFSIGHT_APP_ID}></div>
-
-    <!-- Fallback: hidden by default, shown via JS if widget fails -->
-    <div class="reviews-fallback" id="reviews-fallback" hidden>
-      <p class="reviews-fallback-text">
-        {lang === 'es'
-          ? 'Las reseñas no pudieron cargarse en este momento.'
-          : 'Reviews could not be loaded at this time.'}
-      </p>
-      <a class="reviews-fallback-link" href={BOOKING_URL} target="_blank" rel="noopener">
-        {lang === 'es'
-          ? 'Ver reseñas en Booking.com →'
-          : 'See reviews on Booking.com →'}
-      </a>
-    </div>
   </div>
 
   {BOOKING_URL && (
@@ -41,32 +26,26 @@ const WIDGET_TIMEOUT_MS = 12000;
   )}
 </section>
 
-<script is:inline define:vars={{ WIDGET_TIMEOUT_MS }}>
+<script is:inline>
   (function () {
     var root = document.getElementById('reviews-root');
     if (!root) return;
 
     var loaded = false;
-    var widgetRendered = false;
-
-    function showFallback() {
-      var fb = document.getElementById('reviews-fallback');
-      if (fb && !widgetRendered) {
-        fb.hidden = false;
-      }
-    }
 
     function loadElfsight() {
       if (loaded) return;
       loaded = true;
 
       // Check if platform.js was already loaded by another instance
-      if (document.querySelector('script[src*="elfsightcdn.com/platform.js"]')) {
-        // Script already exists — Elfsight might just need to re-init
+      // Match both possible CDN domains
+      var existingScript = document.querySelector(
+        'script[src*="elfsight.com/platform"], script[src*="elfsightcdn.com/platform"]'
+      );
+      if (existingScript) {
         if (window.eapps && typeof window.eapps.initWidgets === 'function') {
           try { window.eapps.initWidgets(); } catch (e) { /* silent */ }
         }
-        startWatchdog();
         return;
       }
 
@@ -79,40 +58,10 @@ const WIDGET_TIMEOUT_MS = 12000;
         var retry = document.createElement('script');
         retry.src = 'https://elfsightcdn.com/platform.js';
         retry.async = true;
-        retry.onerror = showFallback;
         document.head.appendChild(retry);
       };
 
       document.head.appendChild(s);
-      startWatchdog();
-    }
-
-    function startWatchdog() {
-      // Use MutationObserver to detect when Elfsight renders content
-      var widgetEl = document.getElementById('reviews-widget-frame');
-      if (!widgetEl) return;
-
-      var observer = new MutationObserver(function (mutations) {
-        for (var i = 0; i < mutations.length; i++) {
-          if (mutations[i].addedNodes.length > 0) {
-            // Elfsight rendered something
-            widgetRendered = true;
-            observer.disconnect();
-            clearTimeout(timer);
-            return;
-          }
-        }
-      });
-
-      observer.observe(widgetEl, { childList: true, subtree: true });
-
-      // Timeout fallback: if nothing renders within the deadline, show fallback
-      var timer = setTimeout(function () {
-        observer.disconnect();
-        if (!widgetRendered) {
-          showFallback();
-        }
-      }, WIDGET_TIMEOUT_MS);
     }
 
     // Lazy-load: use IntersectionObserver with generous margin
@@ -149,38 +98,17 @@ const WIDGET_TIMEOUT_MS = 12000;
   .widget-frame {
     min-height: 420px;
     max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
     position: relative;
+    overflow: hidden;
   }
 
-  /* ── Fallback UI ── */
-  .reviews-fallback {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    min-height: 200px;
-    padding: 40px 24px;
-    border: 1.5px dashed var(--mf-ink-soft, #888);
-    border-radius: 12px;
-    text-align: center;
+  /* Ensure Elfsight widget scales properly */
+  .widget-frame :global(div[class^="elfsight-app"]) {
+    width: 100% !important;
+    max-width: 100% !important;
   }
-  .reviews-fallback-text {
-    font-family: var(--mf-font-body, sans-serif);
-    font-size: 15px;
-    color: var(--mf-ink-soft, #666);
-    margin: 0;
-  }
-  .reviews-fallback-link {
-    font-family: var(--mf-font-mono, monospace);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--mf-accent, #b08d57);
-    transition: opacity 0.15s;
-  }
-  .reviews-fallback-link:hover { opacity: 0.7; }
 
   .reviews-footer {
     display: inline-block;
@@ -209,11 +137,22 @@ const WIDGET_TIMEOUT_MS = 12000;
     border: 0;
   }
 
+  /* ── Tablet ── */
+  @media (max-width: 1024px) {
+    .reviews { padding: 60px 24px 50px; }
+    .widget-frame { min-height: 460px; }
+  }
+
+  /* ── Mobile ── */
   @media (max-width: 720px) {
-    .reviews { padding: 40px 18px 36px; }
+    .reviews { padding: 40px 16px 36px; }
     .widget-frame { min-height: 520px; }
     .reviews-footer { margin-top: 20px; font-size: 10px; }
-    .reviews-fallback { min-height: 150px; padding: 28px 16px; }
+  }
+
+  /* ── Small mobile ── */
+  @media (max-width: 400px) {
+    .reviews { padding: 32px 12px 28px; }
+    .widget-frame { min-height: 480px; }
   }
 </style>
-
