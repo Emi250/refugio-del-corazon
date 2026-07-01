@@ -8,15 +8,30 @@ interface Props {
 
 const { lang = 'es', class: className = '' } = Astro.props;
 
-// URL pública del listing de Booking. Si queda vacía, el link mono debajo del widget no se renderiza.
 const BOOKING_URL = 'https://www.booking.com/Share-hCZ4lTA';
+const ELFSIGHT_APP_ID = 'elfsight-app-e958aa7b-7c8f-4da7-9ca0-94674ae030c2';
+const WIDGET_TIMEOUT_MS = 12000;
 ---
-<section class={`reviews ${className}`} aria-labelledby="reviews-heading" data-reviews-root>
+<section class={`reviews ${className}`} aria-labelledby="reviews-heading" id="reviews-root">
   <h2 id="reviews-heading" class="sr-only">{t('reviews.heading_sr', lang)}</h2>
   <span class="kicker">{t('sections.reviews', lang)}</span>
 
-  <div class="widget-frame">
-    <div class="elfsight-app-e958aa7b-7c8f-4da7-9ca0-94674ae030c2" data-elfsight-app-lazy></div>
+  <div class="widget-frame" id="reviews-widget-frame">
+    <div class={ELFSIGHT_APP_ID} id={ELFSIGHT_APP_ID}></div>
+
+    <!-- Fallback: hidden by default, shown via JS if widget fails -->
+    <div class="reviews-fallback" id="reviews-fallback" hidden>
+      <p class="reviews-fallback-text">
+        {lang === 'es'
+          ? 'Las reseñas no pudieron cargarse en este momento.'
+          : 'Reviews could not be loaded at this time.'}
+      </p>
+      <a class="reviews-fallback-link" href={BOOKING_URL} target="_blank" rel="noopener">
+        {lang === 'es'
+          ? 'Ver reseñas en Booking.com →'
+          : 'See reviews on Booking.com →'}
+      </a>
+    </div>
   </div>
 
   {BOOKING_URL && (
@@ -26,31 +41,99 @@ const BOOKING_URL = 'https://www.booking.com/Share-hCZ4lTA';
   )}
 </section>
 
-<script is:inline>
+<script is:inline define:vars={{ WIDGET_TIMEOUT_MS }}>
   (function () {
-    var root = document.currentScript.previousElementSibling;
-    if (!root || !root.matches('[data-reviews-root]')) {
-      root = document.querySelector('[data-reviews-root]');
-    }
+    var root = document.getElementById('reviews-root');
     if (!root) return;
+
     var loaded = false;
-    function load() {
+    var widgetRendered = false;
+
+    function showFallback() {
+      var fb = document.getElementById('reviews-fallback');
+      if (fb && !widgetRendered) {
+        fb.hidden = false;
+      }
+    }
+
+    function loadElfsight() {
       if (loaded) return;
       loaded = true;
+
+      // Check if platform.js was already loaded by another instance
+      if (document.querySelector('script[src*="elfsightcdn.com/platform.js"]')) {
+        // Script already exists — Elfsight might just need to re-init
+        if (window.eapps && typeof window.eapps.initWidgets === 'function') {
+          try { window.eapps.initWidgets(); } catch (e) { /* silent */ }
+        }
+        startWatchdog();
+        return;
+      }
+
       var s = document.createElement('script');
-      s.src = 'https://elfsightcdn.com/platform.js';
+      s.src = 'https://static.elfsight.com/platform/platform.js';
       s.async = true;
+
+      s.onerror = function () {
+        // Retry once with the alternative CDN
+        var retry = document.createElement('script');
+        retry.src = 'https://elfsightcdn.com/platform.js';
+        retry.async = true;
+        retry.onerror = showFallback;
+        document.head.appendChild(retry);
+      };
+
       document.head.appendChild(s);
+      startWatchdog();
     }
+
+    function startWatchdog() {
+      // Use MutationObserver to detect when Elfsight renders content
+      var widgetEl = document.getElementById('reviews-widget-frame');
+      if (!widgetEl) return;
+
+      var observer = new MutationObserver(function (mutations) {
+        for (var i = 0; i < mutations.length; i++) {
+          if (mutations[i].addedNodes.length > 0) {
+            // Elfsight rendered something
+            widgetRendered = true;
+            observer.disconnect();
+            clearTimeout(timer);
+            return;
+          }
+        }
+      });
+
+      observer.observe(widgetEl, { childList: true, subtree: true });
+
+      // Timeout fallback: if nothing renders within the deadline, show fallback
+      var timer = setTimeout(function () {
+        observer.disconnect();
+        if (!widgetRendered) {
+          showFallback();
+        }
+      }, WIDGET_TIMEOUT_MS);
+    }
+
+    // Lazy-load: use IntersectionObserver with generous margin
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) { load(); io.disconnect(); }
-        });
-      }, { rootMargin: '400px 0px' });
+        for (var i = 0; i < entries.length; i++) {
+          if (entries[i].isIntersecting) {
+            loadElfsight();
+            io.disconnect();
+            return;
+          }
+        }
+      }, { rootMargin: '600px 0px' });
       io.observe(root);
     } else {
-      window.addEventListener('load', load);
+      // Fallback for browsers without IntersectionObserver
+      if (document.readyState === 'complete') {
+        loadElfsight();
+      } else {
+        window.addEventListener('load', loadElfsight);
+      }
     }
   })();
 </script>
@@ -66,7 +149,38 @@ const BOOKING_URL = 'https://www.booking.com/Share-hCZ4lTA';
   .widget-frame {
     min-height: 420px;
     max-width: 1280px;
+    position: relative;
   }
+
+  /* ── Fallback UI ── */
+  .reviews-fallback {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    min-height: 200px;
+    padding: 40px 24px;
+    border: 1.5px dashed var(--mf-ink-soft, #888);
+    border-radius: 12px;
+    text-align: center;
+  }
+  .reviews-fallback-text {
+    font-family: var(--mf-font-body, sans-serif);
+    font-size: 15px;
+    color: var(--mf-ink-soft, #666);
+    margin: 0;
+  }
+  .reviews-fallback-link {
+    font-family: var(--mf-font-mono, monospace);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--mf-accent, #b08d57);
+    transition: opacity 0.15s;
+  }
+  .reviews-fallback-link:hover { opacity: 0.7; }
 
   .reviews-footer {
     display: inline-block;
@@ -99,5 +213,7 @@ const BOOKING_URL = 'https://www.booking.com/Share-hCZ4lTA';
     .reviews { padding: 40px 18px 36px; }
     .widget-frame { min-height: 520px; }
     .reviews-footer { margin-top: 20px; font-size: 10px; }
+    .reviews-fallback { min-height: 150px; padding: 28px 16px; }
   }
 </style>
+

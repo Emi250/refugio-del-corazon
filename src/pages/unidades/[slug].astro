@@ -39,9 +39,9 @@ const specs = [
   { k: 'Baño', v: 'Privado' },
 ];
 
-const waMessage = `Hola, me interesa el ${data.name} de Refugio del Corazón. ¿Podemos coordinar fechas?`;
+const waMessage = `Hola, me interesa el ${data.name} de El Refugio del Corazón. ¿Podemos coordinar fechas?`;
 
-const seoTitle = `${data.name} · ${data.specs.capacidad} · Capilla del Monte | Refugio del Corazón`;
+const seoTitle = `${data.name} · ${data.specs.capacidad} · Capilla del Monte | El Refugio del Corazón`;
 const seoDesc = `${data.name}: ${data.specs.capacidad}, ${data.specs.ambientes}, ${data.specs.metros}. Departamento en Río Negro 64, Capilla del Monte. ${data.blurb}`.slice(0, 200);
 
 const faqGroups = await getCollection('faq', ({ data }) => data.lang === 'es');

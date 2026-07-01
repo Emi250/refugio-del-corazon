@@ -1,12 +1,12 @@
 import type { Lang } from '~/i18n';
 
 export const SITE_URL = 'https://refugiodelcorazon.com.ar';
-export const SITE_NAME = 'Refugio del Corazón';
+export const SITE_NAME = 'El Refugio del Corazón';
 export const DEFAULT_OG_IMAGE = '/og/default.jpg';
 
 export const BUSINESS = {
   name: SITE_NAME,
-  legalName: 'Refugio del Corazón',
+  legalName: 'El Refugio del Corazón',
   street: 'Río Negro 64',
   locality: 'Capilla del Monte',
   region: 'Córdoba',

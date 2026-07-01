@@ -1,4 +1,4 @@
-# robots.txt — Refugio del Corazón
+# robots.txt — El Refugio del Corazón
 # https://refugiodelcorazon.com.ar
 
 User-agent: *

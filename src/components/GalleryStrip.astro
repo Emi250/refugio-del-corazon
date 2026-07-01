@@ -18,7 +18,7 @@ const { lang = 'es', images = defaults } = Astro.props;
   <div class="gs-grid">
     {images.slice(0, 6).map((img, i) => (
       <a href={img.src} class="gs-cell" data-lb-group="home-strip" data-lb-index={i} data-lb-caption={img.caption ?? ''} aria-label={img.caption ?? `Foto ${i + 1}`}>
-        <img src={img.src} alt={img.caption ?? `Foto ${i + 1} — Refugio del Corazón, Capilla del Monte`} loading="lazy" decoding="async" width="600" height="600" />
+        <img src={img.src} alt={img.caption ?? `Foto ${i + 1} — El Refugio del Corazón, Capilla del Monte`} loading="lazy" decoding="async" width="600" height="600" />
         {img.caption && <span class="gs-cap">{img.caption}</span>}
       </a>
     ))}

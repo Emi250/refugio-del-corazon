@@ -40,10 +40,10 @@ const specs = [
   { k: 'Bathroom', v: 'Private' },
 ];
 
-const waMessage = `Hi, I'm interested in the "${name}" unit at Refugio del Corazón. Could we check availability?`;
+const waMessage = `Hi, I'm interested in the "${name}" unit at El Refugio del Corazón. Could we check availability?`;
 
 const blurbEn = data.blurb_en ?? data.blurb;
-const seoTitle = `${name} · ${data.specs.capacidad} · Capilla del Monte | Refugio del Corazón`;
+const seoTitle = `${name} · ${data.specs.capacidad} · Capilla del Monte | El Refugio del Corazón`;
 const seoDesc = `${name}: ${data.specs.capacidad}, ${data.specs.ambientes}, ${data.specs.metros}. Apartment at Río Negro 64, Capilla del Monte, Argentina. ${blurbEn}`.slice(0, 200);
 
 const faqGroups = await getCollection('faq', ({ data }) => data.lang === 'en');

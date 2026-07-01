@@ -1,4 +1,4 @@
-# CLAUDE.md — Refugio del Corazón
+# CLAUDE.md — El Refugio del Corazón
 
 Guía de proyecto para sesiones futuras de Claude Code. Léeme **completo** antes de tocar archivos. Diseñado para que NO necesites releer los bocetos mid-fi en la mayoría de tareas.
 
@@ -8,7 +8,7 @@ Guía de proyecto para sesiones futuras de Claude Code. Léeme **completo** ante
 
 **Producto**: Sitio web estático para promocionar 4 unidades de alquiler temporario en un mismo edificio.
 
-- **Negocio**: Refugio del Corazón
+- **Negocio**: El Refugio del Corazón
 - **Ubicación**: Rio Negro 64, Capilla del Monte, Córdoba, Argentina
 - **Target**: turistas argentinos (principalmente) e internacionales (secundario)
 - **Sitio actual a reemplazar**: https://refugio-del-corazon.lovable.app/ (Lovable, simple)
