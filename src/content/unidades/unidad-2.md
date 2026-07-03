@@ -4,7 +4,7 @@ name_en: "Apartment #2"
 order: 2
 lang: es
 specs:
-  capacidad: "Hasta 2 personas"
+  capacidad: "Hasta 3 personas"
   ambientes: "2 ambientes"
   metros: "40 m²"
 chips: ["WiFi", "Cocina equipada", "Aire acondicionado", "Parrilla", "Ropa de cama", "Ropa blanca", "Smart TV (sin cable)", "Heladera con Freezer"]
