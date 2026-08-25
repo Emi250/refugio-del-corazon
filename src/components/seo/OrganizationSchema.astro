@@ -1,6 +1,6 @@
 ---
 import type { Lang } from '~/i18n';
-import { SITE_URL, SITE_NAME, BUSINESS, absoluteUrl } from '~/utils/seo';
+import { SITE_URL, SITE_NAME, BUSINESS, absoluteAssetUrl } from '~/utils/seo';
 
 interface Props { lang: Lang }
 const { lang } = Astro.props;
@@ -29,11 +29,11 @@ const schema = {
   url: SITE_URL,
   description,
   image: [
-    absoluteUrl('/og/default.jpg'),
-    absoluteUrl('/cerro%20uritorco.jpg'),
-    absoluteUrl('/logo-refugio.jpeg'),
+    absoluteAssetUrl('/og/default.jpg'),
+    absoluteAssetUrl('/cerro%20uritorco.jpg'),
+    absoluteAssetUrl('/logo-refugio.jpeg'),
   ],
-  logo: absoluteUrl('/logo-refugio.jpeg'),
+  logo: absoluteAssetUrl('/logo-refugio.jpeg'),
   priceRange: BUSINESS.priceRange,
   telephone: `+${BUSINESS.whatsapp}`,
   address: {
@@ -82,7 +82,7 @@ const schema = {
     target: `https://wa.me/${BUSINESS.whatsapp}`,
     name: lang === 'es' ? 'Consultar por WhatsApp' : 'Ask on WhatsApp',
   },
-  inLanguage: ['es-AR', 'en'],
+  inLanguage: ['es', 'en'],
 };
 ---
 <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />

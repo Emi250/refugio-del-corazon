@@ -52,7 +52,7 @@ const metaKeywords = keywords ?? defaultKeywords;
 ---
 
 <!doctype html>
-<html lang={lang === 'es' ? 'es-AR' : 'en'}>
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -65,7 +65,7 @@ const metaKeywords = keywords ?? defaultKeywords;
       : <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />}
 
     <link rel="canonical" href={canonical} />
-    <link rel="alternate" hreflang="es-AR" href={alts.es} />
+    <link rel="alternate" hreflang="es" href={alts.es} />
     <link rel="alternate" hreflang="en" href={alts.en} />
     <link rel="alternate" hreflang="x-default" href={alts.es} />
     <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
@@ -107,6 +107,7 @@ const metaKeywords = keywords ?? defaultKeywords;
     <script is:inline>
       (function() {
         try {
+          if (/bot|crawl|spider|slurp|googlebot|bingbot|yandex|baidu|duckduck|facebookexternalhit|linkedinbot/i.test(navigator.userAgent)) return;
           var stored = localStorage.getItem('pref-lang');
           if (!stored) {
             var isEs = (navigator.language || '').toLowerCase().startsWith('es');

@@ -22,32 +22,40 @@ export const BUSINESS = {
   mapsUrl: 'https://maps.app.goo.gl/Zs3MGBP1naMxwqmt5',
 };
 
-function stripTrailingSlash(p: string): string {
-  if (p.length > 1 && p.endsWith('/')) return p.slice(0, -1);
-  return p;
+function ensureTrailingSlash(p: string): string {
+  if (p === '/' || p === '') return '/';
+  return p.endsWith('/') ? p : `${p}/`;
 }
 
+/** URL absoluta para páginas (con trailing slash). */
 export function absoluteUrl(path: string): string {
   if (path.startsWith('http://') || path.startsWith('https://')) return path;
   const clean = path.startsWith('/') ? path : `/${path}`;
-  return `${SITE_URL}${stripTrailingSlash(clean)}`;
+  return `${SITE_URL}${ensureTrailingSlash(clean)}`;
+}
+
+/** URL absoluta para assets estáticos (sin trailing slash). */
+export function absoluteAssetUrl(path: string): string {
+  if (path.startsWith('http://') || path.startsWith('https://')) return path;
+  const clean = path.startsWith('/') ? path : `/${path}`;
+  return `${SITE_URL}${clean}`;
 }
 
 export function getCanonical(pathname: string): string {
-  return absoluteUrl(stripTrailingSlash(pathname || '/'));
+  return absoluteUrl(pathname || '/');
 }
 
 /** Para cada ruta devuelve la URL hermana ES/EN para hreflang. */
 export function getAlternates(pathname: string): { es: string; en: string } {
-  const path = stripTrailingSlash(pathname || '/');
-  if (path === '/en' || path === '/en/') {
-    return { es: absoluteUrl('/'), en: absoluteUrl('/en') };
+  const path = ensureTrailingSlash(pathname || '/');
+  if (path === '/en/') {
+    return { es: absoluteUrl('/'), en: absoluteUrl('/en/') };
   }
   if (path.startsWith('/en/')) {
-    const rest = path.slice(3);
+    const rest = path.slice(3) || '/';
     return { es: absoluteUrl(rest), en: absoluteUrl(path) };
   }
-  return { es: absoluteUrl(path), en: absoluteUrl(`/en${path === '/' ? '' : path}`) };
+  return { es: absoluteUrl(path), en: absoluteUrl(`/en${path}`) };
 }
 
 export function getOgLocale(lang: Lang): string {
@@ -55,5 +63,5 @@ export function getOgLocale(lang: Lang): string {
 }
 
 export function getOgImage(image?: string): string {
-  return absoluteUrl(image ?? DEFAULT_OG_IMAGE);
+  return absoluteAssetUrl(image ?? DEFAULT_OG_IMAGE);
 }

@@ -5,12 +5,13 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://refugiodelcorazon.com.ar',
   output: 'static',
+  trailingSlash: 'always',
   integrations: [
     tailwind({ applyBaseStyles: false }),
     sitemap({
       i18n: {
         defaultLocale: 'es',
-        locales: { es: 'es-AR', en: 'en-US' },
+        locales: { es: 'es', en: 'en' },
       },
       filter: (page) => !page.includes('/404'),
       changefreq: 'weekly',

@@ -1,6 +1,6 @@
 ---
 import type { Lang } from '~/i18n';
-import { SITE_URL, SITE_NAME, BUSINESS, absoluteUrl } from '~/utils/seo';
+import { SITE_URL, SITE_NAME, BUSINESS, absoluteUrl, absoluteAssetUrl } from '~/utils/seo';
 
 interface Unit {
   slug: string;
@@ -32,8 +32,8 @@ const unitPath = lang === 'es' ? `/unidades/${unit.slug}` : `/en/unidades/${unit
 const unitUrl = absoluteUrl(unitPath);
 
 const images = [
-  absoluteUrl(data.hero_image),
-  ...data.gallery.slice(0, 6).map(g => absoluteUrl(g.src)),
+  absoluteAssetUrl(data.hero_image),
+  ...data.gallery.slice(0, 6).map(g => absoluteAssetUrl(g.src)),
 ];
 
 const amenityMap: Record<string, string> = {
