@@ -104,6 +104,17 @@ const metaKeywords = keywords ?? defaultKeywords;
     <meta name="generator" content={Astro.generator} />
 
     <OrganizationSchema lang={lang} />
+
+    <!-- Google tag (gtag.js) - Google Ads -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-0G62WCNHJG"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0G62WCNHJG');
+    </script>
+
     <script is:inline>
       (function() {
         try {
