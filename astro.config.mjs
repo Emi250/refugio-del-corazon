@@ -1,10 +1,16 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
+import vercel from '@astrojs/vercel/static';
 
 export default defineConfig({
   site: 'https://refugiodelcorazon.com.ar',
   output: 'static',
+  adapter: vercel({
+    webAnalytics: {
+      enabled: true,
+    },
+  }),
   trailingSlash: 'always',
   integrations: [
     tailwind({ applyBaseStyles: false }),
