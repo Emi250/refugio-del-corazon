@@ -146,6 +146,8 @@ const metaKeywords = keywords ?? defaultKeywords;
     {!hideStickyCTA && <MobileStickyCTA lang={lang} />}
     <script>
       import '~/scripts/reveal';
+      import { inject } from '@vercel/analytics';
+      inject();
     </script>
   </body>
 </html>
