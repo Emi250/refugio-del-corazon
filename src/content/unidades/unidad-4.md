@@ -23,6 +23,7 @@ gallery:
   - { src: "../../assets/images/unidades/unidad-4/lavadero.jpg", caption: "Lavadero" }
 blurb: "El más amplio de las cuatro unidades. Dos habitaciones con camas que se adaptan a tu grupo, ideal para que familias o amigos viajen juntos sin renunciar al espacio propio."
 blurb_en: "The largest of the four units. Two bedrooms with beds that adapt to your group, ideal for families or friends traveling together without giving up their own space."
+video_url: "https://drive.google.com/file/d/1PJ_1UBRlw2IibLQtPFit2o78Nb4dq42H/view?usp=sharing"
 ---
 
 El más amplio de las cuatro unidades, con dos habitaciones para que la familia o el grupo viaje sin pisarse. El dormitorio principal tiene una cama queen; el segundo cuenta con dos camas que pueden quedar individuales o unirse para formar una matrimonial.

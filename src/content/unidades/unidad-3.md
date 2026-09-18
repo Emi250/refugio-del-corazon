@@ -22,6 +22,7 @@ gallery:
 blurb: "Dos habitaciones pensadas para que familias o grupos de amigos descansen sin amontonarse. La medida exacta entre amplitud y calidez."
 blurb_en: "Two bedrooms designed so families or groups of friends can rest without crowding each other. The right balance between space and warmth."
 airbnb_url: "https://airbnb.com.ar/h/capilladelmonte1"
+video_url: "https://drive.google.com/file/d/140Jm2sfPyLAq1fEbEtOASKrRAA_4QfZk/view?usp=sharing"
 ---
 
 Dos dormitorios, living comedor amplio y una cocina pensada para estar cómodo. Ideal para familias o grupos de amigos.

@@ -23,6 +23,7 @@ gallery:
 blurb: "Pensado para dos huéspedes que buscan un refugio íntimo y luminoso. Cada detalle elegido para que la tranquilidad y el confort vayan de la mano."
 blurb_en: "Designed for two guests in search of an intimate, light-filled hideaway. Every detail chosen so calm and comfort go hand in hand."
 airbnb_url: "https://airbnb.com.ar/h/capilladelmonte"
+video_url: "https://drive.google.com/file/d/1HTGDUDwQ9NfqJJ9E7g9iLUK42VxMnwOr/view?usp=sharing"
 ---
 
 Departamento de dos ambientes con cama queen.

@@ -407,7 +407,8 @@ Este proyecto se optimiza para **mínimo gasto de tokens** por sesión. Reglas:
 - [x] Migración a `astro:assets`: imágenes movidas de `public/images` a `src/assets/images`, originales redimensionados a 2560px (262 MB → 19 MB) y servidos en WebP responsive (400/800/1200w). Sitio desplegado: 335 MB → 28 MB. Página de unidad en mobile: 6,8 MB → ~43 KB — 2026-09-18
 - [x] OG por unidad 1200×~630 (~53 KB) generadas con `getImage()` desde el hero (`src/utils/images.ts`) — WhatsApp ya renderiza el preview — 2026-09-18
 - [x] Fotos nuevas del Departamento #1 (set 2026) ordenadas por criterio de reserva + botón `VideoCTA` al video de Drive (campo `video_url` en el frontmatter) — 2026-09-18
-- [ ] Reemplazar fotos de las unidades 2, 3 y 4 (carpetas `Airbnb 3`, `Airbnb 4` y `Exterior` en Escritorio) y sumar sus videos en `video_url`
+- [x] `video_url` cargado en las 4 unidades (ES/EN) — botón VideoCTA activo en las 8 páginas de detalle — 2026-09-18
+- [ ] Reemplazar fotos de las unidades 2, 3 y 4 (carpetas `Airbnb 3`, `Airbnb 4` y `Exterior` en Escritorio). Falta definir de dónde salen las de la unidad 2 (no hay carpeta `Airbnb 2`)
 - [ ] Generar `public/og/default.jpg` 1200×630 dedicada (hoy usa `/cerro uritorco.jpg` como fallback)
 - [ ] Sumar widgets Elfsight de Google y Airbnb cuando el cliente decida (mismo patrón que Booking)
 - [ ] Contenido real (scraping del sitio Lovable actual)

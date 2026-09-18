@@ -22,6 +22,7 @@ gallery:
   - { src: "../../../assets/images/unidades/unidad-4/bano-02.jpg", caption: "Bathroom · vanity" }
   - { src: "../../../assets/images/unidades/unidad-4/lavadero.jpg", caption: "Laundry" }
 blurb: "The largest of the four units. Two bedrooms with beds that adapt to your group, ideal for families or friends traveling together without giving up their own space."
+video_url: "https://drive.google.com/file/d/1PJ_1UBRlw2IibLQtPFit2o78Nb4dq42H/view?usp=sharing"
 ---
 
 The largest of the four units, with two bedrooms so families or groups can travel without stepping on each other. The main bedroom has a queen bed; the second has two beds that can stay single or join to form a double.
