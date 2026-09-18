@@ -20,14 +20,14 @@ gallery:
   - { src: "../../assets/images/unidades/unidad-1/placard.jpg", caption: "Placard y aire acondicionado" }
   - { src: "../../assets/images/unidades/unidad-1/entrada.jpg", caption: "Entrada al departamento" }
   - { src: "../../assets/images/unidades/unidad-1/exterior.jpg", caption: "Frente y jardín" }
-blurb: "Un dormitorio y living con cocina integrada, para dos personas. La cama king se separa en dos individuales."
+blurb: "Cocina eléctrica integrada al living, sin horno. La cama king se deja unida o se separa en dos individuales."
 airbnb_url: "https://airbnb.com.ar/h/capilladelmonte3"
 video_url: "https://drive.google.com/file/d/1R-VHFCUK1W0GpYPmW3cINT-zEhlbLNEZ/view?usp=sharing"
-blurb_en: "One bedroom and a living room open to the kitchen, for two. The king bed can be split into two singles."
+blurb_en: "Electric kitchen open to the living room, no oven. The king bed stays joined or splits into two singles."
 ---
 
-Un dormitorio y un living comedor integrado con la cocina. El living tiene Smart TV con Netflix incluido y un calefactor.
+Un dormitorio y un living comedor integrado con la cocina, que es eléctrica y no tiene horno. El living tiene Smart TV con Netflix incluido y un calefactor.
 
-La cocina está equipada con heladera con freezer, microondas, pava eléctrica y hornallas eléctricas. No tiene horno.
+La cocina está equipada con heladera con freezer, microondas, pava eléctrica y hornallas eléctricas.
 
-El dormitorio tiene cama king con ropa de cama, un placard amplio y aire acondicionado frío-calor. Si preferís dos camas individuales, separamos la king: avisanos al reservar. El baño es completo, con ducha.
+El dormitorio tiene un placard amplio y aire acondicionado frío-calor. Son dos camas que dejamos unidas, como una king, o separadas como individuales: decinos qué te conviene al reservar. La ropa de cama está incluida. El baño es completo, con ducha.
