@@ -47,7 +47,9 @@ const waMessage = `Hi, I'm interested in the "${name}" unit at El Refugio del Co
 
 const blurbEn = data.blurb_en ?? data.blurb;
 const seoTitle = `${name} in Capilla del Monte · ${data.specs.capacidad}`;
-const seoDesc = `${name}: ${data.specs.capacidad}, ${data.specs.ambientes}, ${data.specs.metros}. Apartment at Río Negro 64, Capilla del Monte, Argentina. ${blurbEn}`.slice(0, 200);
+const clip = (s: string, max = 158) =>
+  s.length <= max ? s : s.slice(0, s.lastIndexOf(' ', max)).replace(/[.,;·]$/, '') + '…';
+const seoDesc = clip(`${name} in Capilla del Monte, ${data.specs.metros}: ${blurbEn}`);
 
 const faqGroups = await getCollection('faq', ({ data }) => data.lang === 'en');
 const byCat = (cat: string) => faqGroups.find(g => g.data.category === cat)?.data.qa ?? [];

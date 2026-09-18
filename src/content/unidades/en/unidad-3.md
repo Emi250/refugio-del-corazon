@@ -19,13 +19,13 @@ gallery:
   - { src: "../../../assets/images/unidades/unidad-3/dormitorio-03.jpg", caption: "Bedroom · another angle" }
   - { src: "../../../assets/images/unidades/unidad-3/dormitorio-individual.jpg", caption: "Second bedroom" }
   - { src: "../../../assets/images/unidades/unidad-3/bano-02.jpg", caption: "Bathroom · vanity" }
-blurb: "Two bedrooms designed so families or groups of friends can rest without crowding each other. The right balance between space and warmth."
+blurb: "Two bedrooms, a wide living-dining room and the bathroom inside the main room. For up to 3 guests."
 airbnb_url: "https://airbnb.com.ar/h/capilladelmonte1"
 video_url: "https://drive.google.com/file/d/140Jm2sfPyLAq1fEbEtOASKrRAA_4QfZk/view?usp=sharing"
 ---
 
-Two bedrooms, a wide living-dining room, and a kitchen designed for comfort. Ideal for families or groups of friends.
+Two bedrooms and a wide living-dining room. The main one has a queen bed; the second, a single bed.
 
-The main bedroom has a queen bed; the second, a single bed. The private bathroom is in the main bedroom.
+The bathroom is inside the main bedroom. The kitchen has a gas oven and is equipped for everyday cooking.
 
-Like every apartment, it has access to the shared inner courtyard.
+Like the other apartments, you get access to the shared inner courtyard and the grill.

@@ -20,13 +20,13 @@ gallery:
   - { src: "../../../assets/images/unidades/unidad-1/placard.jpg", caption: "Closet and air conditioning" }
   - { src: "../../../assets/images/unidades/unidad-1/entrada.jpg", caption: "Entrance to the apartment" }
   - { src: "../../../assets/images/unidades/unidad-1/exterior.jpg", caption: "Front and garden" }
-blurb: "An ideal space for one or two people seeking peace without compromising comfort."
+blurb: "One bedroom and a living room open to the kitchen, for two. The king bed can be split into two singles."
 airbnb_url: "https://airbnb.com.ar/h/capilladelmonte3"
 video_url: "https://drive.google.com/file/d/1R-VHFCUK1W0GpYPmW3cINT-zEhlbLNEZ/view?usp=sharing"
 ---
 
-Designed so that the moment you step in, you feel at home. The living room is the heart of the apartment — where long conversations and slow coffee mornings happen — and it has a Smart TV with Netflix included.
+One bedroom and a living-dining room open to the kitchen. The living room has a Smart TV with Netflix included and an electric heater.
 
-The kitchen is fully equipped, with electric burners (oven not included), so cooking becomes part of the vacation ritual rather than a chore. Open to the living room, it preserves the flow of the space.
+The kitchen comes with a fridge-freezer, microwave, electric kettle and electric burners. There is no oven.
 
-The main bedroom has a king bed with linens and a generous closet. If you'd prefer two separate beds, we can split the king into two singles — just let us know when booking.
+The bedroom has a king bed with linens, a large closet and air conditioning. If you would rather have two single beds, we split the king: just tell us when you book. The bathroom is full, with a shower.

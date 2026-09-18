@@ -20,14 +20,14 @@ gallery:
   - { src: "../../assets/images/unidades/unidad-2/dormitorio-individual.jpg", caption: "Segundo ambiente" }
   - { src: "../../assets/images/unidades/unidad-2/bano-02.jpg", caption: "Baño · vanity" }
   - { src: "../../assets/images/unidades/unidad-2/detalle.jpg", caption: "Ropa blanca y amenities" }
-blurb: "Pensado para dos huéspedes que buscan un refugio íntimo y luminoso. Cada detalle elegido para que la tranquilidad y el confort vayan de la mano."
-blurb_en: "Designed for two guests in search of an intimate, light-filled hideaway. Every detail chosen so calm and comfort go hand in hand."
+blurb: "Dos ambientes con cama queen, cocina con horno a gas y aire acondicionado frío-calor."
+blurb_en: "Two rooms with a queen bed, a kitchen with gas oven and heat-and-cool air conditioning."
 airbnb_url: "https://airbnb.com.ar/h/capilladelmonte"
 video_url: "https://drive.google.com/file/d/1HTGDUDwQ9NfqJJ9E7g9iLUK42VxMnwOr/view?usp=sharing"
 ---
 
-Departamento de dos ambientes con cama queen.
+Departamento de dos ambientes con cama queen y ropa de cama incluida.
 
-La cocina completa incluye horno a gas y todos los elementos necesarios para la estadía.
+La cocina está completa: horno a gas, heladera con freezer y todo lo necesario para cocinar los días que estés.
 
-Aire acondicionado frío-calor para todas las estaciones.
+Tiene aire acondicionado frío-calor, así que sirve igual en verano y en invierno. Smart TV y WiFi de fibra incluidos.

@@ -21,12 +21,12 @@ gallery:
   - { src: "../../../assets/images/unidades/unidad-4/dormitorio-individual.jpg", caption: "Second bedroom · two beds" }
   - { src: "../../../assets/images/unidades/unidad-4/bano-02.jpg", caption: "Bathroom · vanity" }
   - { src: "../../../assets/images/unidades/unidad-4/lavadero.jpg", caption: "Laundry" }
-blurb: "The largest of the four units. Two bedrooms with beds that adapt to your group, ideal for families or friends traveling together without giving up their own space."
+blurb: "The largest of the four, with two bedrooms and a laundry area. For up to 5 guests."
 video_url: "https://drive.google.com/file/d/1PJ_1UBRlw2IibLQtPFit2o78Nb4dq42H/view?usp=sharing"
 ---
 
-The largest of the four units, with two bedrooms so families or groups can travel without stepping on each other. The main bedroom has a queen bed; the second has two beds that can stay single or join to form a double.
+The largest of the four. Two bedrooms: the main one with a queen bed, the second with two beds we leave single or push together as a double. Tell us what works for you when you book.
 
-The living-dining offers plenty of room for long conversations, board games, or a dinner no one wants to rush. The fully-equipped kitchen, open to the living area, keeps whoever cooks part of the conversation.
+The living-dining room is large and the kitchen is open to it, with a gas oven and fully equipped. It also has a laundry area.
 
-Designed so the whole group finds its place without giving up the feeling of being at home.
+Air conditioning, Smart TV and fiber WiFi, like the rest of the apartments.

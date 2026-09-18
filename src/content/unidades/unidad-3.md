@@ -19,14 +19,14 @@ gallery:
   - { src: "../../assets/images/unidades/unidad-3/dormitorio-03.jpg", caption: "Dormitorio · otro ángulo" }
   - { src: "../../assets/images/unidades/unidad-3/dormitorio-individual.jpg", caption: "Segundo dormitorio" }
   - { src: "../../assets/images/unidades/unidad-3/bano-02.jpg", caption: "Baño · vanity" }
-blurb: "Dos habitaciones pensadas para que familias o grupos de amigos descansen sin amontonarse. La medida exacta entre amplitud y calidez."
-blurb_en: "Two bedrooms designed so families or groups of friends can rest without crowding each other. The right balance between space and warmth."
+blurb: "Dos dormitorios, living comedor amplio y baño en la habitación principal. Para hasta 3 personas."
+blurb_en: "Two bedrooms, a wide living-dining room and the bathroom inside the main room. For up to 3 guests."
 airbnb_url: "https://airbnb.com.ar/h/capilladelmonte1"
 video_url: "https://drive.google.com/file/d/140Jm2sfPyLAq1fEbEtOASKrRAA_4QfZk/view?usp=sharing"
 ---
 
-Dos dormitorios, living comedor amplio y una cocina pensada para estar cómodo. Ideal para familias o grupos de amigos.
+Dos dormitorios y un living comedor amplio. El principal tiene cama queen; el segundo, una cama individual.
 
-El dormitorio principal tiene cama queen; el segundo, una cama individual. El baño privado está en la habitación principal.
+El baño está dentro de la habitación principal. La cocina tiene horno a gas y está equipada para cocinar todos los días.
 
-Como todos los departamentos, tiene acceso al patio interno compartido.
+Como el resto de los departamentos, tenés acceso al patio interno compartido y a la parrilla.
