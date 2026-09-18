@@ -8,7 +8,7 @@ specs:
   ambientes: "1 bedroom · living room"
   metros: "40 m²"
   vista: "Mountain view"
-chips: ["WiFi", "Equipped kitchen", "Grill", "Linens", "Air Conditioning", "Bed linens", "Fridge with Freezer", "Smart TV (no cable)"]
+chips: ["WiFi", "Equipped kitchen", "Grill", "Linens", "Heat-and-cool AC", "Bed linens", "Fridge with Freezer", "Smart TV (no cable)"]
 hero_image: "../../../assets/images/unidades/unidad-1/hero.jpg"
 gallery:
   - { src: "../../../assets/images/unidades/unidad-1/living-comedor.jpg", caption: "Living-dining room with open kitchen" }

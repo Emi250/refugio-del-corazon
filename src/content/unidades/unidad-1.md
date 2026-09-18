@@ -8,7 +8,7 @@ specs:
   ambientes: "1 dormitorio · living"
   metros: "40 m²"
   vista: "Sierras al frente"
-chips: ["WiFi", "Cocina equipada", "Parrilla", "Ropa de cama", "Aire Acondicionado", "Ropa blanca", "Heladera con Freezer", "Smart TV (sin cable)"]
+chips: ["WiFi", "Cocina equipada", "Parrilla", "Ropa de cama", "Aire frío-calor", "Ropa blanca", "Heladera con Freezer", "Smart TV (sin cable)"]
 hero_image: "../../assets/images/unidades/unidad-1/hero.jpg"
 gallery:
   - { src: "../../assets/images/unidades/unidad-1/living-comedor.jpg", caption: "Living comedor con cocina integrada" }
