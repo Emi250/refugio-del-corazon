@@ -20,12 +20,12 @@ gallery:
   - { src: "../../../assets/images/unidades/unidad-2/dormitorio-individual.jpg", caption: "Second room" }
   - { src: "../../../assets/images/unidades/unidad-2/bano-02.jpg", caption: "Bathroom · vanity" }
   - { src: "../../../assets/images/unidades/unidad-2/detalle.jpg", caption: "Linens and amenities" }
-blurb: "Two rooms with a queen bed, a kitchen with gas oven and heat-and-cool air conditioning."
+blurb: "Two rooms with a queen bed and a single bed, a kitchen with gas oven and heat-and-cool AC."
 airbnb_url: "https://airbnb.com.ar/h/capilladelmonte"
 video_url: "https://drive.google.com/file/d/1HTGDUDwQ9NfqJJ9E7g9iLUK42VxMnwOr/view?usp=sharing"
 ---
 
-A two-room apartment with a queen bed and linens included.
+Two rooms with a queen bed and a single bed: it sleeps up to 3. Linens included.
 
 The kitchen is complete: gas oven, fridge-freezer and everything you need to cook during your stay.
 

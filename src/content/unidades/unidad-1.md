@@ -30,4 +30,4 @@ Un dormitorio y un living comedor integrado con la cocina. El living tiene Smart
 
 La cocina está equipada con heladera con freezer, microondas, pava eléctrica y hornallas eléctricas. No tiene horno.
 
-El dormitorio tiene cama king con ropa de cama, un placard amplio y aire acondicionado. Si preferís dos camas individuales, separamos la king: avisanos al reservar. El baño es completo, con ducha.
+El dormitorio tiene cama king con ropa de cama, un placard amplio y aire acondicionado frío-calor. Si preferís dos camas individuales, separamos la king: avisanos al reservar. El baño es completo, con ducha.

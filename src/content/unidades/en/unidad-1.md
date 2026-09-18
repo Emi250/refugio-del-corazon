@@ -29,4 +29,4 @@ One bedroom and a living-dining room open to the kitchen. The living room has a 
 
 The kitchen comes with a fridge-freezer, microwave, electric kettle and electric burners. There is no oven.
 
-The bedroom has a king bed with linens, a large closet and air conditioning. If you would rather have two single beds, we split the king: just tell us when you book. The bathroom is full, with a shower.
+The bedroom has a king bed with linens, a large closet and heat-and-cool air conditioning. If you would rather have two single beds, we split the king: just tell us when you book. The bathroom is full, with a shower.

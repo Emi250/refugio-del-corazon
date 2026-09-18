@@ -20,13 +20,13 @@ gallery:
   - { src: "../../assets/images/unidades/unidad-2/dormitorio-individual.jpg", caption: "Segundo ambiente" }
   - { src: "../../assets/images/unidades/unidad-2/bano-02.jpg", caption: "Baño · vanity" }
   - { src: "../../assets/images/unidades/unidad-2/detalle.jpg", caption: "Ropa blanca y amenities" }
-blurb: "Dos ambientes con cama queen, cocina con horno a gas y aire acondicionado frío-calor."
-blurb_en: "Two rooms with a queen bed, a kitchen with gas oven and heat-and-cool air conditioning."
+blurb: "Dos ambientes con cama queen y una individual, cocina con horno a gas y aire frío-calor."
+blurb_en: "Two rooms with a queen bed and a single bed, a kitchen with gas oven and heat-and-cool AC."
 airbnb_url: "https://airbnb.com.ar/h/capilladelmonte"
 video_url: "https://drive.google.com/file/d/1HTGDUDwQ9NfqJJ9E7g9iLUK42VxMnwOr/view?usp=sharing"
 ---
 
-Departamento de dos ambientes con cama queen y ropa de cama incluida.
+Dos ambientes con cama queen y una cama individual: entran hasta 3 personas. Ropa de cama incluida.
 
 La cocina está completa: horno a gas, heladera con freezer y todo lo necesario para cocinar los días que estés.
 
