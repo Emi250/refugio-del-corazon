@@ -8,19 +8,19 @@ specs:
   ambientes: "2 dormitorios · living comedor"
   metros: "65 m²"
 chips: ["WiFi", "Cocina equipada", "Aire acondicionado", "Parrilla", "Ropa de cama", "Ropa blanca", "Smart TV (sin cable)", "Heladera con Freezer"]
-hero_image: "/images/unidades/unidad-4/hero.jpg"
+hero_image: "../../assets/images/unidades/unidad-4/hero.jpg"
 gallery:
-  - { src: "/images/unidades/unidad-4/living.png", caption: "Living con ventanas arqueadas" }
-  - { src: "/images/unidades/unidad-4/cocina.jpg", caption: "Cocina con horno a gas" }
-  - { src: "/images/unidades/unidad-4/dormitorio.jpg", caption: "Dormitorio principal" }
-  - { src: "/images/unidades/unidad-4/bano.jpg", caption: "Baño completo" }
-  - { src: "/images/unidades/unidad-4/exterior.jpg", caption: "Frente del depto #4" }
-  - { src: "/images/unidades/unidad-4/living-02.jpg", caption: "Zona de descanso" }
-  - { src: "/images/unidades/unidad-4/comedor.jpg", caption: "Cocina comedor integrada" }
-  - { src: "/images/unidades/unidad-4/cocina-02.jpg", caption: "Cocina · detalle" }
-  - { src: "/images/unidades/unidad-4/dormitorio-individual.jpg", caption: "Segundo dormitorio · dos camas" }
-  - { src: "/images/unidades/unidad-4/bano-02.jpg", caption: "Baño · vanity" }
-  - { src: "/images/unidades/unidad-4/lavadero.jpg", caption: "Lavadero" }
+  - { src: "../../assets/images/unidades/unidad-4/living.jpg", caption: "Living con ventanas arqueadas" }
+  - { src: "../../assets/images/unidades/unidad-4/cocina.jpg", caption: "Cocina con horno a gas" }
+  - { src: "../../assets/images/unidades/unidad-4/dormitorio.jpg", caption: "Dormitorio principal" }
+  - { src: "../../assets/images/unidades/unidad-4/bano.jpg", caption: "Baño completo" }
+  - { src: "../../assets/images/unidades/unidad-4/exterior.jpg", caption: "Frente del depto #4" }
+  - { src: "../../assets/images/unidades/unidad-4/living-02.jpg", caption: "Zona de descanso" }
+  - { src: "../../assets/images/unidades/unidad-4/comedor.jpg", caption: "Cocina comedor integrada" }
+  - { src: "../../assets/images/unidades/unidad-4/cocina-02.jpg", caption: "Cocina · detalle" }
+  - { src: "../../assets/images/unidades/unidad-4/dormitorio-individual.jpg", caption: "Segundo dormitorio · dos camas" }
+  - { src: "../../assets/images/unidades/unidad-4/bano-02.jpg", caption: "Baño · vanity" }
+  - { src: "../../assets/images/unidades/unidad-4/lavadero.jpg", caption: "Lavadero" }
 blurb: "El más amplio de las cuatro unidades. Dos habitaciones con camas que se adaptan a tu grupo, ideal para que familias o amigos viajen juntos sin renunciar al espacio propio."
 blurb_en: "The largest of the four units. Two bedrooms with beds that adapt to your group, ideal for families or friends traveling together without giving up their own space."
 ---

@@ -8,17 +8,17 @@ specs:
   ambientes: "2 bedrooms · living-dining"
   metros: "60 m²"
 chips: ["WiFi", "Equipped kitchen", "Air conditioning", "Grill", "Linens", "Bed linens", "Smart TV (no cable)", "Fridge with Freezer"]
-hero_image: "/images/unidades/unidad-3/hero.jpg"
+hero_image: "../../../assets/images/unidades/unidad-3/hero.jpg"
 gallery:
-  - { src: "/images/unidades/unidad-3/living.jpg", caption: "Living-dining" }
-  - { src: "/images/unidades/unidad-3/cocina.jpg", caption: "Kitchen with gas oven" }
-  - { src: "/images/unidades/unidad-3/dormitorio.jpg", caption: "Main bedroom" }
-  - { src: "/images/unidades/unidad-3/bano.jpg", caption: "Full bathroom" }
-  - { src: "/images/unidades/unidad-3/exterior.jpg", caption: "Apartment #3 entrance" }
-  - { src: "/images/unidades/unidad-3/dormitorio-02.jpg", caption: "Bedroom · headboard detail" }
-  - { src: "/images/unidades/unidad-3/dormitorio-03.jpg", caption: "Bedroom · another angle" }
-  - { src: "/images/unidades/unidad-3/dormitorio-individual.jpg", caption: "Second bedroom" }
-  - { src: "/images/unidades/unidad-3/bano-02.jpg", caption: "Bathroom · vanity" }
+  - { src: "../../../assets/images/unidades/unidad-3/living.jpg", caption: "Living-dining" }
+  - { src: "../../../assets/images/unidades/unidad-3/cocina.jpg", caption: "Kitchen with gas oven" }
+  - { src: "../../../assets/images/unidades/unidad-3/dormitorio.jpg", caption: "Main bedroom" }
+  - { src: "../../../assets/images/unidades/unidad-3/bano.jpg", caption: "Full bathroom" }
+  - { src: "../../../assets/images/unidades/unidad-3/exterior.jpg", caption: "Apartment #3 entrance" }
+  - { src: "../../../assets/images/unidades/unidad-3/dormitorio-02.jpg", caption: "Bedroom · headboard detail" }
+  - { src: "../../../assets/images/unidades/unidad-3/dormitorio-03.jpg", caption: "Bedroom · another angle" }
+  - { src: "../../../assets/images/unidades/unidad-3/dormitorio-individual.jpg", caption: "Second bedroom" }
+  - { src: "../../../assets/images/unidades/unidad-3/bano-02.jpg", caption: "Bathroom · vanity" }
 blurb: "Two bedrooms designed so families or groups of friends can rest without crowding each other. The right balance between space and warmth."
 airbnb_url: "https://airbnb.com.ar/h/capilladelmonte1"
 ---

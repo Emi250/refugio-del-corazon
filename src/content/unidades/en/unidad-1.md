@@ -9,21 +9,20 @@ specs:
   metros: "40 m²"
   vista: "Mountain view"
 chips: ["WiFi", "Equipped kitchen", "Grill", "Linens", "Air Conditioning", "Bed linens", "Fridge with Freezer", "Smart TV (no cable)"]
-hero_image: "/images/unidades/unidad-1/hero.jpg"
+hero_image: "../../../assets/images/unidades/unidad-1/hero.jpg"
 gallery:
-  - { src: "/images/unidades/unidad-1/living.png", caption: "Living room with Smart TV and electric burners" }
-  - { src: "/images/unidades/unidad-1/cocina.jpg", caption: "Equipped kitchen" }
-  - { src: "/images/unidades/unidad-1/dormitorio.jpg", caption: "Main bedroom" }
-  - { src: "/images/unidades/unidad-1/bano.jpg", caption: "Bathroom with shower" }
-  - { src: "/images/unidades/unidad-1/exterior.jpg", caption: "Front and garden" }
-  - { src: "/images/unidades/unidad-1/comedor.jpg", caption: "Dining table" }
-  - { src: "/images/unidades/unidad-1/dormitorio-02.jpg", caption: "Bedroom · another angle" }
-  - { src: "/images/unidades/unidad-1/dormitorio-03.jpg", caption: "Closet and nightstand" }
-  - { src: "/images/unidades/unidad-1/bano-02.jpg", caption: "Bathroom · mirror" }
-  - { src: "/images/unidades/unidad-1/bano-03.jpg", caption: "Bathroom · detail" }
-  - { src: "/images/unidades/unidad-1/detalle.jpg", caption: "Bed linen detail" }
+  - { src: "../../../assets/images/unidades/unidad-1/living-comedor.jpg", caption: "Living-dining room with open kitchen" }
+  - { src: "../../../assets/images/unidades/unidad-1/living-tv.jpg", caption: "Living room with Smart TV and heating" }
+  - { src: "../../../assets/images/unidades/unidad-1/dormitorio.jpg", caption: "Bedroom with king bed and air conditioning" }
+  - { src: "../../../assets/images/unidades/unidad-1/ropa-de-cama.jpg", caption: "Bed linens and towels included" }
+  - { src: "../../../assets/images/unidades/unidad-1/cocina.jpg", caption: "Equipped kitchen with fridge, microwave and cooktop" }
+  - { src: "../../../assets/images/unidades/unidad-1/bano.jpg", caption: "Full bathroom with shower" }
+  - { src: "../../../assets/images/unidades/unidad-1/placard.jpg", caption: "Closet and air conditioning" }
+  - { src: "../../../assets/images/unidades/unidad-1/entrada.jpg", caption: "Entrance to the apartment" }
+  - { src: "../../../assets/images/unidades/unidad-1/exterior.jpg", caption: "Front and garden" }
 blurb: "An ideal space for one or two people seeking peace without compromising comfort."
 airbnb_url: "https://airbnb.com.ar/h/capilladelmonte3"
+video_url: "https://drive.google.com/file/d/1R-VHFCUK1W0GpYPmW3cINT-zEhlbLNEZ/view?usp=sharing"
 ---
 
 Designed so that the moment you step in, you feel at home. The living room is the heart of the apartment — where long conversations and slow coffee mornings happen — and it has a Smart TV with Netflix included.

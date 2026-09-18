@@ -2,7 +2,7 @@ import { defineCollection, z } from 'astro:content';
 
 const unidades = defineCollection({
   type: 'content',
-  schema: z.object({
+  schema: ({ image }) => z.object({
     name: z.string(),
     name_en: z.string().optional(),
     order: z.number(),
@@ -14,14 +14,15 @@ const unidades = defineCollection({
       vista: z.string().optional(),
     }),
     chips: z.array(z.string()),
-    hero_image: z.string(),
+    hero_image: image(),
     gallery: z.array(z.object({
-      src: z.string(),
+      src: image(),
       caption: z.string().optional(),
     })),
     blurb: z.string(),
     blurb_en: z.string().optional(),
     airbnb_url: z.string().url().optional(),
+    video_url: z.string().url().optional(),
   }),
 });
 

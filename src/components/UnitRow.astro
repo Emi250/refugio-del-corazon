@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { t, type Lang, localizedPath } from '~/i18n';
 import type { CollectionEntry } from 'astro:content';
 
@@ -14,10 +15,13 @@ const blurb = lang === 'en' && data.blurb_en ? data.blurb_en : data.blurb;
 const urlSlug = unit.slug.split('/').pop();
 const href = localizedPath(`/unidades/${urlSlug}`, lang);
 const num = `0${data.order}`;
+const alt = lang === 'en'
+  ? `${name} — short-term rental apartment in Capilla del Monte`
+  : `${name} — departamento de alquiler temporario en Capilla del Monte`;
 ---
 <article class={`unit unit-${align}`} data-reveal>
   <a href={href} class="unit-image" aria-label={name}>
-    <img src={data.hero_image} alt={`${name} — departamento de alquiler temporario en Capilla del Monte`} loading="lazy" decoding="async" width="1200" height="900" />
+    <Image src={data.hero_image} alt={alt} width={1200} widths={[400, 800, 1200]} sizes="(max-width: 900px) 100vw, 55vw" loading="lazy" decoding="async" />
     <span class="unit-caption">{name}</span>
   </a>
   <div class="unit-body">

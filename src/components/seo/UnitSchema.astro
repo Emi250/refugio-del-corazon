@@ -1,5 +1,6 @@
 ---
 import type { Lang } from '~/i18n';
+import { lightboxVariant } from '~/utils/images';
 import { SITE_URL, SITE_NAME, BUSINESS, absoluteUrl, absoluteAssetUrl } from '~/utils/seo';
 
 interface Unit {
@@ -10,8 +11,8 @@ interface Unit {
     order: number;
     specs: { capacidad: string; ambientes: string; metros: string; vista?: string };
     chips: string[];
-    hero_image: string;
-    gallery: { src: string; caption?: string }[];
+    hero_image: ImageMetadata;
+    gallery: { src: ImageMetadata; caption?: string }[];
     blurb: string;
     blurb_en?: string;
     airbnb_url?: string;
@@ -31,10 +32,10 @@ const cap = parseInt(String(data.specs.capacidad).match(/\d+/g)?.pop() ?? '0', 1
 const unitPath = lang === 'es' ? `/unidades/${unit.slug}` : `/en/unidades/${unit.slug}`;
 const unitUrl = absoluteUrl(unitPath);
 
-const images = [
-  absoluteAssetUrl(data.hero_image),
-  ...data.gallery.slice(0, 6).map(g => absoluteAssetUrl(g.src)),
-];
+const images = await Promise.all(
+  [data.hero_image, ...data.gallery.slice(0, 6).map(g => g.src)]
+    .map(async img => absoluteAssetUrl(await lightboxVariant(img))),
+);
 
 const amenityMap: Record<string, string> = {
   'WiFi': 'WiFi',

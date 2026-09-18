@@ -8,19 +8,19 @@ specs:
   ambientes: "2 bedrooms · living-dining"
   metros: "65 m²"
 chips: ["WiFi", "Equipped kitchen", "Air conditioning", "Grill", "Linens", "Bed linens", "Smart TV (no cable)", "Fridge with Freezer"]
-hero_image: "/images/unidades/unidad-4/hero.jpg"
+hero_image: "../../../assets/images/unidades/unidad-4/hero.jpg"
 gallery:
-  - { src: "/images/unidades/unidad-4/living.png", caption: "Living with arched windows" }
-  - { src: "/images/unidades/unidad-4/cocina.jpg", caption: "Kitchen with gas oven" }
-  - { src: "/images/unidades/unidad-4/dormitorio.jpg", caption: "Main bedroom" }
-  - { src: "/images/unidades/unidad-4/bano.jpg", caption: "Full bathroom" }
-  - { src: "/images/unidades/unidad-4/exterior.jpg", caption: "Apartment #4 entrance" }
-  - { src: "/images/unidades/unidad-4/living-02.jpg", caption: "Lounge area" }
-  - { src: "/images/unidades/unidad-4/comedor.jpg", caption: "Open kitchen-dining" }
-  - { src: "/images/unidades/unidad-4/cocina-02.jpg", caption: "Kitchen · detail" }
-  - { src: "/images/unidades/unidad-4/dormitorio-individual.jpg", caption: "Second bedroom · two beds" }
-  - { src: "/images/unidades/unidad-4/bano-02.jpg", caption: "Bathroom · vanity" }
-  - { src: "/images/unidades/unidad-4/lavadero.jpg", caption: "Laundry" }
+  - { src: "../../../assets/images/unidades/unidad-4/living.jpg", caption: "Living with arched windows" }
+  - { src: "../../../assets/images/unidades/unidad-4/cocina.jpg", caption: "Kitchen with gas oven" }
+  - { src: "../../../assets/images/unidades/unidad-4/dormitorio.jpg", caption: "Main bedroom" }
+  - { src: "../../../assets/images/unidades/unidad-4/bano.jpg", caption: "Full bathroom" }
+  - { src: "../../../assets/images/unidades/unidad-4/exterior.jpg", caption: "Apartment #4 entrance" }
+  - { src: "../../../assets/images/unidades/unidad-4/living-02.jpg", caption: "Lounge area" }
+  - { src: "../../../assets/images/unidades/unidad-4/comedor.jpg", caption: "Open kitchen-dining" }
+  - { src: "../../../assets/images/unidades/unidad-4/cocina-02.jpg", caption: "Kitchen · detail" }
+  - { src: "../../../assets/images/unidades/unidad-4/dormitorio-individual.jpg", caption: "Second bedroom · two beds" }
+  - { src: "../../../assets/images/unidades/unidad-4/bano-02.jpg", caption: "Bathroom · vanity" }
+  - { src: "../../../assets/images/unidades/unidad-4/lavadero.jpg", caption: "Laundry" }
 blurb: "The largest of the four units. Two bedrooms with beds that adapt to your group, ideal for families or friends traveling together without giving up their own space."
 ---
 

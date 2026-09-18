@@ -3,12 +3,16 @@ import Base from '~/layouts/Base.astro';
 import BigHeader from '~/components/BigHeader.astro';
 import CTABlock from '~/components/CTABlock.astro';
 import Lightbox from '~/components/Lightbox.astro';
+import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
+import { lightboxVariants } from '~/utils/images';
 import { t, localizedPath } from '~/i18n';
 
 const lang = 'en' as const;
 const units = await getCollection('unidades', ({ data }) => data.lang === 'en');
 const sorted = units.sort((a, b) => a.data.order - b.data.order);
+const fullByUnit = new Map<string, string[]>();
+for (const u of sorted) fullByUnit.set(u.id, await lightboxVariants(u.data.gallery));
 
 function midPositions(n: number): Set<number> {
   const midsNeeded = (3 - (n % 3)) % 3;
@@ -47,12 +51,13 @@ function midPositions(n: number): Set<number> {
         {(() => {
           const mids = midPositions(unit.data.gallery.length);
           const groupName = `unit-${unit.data.order}`;
+          const full = fullByUnit.get(unit.id)!;
           return unit.data.gallery.map((img, i) => {
             const cls = i === 0 ? 'gal-cell-lead' : mids.has(i) ? 'gal-cell-mid' : '';
             return (
               <figure class={`gal-cell ${cls}`}>
-                <a href={img.src} class="gal-link" data-lb-group={groupName} data-lb-index={i} data-lb-caption={img.caption ?? ''} aria-label={img.caption ?? `Photo ${i + 1}`}>
-                  <img src={img.src} alt={img.caption ?? `${unit.data.name_en ?? unit.data.name} — photo ${i + 1}, apartment in Capilla del Monte`} loading="lazy" decoding="async" width="1600" height="1200" />
+                <a href={full[i]} class="gal-link" data-lb-group={groupName} data-lb-index={i} data-lb-caption={img.caption ?? ''} aria-label={img.caption ?? `Photo ${i + 1}`}>
+                  <Image src={img.src} alt={img.caption ?? `${unit.data.name_en ?? unit.data.name} — photo ${i + 1}, apartment in Capilla del Monte`} width={1200} widths={[400, 800, 1200]} sizes="(max-width: 900px) 100vw, 33vw" loading="lazy" decoding="async" />
                 </a>
                 {img.caption && <figcaption class="gal-cap">{img.caption}</figcaption>}
               </figure>

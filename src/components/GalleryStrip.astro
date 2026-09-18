@@ -1,24 +1,34 @@
 ---
+import { Image } from 'astro:assets';
 import { t, type Lang, localizedPath } from '~/i18n';
+import { lightboxVariants } from '~/utils/images';
+import exterior2 from '~/assets/images/unidades/unidad-2/exterior.jpg';
+import living1 from '~/assets/images/unidades/unidad-1/living-comedor.jpg';
+import cocina4 from '~/assets/images/unidades/unidad-4/cocina.jpg';
+import dorm3 from '~/assets/images/unidades/unidad-3/dormitorio.jpg';
+import detalle1 from '~/assets/images/unidades/unidad-1/ropa-de-cama.jpg';
+import bano2 from '~/assets/images/unidades/unidad-2/bano.jpg';
 
-interface Props { lang?: Lang; images?: { src: string; caption?: string }[] }
+interface Props { lang?: Lang; images?: { src: ImageMetadata; caption?: string }[] }
 
 const defaults = [
-  { src: '/images/unidades/unidad-2/exterior.jpg', caption: 'Exterior' },
-  { src: '/images/unidades/unidad-1/living.png', caption: 'Living' },
-  { src: '/images/unidades/unidad-4/cocina.jpg', caption: 'Cocina' },
-  { src: '/images/unidades/unidad-3/dormitorio.jpg', caption: 'Dormitorio' },
-  { src: '/images/unidades/unidad-1/detalle.jpg', caption: 'Detalles' },
-  { src: '/images/unidades/unidad-2/bano.jpg', caption: 'Baño' },
+  { src: exterior2, caption: 'Exterior' },
+  { src: living1, caption: 'Living' },
+  { src: cocina4, caption: 'Cocina' },
+  { src: dorm3, caption: 'Dormitorio' },
+  { src: detalle1, caption: 'Detalles' },
+  { src: bano2, caption: 'Baño' },
 ];
 
 const { lang = 'es', images = defaults } = Astro.props;
+const shown = images.slice(0, 6);
+const full = await lightboxVariants(shown);
 ---
 <section class="gallery-strip">
   <div class="gs-grid">
-    {images.slice(0, 6).map((img, i) => (
-      <a href={img.src} class="gs-cell" data-lb-group="home-strip" data-lb-index={i} data-lb-caption={img.caption ?? ''} aria-label={img.caption ?? `Foto ${i + 1}`}>
-        <img src={img.src} alt={img.caption ?? `Foto ${i + 1} — El Refugio del Corazón, Capilla del Monte`} loading="lazy" decoding="async" width="600" height="600" />
+    {shown.map((img, i) => (
+      <a href={full[i]} class="gs-cell" data-lb-group="home-strip" data-lb-index={i} data-lb-caption={img.caption ?? ''} aria-label={img.caption ?? `Foto ${i + 1}`}>
+        <Image src={img.src} alt={img.caption ?? `Foto ${i + 1} — El Refugio del Corazón, Capilla del Monte`} width={600} widths={[300, 600]} sizes="(max-width: 900px) 33vw, 16vw" loading="lazy" decoding="async" />
         {img.caption && <span class="gs-cap">{img.caption}</span>}
       </a>
     ))}

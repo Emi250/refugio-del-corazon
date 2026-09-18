@@ -9,21 +9,20 @@ specs:
   metros: "40 m²"
   vista: "Sierras al frente"
 chips: ["WiFi", "Cocina equipada", "Parrilla", "Ropa de cama", "Aire Acondicionado", "Ropa blanca", "Heladera con Freezer", "Smart TV (sin cable)"]
-hero_image: "/images/unidades/unidad-1/hero.jpg"
+hero_image: "../../assets/images/unidades/unidad-1/hero.jpg"
 gallery:
-  - { src: "/images/unidades/unidad-1/living.png", caption: "Living con Smart TV y hornallas eléctricas" }
-  - { src: "/images/unidades/unidad-1/cocina.jpg", caption: "Cocina equipada" }
-  - { src: "/images/unidades/unidad-1/dormitorio.jpg", caption: "Dormitorio principal" }
-  - { src: "/images/unidades/unidad-1/bano.jpg", caption: "Baño con ducha" }
-  - { src: "/images/unidades/unidad-1/exterior.jpg", caption: "Frente y jardín" }
-  - { src: "/images/unidades/unidad-1/comedor.jpg", caption: "Mesa comedor" }
-  - { src: "/images/unidades/unidad-1/dormitorio-02.jpg", caption: "Dormitorio · otro ángulo" }
-  - { src: "/images/unidades/unidad-1/dormitorio-03.jpg", caption: "Placard y mesa de luz" }
-  - { src: "/images/unidades/unidad-1/bano-02.jpg", caption: "Baño · espejo" }
-  - { src: "/images/unidades/unidad-1/bano-03.jpg", caption: "Baño · detalle" }
-  - { src: "/images/unidades/unidad-1/detalle.jpg", caption: "Detalle ropa de cama" }
+  - { src: "../../assets/images/unidades/unidad-1/living-comedor.jpg", caption: "Living comedor con cocina integrada" }
+  - { src: "../../assets/images/unidades/unidad-1/living-tv.jpg", caption: "Living con Smart TV y calefacción" }
+  - { src: "../../assets/images/unidades/unidad-1/dormitorio.jpg", caption: "Dormitorio con cama king y aire acondicionado" }
+  - { src: "../../assets/images/unidades/unidad-1/ropa-de-cama.jpg", caption: "Ropa de cama y toallas incluidas" }
+  - { src: "../../assets/images/unidades/unidad-1/cocina.jpg", caption: "Cocina equipada con heladera, microondas y anafe" }
+  - { src: "../../assets/images/unidades/unidad-1/bano.jpg", caption: "Baño completo con ducha" }
+  - { src: "../../assets/images/unidades/unidad-1/placard.jpg", caption: "Placard y aire acondicionado" }
+  - { src: "../../assets/images/unidades/unidad-1/entrada.jpg", caption: "Entrada al departamento" }
+  - { src: "../../assets/images/unidades/unidad-1/exterior.jpg", caption: "Frente y jardín" }
 blurb: "Un espacio ideal para una o dos personas que buscan tranquilidad sin resignar comodidad."
 airbnb_url: "https://airbnb.com.ar/h/capilladelmonte3"
+video_url: "https://drive.google.com/file/d/1R-VHFCUK1W0GpYPmW3cINT-zEhlbLNEZ/view?usp=sharing"
 blurb_en: "An ideal space for one or two people seeking peace without compromising comfort."
 ---
 

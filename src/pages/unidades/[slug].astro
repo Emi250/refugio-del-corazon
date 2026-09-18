@@ -9,6 +9,9 @@ import FAQItem from '~/components/FAQItem.astro';
 import UnitSchema from '~/components/seo/UnitSchema.astro';
 import BreadcrumbSchema from '~/components/seo/BreadcrumbSchema.astro';
 import Lightbox from '~/components/Lightbox.astro';
+import VideoCTA from '~/components/VideoCTA.astro';
+import { ogVariant } from '~/utils/images';
+import { getImage } from 'astro:assets';
 import { t, localizedPath } from '~/i18n';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
@@ -53,6 +56,9 @@ const miniFaqEntries = [
   { src: byCat('Durante la estadía')[0], no: '3.1' },
 ].filter(e => e.src);
 
+const ogImg = await ogVariant(data.hero_image);
+const heroPreload = await getImage({ src: data.hero_image, widths: [400, 800, 1200], format: 'webp', quality: 80 });
+
 const crumbs = [
   { name: 'Inicio', path: '/' },
   { name: 'Departamentos', path: '/#unidades' },
@@ -62,9 +68,9 @@ const crumbs = [
 <Base
   title={seoTitle}
   description={seoDesc}
-  ogImage={data.hero_image}
+  ogImage={ogImg}
   ogType="article"
-  preloadImage={data.hero_image}
+  preloadImage={heroPreload.src}
 >
   <UnitSchema unit={unit} lang={lang} />
   <BreadcrumbSchema items={crumbs} />
@@ -87,7 +93,10 @@ const crumbs = [
           <span aria-hidden="true">·</span>
           <span>{data.specs.ambientes}</span>
         </div>
-        <WhatsAppCTA lang={lang} variant="big" message={waMessage} />
+        <div class="title-actions">
+          {data.video_url && <VideoCTA href={data.video_url} lang={lang} />}
+          <WhatsAppCTA lang={lang} variant="big" message={waMessage} />
+        </div>
       </div>
     </div>
   </section>
@@ -195,6 +204,13 @@ const crumbs = [
     letter-spacing: -0.045em;
     font-weight: 800;
     margin-top: 14px;
+  }
+  .title-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
   }
   .title-side {
     display: flex;

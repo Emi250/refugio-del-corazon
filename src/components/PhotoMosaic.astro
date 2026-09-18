@@ -1,7 +1,9 @@
 ---
+import { Image } from 'astro:assets';
 import { t, type Lang, localizedPath } from '~/i18n';
+import { lightboxVariants } from '~/utils/images';
 
-interface MosaicImage { src: string; caption?: string }
+interface MosaicImage { src: ImageMetadata; caption?: string }
 interface Props {
   images: MosaicImage[];
   lang?: Lang;
@@ -21,18 +23,19 @@ const padded: (MosaicImage | null)[] = [...images];
 while (padded.length < 5) padded.push(null);
 const visible = padded.slice(0, 5);
 const hidden = group ? images.slice(5) : [];
+const full = await lightboxVariants(images);
 ---
 <div class="mosaic">
   {visible.map((img, i) => (
     <div class={`mos-cell mos-cell-${i + 1}`} style={`--i:${i}`}>
       {img && (group ? (
-        <a href={img.src} class="mos-link" data-lb-group={group} data-lb-index={i} data-lb-caption={img.caption ?? ''} aria-label={img.caption ?? `Foto ${i + 1}`}>
-          <img src={img.src} alt={img.caption ? captionAlt(img.caption) : fallbackAlt(i)} loading="lazy" decoding="async" width="1200" height="800" />
+        <a href={full[i]} class="mos-link" data-lb-group={group} data-lb-index={i} data-lb-caption={img.caption ?? ''} aria-label={img.caption ?? `Foto ${i + 1}`}>
+          <Image src={img.src} alt={img.caption ? captionAlt(img.caption) : fallbackAlt(i)} width={1200} widths={[400, 800, 1200]} sizes="(max-width: 900px) 100vw, 45vw" loading="lazy" decoding="async" />
           {img.caption && <span class="mos-cap">{img.caption}</span>}
         </a>
       ) : (
         <>
-          <img src={img.src} alt={img.caption ? captionAlt(img.caption) : fallbackAlt(i)} loading="lazy" decoding="async" width="1200" height="800" />
+          <Image src={img.src} alt={img.caption ? captionAlt(img.caption) : fallbackAlt(i)} width={1200} widths={[400, 800, 1200]} sizes="(max-width: 900px) 100vw, 45vw" loading="lazy" decoding="async" />
           {img.caption && <span class="mos-cap">{img.caption}</span>}
         </>
       ))}
@@ -42,7 +45,7 @@ const hidden = group ? images.slice(5) : [];
     </div>
   ))}
   {hidden.map((img, k) => (
-    <a hidden href={img.src} data-lb-group={group} data-lb-index={k + 5} data-lb-caption={img.caption ?? ''} aria-hidden="true" tabindex="-1"></a>
+    <a hidden href={full[k + 5]} data-lb-group={group} data-lb-index={k + 5} data-lb-caption={img.caption ?? ''} aria-hidden="true" tabindex="-1"></a>
   ))}
 </div>
 
