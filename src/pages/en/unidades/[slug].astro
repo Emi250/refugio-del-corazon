@@ -43,7 +43,7 @@ const specs = [
 const waMessage = `Hi, I'm interested in the "${name}" unit at El Refugio del Corazón. Could we check availability?`;
 
 const blurbEn = data.blurb_en ?? data.blurb;
-const seoTitle = `${name} · ${data.specs.capacidad} · Capilla del Monte | El Refugio del Corazón`;
+const seoTitle = `${name} in Capilla del Monte · ${data.specs.capacidad}`;
 const seoDesc = `${name}: ${data.specs.capacidad}, ${data.specs.ambientes}, ${data.specs.metros}. Apartment at Río Negro 64, Capilla del Monte, Argentina. ${blurbEn}`.slice(0, 200);
 
 const faqGroups = await getCollection('faq', ({ data }) => data.lang === 'en');
@@ -176,7 +176,7 @@ const crumbs = [
   .crumb a:hover { color: var(--mf-accent); }
   .crumb b { color: var(--mf-ink); }
   .title-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; flex-wrap: wrap; }
-  .d-title-h { font-size: clamp(56px, 8vw, 128px); line-height: 0.88; letter-spacing: -0.045em; font-weight: 800; margin-top: 14px; }
+  .d-title-h { font-size: clamp(38px, 9.5vw, 128px); overflow-wrap: break-word; line-height: 0.88; letter-spacing: -0.045em; font-weight: 800; margin-top: 14px; }
   .title-side { display: flex; flex-direction: column; align-items: flex-end; gap: 16px; padding-bottom: 8px; }
   .d-specs { display: flex; gap: 10px; }
   .d-slab { padding: 36px 28px; border-bottom: 1.5px solid var(--mf-ink); background: var(--mf-paper); }

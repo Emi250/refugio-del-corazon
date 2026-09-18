@@ -2,15 +2,19 @@
 interface Props {
   kicker?: string;
   title: string;
+  subtitle?: string;
   meta?: string;
   blurb?: string;
 }
-const { kicker, title, meta, blurb } = Astro.props;
+const { kicker, title, subtitle, meta, blurb } = Astro.props;
 ---
 <header class="big-header">
   {kicker && <span class="kicker kicker-lg bh-kicker">{kicker}</span>}
   <div class="bh-row">
-    <h1 class="bh-h1">{title}</h1>
+    <h1 class="bh-h1">
+      {title}
+      {subtitle && <span class="bh-h1-deck">{subtitle}</span>}
+    </h1>
     {meta && <div class="bh-meta spec-mono">{meta}</div>}
   </div>
   {blurb && <p class="bh-blurb">{blurb}</p>}
@@ -31,10 +35,21 @@ const { kicker, title, meta, blurb } = Astro.props;
     flex-wrap: wrap;
   }
   .bh-h1 {
-    font-size: clamp(56px, 8.5vw, 128px);
+    font-size: clamp(40px, 9vw, 128px);
+    overflow-wrap: break-word;
     line-height: 0.88;
     letter-spacing: -0.045em;
     font-weight: 800;
+  }
+  .bh-h1-deck {
+    display: block;
+    margin-top: 14px;
+    max-width: 30ch;
+    font-size: clamp(15px, 1.5vw, 19px);
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -0.005em;
+    color: var(--mf-ink-soft);
   }
   .bh-meta {
     text-align: right;

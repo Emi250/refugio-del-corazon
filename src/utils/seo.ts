@@ -17,7 +17,7 @@ export const BUSINESS = {
   latitude: -30.8652362,
   longitude: -64.5283123,
   priceRange: '$$',
-  whatsapp: import.meta.env.PUBLIC_WHATSAPP_NUMBER ?? '5493548000000',
+  whatsapp: (import.meta.env.PUBLIC_WHATSAPP_NUMBER ?? '5493548000000').replace(/\D/g, ''),
   bookingUrl: 'https://www.booking.com/hotel/ar/refugio-del-corazon.html',
   mapsUrl: 'https://maps.app.goo.gl/Zs3MGBP1naMxwqmt5',
 };

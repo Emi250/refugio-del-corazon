@@ -1,0 +1,121 @@
+---
+import Base from '~/layouts/Base.astro';
+import BigHeader from '~/components/BigHeader.astro';
+import WhatsAppCTA from '~/components/WhatsAppCTA.astro';
+import { detectLang, t, localizedPath } from '~/i18n';
+
+const lang = detectLang(Astro.url.pathname);
+
+const copy = {
+  es: {
+    title: 'Página no encontrada · El Refugio del Corazón',
+    desc: 'La página que buscás no existe. Volvé al inicio o escribinos por WhatsApp.',
+    kicker: '404 · PÁGINA NO ENCONTRADA',
+    h1: 'Te perdiste',
+    subtitle: 'Esta página no existe. Te dejamos el camino de vuelta al refugio.',
+    meta: 'RIO NEGRO 64 · CAPILLA DEL MONTE',
+    blurb: 'Puede que el link esté viejo o mal escrito. Estos son los destinos principales:',
+    links: [
+      { href: '/', label: 'Inicio' },
+      { href: '/#unidades', label: 'Los departamentos' },
+      { href: '/servicios', label: 'Servicios' },
+      { href: '/ubicacion', label: 'Ubicación' },
+      { href: '/galeria', label: 'Galería' },
+      { href: '/faq', label: 'Preguntas frecuentes' },
+    ],
+  },
+  en: {
+    title: 'Page not found · El Refugio del Corazón',
+    desc: "The page you're looking for doesn't exist. Go back home or message us on WhatsApp.",
+    kicker: '404 · PAGE NOT FOUND',
+    h1: 'Lost your way',
+    subtitle: "This page doesn't exist. Here's the way back to the refuge.",
+    meta: 'RIO NEGRO 64 · CAPILLA DEL MONTE',
+    blurb: 'The link may be outdated or mistyped. These are the main destinations:',
+    links: [
+      { href: '/', label: 'Home' },
+      { href: '/#unidades', label: 'The apartments' },
+      { href: '/servicios', label: 'Services' },
+      { href: '/ubicacion', label: 'Location' },
+      { href: '/galeria', label: 'Gallery' },
+      { href: '/faq', label: 'FAQ' },
+    ],
+  },
+}[lang];
+---
+<Base title={copy.title} description={copy.desc} noindex>
+  <BigHeader
+    kicker={copy.kicker}
+    title={copy.h1}
+    subtitle={copy.subtitle}
+    meta={copy.meta}
+    blurb={copy.blurb}
+  />
+
+  <section class="nf">
+    <ul class="nf-list">
+      {copy.links.map((l, i) => (
+        <li>
+          <a href={localizedPath(l.href, lang)} class="nf-item">
+            <span class="nf-no">0{i + 1}</span>
+            <span class="nf-label">{l.label}</span>
+            <span class="nf-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+    <div class="nf-cta">
+      <span class="kicker">{t('faq.askMore', lang)}</span>
+      <WhatsAppCTA lang={lang} variant="big" />
+    </div>
+  </section>
+</Base>
+
+<style>
+  .nf {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 40px;
+    padding: 40px 28px 64px;
+    background: var(--mf-paper);
+    border-bottom: 1.5px solid var(--mf-ink);
+  }
+  .nf-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--mf-hair); }
+  .nf-item {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 18px 4px;
+    border-bottom: 1px solid var(--mf-hair);
+    text-decoration: none;
+    color: var(--mf-ink);
+  }
+  .nf-no {
+    font-family: var(--mf-font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--mf-ink-soft);
+  }
+  .nf-label { flex: 1; font-size: 20px; font-weight: 600; letter-spacing: -0.02em; }
+  .nf-arrow { color: var(--mf-accent); transition: transform 0.25s ease; }
+  .nf-item:hover .nf-label { color: var(--mf-accent); }
+  .nf-item:hover .nf-arrow { transform: translateX(5px); }
+
+  .nf-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: start;
+    padding: 24px;
+    background: var(--mf-paper-2);
+    border: 1.5px solid var(--mf-ink);
+    box-shadow: var(--mf-shadow-card);
+  }
+
+  @media (max-width: 900px) {
+    .nf { grid-template-columns: 1fr; gap: 32px; padding: 30px 18px 48px; }
+    .nf-label { font-size: 17px; }
+  }
+</style>

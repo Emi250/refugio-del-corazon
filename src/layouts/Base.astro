@@ -3,6 +3,7 @@ import '~/styles/global.css';
 import NavBar from '~/components/NavBar.astro';
 import Footer from '~/components/Footer.astro';
 import MobileStickyCTA from '~/components/MobileStickyCTA.astro';
+import LangSuggest from '~/components/LangSuggest.astro';
 import OrganizationSchema from '~/components/seo/OrganizationSchema.astro';
 import { detectLang, t } from '~/i18n';
 import {
@@ -18,7 +19,6 @@ interface Props {
   description?: string;
   ogImage?: string;
   ogType?: 'website' | 'article';
-  keywords?: string;
   navVariant?: 'hero' | 'paper';
   hideStickyCTA?: boolean;
   noindex?: boolean;
@@ -30,7 +30,6 @@ const {
   description,
   ogImage,
   ogType = 'website',
-  keywords,
   navVariant = 'paper',
   hideStickyCTA = false,
   noindex = false,
@@ -45,10 +44,9 @@ const ogUrl = canonical;
 const ogImageAbs = getOgImage(ogImage);
 const ogLocale = getOgLocale(lang);
 const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_AR';
-const defaultKeywords = lang === 'es'
-  ? 'alquiler temporario Capilla del Monte, departamentos Capilla del Monte, alojamiento sierras de Córdoba, Cerro Uritorco, El Refugio del Corazón'
-  : 'vacation rental Capilla del Monte, apartments Córdoba sierras, lodging near Uritorco, El Refugio del Corazón';
-const metaKeywords = keywords ?? defaultKeywords;
+const otherLangPath = lang === 'es'
+  ? `/en${Astro.url.pathname === '/' ? '' : Astro.url.pathname}`
+  : Astro.url.pathname.replace(/^\/en/, '') || '/';
 ---
 
 <!doctype html>
@@ -58,7 +56,6 @@ const metaKeywords = keywords ?? defaultKeywords;
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={desc} />
-    <meta name="keywords" content={metaKeywords} />
     <meta name="author" content={SITE_NAME} />
     {noindex
       ? <meta name="robots" content="noindex,nofollow" />
@@ -90,7 +87,7 @@ const metaKeywords = keywords ?? defaultKeywords;
     <meta name="geo.position" content="-30.8615;-64.5306" />
     <meta name="ICBM" content="-30.8615, -64.5306" />
 
-    <link rel="icon" type="image/jpeg" href="/logo-refugio.jpeg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/logo-refugio.jpeg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -115,30 +112,10 @@ const metaKeywords = keywords ?? defaultKeywords;
       gtag('config', 'G-0G62WCNHJG');
     </script>
 
-    <script is:inline>
-      (function() {
-        try {
-          if (/bot|crawl|spider|slurp|googlebot|bingbot|yandex|baidu|duckduck|facebookexternalhit|linkedinbot/i.test(navigator.userAgent)) return;
-          var stored = localStorage.getItem('pref-lang');
-          if (!stored) {
-            var isEs = (navigator.language || '').toLowerCase().startsWith('es');
-            var pref = isEs ? 'es' : 'en';
-            localStorage.setItem('pref-lang', pref);
-            var path = window.location.pathname;
-            var isEnPath = path.startsWith('/en');
-            if (pref === 'en' && !isEnPath) {
-              window.location.replace('/en' + (path === '/' ? '' : path));
-            } else if (pref === 'es' && isEnPath) {
-              var newPath = path.replace(/^\/en/, '');
-              window.location.replace(newPath || '/');
-            }
-          }
-        } catch(e) {}
-      })();
-    </script>
   </head>
   <body>
     <NavBar variant={navVariant} lang={lang} />
+    <LangSuggest lang={lang} otherPath={otherLangPath} />
     <main>
       <slot />
     </main>

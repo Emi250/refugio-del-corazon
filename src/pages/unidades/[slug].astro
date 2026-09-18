@@ -41,7 +41,7 @@ const specs = [
 
 const waMessage = `Hola, me interesa el ${data.name} de El Refugio del Corazón. ¿Podemos coordinar fechas?`;
 
-const seoTitle = `${data.name} · ${data.specs.capacidad} · Capilla del Monte | El Refugio del Corazón`;
+const seoTitle = `${data.name} en Capilla del Monte · ${data.specs.capacidad}`;
 const seoDesc = `${data.name}: ${data.specs.capacidad}, ${data.specs.ambientes}, ${data.specs.metros}. Departamento en Río Negro 64, Capilla del Monte. ${data.blurb}`.slice(0, 200);
 
 const faqGroups = await getCollection('faq', ({ data }) => data.lang === 'es');
@@ -189,7 +189,8 @@ const crumbs = [
     flex-wrap: wrap;
   }
   .d-title-h {
-    font-size: clamp(56px, 8vw, 128px);
+    font-size: clamp(38px, 9.5vw, 128px);
+    overflow-wrap: break-word;
     line-height: 0.88;
     letter-spacing: -0.045em;
     font-weight: 800;

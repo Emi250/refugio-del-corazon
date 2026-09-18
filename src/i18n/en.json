@@ -82,5 +82,10 @@
   },
   "galleryPage": {
     "viewDetail": "View apartment →"
+  },
+  "langSuggest": {
+    "text": "This page is available in English.",
+    "cta": "View in English",
+    "dismiss": "Dismiss"
   }
 }

@@ -1,0 +1,106 @@
+---
+import { t, type Lang } from '~/i18n';
+
+interface Props {
+  lang: Lang;
+  otherPath: string;
+}
+
+const { lang, otherPath } = Astro.props;
+const other: Lang = lang === 'es' ? 'en' : 'es';
+---
+<div
+  class="lang-suggest"
+  data-lang-suggest
+  data-page-lang={lang}
+  data-other-lang={other}
+  hidden
+>
+  <span class="lang-suggest-text">{t('langSuggest.text', other)}</span>
+  <a href={otherPath} class="lang-suggest-go" data-lang-go>{t('langSuggest.cta', other)}</a>
+  <button type="button" class="lang-suggest-x" data-lang-dismiss aria-label={t('langSuggest.dismiss', other)}>×</button>
+</div>
+
+<style>
+  .lang-suggest {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 28px;
+    background: var(--mf-paper-2);
+    border-bottom: 1px solid var(--mf-hair);
+    font-family: var(--mf-font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mf-ink-soft);
+  }
+  .lang-suggest[hidden] { display: none; }
+
+  .lang-suggest-text { flex: 1; }
+
+  .lang-suggest-go {
+    color: var(--mf-accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--mf-accent);
+    padding-bottom: 2px;
+    white-space: nowrap;
+  }
+
+  .lang-suggest-x {
+    width: 28px;
+    height: 28px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--mf-hair);
+    background: transparent;
+    color: var(--mf-ink);
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .lang-suggest-x:hover { border-color: var(--mf-ink); }
+
+  @media (max-width: 720px) {
+    .lang-suggest {
+      padding: 10px 18px;
+      gap: 12px;
+      font-size: 9.5px;
+    }
+  }
+</style>
+
+<script>
+  const bar = document.querySelector<HTMLElement>('[data-lang-suggest]');
+  if (bar) {
+    const pageLang = bar.dataset.pageLang;
+    const otherLang = bar.dataset.otherLang;
+    let dismissed = false;
+    let stored: string | null = null;
+    try {
+      dismissed = localStorage.getItem('lang-suggest-off') === '1';
+      stored = localStorage.getItem('pref-lang');
+    } catch (e) {}
+
+    const browser = (navigator.language || '').toLowerCase().startsWith('es') ? 'es' : 'en';
+    const wants = stored ?? browser;
+
+    if (!dismissed && !stored && wants === otherLang && wants !== pageLang) {
+      bar.removeAttribute('hidden');
+    }
+
+    bar.querySelector('[data-lang-dismiss]')?.addEventListener('click', () => {
+      bar.setAttribute('hidden', '');
+      try {
+        localStorage.setItem('lang-suggest-off', '1');
+        localStorage.setItem('pref-lang', pageLang!);
+      } catch (e) {}
+    });
+
+    bar.querySelector('[data-lang-go]')?.addEventListener('click', () => {
+      try { localStorage.setItem('pref-lang', otherLang!); } catch (e) {}
+    });
+  }
+</script>

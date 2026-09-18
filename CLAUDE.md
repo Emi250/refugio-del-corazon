@@ -389,7 +389,7 @@ Este proyecto se optimiza para **mínimo gasto de tokens** por sesión. Reglas:
 
 ## 13. Estado actual del proyecto
 
-**Última actualización**: 2026-05-22
+**Última actualización**: 2026-09-18
 
 - [x] CLAUDE.md creado
 - [x] Scaffold Astro inicial (configs + package.json) — 2026-05-21
@@ -403,6 +403,9 @@ Este proyecto se optimiza para **mínimo gasto de tokens** por sesión. Reglas:
 - [x] i18n EN espejo (18 páginas totales construyen OK) — 2026-05-21
 - [x] ReviewsBlock con widget Elfsight Booking en home (ES/EN) + link al listing — 2026-05-22
 - [x] Pack SEO completo (sitemap i18n, robots con bots IA, hreflang, canonicals, JSON-LD LodgingBusiness + Accommodation + FAQPage + BreadcrumbList, og:url/og:locale, geo meta, width/height en imágenes, Elfsight diferido) — 2026-05-22
+- [x] Quick wins SEO/UX post-auditoría (telephone `++` en JSON-LD, overflow horizontal mobile en títulos display, redirect automático de idioma → banner `LangSuggest`, H1 con bajada keyword vía `BigHeader.subtitle`, titles acortados a <60 chars, meta keywords eliminada, favicon SVG, 404 propia, `src=""` del Lightbox) — 2026-09-18
+- [ ] **PRIORITARIO** Optimizar imágenes: 291 MB en `public/images` sin procesar (fotos 4032×3024 crudas). Migrar a `src/assets` + `astro:assets` (`<Image>`/`<Picture>`). Hoy `/galeria/` pesa 290 MB y cada `/unidades/*` 65–78 MB
+- [ ] OG dedicadas 1200×630 (<300 KB) por unidad — hoy `ogImage` usa el hero de 7 MB vertical y WhatsApp no renderiza el preview
 - [ ] Generar `public/og/default.jpg` 1200×630 dedicada (hoy usa `/cerro uritorco.jpg` como fallback)
 - [ ] Sumar widgets Elfsight de Google y Airbnb cuando el cliente decida (mismo patrón que Booking)
 - [ ] Contenido real (scraping del sitio Lovable actual)

@@ -82,5 +82,10 @@
   },
   "galleryPage": {
     "viewDetail": "Ver departamento →"
+  },
+  "langSuggest": {
+    "text": "Esta página está disponible en español.",
+    "cta": "Ver en español",
+    "dismiss": "Cerrar"
   }
 }
