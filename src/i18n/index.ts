@@ -19,8 +19,24 @@ export function detectLang(pathname: string): Lang {
   return pathname.startsWith('/en') ? 'en' : 'es';
 }
 
+/** El sitio usa trailingSlash: 'always'. Sin la barra, cada link interno paga un 308. */
+export function withTrailingSlash(path: string): string {
+  const [base, hash] = path.split('#');
+  const frag = hash === undefined ? '' : `#${hash}`;
+  if (!base || base === '/') return `/${frag}`;
+  return base.endsWith('/') ? `${base}${frag}` : `${base}/${frag}`;
+}
+
 export function localizedPath(path: string, lang: Lang): string {
   const clean = path.startsWith('/') ? path : `/${path}`;
-  if (lang === 'es') return clean;
-  return `/en${clean === '/' ? '' : clean}`;
+  const full = lang === 'es' ? clean : `/en${clean === '/' ? '' : clean}`;
+  return withTrailingSlash(full);
+}
+
+/** La ruta hermana en el otro idioma, para el toggle y el banner. */
+export function otherLangPath(pathname: string, lang: Lang): string {
+  const other = lang === 'es'
+    ? `/en${pathname === '/' ? '' : pathname}`
+    : pathname.replace(/^\/en/, '') || '/';
+  return withTrailingSlash(other);
 }

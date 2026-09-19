@@ -5,7 +5,7 @@ import Footer from '~/components/Footer.astro';
 import MobileStickyCTA from '~/components/MobileStickyCTA.astro';
 import LangSuggest from '~/components/LangSuggest.astro';
 import OrganizationSchema from '~/components/seo/OrganizationSchema.astro';
-import { detectLang, t } from '~/i18n';
+import { detectLang, t, otherLangPath } from '~/i18n';
 import {
   SITE_NAME,
   getCanonical,
@@ -44,9 +44,7 @@ const ogUrl = canonical;
 const ogImageAbs = getOgImage(ogImage);
 const ogLocale = getOgLocale(lang);
 const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_AR';
-const otherLangPath = lang === 'es'
-  ? `/en${Astro.url.pathname === '/' ? '' : Astro.url.pathname}`
-  : Astro.url.pathname.replace(/^\/en/, '') || '/';
+const otherPath = otherLangPath(Astro.url.pathname, lang);
 ---
 
 <!doctype html>
@@ -115,7 +113,7 @@ const otherLangPath = lang === 'es'
   </head>
   <body>
     <NavBar variant={navVariant} lang={lang} />
-    <LangSuggest lang={lang} otherPath={otherLangPath} />
+    <LangSuggest lang={lang} otherPath={otherPath} />
     <main>
       <slot />
     </main>

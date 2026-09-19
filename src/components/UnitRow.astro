@@ -20,15 +20,15 @@ const alt = lang === 'en'
   : `${name} — departamento de alquiler temporario en Capilla del Monte`;
 ---
 <article class={`unit unit-${align}`} data-reveal>
-  <a href={href} class="unit-image" aria-label={name}>
+  <a href={href} class="unit-image" aria-hidden="true" tabindex="-1">
     <Image src={data.hero_image} alt={alt} width={1200} widths={[400, 800, 1200]} sizes="(max-width: 900px) 100vw, 55vw" loading="lazy" decoding="async" />
     <span class="unit-caption">{name}</span>
   </a>
   <div class="unit-body">
-    <span class="unit-no display-no display-xl">{num}</span>
+    <a href={href} class="unit-no display-no display-xl unit-no-link" aria-hidden="true" tabindex="-1">{num}</a>
     <div class="unit-content">
       <header>
-        <h3 class="unit-title">{name}</h3>
+        <h3 class="unit-title"><a href={href} class="unit-title-link">{name}</a></h3>
         <div class="unit-spec">
           <span>{data.specs.capacidad}</span>
           <span aria-hidden="true">·</span>
@@ -109,6 +109,22 @@ const alt = lang === 'en'
     line-height: 1;
     letter-spacing: -0.025em;
     font-weight: 700;
+  }
+  .unit-title-link,
+  .unit-no-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .unit-no-link { align-self: flex-start; }
+  .unit:hover .unit-title-link,
+  .unit-title-link:hover,
+  .unit-no-link:hover {
+    color: var(--mf-accent);
+  }
+  .unit-title-link:focus-visible {
+    outline: 2px solid var(--mf-accent);
+    outline-offset: 4px;
   }
   .unit-spec {
     margin-top: 10px;

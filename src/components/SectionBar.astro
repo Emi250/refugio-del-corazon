@@ -1,4 +1,6 @@
 ---
+import { withTrailingSlash } from '~/i18n';
+
 interface Props {
   no: string;
   title: string;
@@ -8,14 +10,15 @@ interface Props {
   background?: 'paper' | 'paper-2';
 }
 const { no, title, meta, metaHref, class: cls = '', background = 'paper' } = Astro.props;
+const href = metaHref ? withTrailingSlash(metaHref) : undefined;
 ---
 <div class={`sec-bar bg-${background} ${cls}`} data-reveal>
   <span class="sec-no display-no display-lg">{no}</span>
   <h2 class="sec-title">{title}</h2>
   <span class="sec-rule"></span>
   {meta && (
-    metaHref
-      ? <a class="sec-meta sec-meta-link" href={metaHref}>{meta}</a>
+    href
+      ? <a class="sec-meta sec-meta-link" href={href}>{meta}</a>
       : <span class="sec-meta">{meta}</span>
   )}
 </div>

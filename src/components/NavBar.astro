@@ -1,7 +1,7 @@
 ---
 import BrandMark from './BrandMark.astro';
 import WhatsAppCTA from './WhatsAppCTA.astro';
-import { t, type Lang, localizedPath } from '~/i18n';
+import { t, type Lang, localizedPath, otherLangPath, withTrailingSlash } from '~/i18n';
 
 interface Props {
   variant?: 'hero' | 'paper';
@@ -21,9 +21,9 @@ const links = [
 
 const currentPath = Astro.url.pathname;
 const otherLang: Lang = lang === 'es' ? 'en' : 'es';
-const otherLangPath = lang === 'es' ? `/en${currentPath === '/' ? '' : currentPath}` : currentPath.replace(/^\/en/, '') || '/';
-const esPath = lang === 'es' ? currentPath : otherLangPath;
-const enPath = lang === 'en' ? currentPath : otherLangPath;
+const otherPath = otherLangPath(currentPath, lang);
+const esPath = lang === 'es' ? withTrailingSlash(currentPath) : otherPath;
+const enPath = lang === 'en' ? withTrailingSlash(currentPath) : otherPath;
 ---
 <nav
   class={`nav ${isHero ? 'nav-hero' : 'nav-paper'}`}
