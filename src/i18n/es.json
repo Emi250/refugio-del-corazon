@@ -16,6 +16,8 @@
   "sections": {
     "units": "Los departamentos",
     "unitsMeta": "Cuatro espacios únicos",
+    "spaces": "Espacios comunes",
+    "spacesMeta": "Patio, parrillas y jardín",
     "gallery": "Galería",
     "galleryMeta": "Mirá cada rincón",
     "services": "Servicios",
@@ -25,6 +27,24 @@
     "reviews": "Palabras de huéspedes",
     "faq": "Preguntas frecuentes",
     "faqMeta": "Lo que más nos consultan"
+  },
+  "spaces": {
+    "blurb": "Los cuatro departamentos dan al mismo patio interno: césped, reposeras, mesas al aire libre y dos parrillas para uso de todos los huéspedes. Entre los canteros de lavanda y rosas se ven las sierras de fondo.",
+    "chips": ["Patio compartido", "Dos parrillas", "Reposeras y mesas", "Tendedero", "Vista a las sierras"],
+    "captions": {
+      "patio": "Patio interno compartido",
+      "parrilla": "Una de las dos parrillas",
+      "fachada": "El frente sobre Rio Negro 64",
+      "jardin": "Reposeras y mesas al aire libre",
+      "rosa": "Rosales",
+      "lateralCerro": "El lateral, con el cerro de fondo",
+      "frenteJardin": "El frente visto desde el jardín",
+      "pasoMediasombra": "Paso lateral con media sombra",
+      "jazmin": "Jazmín en flor",
+      "accesoPorton": "Acceso por el portón",
+      "rosaLateral": "Rosas en el jardín lateral",
+      "pasoLateral": "Paso hacia el jardín de atrás"
+    }
   },
   "unit": {
     "viewMore": "Ver departamento",

@@ -6,7 +6,9 @@
 
 @layer base {
   *,*::before,*::after { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  /* La navbar sticky (75px / 61px) tapa el destino de un ancla si no reservamos su alto. */
+  html { scroll-behavior: smooth; scroll-padding-top: 79px; }
+  @media (max-width: 900px) { html { scroll-padding-top: 65px; } }
   body {
     margin: 0;
     background: var(--mf-paper);

@@ -9,9 +9,11 @@ interface Props {
   lang?: Lang;
   group?: string;
   unitName?: string;
+  ctaHref?: string;
 }
 
-const { images, lang = 'es', group, unitName } = Astro.props;
+const { images, lang = 'es', group, unitName, ctaHref } = Astro.props;
+const galleryHref = ctaHref ?? localizedPath('/galeria', lang);
 const altSuffix = unitName
   ? (lang === 'en' ? ` — ${unitName}, apartment in Capilla del Monte` : ` — ${unitName}, departamento en Capilla del Monte`)
   : '';
@@ -40,7 +42,7 @@ const full = await lightboxVariants(images);
         </>
       ))}
       {i === 4 && (
-        <a href={localizedPath('/galeria', lang)} class="mos-cta">{t('unit.viewGallery', lang)} →</a>
+        <a href={galleryHref} class="mos-cta">{t('unit.viewGallery', lang)} →</a>
       )}
     </div>
   ))}

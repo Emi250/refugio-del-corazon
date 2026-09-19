@@ -3,6 +3,7 @@ import Base from '~/layouts/Base.astro';
 import Hero from '~/components/Hero.astro';
 import SectionBar from '~/components/SectionBar.astro';
 import UnitRow from '~/components/UnitRow.astro';
+import EspaciosComunes from '~/components/EspaciosComunes.astro';
 import GalleryStrip from '~/components/GalleryStrip.astro';
 import ServiceList from '~/components/ServiceList.astro';
 import LocationBlock from '~/components/LocationBlock.astro';
@@ -32,27 +33,32 @@ const units = allUnits.sort((a, b) => a.data.order - b.data.order);
     ))}
   </section>
 
+  <section id="espacios">
+    <SectionBar no="2" title={t('sections.spaces', lang)} meta={t('sections.spacesMeta', lang)} />
+    <EspaciosComunes lang={lang} />
+  </section>
+
   <section id="galeria">
-    <SectionBar no="2" title={t('sections.gallery', lang)} meta={t('sections.galleryMeta', lang)} metaHref="/galeria" />
+    <SectionBar no="3" title={t('sections.gallery', lang)} meta={t('sections.galleryMeta', lang)} metaHref="/galeria" />
     <GalleryStrip lang={lang} />
   </section>
 
   <section id="servicios">
-    <SectionBar no="3" title={t('sections.services', lang)} meta={t('sections.servicesMeta', lang)} metaHref="/servicios" background="paper-2" />
+    <SectionBar no="4" title={t('sections.services', lang)} meta={t('sections.servicesMeta', lang)} metaHref="/servicios" background="paper-2" />
     <div class="bg-paper-2 services-wrap">
       <ServiceList lang={lang} />
     </div>
   </section>
 
   <section id="ubicacion">
-    <SectionBar no="4" title={t('sections.location', lang)} meta={t('sections.locationMeta', lang)} metaHref="/ubicacion" />
+    <SectionBar no="5" title={t('sections.location', lang)} meta={t('sections.locationMeta', lang)} metaHref="/ubicacion" />
     <LocationBlock lang={lang} />
   </section>
 
   <ReviewsBlock lang={lang} />
 
   <section id="faq">
-    <SectionBar no="5" title={t('sections.faq', lang)} meta={t('sections.faqMeta', lang)} metaHref="/faq" />
+    <SectionBar no="6" title={t('sections.faq', lang)} meta={t('sections.faqMeta', lang)} metaHref="/faq" />
     <FAQPreview lang={lang} limit={5} />
   </section>
 

@@ -7,10 +7,13 @@ import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import { lightboxVariants } from '~/utils/images';
 import { t, localizedPath } from '~/i18n';
+import { espaciosImages, ESPACIOS_ANCHOR, ESPACIOS_GROUP } from '~/data/espacios';
 
 const lang = 'en' as const;
 const units = await getCollection('unidades', ({ data }) => data.lang === 'en');
 const sorted = units.sort((a, b) => a.data.order - b.data.order);
+const espacios = espaciosImages(lang);
+const espaciosFull = await lightboxVariants(espacios);
 const fullByUnit = new Map<string, string[]>();
 for (const u of sorted) fullByUnit.set(u.id, await lightboxVariants(u.data.gallery));
 
@@ -35,6 +38,27 @@ function midPositions(n: number): Set<number> {
     meta="REAL PHOTOS · NO FILTERS"
     blurb="A walk through the four units, the outdoors and the details that set the atmosphere of the refuge."
   />
+
+  <section class="gal-section" id={ESPACIOS_ANCHOR}>
+    <header class="gal-head">
+      <span class="display-no display-md gal-no">00</span>
+      <div>
+        <div class="kicker">COURTYARD & FRONT</div>
+        <h2 class="gal-title">{t('sections.spaces', lang)}</h2>
+      </div>
+      <span class="spec-mono gal-meta">{espacios.length} PHOTOS · SHARED USE</span>
+    </header>
+    <div class="gal-grid">
+      {espacios.map((img, i) => (
+        <figure class={`gal-cell ${i === 0 ? 'gal-cell-lead' : ''}`}>
+          <a href={espaciosFull[i]} class="gal-link" data-lb-group={ESPACIOS_GROUP} data-lb-index={i} data-lb-caption={img.caption} aria-label={img.caption}>
+            <Image src={img.src} alt={img.caption} width={1200} widths={[400, 800, 1200]} sizes="(max-width: 900px) 100vw, 33vw" loading="lazy" decoding="async" />
+          </a>
+          <figcaption class="gal-cap">{img.caption}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
 
   {sorted.map(unit => (
     <section class="gal-section" id={unit.slug.replace(/^en\//, '')}>

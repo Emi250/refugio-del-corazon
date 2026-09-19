@@ -16,6 +16,8 @@
   "sections": {
     "units": "The apartments",
     "unitsMeta": "Four unique spaces",
+    "spaces": "Shared spaces",
+    "spacesMeta": "Courtyard, grills and garden",
     "gallery": "Gallery",
     "galleryMeta": "Every corner",
     "services": "Services",
@@ -25,6 +27,24 @@
     "reviews": "Verified reviews",
     "faq": "Frequent questions",
     "faqMeta": "Most asked"
+  },
+  "spaces": {
+    "blurb": "All four apartments open onto the same inner courtyard: lawn, loungers, outdoor tables and two grills for every guest to use. Lavender and rose beds frame the hills in the background.",
+    "chips": ["Shared courtyard", "Two grills", "Loungers and tables", "Clothesline", "Mountain views"],
+    "captions": {
+      "patio": "Shared inner courtyard",
+      "parrilla": "One of the two grills",
+      "fachada": "The front on Rio Negro 64",
+      "jardin": "Loungers and outdoor tables",
+      "rosa": "Rose bushes",
+      "lateralCerro": "The side path, with the hill behind",
+      "frenteJardin": "The front seen from the garden",
+      "pasoMediasombra": "Side path with shade cloth",
+      "jazmin": "Jasmine in bloom",
+      "accesoPorton": "Entrance through the gate",
+      "rosaLateral": "Roses in the side garden",
+      "pasoLateral": "Path to the back garden"
+    }
   },
   "unit": {
     "viewMore": "View apartment",
