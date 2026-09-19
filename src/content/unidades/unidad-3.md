@@ -7,6 +7,7 @@ specs:
   capacidad: "Hasta 3 personas"
   ambientes: "2 dormitorios · living comedor"
   metros: "60 m²"
+  bano: "En la habitación principal"
 chips: ["WiFi", "Cocina equipada", "2 aires frío-calor", "Parrilla", "Ropa de cama", "Ropa blanca", "Smart TV (sin cable)", "Heladera con Freezer"]
 hero_image: "../../assets/images/unidades/unidad-3/hero.jpg"
 gallery:

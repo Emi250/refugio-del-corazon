@@ -39,7 +39,7 @@ const specs = [
   { k: 'Capacidad', v: data.specs.capacidad },
   { k: 'Ambientes', v: data.specs.ambientes },
   { k: 'Metros', v: data.specs.metros },
-  { k: 'Baño', v: 'Privado' },
+  { k: 'Baño', v: data.specs.bano ?? 'Privado' },
 ];
 
 const waMessage = `Hola, me interesa el ${data.name} de El Refugio del Corazón. ¿Podemos coordinar fechas?`;

@@ -12,6 +12,7 @@ const unidades = defineCollection({
       ambientes: z.string(),
       metros: z.string(),
       vista: z.string().optional(),
+      bano: z.string().optional(),
     }),
     chips: z.array(z.string()),
     hero_image: image(),

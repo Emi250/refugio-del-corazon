@@ -7,6 +7,7 @@ specs:
   capacidad: "Up to 3 guests"
   ambientes: "2 bedrooms · living-dining"
   metros: "60 m²"
+  bano: "Inside the main bedroom"
 chips: ["WiFi", "Equipped kitchen", "2 heat-and-cool ACs", "Grill", "Linens", "Bed linens", "Smart TV (no cable)", "Fridge with Freezer"]
 hero_image: "../../../assets/images/unidades/unidad-3/hero.jpg"
 gallery:

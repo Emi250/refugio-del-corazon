@@ -40,7 +40,7 @@ const specs = [
   { k: 'Capacity', v: data.specs.capacidad },
   { k: 'Layout', v: data.specs.ambientes },
   { k: 'Size', v: data.specs.metros },
-  { k: 'Bathroom', v: 'Private' },
+  { k: 'Bathroom', v: data.specs.bano ?? 'Private' },
 ];
 
 const waMessage = `Hi, I'm interested in the "${name}" unit at El Refugio del Corazón. Could we check availability?`;
