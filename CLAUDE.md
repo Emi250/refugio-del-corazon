@@ -389,7 +389,7 @@ Este proyecto se optimiza para **mínimo gasto de tokens** por sesión. Reglas:
 
 ## 13. Estado actual del proyecto
 
-**Última actualización**: 2026-09-18
+**Última actualización**: 2026-09-19
 
 - [x] CLAUDE.md creado
 - [x] Scaffold Astro inicial (configs + package.json) — 2026-05-21
@@ -408,8 +408,9 @@ Este proyecto se optimiza para **mínimo gasto de tokens** por sesión. Reglas:
 - [x] OG por unidad 1200×~630 (~53 KB) generadas con `getImage()` desde el hero (`src/utils/images.ts`) — WhatsApp ya renderiza el preview — 2026-09-18
 - [x] Fotos nuevas del Departamento #1 (set 2026) ordenadas por criterio de reserva + botón `VideoCTA` al video de Drive (campo `video_url` en el frontmatter) — 2026-09-18
 - [x] `video_url` cargado en las 4 unidades (ES/EN) — botón VideoCTA activo en las 8 páginas de detalle — 2026-09-18
-- [ ] Reemplazar fotos de las unidades 2, 3 y 4 (carpetas `Airbnb 3`, `Airbnb 4` y `Exterior` en Escritorio). Falta definir de dónde salen las de la unidad 2 (no hay carpeta `Airbnb 2`)
-- [ ] Generar `public/og/default.jpg` 1200×630 dedicada (hoy usa `/cerro uritorco.jpg` como fallback)
+- [x] Sección **Espacios comunes** (patio interno + fachada) como `no="2"` del home ES/EN, con las 12 fotos del set `Exterior nuevas` en `src/assets/images/espacios/`. Reusa `PhotoMosaic` (5 celdas + 7 ocultas para el lightbox); lista compartida en `src/data/espacios.ts`; strings bajo `spaces` en i18n; grupo `00 · Espacios comunes` al tope de `/galeria`. Renumeró galería→3, servicios→4, ubicación→5, FAQ→6 — 2026-09-19
+- [ ] Reemplazar fotos de las unidades 2, 3 y 4 (carpetas `Airbnb 3` y `Airbnb 4` en Escritorio). Falta definir de dónde salen las de la unidad 2 (no hay carpeta `Airbnb 2`). La carpeta `Exterior` ya se usó para Espacios comunes
+- [x] `scroll-padding-top` en `html` (79px desktop / 65px <900px) — la navbar sticky ya no tapa el encabezado al entrar por un ancla (`/galeria/#unidad-3`, `#espacios-comunes`) — 2026-09-19
 - [ ] Sumar widgets Elfsight de Google y Airbnb cuando el cliente decida (mismo patrón que Booking)
 - [ ] Contenido real (scraping del sitio Lovable actual)
 - [ ] Deploy a Vercel + dominio (`refugiodelcorazon.com.ar`)
@@ -428,6 +429,15 @@ Una vez en producción con dominio final:
 8. **Cuando se tenga `og/default.jpg` 1200×630** — editar `DEFAULT_OG_IMAGE` en `src/utils/seo.ts` y el array `image` en `OrganizationSchema.astro`.
 9. **Coordenadas exactas** — confirmar `BUSINESS.latitude/longitude` en `src/utils/seo.ts`. Hoy usan `-30.8615 / -64.5306` (aproximado Capilla del Monte centro).
 10. **IndexNow (opcional)** — Bing/Yandex aceptan ping para indexación instantánea cuando se publica contenido nuevo.
+
+### Dos numeraciones, a propósito
+
+No son una inconsistencia — no las unifiques:
+
+- **Home** (`SectionBar no=`): sigue el orden de lectura de la página, sin cero → `1` unidades, `2` espacios comunes, `3` galería, `4` servicios, `5` ubicación, `6` FAQ.
+- **Páginas internas** (`BigHeader kicker=`): siguen el orden del **nav**, con cero → `01` unidades, `02` servicios, `03` ubicación, `04` galería, `05` FAQ.
+
+La galería usa además `0{order}` por unidad (`01`–`04`) y `00` para Espacios comunes.
 
 ### Sistema SEO técnico (referencia rápida)
 

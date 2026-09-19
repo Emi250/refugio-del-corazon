@@ -1,0 +1,57 @@
+---
+import PhotoMosaic from '~/components/PhotoMosaic.astro';
+import { t, tList, localizedPath, type Lang } from '~/i18n';
+import { espaciosImages, ESPACIOS_ANCHOR, ESPACIOS_GROUP } from '~/data/espacios';
+
+interface Props { lang?: Lang }
+const { lang = 'es' } = Astro.props;
+
+const images = espaciosImages(lang);
+const chips = tList('spaces.chips', lang);
+---
+<PhotoMosaic
+  images={images}
+  lang={lang}
+  group={ESPACIOS_GROUP}
+  ctaHref={localizedPath(`/galeria#${ESPACIOS_ANCHOR}`, lang)}
+/>
+
+<div class="esp-body" data-reveal>
+  <p class="esp-blurb">{t('spaces.blurb', lang)}</p>
+  <div class="esp-chips">
+    {chips.map((c) => <span class="chip">{c}</span>)}
+  </div>
+</div>
+
+<style>
+  .esp-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    gap: 28px;
+    align-items: start;
+    padding: 26px 28px 30px;
+    border-bottom: 1.5px solid var(--mf-ink);
+  }
+  .esp-blurb {
+    max-width: 62ch;
+    font-size: 15px;
+    line-height: 1.6;
+    letter-spacing: -0.005em;
+    color: var(--mf-ink-soft);
+  }
+  .esp-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-end;
+  }
+
+  @media (max-width: 900px) {
+    .esp-body {
+      grid-template-columns: 1fr;
+      gap: 18px;
+      padding: 22px 18px 24px;
+    }
+    .esp-chips { justify-content: flex-start; }
+  }
+</style>

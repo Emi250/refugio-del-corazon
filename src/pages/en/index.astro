@@ -3,6 +3,7 @@ import Base from '~/layouts/Base.astro';
 import Hero from '~/components/Hero.astro';
 import SectionBar from '~/components/SectionBar.astro';
 import UnitRow from '~/components/UnitRow.astro';
+import EspaciosComunes from '~/components/EspaciosComunes.astro';
 import GalleryStrip from '~/components/GalleryStrip.astro';
 import ServiceList from '~/components/ServiceList.astro';
 import LocationBlock from '~/components/LocationBlock.astro';
@@ -23,7 +24,7 @@ const servicesEn = [
   { k: 'Linens and towels', v: 'INCLUDED' },
   { k: 'Private parking (subject to availability)', v: 'INCLUDED' },
   { k: 'Air conditioning', v: 'INCLUDED' },
-  { k: 'Grill', v: 'INCLUDED' },
+  { k: 'Grills (two)', v: 'INCLUDED' },
   { k: 'Shared inner courtyard', v: 'INCLUDED' },
   { k: 'Smart TV with streaming', v: 'INCLUDED' },
   { k: 'Host check-in', v: 'INCLUDED' },
@@ -44,27 +45,32 @@ const servicesEn = [
     ))}
   </section>
 
+  <section id="espacios">
+    <SectionBar no="2" title={t('sections.spaces', lang)} meta={t('sections.spacesMeta', lang)} />
+    <EspaciosComunes lang={lang} />
+  </section>
+
   <section id="galeria">
-    <SectionBar no="2" title={t('sections.gallery', lang)} meta={t('sections.galleryMeta', lang)} metaHref="/en/galeria" />
+    <SectionBar no="3" title={t('sections.gallery', lang)} meta={t('sections.galleryMeta', lang)} metaHref="/en/galeria" />
     <GalleryStrip lang={lang} />
   </section>
 
   <section id="servicios">
-    <SectionBar no="3" title={t('sections.services', lang)} meta={t('sections.servicesMeta', lang)} metaHref="/en/servicios" background="paper-2" />
+    <SectionBar no="4" title={t('sections.services', lang)} meta={t('sections.servicesMeta', lang)} metaHref="/en/servicios" background="paper-2" />
     <div class="services-wrap">
       <ServiceList lang={lang} items={servicesEn} />
     </div>
   </section>
 
   <section id="ubicacion">
-    <SectionBar no="4" title={t('sections.location', lang)} meta={t('sections.locationMeta', lang)} metaHref="/en/ubicacion" />
+    <SectionBar no="5" title={t('sections.location', lang)} meta={t('sections.locationMeta', lang)} metaHref="/en/ubicacion" />
     <LocationBlock lang={lang} />
   </section>
 
   <ReviewsBlock lang={lang} />
 
   <section id="faq">
-    <SectionBar no="5" title={t('sections.faq', lang)} meta={t('sections.faqMeta', lang)} metaHref="/en/faq" />
+    <SectionBar no="6" title={t('sections.faq', lang)} meta={t('sections.faqMeta', lang)} metaHref="/en/faq" />
     <FAQPreview lang={lang} limit={5} />
   </section>
 

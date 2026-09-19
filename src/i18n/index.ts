@@ -15,6 +15,17 @@ export function t(key: string, lang: Lang = 'es'): string {
   return typeof node === 'string' ? node : key;
 }
 
+/** Igual que t(), pero para las claves que guardan una lista (ej. spaces.chips). */
+export function tList(key: string, lang: Lang = 'es'): string[] {
+  const parts = key.split('.');
+  let node: any = dict[lang];
+  for (const p of parts) {
+    if (node == null) return [];
+    node = node[p];
+  }
+  return Array.isArray(node) ? node : [];
+}
+
 export function detectLang(pathname: string): Lang {
   return pathname.startsWith('/en') ? 'en' : 'es';
 }
