@@ -8,18 +8,17 @@ specs:
   ambientes: "3 bedrooms · living-dining"
   metros: "65 m²"
   bano: "1 full bathroom"
-chips: ["WiFi", "Equipped kitchen", "2 heat-and-cool ACs", "Grill", "Linens", "Bed linens", "Smart TV (no cable)", "Fridge with Freezer"]
+chips: ["WiFi", "Equipped kitchen", "2 heat-and-cool ACs", "Grill", "Bed linens", "Towels", "Smart TV (no cable)", "Fridge with Freezer"]
 hero_image: "../../../assets/images/unidades/unidad-4/hero.jpg"
 gallery:
-  - { src: "../../../assets/images/unidades/unidad-4/cocina-comedor.jpg", caption: "Kitchen-dining with gas oven" }
-  - { src: "../../../assets/images/unidades/unidad-4/living.jpg", caption: "Living room with arch and breakfast bar" }
-  - { src: "../../../assets/images/unidades/unidad-4/dormitorio.jpg", caption: "Main bedroom with queen bed and heat-and-cool AC" }
+  - { src: "../../../assets/images/unidades/unidad-4/hero.jpg", caption: "Kitchen-dining room, with the arch through to the living room" }
+  - { src: "../../../assets/images/unidades/unidad-4/living.jpg", caption: "The living room, with the arch and the breakfast bar" }
+  - { src: "../../../assets/images/unidades/unidad-4/dormitorio.jpg", caption: "Main bedroom with a queen bed and heat-and-cool AC" }
   - { src: "../../../assets/images/unidades/unidad-4/dormitorio-02.jpg", caption: "Second bedroom with two beds and heat-and-cool AC" }
   - { src: "../../../assets/images/unidades/unidad-4/dormitorio-03.jpg", caption: "Third bedroom with a single bed" }
-  - { src: "../../../assets/images/unidades/unidad-4/bano.jpg", caption: "Full bathroom" }
-  - { src: "../../../assets/images/unidades/unidad-4/bano-02.jpg", caption: "Bathroom · vanity" }
-  - { src: "../../../assets/images/unidades/unidad-4/lavadero.jpg", caption: "Laundry with washing machine" }
-  - { src: "../../../assets/images/unidades/unidad-4/exterior.jpg", caption: "Front of the house" }
+  - { src: "../../../assets/images/unidades/unidad-4/bano.jpg", caption: "The bathroom, full with shower" }
+  - { src: "../../../assets/images/unidades/unidad-4/lavadero.jpg", caption: "Own laundry room with a washing machine" }
+  - { src: "../../../assets/images/unidades/unidad-4/exterior.jpg", caption: "The entrance to #4, from the street on Rio Negro" }
 blurb: "The largest of the four: three bedrooms, one bathroom and a laundry area. Heat-and-cool AC in the two main ones."
 video_url: "https://drive.google.com/file/d/1PJ_1UBRlw2IibLQtPFit2o78Nb4dq42H/view?usp=sharing"
 ---

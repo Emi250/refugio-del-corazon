@@ -7,7 +7,7 @@ specs:
   capacidad: "Hasta 3 personas"
   ambientes: "2 ambientes"
   metros: "40 m²"
-chips: ["WiFi", "Cocina equipada", "Aire frío-calor", "Parrilla", "Ropa de cama", "Ropa blanca", "Smart TV (sin cable)", "Heladera con Freezer"]
+chips: ["WiFi", "Cocina equipada", "Aire frío-calor", "Parrilla", "Ropa de cama", "Toallas", "Smart TV (sin cable)", "Heladera con Freezer"]
 hero_image: "../../assets/images/unidades/unidad-2/hero.jpg"
 gallery:
   - { src: "../../assets/images/unidades/unidad-2/living.jpg", caption: "Espacio integrado" }

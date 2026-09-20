@@ -1,0 +1,148 @@
+---
+import { t, type Lang } from '~/i18n';
+
+export interface GalleryIndexItem {
+  anchor: string;
+  no: string;
+  label: string;
+}
+
+interface Props {
+  items: GalleryIndexItem[];
+  lang?: Lang;
+}
+
+const { items, lang = 'es' } = Astro.props;
+---
+<nav class="gidx" aria-label={t('galleryPage.jumpTo', lang)} data-gallery-index>
+  <span class="gidx-label kicker">{t('galleryPage.jumpTo', lang)}</span>
+  <div class="gidx-track">
+    {items.map(({ anchor, no, label }) => (
+      <a href={`#${anchor}`} class="gidx-chip" data-gidx-link={anchor}>
+        <span class="gidx-no">{no}</span>
+        <span class="gidx-name">{label}</span>
+      </a>
+    ))}
+  </div>
+</nav>
+
+<script>
+  const bar = document.querySelector<HTMLElement>('[data-gallery-index]');
+  if (bar) {
+    const measure = () => {
+      document.documentElement.style.setProperty('--mf-gidx-h', `${bar.offsetHeight}px`);
+    };
+    measure();
+    window.addEventListener('resize', measure, { passive: true });
+
+    const links = Array.from(bar.querySelectorAll<HTMLAnchorElement>('[data-gidx-link]'));
+    const sections = links
+      .map(a => document.getElementById(a.dataset.gidxLink!))
+      .filter((el): el is HTMLElement => el !== null);
+
+    if (sections.length) {
+      let activeId = '';
+      const setActive = (id: string) => {
+        if (id === activeId) return;
+        activeId = id;
+        for (const a of links) a.classList.toggle('on', a.dataset.gidxLink === id);
+        // Mantiene el chip activo a la vista cuando la barra scrollea en mobile.
+        const on = bar.querySelector<HTMLElement>('.gidx-chip.on');
+        const track = bar.querySelector<HTMLElement>('.gidx-track');
+        if (on && track && track.scrollWidth > track.clientWidth) {
+          track.scrollTo({ left: on.offsetLeft - 24, behavior: 'smooth' });
+        }
+      };
+
+      // La seccion activa es la ultima cuyo tope ya paso por debajo de la barra.
+      const update = () => {
+        const line = bar.getBoundingClientRect().bottom + 8;
+        let current = sections[0];
+        for (const s of sections) {
+          if (s.getBoundingClientRect().top <= line) current = s;
+        }
+        setActive(current.id);
+      };
+
+      // Sin rAF a proposito: si la pestaña esta en segundo plano el frame no
+      // llega y el indicador se queda clavado. El scroll ya dispara como maximo
+      // una vez por frame y son 5 getBoundingClientRect.
+      update();
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update, { passive: true });
+    }
+  }
+</script>
+
+<style>
+  .gidx {
+    position: sticky;
+    top: var(--mf-nav-h, 75px);
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 0 28px;
+    background: var(--mf-paper);
+    border-bottom: 1px solid var(--mf-ink);
+    box-shadow: 0 6px 18px -16px rgba(27, 26, 22, 0.55);
+  }
+  .gidx-label {
+    flex-shrink: 0;
+    padding: 12px 0;
+    color: var(--mf-ink-soft);
+  }
+  .gidx-track {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    flex: 1;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .gidx-track::-webkit-scrollbar { display: none; }
+
+  .gidx-chip {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 7px;
+    flex-shrink: 0;
+    padding: 12px 16px;
+    border-left: 1px solid var(--mf-hair);
+    color: var(--mf-ink);
+    white-space: nowrap;
+    transition: background 0.15s, color 0.15s;
+  }
+  .gidx-track .gidx-chip:last-child { border-right: 1px solid var(--mf-hair); }
+  .gidx-chip:hover { background: var(--mf-paper-2); }
+
+  .gidx-no {
+    font-family: var(--mf-font-mono);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--mf-ink-soft);
+  }
+  .gidx-name {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+  }
+
+  .gidx-chip.on {
+    background: var(--mf-ink);
+    color: var(--mf-paper);
+  }
+  .gidx-chip.on .gidx-no { color: var(--mf-accent); }
+
+  @media (max-width: 900px) {
+    .gidx { top: var(--mf-nav-h, 61px); }
+  }
+  @media (max-width: 720px) {
+    .gidx { padding: 0; gap: 0; }
+    .gidx-label { display: none; }
+    .gidx-chip { padding: 11px 14px; }
+    .gidx-track .gidx-chip:first-child { border-left: 0; }
+    .gidx-name { font-size: 12.5px; }
+  }
+</style>

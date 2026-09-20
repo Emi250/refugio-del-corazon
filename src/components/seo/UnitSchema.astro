@@ -34,7 +34,7 @@ const unitUrl = absoluteUrl(unitPath);
 
 const images = await Promise.all(
   [data.hero_image, ...data.gallery.slice(0, 6).map(g => g.src)]
-    .map(async img => absoluteAssetUrl(await lightboxVariant(img))),
+    .map(async img => absoluteAssetUrl((await lightboxVariant(img)).lg)),
 );
 
 const amenityMap: Record<string, string> = {

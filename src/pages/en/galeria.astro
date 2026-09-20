@@ -3,18 +3,27 @@ import Base from '~/layouts/Base.astro';
 import BigHeader from '~/components/BigHeader.astro';
 import CTABlock from '~/components/CTABlock.astro';
 import Lightbox from '~/components/Lightbox.astro';
+import GalleryIndex from '~/components/GalleryIndex.astro';
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
-import { lightboxVariants } from '~/utils/images';
+import { lightboxVariants, type LightboxSource } from '~/utils/images';
 import { t, localizedPath } from '~/i18n';
 import { espaciosImages, ESPACIOS_ANCHOR, ESPACIOS_GROUP } from '~/data/espacios';
 
 const lang = 'en' as const;
 const units = await getCollection('unidades', ({ data }) => data.lang === 'en');
 const sorted = units.sort((a, b) => a.data.order - b.data.order);
+const indexItems = [
+  { anchor: ESPACIOS_ANCHOR, no: '00', label: t('sections.spaces', lang) },
+  ...sorted.map(u => ({
+    anchor: u.slug.replace(/^en\//, ''),
+    no: `0${u.data.order}`,
+    label: u.data.name_en ?? u.data.name,
+  })),
+];
 const espacios = espaciosImages(lang);
 const espaciosFull = await lightboxVariants(espacios);
-const fullByUnit = new Map<string, string[]>();
+const fullByUnit = new Map<string, LightboxSource[]>();
 for (const u of sorted) fullByUnit.set(u.id, await lightboxVariants(u.data.gallery));
 
 function midPositions(n: number): Set<number> {
@@ -39,6 +48,8 @@ function midPositions(n: number): Set<number> {
     blurb="A walk through the four units, the outdoors and the details that set the atmosphere of the refuge."
   />
 
+  <GalleryIndex items={indexItems} lang={lang} />
+
   <section class="gal-section" id={ESPACIOS_ANCHOR}>
     <header class="gal-head">
       <span class="display-no display-md gal-no">00</span>
@@ -51,7 +62,7 @@ function midPositions(n: number): Set<number> {
     <div class="gal-grid">
       {espacios.map((img, i) => (
         <figure class={`gal-cell ${i === 0 ? 'gal-cell-lead' : ''}`}>
-          <a href={espaciosFull[i]} class="gal-link" data-lb-group={ESPACIOS_GROUP} data-lb-index={i} data-lb-caption={img.caption} aria-label={img.caption}>
+          <a href={espaciosFull[i].lg} data-lb-sm={espaciosFull[i].sm} class="gal-link" data-lb-group={ESPACIOS_GROUP} data-lb-index={i} data-lb-title={t('sections.spaces', lang)} data-lb-caption={img.caption} aria-label={img.caption}>
             <Image src={img.src} alt={img.caption} width={1200} widths={[400, 800, 1200]} sizes="(max-width: 900px) 100vw, 33vw" loading="lazy" decoding="async" />
           </a>
           <figcaption class="gal-cap">{img.caption}</figcaption>
@@ -80,7 +91,7 @@ function midPositions(n: number): Set<number> {
             const cls = i === 0 ? 'gal-cell-lead' : mids.has(i) ? 'gal-cell-mid' : '';
             return (
               <figure class={`gal-cell ${cls}`}>
-                <a href={full[i]} class="gal-link" data-lb-group={groupName} data-lb-index={i} data-lb-caption={img.caption ?? ''} aria-label={img.caption ?? `Photo ${i + 1}`}>
+                <a href={full[i].lg} data-lb-sm={full[i].sm} class="gal-link" data-lb-group={groupName} data-lb-index={i} data-lb-title={unit.data.name_en ?? unit.data.name} data-lb-caption={img.caption ?? ''} aria-label={img.caption ?? `Photo ${i + 1}`}>
                   <Image src={img.src} alt={img.caption ?? `${unit.data.name_en ?? unit.data.name} — photo ${i + 1}, apartment in Capilla del Monte`} width={1200} widths={[400, 800, 1200]} sizes="(max-width: 900px) 100vw, 33vw" loading="lazy" decoding="async" />
                 </a>
                 {img.caption && <figcaption class="gal-cap">{img.caption}</figcaption>}
@@ -158,8 +169,12 @@ function midPositions(n: number): Set<number> {
   .gal-cap {
     position: absolute;
     left: 12px;
+    right: 12px;
     bottom: 12px;
+    width: fit-content;
+    max-width: calc(100% - 24px);
     padding: 5px 9px;
+    line-height: 1.35;
     background: rgba(27, 26, 22, 0.6);
     backdrop-filter: blur(8px);
     color: var(--mf-paper);

@@ -6,9 +6,12 @@
 
 @layer base {
   *,*::before,*::after { box-sizing: border-box; }
-  /* La navbar sticky (75px / 61px) tapa el destino de un ancla si no reservamos su alto. */
-  html { scroll-behavior: smooth; scroll-padding-top: 79px; }
-  @media (max-width: 900px) { html { scroll-padding-top: 65px; } }
+  /* La navbar fija tapa el destino de un ancla si no reservamos su alto.
+     `--mf-nav-h` lo mide NavBar.astro; los fallbacks cubren el primer paint. */
+  html { scroll-behavior: smooth; scroll-padding-top: calc(var(--mf-nav-h, 75px) + 4px); }
+  @media (max-width: 900px) { html { scroll-padding-top: calc(var(--mf-nav-h, 61px) + 4px); } }
+  /* En /galeria hay ademas un indice sticky debajo de la nav. */
+  html:has(.gidx) { scroll-padding-top: calc(var(--mf-nav-h, 75px) + var(--mf-gidx-h, 44px) + 4px); }
   body {
     margin: 0;
     background: var(--mf-paper);
@@ -39,6 +42,19 @@
     }
   }
   h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.025em; margin: 0; line-height: 1; }
+
+  /* En el home la nav es `fixed` (transparente sobre el hero), asi que la
+     barra de sugerencia de idioma necesita reservar su alto para no quedar
+     tapada. Vive aca y no en el componente porque cruza dos scopes. */
+  body:has(> .nav-hero) > .lang-suggest { margin-top: 75px; }
+
+  /* El sticky CTA de mobile es `position: fixed`: sin este padding tapa el
+     ultimo tramo del footer. Estaba en el <style> scoped de MobileStickyCTA,
+     donde Astro lo compilaba a `body[data-astro-cid-...]` y nunca matcheaba. */
+  @media (max-width: 900px) {
+    body { padding-bottom: 72px; }
+    body:has(> .nav-hero) > .lang-suggest { margin-top: 61px; }
+  }
   .sr-only {
     position: absolute !important;
     width: 1px; height: 1px;

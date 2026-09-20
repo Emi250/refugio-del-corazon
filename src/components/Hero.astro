@@ -1,6 +1,7 @@
 ---
 import WhatsAppCTA from './WhatsAppCTA.astro';
-import { t, type Lang } from '~/i18n';
+import { t, type Lang, localizedPath } from '~/i18n';
+import { heroBackground } from '~/utils/images';
 
 interface Props {
   lang?: Lang;
@@ -11,18 +12,19 @@ interface Props {
 }
 const {
   lang = 'es',
-  image = '/cerro%20uritorco.jpg',
+  image,
   kicker,
   title,
   subtitle,
 } = Astro.props;
 
+const bg = image ?? await heroBackground();
 const k = kicker ?? t('hero.kicker', lang);
 const ti = title ?? t('hero.title', lang);
 const sub = subtitle ?? t('hero.subtitle', lang);
 ---
 <section class="hero">
-  <div class="hero-bg" style={`background-image:url('${image}');`}></div>
+  <div class="hero-bg" style={`background-image:url('${bg}');`}></div>
   <div class="hero-blur-overlay"></div>
   <div class="hero-overlay"></div>
 
@@ -40,7 +42,7 @@ const sub = subtitle ?? t('hero.subtitle', lang);
   </div>
 
   <div class="hero-foot">
-    <span>↓ {t('hero.scrollHint', lang)}</span>
+    <a href={localizedPath('/#unidades', lang)} class="hero-scroll">↓ {t('hero.scrollHint', lang)}</a>
   </div>
 </section>
 
@@ -159,6 +161,12 @@ const sub = subtitle ?? t('hero.subtitle', lang);
     max-width: 480px;
     margin: 0;
   }
+
+  .hero-scroll {
+    color: inherit;
+    transition: opacity 0.15s;
+  }
+  .hero-scroll:hover { opacity: 0.7; }
 
   .hero-foot {
     display: flex;

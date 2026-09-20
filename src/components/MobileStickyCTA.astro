@@ -21,8 +21,9 @@ const { lang = 'es', message } = Astro.props;
     box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.06);
     z-index: 30;
   }
+  /* El padding-bottom del body vive en global.css: aca quedaba dentro del
+     scope de Astro y compilaba a un selector que nunca matchea. */
   @media (max-width: 900px) {
     .m-sticky { display: block; }
-    body { padding-bottom: 72px; }
   }
 </style>

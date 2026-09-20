@@ -1,6 +1,7 @@
 ---
 import type { Lang } from '~/i18n';
 import { SITE_URL, SITE_NAME, BUSINESS, absoluteAssetUrl } from '~/utils/seo';
+import { heroBackground } from '~/utils/images';
 
 interface Props { lang: Lang }
 const { lang } = Astro.props;
@@ -8,6 +9,8 @@ const { lang } = Astro.props;
 const description = lang === 'es'
   ? 'Cuatro departamentos de alquiler temporario en Río Negro 64, Capilla del Monte, Córdoba. A pasos del centro y del Cerro Uritorco, en las sierras de Córdoba.'
   : 'Four short-term rental apartments at Río Negro 64, Capilla del Monte, Córdoba. Steps from downtown and Cerro Uritorco, in the Córdoba sierras.';
+
+const fachadaUrl = absoluteAssetUrl(await heroBackground());
 
 const amenities = [
   'WiFi',
@@ -30,7 +33,7 @@ const schema = {
   description,
   image: [
     absoluteAssetUrl('/og/default.jpg'),
-    absoluteAssetUrl('/cerro%20uritorco.jpg'),
+    fachadaUrl,
     absoluteAssetUrl('/logo-refugio.jpeg'),
   ],
   logo: absoluteAssetUrl('/logo-refugio.jpeg'),
