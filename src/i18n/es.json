@@ -32,22 +32,21 @@
     "blurb": "Los cuatro departamentos dan al mismo patio interno: césped, reposeras, mesas al aire libre y dos parrillas para uso de todos los huéspedes. Entre los canteros de lavanda y rosas se ven las sierras de fondo.",
     "chips": ["Patio compartido", "Dos parrillas", "Reposeras y mesas", "Tendedero", "Vista a las sierras"],
     "captions": {
-      "patio": "Patio interno compartido",
+      "patio": "El patio interno compartido, con las sierras de fondo",
       "parrilla": "Una de las dos parrillas",
-      "fachada": "El frente sobre Rio Negro 64",
+      "fachada": "El frente sobre Río Negro 64",
       "jardin": "Reposeras y mesas al aire libre",
-      "rosa": "Rosales",
+      "frenteJardin": "El jardín del frente, entre lavandas",
       "lateralCerro": "El lateral, con el cerro de fondo",
-      "frenteJardin": "El frente visto desde el jardín",
-      "pasoMediasombra": "Paso lateral con media sombra",
-      "jazmin": "Jazmín en flor",
-      "accesoPorton": "Acceso por el portón",
-      "rosaLateral": "Rosas en el jardín lateral",
-      "pasoLateral": "Paso hacia el jardín de atrás"
+      "pasoMediasombra": "El acceso cubierto con media sombra",
+      "accesoPorton": "La entrada por el portón",
+      "jazmin": "Jazmín en flor sobre el jardín"
     }
   },
   "unit": {
     "viewMore": "Ver departamento",
+    "photos": "fotos",
+    "tapHint": "Tocá cualquier foto para ampliar",
     "viewGallery": "Ver galería",
     "otherUnits": "Otros departamentos",
     "shortSpecs": "En pocas palabras",
@@ -101,7 +100,16 @@
     "browseKicker": "LOS DEPARTAMENTOS",
     "browseTitle": "Elegí dónde alojarte"
   },
+  "galleryStrip": {
+    "exterior": "Patio",
+    "living": "Living",
+    "kitchen": "Cocina",
+    "bedroom": "Dormitorio",
+    "details": "Detalles",
+    "bathroom": "Baño"
+  },
   "galleryPage": {
+    "jumpTo": "Ir a",
     "viewDetail": "Ver departamento →"
   },
   "langSuggest": {

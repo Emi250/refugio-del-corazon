@@ -1,24 +1,48 @@
 ---
+import WhatsAppIcon from './WhatsAppIcon.astro';
+import { waLink } from '~/utils/whatsapp';
 import { t, type Lang } from '~/i18n';
-interface Props { lang?: Lang }
-const { lang = 'es' } = Astro.props;
+
+interface Props {
+  lang?: Lang;
+  /** Fallback de WhatsApp cuando el trigger no trae `data-lb-wa`. */
+  waHref?: string;
+}
+const { lang = 'es', waHref } = Astro.props;
 const labels = {
   close: lang === 'en' ? 'Close' : 'Cerrar',
   prev:  lang === 'en' ? 'Previous' : 'Anterior',
   next:  lang === 'en' ? 'Next' : 'Siguiente',
+  dialog: lang === 'en' ? 'Photo viewer' : 'Visor de fotos',
 };
+const fallbackWa = waHref ?? waLink(undefined, lang);
 ---
-<div class="lb" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label={labels.close}>
+<div
+  class="lb"
+  id="lightbox"
+  aria-hidden="true"
+  role="dialog"
+  aria-modal="true"
+  aria-label={labels.dialog}
+  inert
+>
   <button type="button" class="lb-close" aria-label={labels.close}>×</button>
   <button type="button" class="lb-nav lb-prev" aria-label={labels.prev}>‹</button>
   <button type="button" class="lb-nav lb-next" aria-label={labels.next}>›</button>
   <figure class="lb-stage">
-    <img class="lb-img" alt="" />
+    <div class="lb-frame">
+      <span class="lb-spinner" aria-hidden="true"></span>
+      <img class="lb-img" alt="" />
+    </div>
     <figcaption class="lb-meta">
       <span class="lb-caption"></span>
       <span class="lb-counter spec-mono"></span>
     </figcaption>
   </figure>
+  <a class="lb-wa" href={fallbackWa} target="_blank" rel="noopener" data-lb-wa-btn>
+    <WhatsAppIcon size={14} />
+    <span>{t('hero.cta', lang)}</span>
+  </a>
 </div>
 
 <script is:inline>
@@ -31,51 +55,132 @@ const labels = {
     const btnClose = lb.querySelector('.lb-close');
     const btnPrev = lb.querySelector('.lb-prev');
     const btnNext = lb.querySelector('.lb-next');
+    const waBtn = lb.querySelector('[data-lb-wa-btn]');
+    const waFallback = waBtn ? waBtn.getAttribute('href') : null;
 
     let group = [];
     let idx = 0;
+    let title = '';
     let lastFocus = null;
+    let pushedState = false;
+
+    // `inert` en vez de depender de la transicion de `visibility`: garantiza
+    // que los botones salgan del tab order (y del arbol de accesibilidad)
+    // aunque la transicion este pausada, y aisla el fondo mientras esta abierto.
+    function siblings() {
+      return Array.prototype.filter.call(document.body.children, function (el) { return el !== lb; });
+    }
+    function setInert(closed) {
+      if (closed) {
+        lb.setAttribute('inert', '');
+        siblings().forEach(function (el) { el.removeAttribute('inert'); });
+      } else {
+        lb.removeAttribute('inert');
+        siblings().forEach(function (el) { el.setAttribute('inert', ''); });
+      }
+    }
+
+    // En un telefono bajar 1800px por foto son ~300 KB de espera por flecha.
+    const wantsSmall = function () { return window.innerWidth < 760; };
+
+    function srcFor(item) {
+      return (wantsSmall() && item.sm) ? item.sm : item.lg;
+    }
 
     function indexGroup(name) {
       const all = document.querySelectorAll('[data-lb-group="' + name + '"]');
-      return Array.from(all).map(el => ({
-        el,
-        src: el.getAttribute('href') || el.dataset.lbSrc || (el.querySelector('img') && el.querySelector('img').src),
-        caption: el.dataset.lbCaption || '',
-        alt: (el.querySelector('img') && el.querySelector('img').alt) || ''
-      }));
+      return Array.from(all).map(function (el) {
+        const inner = el.querySelector('img');
+        return {
+          el: el,
+          lg: el.getAttribute('href') || el.dataset.lbSrc || (inner && inner.src),
+          sm: el.dataset.lbSm || '',
+          caption: el.dataset.lbCaption || '',
+          alt: el.dataset.lbAlt || (inner && inner.alt) || el.dataset.lbCaption || ''
+        };
+      });
+    }
+
+    // Sin esto cada flecha espera a la red y la foto aparece en blanco.
+    function preloadNeighbours() {
+      if (group.length < 2) return;
+      [1, -1].forEach(function (d) {
+        const n = group[(idx + d + group.length) % group.length];
+        if (n) new Image().src = srcFor(n);
+      });
     }
 
     function render() {
       const item = group[idx];
       if (!item) return;
-      imgEl.src = item.src;
+      const next = srcFor(item);
+      if (imgEl.getAttribute('src') !== next) {
+        lb.classList.add('is-loading');
+        imgEl.src = next;
+      }
       imgEl.alt = item.alt;
       capEl.textContent = item.caption;
       capEl.style.display = item.caption ? '' : 'none';
-      ctrEl.textContent = (idx + 1) + ' / ' + group.length;
+      const count = (idx + 1) + ' / ' + group.length;
+      ctrEl.textContent = title ? title + ' · ' + count : count;
       const single = group.length <= 1;
       btnPrev.hidden = single;
       btnNext.hidden = single;
+      preloadNeighbours();
     }
 
-    function open(name, startIdx) {
+    imgEl.addEventListener('load', function () { lb.classList.remove('is-loading'); });
+    imgEl.addEventListener('error', function () { lb.classList.remove('is-loading'); });
+
+    function isOpen() { return lb.getAttribute('aria-hidden') === 'false'; }
+
+    function open(trigger, name, startIdx) {
       group = indexGroup(name);
       if (!group.length) return;
       idx = Math.max(0, Math.min(startIdx | 0, group.length - 1));
+      title = trigger.dataset.lbTitle || '';
+      if (waBtn) waBtn.setAttribute('href', trigger.dataset.lbWa || waFallback || '#');
       lastFocus = document.activeElement;
       lb.setAttribute('aria-hidden', 'false');
+      setInert(false);
       document.documentElement.style.overflow = 'hidden';
       render();
+      void lb.offsetWidth;  // fuerza el recalculo: recien salido de `inert` no acepta foco
       btnClose.focus();
+      // En Android, sin esto el boton Atras sale del sitio en vez de cerrar el visor.
+      try {
+        history.pushState({ lb: true }, '');
+        pushedState = true;
+      } catch (e) {
+        pushedState = false;
+      }
     }
 
-    function close() {
+    function teardown() {
       lb.setAttribute('aria-hidden', 'true');
+      lb.classList.remove('is-loading');
+      setInert(true);
       document.documentElement.style.overflow = '';
       imgEl.removeAttribute('src');
       if (lastFocus && lastFocus.focus) lastFocus.focus();
     }
+
+    function close() {
+      if (!isOpen()) return;
+      if (pushedState) {
+        pushedState = false;
+        history.back();
+      } else {
+        teardown();
+      }
+    }
+
+    window.addEventListener('popstate', function () {
+      if (isOpen()) {
+        pushedState = false;
+        teardown();
+      }
+    });
 
     function step(delta) {
       if (!group.length) return;
@@ -84,30 +189,45 @@ const labels = {
     }
 
     document.addEventListener('click', function (e) {
+      // Respeta ctrl/cmd/shift+click y el boton del medio: abrir en otra pestaña.
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
       const trigger = e.target.closest('[data-lb-group]');
-      if (trigger) {
-        e.preventDefault();
-        const name = trigger.getAttribute('data-lb-group');
-        const startIdx = parseInt(trigger.dataset.lbIndex || '0', 10);
-        open(name, startIdx);
-      }
+      if (!trigger) return;
+      e.preventDefault();
+      open(trigger, trigger.getAttribute('data-lb-group'), parseInt(trigger.dataset.lbIndex || '0', 10));
     });
 
     btnClose.addEventListener('click', close);
     btnPrev.addEventListener('click', function () { step(-1); });
     btnNext.addEventListener('click', function () { step(1); });
     lb.addEventListener('click', function (e) {
-      if (e.target === lb) close();
+      if (e.target === lb || e.target.classList.contains('lb-frame')) close();
     });
+
+    function focusables() {
+      return Array.from(lb.querySelectorAll('button:not([hidden]), a[href]'));
+    }
 
     document.addEventListener('keydown', function (e) {
-      if (lb.getAttribute('aria-hidden') === 'true') return;
-      if (e.key === 'Escape') close();
-      else if (e.key === 'ArrowRight') step(1);
-      else if (e.key === 'ArrowLeft') step(-1);
+      if (!isOpen()) return;
+      if (e.key === 'Escape') { close(); return; }
+      if (e.key === 'ArrowRight') { step(1); return; }
+      if (e.key === 'ArrowLeft') { step(-1); return; }
+      if (e.key !== 'Tab') return;
+      // Focus trap: sin esto se tabula hacia el footer, que sigue debajo del overlay.
+      const items = focusables();
+      if (!items.length) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     });
 
-    // Touch swipe
     let touchX = null;
     lb.addEventListener('touchstart', function (e) {
       touchX = e.changedTouches[0].clientX;
@@ -132,11 +252,17 @@ const labels = {
     align-items: center;
     justify-content: center;
     opacity: 0;
+    /* `visibility` ademas de `opacity` (con solo opacity los tres botones
+       seguian siendo tabulables en todas las paginas). Sin transicion sobre
+       visibility a proposito: una transicion pausada deja el estado a medias;
+       el tab order real lo garantiza el atributo `inert` desde el script. */
+    visibility: hidden;
     pointer-events: none;
     transition: opacity 0.18s ease;
   }
   .lb[aria-hidden="false"] {
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
   }
   .lb-stage {
@@ -148,15 +274,42 @@ const labels = {
     align-items: center;
     gap: 14px;
   }
+  .lb-frame {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    min-height: 120px;
+  }
   .lb-img {
     max-width: 92vw;
-    max-height: 80vh;
+    max-height: 78vh;
     width: auto;
     height: auto;
     object-fit: contain;
     background: var(--mf-ink);
     border: 1px solid rgba(244, 240, 230, 0.12);
+    transition: opacity 0.15s ease;
   }
+  .lb.is-loading .lb-img { opacity: 0.25; }
+
+  .lb-spinner {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    border: 2px solid rgba(244, 240, 230, 0.25);
+    border-top-color: var(--mf-paper);
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .lb.is-loading .lb-spinner {
+    opacity: 1;
+    animation: lbSpin 0.7s linear infinite;
+  }
+  @keyframes lbSpin { to { transform: rotate(360deg); } }
+
   .lb-meta {
     display: flex;
     align-items: baseline;
@@ -172,7 +325,26 @@ const labels = {
   .lb-counter {
     color: rgba(244, 240, 230, 0.6);
     font-size: 10.5px;
+    white-space: nowrap;
   }
+
+  .lb-wa {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: var(--mf-accent);
+    color: var(--mf-paper);
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    transition: filter 0.15s;
+  }
+  .lb-wa:hover { filter: brightness(1.07); }
 
   .lb-close,
   .lb-nav {
@@ -188,7 +360,8 @@ const labels = {
   .lb-close:hover,
   .lb-nav:hover { background: rgba(244, 240, 230, 0.18); }
   .lb-close:focus-visible,
-  .lb-nav:focus-visible { outline: 2px solid var(--mf-accent); outline-offset: 2px; }
+  .lb-nav:focus-visible,
+  .lb-wa:focus-visible { outline: 2px solid var(--mf-accent); outline-offset: 2px; }
 
   .lb-close {
     top: 18px;
@@ -213,12 +386,22 @@ const labels = {
   .lb-next { right: 24px; }
   .lb-nav[hidden] { display: none; }
 
+  @media (prefers-reduced-motion: reduce) {
+    .lb-nav:hover { transform: translateY(-50%); }
+  }
+
   @media (max-width: 720px) {
-    .lb-close { top: 12px; right: 12px; width: 38px; height: 38px; font-size: 22px; }
-    .lb-nav { width: 42px; height: 42px; font-size: 24px; }
-    .lb-prev { left: 10px; }
-    .lb-next { right: 10px; }
-    .lb-img { max-height: 72vh; }
+    .lb-close { top: 12px; right: 12px; width: 44px; height: 44px; font-size: 24px; }
+    .lb-nav { width: 44px; height: 44px; font-size: 26px; }
+    .lb-prev { left: 8px; }
+    .lb-next { right: 8px; }
+    .lb-img { max-height: 62vh; }
     .lb-meta { flex-direction: column; gap: 4px; align-items: center; text-align: center; }
+    .lb-wa {
+      right: 50%;
+      transform: translateX(50%);
+      bottom: calc(14px + env(safe-area-inset-bottom));
+      padding: 11px 18px;
+    }
   }
 </style>

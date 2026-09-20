@@ -13,10 +13,12 @@ import CTABlock from '~/components/CTABlock.astro';
 import Lightbox from '~/components/Lightbox.astro';
 import { t } from '~/i18n';
 import { getCollection } from 'astro:content';
+import { heroBackground } from '~/utils/images';
 
 const lang = 'en' as const;
 const allUnits = await getCollection('unidades', ({ data }) => data.lang === 'en');
 const units = allUnits.sort((a, b) => a.data.order - b.data.order);
+const heroBg = await heroBackground();
 
 const servicesEn = [
   { k: 'Fiber-optic WiFi (300 Mbps)', v: 'INCLUDED' },
@@ -34,19 +36,19 @@ const servicesEn = [
   title="Vacation rentals in Capilla del Monte · El Refugio del Corazón"
   description="Four short-term rental apartments at Río Negro 64, Capilla del Monte. 800 m from downtown, 2.3 km from Cerro Uritorco. Book via WhatsApp."
   navVariant="hero"
-  preloadImage="/cerro%20uritorco.jpg"
+  preloadImage={heroBg}
 >
   <Hero lang={lang} />
 
   <section id="unidades">
-    <SectionBar no="1" title={t('sections.units', lang)} meta={t('sections.unitsMeta', lang)} />
+    <SectionBar no="1" title={t('sections.units', lang)} meta={t('sections.unitsMeta', lang)} metaHref="/en/galeria" />
     {units.map((unit, i) => (
       <UnitRow unit={unit} lang={lang} align={i % 2 === 0 ? 'left' : 'right'} />
     ))}
   </section>
 
   <section id="espacios">
-    <SectionBar no="2" title={t('sections.spaces', lang)} meta={t('sections.spacesMeta', lang)} />
+    <SectionBar no="2" title={t('sections.spaces', lang)} meta={t('sections.spacesMeta', lang)} metaHref="/en/galeria/#espacios-comunes" />
     <EspaciosComunes lang={lang} />
   </section>
 

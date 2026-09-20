@@ -4,10 +4,10 @@ name_en: "Apartment #2"
 order: 2
 lang: en
 specs:
-  capacidad: "Up to 2 guests"
+  capacidad: "Up to 3 guests"
   ambientes: "2 rooms"
   metros: "40 m²"
-chips: ["WiFi", "Equipped kitchen", "Heat-and-cool AC", "Grill", "Linens", "Bed linens", "Smart TV (no cable)", "Fridge with Freezer"]
+chips: ["WiFi", "Equipped kitchen", "Heat-and-cool AC", "Grill", "Bed linens", "Towels", "Smart TV (no cable)", "Fridge with Freezer"]
 hero_image: "../../../assets/images/unidades/unidad-2/hero.jpg"
 gallery:
   - { src: "../../../assets/images/unidades/unidad-2/living.jpg", caption: "Open space" }

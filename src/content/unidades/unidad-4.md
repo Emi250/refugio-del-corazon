@@ -8,18 +8,17 @@ specs:
   ambientes: "3 dormitorios · living comedor"
   metros: "65 m²"
   bano: "1 baño completo"
-chips: ["WiFi", "Cocina equipada", "2 aires frío-calor", "Parrilla", "Ropa de cama", "Ropa blanca", "Smart TV (sin cable)", "Heladera con Freezer"]
+chips: ["WiFi", "Cocina equipada", "2 aires frío-calor", "Parrilla", "Ropa de cama", "Toallas", "Smart TV (sin cable)", "Heladera con Freezer"]
 hero_image: "../../assets/images/unidades/unidad-4/hero.jpg"
 gallery:
-  - { src: "../../assets/images/unidades/unidad-4/cocina-comedor.jpg", caption: "Cocina comedor con horno a gas" }
-  - { src: "../../assets/images/unidades/unidad-4/living.jpg", caption: "Living con arco y barra desayunador" }
+  - { src: "../../assets/images/unidades/unidad-4/hero.jpg", caption: "Cocina comedor, con el arco al living de fondo" }
+  - { src: "../../assets/images/unidades/unidad-4/living.jpg", caption: "El living, con el arco y la barra desayunador" }
   - { src: "../../assets/images/unidades/unidad-4/dormitorio.jpg", caption: "Habitación principal con cama queen y aire frío-calor" }
   - { src: "../../assets/images/unidades/unidad-4/dormitorio-02.jpg", caption: "Segunda habitación con dos camas y aire frío-calor" }
   - { src: "../../assets/images/unidades/unidad-4/dormitorio-03.jpg", caption: "Tercera habitación con cama individual" }
-  - { src: "../../assets/images/unidades/unidad-4/bano.jpg", caption: "Baño completo" }
-  - { src: "../../assets/images/unidades/unidad-4/bano-02.jpg", caption: "Baño · vanity" }
-  - { src: "../../assets/images/unidades/unidad-4/lavadero.jpg", caption: "Lavadero con lavarropas" }
-  - { src: "../../assets/images/unidades/unidad-4/exterior.jpg", caption: "Frente de la casa" }
+  - { src: "../../assets/images/unidades/unidad-4/bano.jpg", caption: "El baño, completo con ducha" }
+  - { src: "../../assets/images/unidades/unidad-4/lavadero.jpg", caption: "Lavadero propio con lavarropas" }
+  - { src: "../../assets/images/unidades/unidad-4/exterior.jpg", caption: "La entrada del #4, por el frente sobre Rio Negro" }
 blurb: "El más amplio de los cuatro: tres habitaciones, un baño y lavadero. Aire frío-calor en las dos principales."
 blurb_en: "The largest of the four: three bedrooms, one bathroom and a laundry area. Heat-and-cool AC in the two main ones."
 video_url: "https://drive.google.com/file/d/1PJ_1UBRlw2IibLQtPFit2o78Nb4dq42H/view?usp=sharing"

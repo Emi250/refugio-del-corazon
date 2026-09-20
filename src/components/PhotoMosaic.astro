@@ -27,11 +27,17 @@ const visible = padded.slice(0, 5);
 const hidden = group ? images.slice(5) : [];
 const full = await lightboxVariants(images);
 ---
+{group && (
+  <div class="mos-hint">
+    <span class="kicker">{t('unit.tapHint', lang)}</span>
+    <span class="spec-mono mos-hint-count">{images.length} {t('unit.photos', lang)}</span>
+  </div>
+)}
 <div class="mosaic">
   {visible.map((img, i) => (
     <div class={`mos-cell mos-cell-${i + 1}`} style={`--i:${i}`}>
       {img && (group ? (
-        <a href={full[i]} class="mos-link" data-lb-group={group} data-lb-index={i} data-lb-caption={img.caption ?? ''} aria-label={img.caption ?? `Foto ${i + 1}`}>
+        <a href={full[i].lg} data-lb-sm={full[i].sm} class="mos-link" data-lb-group={group} data-lb-index={i} data-lb-title={unitName ?? ''} data-lb-caption={img.caption ?? ''} data-lb-alt={img.caption ? captionAlt(img.caption) : fallbackAlt(i)} aria-label={img.caption ?? `Foto ${i + 1}`}>
           <Image src={img.src} alt={img.caption ? captionAlt(img.caption) : fallbackAlt(i)} width={1200} widths={[400, 800, 1200]} sizes="(max-width: 900px) 100vw, 45vw" loading="lazy" decoding="async" />
           {img.caption && <span class="mos-cap">{img.caption}</span>}
         </a>
@@ -41,13 +47,16 @@ const full = await lightboxVariants(images);
           {img.caption && <span class="mos-cap">{img.caption}</span>}
         </>
       ))}
+      {i === 4 && hidden.length > 0 && (
+        <span class="mos-more" aria-hidden="true">+{hidden.length} {t('unit.photos', lang)}</span>
+      )}
       {i === 4 && (
         <a href={galleryHref} class="mos-cta">{t('unit.viewGallery', lang)} →</a>
       )}
     </div>
   ))}
   {hidden.map((img, k) => (
-    <a hidden href={full[k + 5]} data-lb-group={group} data-lb-index={k + 5} data-lb-caption={img.caption ?? ''} aria-hidden="true" tabindex="-1"></a>
+    <a hidden href={full[k + 5].lg} data-lb-sm={full[k + 5].sm} data-lb-group={group} data-lb-index={k + 5} data-lb-title={unitName ?? ''} data-lb-caption={img.caption ?? ''} data-lb-alt={img.caption ? captionAlt(img.caption) : fallbackAlt(k + 5)} aria-hidden="true" tabindex="-1"></a>
   ))}
 </div>
 
@@ -86,8 +95,12 @@ const full = await lightboxVariants(images);
   .mos-cap {
     position: absolute;
     left: 10px;
+    right: 10px;
     bottom: 10px;
+    width: fit-content;
+    max-width: calc(100% - 20px);
     padding: 4px 8px;
+    line-height: 1.35;
     background: rgba(27, 26, 22, 0.55);
     backdrop-filter: blur(8px);
     color: var(--mf-paper);
@@ -116,6 +129,33 @@ const full = await lightboxVariants(images);
   }
   .mos-cta:hover { transform: translate(-1px, -1px); }
 
+  /* Sin esto el usuario ve 5 fotos y no sabe que hay 4-7 mas detras. */
+  .mos-more {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    display: grid;
+    place-items: center;
+    background: rgba(27, 26, 22, 0.5);
+    color: var(--mf-paper);
+    font-family: var(--mf-font-mono);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding-bottom: 34px;
+  }
+
+  .mos-hint {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 0 28px 12px;
+  }
+  .mos-hint-count { letter-spacing: 0.1em; }
+
   @media (max-width: 720px) {
     .mosaic {
       grid-template-columns: 1fr 1fr;
@@ -136,6 +176,8 @@ const full = await lightboxVariants(images);
       gap: 6px;
       box-shadow: 2px 2px 0 var(--mf-ink);
     }
+    .mos-more { font-size: 11px; padding-bottom: 28px; }
+    .mos-hint { padding: 0 18px 10px; }
   }
 
   @media (max-width: 480px) {

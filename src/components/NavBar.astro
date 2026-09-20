@@ -105,11 +105,20 @@ const enPath = lang === 'en' ? withTrailingSlash(currentPath) : otherPath;
     });
   }
 
-  const nav = document.querySelector('.nav-paper') as HTMLElement | null;
+  const nav = document.querySelector('.nav-paper, .nav-hero') as HTMLElement | null;
   if (nav) {
-    const update = () => nav.classList.toggle('is-scrolled', window.scrollY > 4);
+    const threshold = nav.classList.contains('nav-hero') ? 80 : 4;
+    const update = () => nav.classList.toggle('is-scrolled', window.scrollY > threshold);
     update();
     window.addEventListener('scroll', update, { passive: true });
+
+    // Alto real de la nav -> lo consumen el scroll-padding de las anclas y el
+    // indice sticky de /galeria, que si no tienen que adivinarlo.
+    const measure = () => {
+      document.documentElement.style.setProperty('--mf-nav-h', `${nav.offsetHeight}px`);
+    };
+    measure();
+    window.addEventListener('resize', measure, { passive: true });
   }
 </script>
 
@@ -134,14 +143,24 @@ const enPath = lang === 'en' ? withTrailingSlash(currentPath) : otherPath;
   .nav-paper.is-scrolled {
     box-shadow: 0 6px 18px -14px rgba(27, 26, 22, 0.4);
   }
+  /* Fija, no absoluta: sobre el hero arranca transparente y al scrollear
+     vira a paper. Con `absolute` la nav se iba con el scroll y el home
+     quedaba sin ningun acceso a /galeria (y sin burger en mobile). */
   .nav-hero {
     background: transparent;
     color: var(--mf-paper);
     border-bottom: 1px solid rgba(244, 240, 230, 0.15);
-    position: absolute;
+    position: fixed;
     top: 0; left: 0; right: 0;
-    z-index: 5;
+    z-index: 50;
   }
+  .nav-hero.is-scrolled {
+    background: var(--mf-paper);
+    color: var(--mf-ink);
+    border-bottom-color: var(--mf-hair);
+    box-shadow: 0 6px 18px -14px rgba(27, 26, 22, 0.4);
+  }
+  .nav-hero.is-scrolled .nav-link { opacity: 0.75; }
 
   .nav-brand {
     display: flex;
@@ -203,6 +222,11 @@ const enPath = lang === 'en' ? withTrailingSlash(currentPath) : otherPath;
     background: var(--mf-paper);
     color: var(--mf-ink);
     box-shadow: none;
+  }
+  .nav-hero.is-scrolled .nav-cta {
+    background: var(--mf-accent);
+    color: var(--mf-paper);
+    box-shadow: var(--mf-shadow-cta);
   }
 
   .nav-burger {

@@ -389,7 +389,7 @@ Este proyecto se optimiza para **mínimo gasto de tokens** por sesión. Reglas:
 
 ## 13. Estado actual del proyecto
 
-**Última actualización**: 2026-09-19
+**Última actualización**: 2026-09-20
 
 - [x] CLAUDE.md creado
 - [x] Scaffold Astro inicial (configs + package.json) — 2026-05-21
@@ -411,6 +411,16 @@ Este proyecto se optimiza para **mínimo gasto de tokens** por sesión. Reglas:
 - [x] Sección **Espacios comunes** (patio interno + fachada) como `no="2"` del home ES/EN, con las 12 fotos del set `Exterior nuevas` en `src/assets/images/espacios/`. Reusa `PhotoMosaic` (5 celdas + 7 ocultas para el lightbox); lista compartida en `src/data/espacios.ts`; strings bajo `spaces` en i18n; grupo `00 · Espacios comunes` al tope de `/galeria`. Renumeró galería→3, servicios→4, ubicación→5, FAQ→6 — 2026-09-19
 - [ ] Reemplazar fotos de las unidades 2, 3 y 4 (carpetas `Airbnb 3` y `Airbnb 4` en Escritorio). Falta definir de dónde salen las de la unidad 2 (no hay carpeta `Airbnb 2`). La carpeta `Exterior` ya se usó para Espacios comunes
 - [x] `scroll-padding-top` en `html` (79px desktop / 65px <900px) — la navbar sticky ya no tapa el encabezado al entrar por un ancla (`/galeria/#unidad-3`, `#espacios-comunes`) — 2026-09-19
+- [x] **Auditoría UX + curaduría de fotos** — 2026-09-20
+  - Navegación: nav del home pasó de `absolute` a `fixed` (antes desaparecía al scrollear y en mobile se perdía el burger); índice sticky de secciones en `/galeria` (`GalleryIndex.astro`, scroll-spy sin rAF); "+N fotos" y hint "tocá para ampliar" en `PhotoMosaic`; `scroll-padding-top` ahora se calcula con `--mf-nav-h` + `--mf-gidx-h` medidos por JS; `metaHref` en las secciones 1 y 2 del home; el CTA "Ver galería" del detalle apunta a `/galeria/#unidad-N`; scroll hint del hero clickeable; `body { padding-bottom }` del sticky CTA movido a `global.css` (en el `<style>` scoped nunca aplicaba y tapaba el footer)
+  - Lightbox: precarga de las fotos vecinas, variante de 1100px en mobile (−66% de peso: 1301 KB → 447 KB por unidad), spinner de carga, `history.pushState` (el botón Atrás de Android cerraba la web en vez del visor), focus trap + `inert` en el fondo (los 3 botones eran tabulables con el visor cerrado en TODAS las páginas), contexto de unidad en el contador ("Departamento #3 · 4 / 8"), CTA de WhatsApp adentro, `alt` de las fotos ocultas, ctrl/cmd+click respetado, botones a 44px
+  - Fotos: 49 → 42 (el #2 quedó intacto esperando el set nuevo). Bajas por duplicado o por restar: u1 `living-comedor`/`entrada`/`placard`, u3 `bano` (cortina amarillenta)/`bienvenida`, u4 `cocina-comedor`/`bano-02`, espacios `rosa`+`rosa-lateral` (la misma rosa) y `paso-lateral`. El `hero_image` de cada unidad ahora entra como `gallery[0]` (antes la mejor foto quedaba fuera del carrusel). Captions reescritos sin repeticiones entre unidades
+  - Hero del sitio: `espacios/fachada.jpg` vía `astro:assets` en vez de `public/cerro uritorco.jpg` (paisaje genérico, sin optimizar, y era el LCP). `public/cerro uritorco.jpg` quedó huérfano
+  - Bugs de contenido: `unidad-2` EN decía "Up to 2 guests" contra "Hasta 3 personas"; chips EN tenían "Linens" + "Bed linens" (sinónimos) → ahora "Bed linens" + "Towels", y en ES "Ropa blanca" → "Toallas"; los 6 captions de `GalleryStrip` estaban hardcodeados en español y la home EN mostraba "Baño"/"Dormitorio"
+- [ ] **Fotos nuevas del Departamento #2** — el set actual tiene 4 fotos del mismo dormitorio y en `dormitorio-02` se ve al fotógrafo reflejado en el espejo. Cuando lleguen, curar con el mismo criterio (espacio principal → dormitorios → cocina → baño → entrada → detalle) y sumar el `hero` como `gallery[0]`
+- [ ] **Rehacer la foto del baño del #3** — `bano.jpg` tiene la cortina de ducha amarillenta y las juntas sucias; se dio de baja y el depto quedó solo con `bano-02` (el lavatorio)
+- [ ] **Sacar el cartel plastificado del aire acondicionado** antes de refotografiar la cocina del #3: se lee dentro de la foto de galería
+- [ ] **Confirmar si `espacios/paso-mediasombra.jpg` es la cochera cubierta.** Si lo es, cambiar el caption (hoy dice "El acceso cubierto con media sombra") y subirla a las 5 celdas visibles: "Cochera privada" se promete en servicios sin ninguna foto
 - [ ] Sumar widgets Elfsight de Google y Airbnb cuando el cliente decida (mismo patrón que Booking)
 - [ ] Contenido real (scraping del sitio Lovable actual)
 - [ ] Deploy a Vercel + dominio (`refugiodelcorazon.com.ar`)

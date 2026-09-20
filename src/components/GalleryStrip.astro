@@ -2,32 +2,34 @@
 import { Image } from 'astro:assets';
 import { t, type Lang, localizedPath } from '~/i18n';
 import { lightboxVariants } from '~/utils/images';
-import exterior2 from '~/assets/images/unidades/unidad-2/exterior.jpg';
-import living1 from '~/assets/images/unidades/unidad-1/living-comedor.jpg';
-import cocina4 from '~/assets/images/unidades/unidad-4/cocina-comedor.jpg';
+import patio from '~/assets/images/espacios/patio.jpg';
+import living4 from '~/assets/images/unidades/unidad-4/living.jpg';
+import cocina1 from '~/assets/images/unidades/unidad-1/cocina.jpg';
 import dorm3 from '~/assets/images/unidades/unidad-3/dormitorio.jpg';
 import detalle1 from '~/assets/images/unidades/unidad-1/ropa-de-cama.jpg';
-import bano2 from '~/assets/images/unidades/unidad-2/bano.jpg';
+import bano1 from '~/assets/images/unidades/unidad-1/bano.jpg';
 
 interface Props { lang?: Lang; images?: { src: ImageMetadata; caption?: string }[] }
 
-const defaults = [
-  { src: exterior2, caption: 'Exterior' },
-  { src: living1, caption: 'Living' },
-  { src: cocina4, caption: 'Cocina' },
-  { src: dorm3, caption: 'Dormitorio' },
-  { src: detalle1, caption: 'Detalles' },
-  { src: bano2, caption: 'Baño' },
-];
+const { lang = 'es', images } = Astro.props;
 
-const { lang = 'es', images = defaults } = Astro.props;
-const shown = images.slice(0, 6);
+// Los captions estaban hardcodeados en castellano y la home en ingles mostraba
+// "Bano" y "Dormitorio".
+const defaults = [
+  { src: patio, caption: t('galleryStrip.exterior', lang) },
+  { src: living4, caption: t('galleryStrip.living', lang) },
+  { src: cocina1, caption: t('galleryStrip.kitchen', lang) },
+  { src: dorm3, caption: t('galleryStrip.bedroom', lang) },
+  { src: detalle1, caption: t('galleryStrip.details', lang) },
+  { src: bano1, caption: t('galleryStrip.bathroom', lang) },
+];
+const shown = (images ?? defaults).slice(0, 6);
 const full = await lightboxVariants(shown);
 ---
 <section class="gallery-strip">
   <div class="gs-grid">
     {shown.map((img, i) => (
-      <a href={full[i]} class="gs-cell" data-lb-group="home-strip" data-lb-index={i} data-lb-caption={img.caption ?? ''} aria-label={img.caption ?? `Foto ${i + 1}`}>
+      <a href={full[i].lg} data-lb-sm={full[i].sm} class="gs-cell" data-lb-group="home-strip" data-lb-index={i} data-lb-caption={img.caption ?? ''} aria-label={img.caption ?? `Foto ${i + 1}`}>
         <Image src={img.src} alt={img.caption ?? `Foto ${i + 1} — El Refugio del Corazón, Capilla del Monte`} width={600} widths={[300, 600]} sizes="(max-width: 900px) 33vw, 16vw" loading="lazy" decoding="async" />
         {img.caption && <span class="gs-cap">{img.caption}</span>}
       </a>
@@ -66,8 +68,12 @@ const full = await lightboxVariants(shown);
   .gs-cap {
     position: absolute;
     left: 10px;
+    right: 10px;
     bottom: 10px;
+    width: fit-content;
+    max-width: calc(100% - 20px);
     padding: 4px 8px;
+    line-height: 1.35;
     background: rgba(27, 26, 22, 0.55);
     backdrop-filter: blur(8px);
     color: var(--mf-paper);

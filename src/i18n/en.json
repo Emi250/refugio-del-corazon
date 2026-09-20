@@ -32,22 +32,21 @@
     "blurb": "All four apartments open onto the same inner courtyard: lawn, loungers, outdoor tables and two grills for every guest to use. Lavender and rose beds frame the hills in the background.",
     "chips": ["Shared courtyard", "Two grills", "Loungers and tables", "Clothesline", "Mountain views"],
     "captions": {
-      "patio": "Shared inner courtyard",
+      "patio": "The shared inner courtyard, with the hills behind",
       "parrilla": "One of the two grills",
-      "fachada": "The front on Rio Negro 64",
+      "fachada": "The front on Río Negro 64",
       "jardin": "Loungers and outdoor tables",
-      "rosa": "Rose bushes",
+      "frenteJardin": "The front garden, among the lavender",
       "lateralCerro": "The side path, with the hill behind",
-      "frenteJardin": "The front seen from the garden",
-      "pasoMediasombra": "Side path with shade cloth",
-      "jazmin": "Jasmine in bloom",
-      "accesoPorton": "Entrance through the gate",
-      "rosaLateral": "Roses in the side garden",
-      "pasoLateral": "Path to the back garden"
+      "pasoMediasombra": "The covered entrance with shade cloth",
+      "accesoPorton": "The way in through the gate",
+      "jazmin": "Jasmine in bloom over the garden"
     }
   },
   "unit": {
     "viewMore": "View apartment",
+    "photos": "photos",
+    "tapHint": "Tap any photo to enlarge",
     "viewGallery": "View gallery",
     "otherUnits": "Other apartments",
     "shortSpecs": "In short",
@@ -101,7 +100,16 @@
     "browseKicker": "THE APARTMENTS",
     "browseTitle": "Pick where to stay"
   },
+  "galleryStrip": {
+    "exterior": "Courtyard",
+    "living": "Living room",
+    "kitchen": "Kitchen",
+    "bedroom": "Bedroom",
+    "details": "Details",
+    "bathroom": "Bathroom"
+  },
   "galleryPage": {
+    "jumpTo": "Jump to",
     "viewDetail": "View apartment →"
   },
   "langSuggest": {

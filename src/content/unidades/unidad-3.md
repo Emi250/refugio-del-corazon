@@ -8,18 +8,17 @@ specs:
   ambientes: "2 dormitorios · living comedor"
   metros: "60 m²"
   bano: "En la habitación principal"
-chips: ["WiFi", "Cocina equipada", "2 aires frío-calor", "Parrilla", "Ropa de cama", "Ropa blanca", "Smart TV (sin cable)", "Heladera con Freezer"]
+chips: ["WiFi", "Cocina equipada", "2 aires frío-calor", "Parrilla", "Ropa de cama", "Toallas", "Smart TV (sin cable)", "Heladera con Freezer"]
 hero_image: "../../assets/images/unidades/unidad-3/hero.jpg"
 gallery:
-  - { src: "../../assets/images/unidades/unidad-3/living.jpg", caption: "Living comedor con Smart TV" }
-  - { src: "../../assets/images/unidades/unidad-3/cocina.jpg", caption: "Cocina con horno a gas" }
+  - { src: "../../assets/images/unidades/unidad-3/hero.jpg", caption: "El living comedor visto desde la entrada" }
+  - { src: "../../assets/images/unidades/unidad-3/living.jpg", caption: "El living desde el otro extremo, con Smart TV" }
   - { src: "../../assets/images/unidades/unidad-3/dormitorio.jpg", caption: "Habitación principal con cama queen" }
   - { src: "../../assets/images/unidades/unidad-3/dormitorio-02.jpg", caption: "Segunda habitación con cama individual" }
-  - { src: "../../assets/images/unidades/unidad-3/ropa-de-cama.jpg", caption: "Toallas y ropa de cama incluidas" }
-  - { src: "../../assets/images/unidades/unidad-3/bano.jpg", caption: "Baño completo con ducha" }
-  - { src: "../../assets/images/unidades/unidad-3/bano-02.jpg", caption: "Baño · lavatorio" }
-  - { src: "../../assets/images/unidades/unidad-3/bienvenida.jpg", caption: "Detalle de bienvenida" }
-  - { src: "../../assets/images/unidades/unidad-3/exterior.jpg", caption: "Frente del depto #3" }
+  - { src: "../../assets/images/unidades/unidad-3/cocina.jpg", caption: "Cocina independiente con horno a gas" }
+  - { src: "../../assets/images/unidades/unidad-3/bano-02.jpg", caption: "El baño, en la habitación principal" }
+  - { src: "../../assets/images/unidades/unidad-3/exterior.jpg", caption: "Entrada propia del #3, con el número en la puerta" }
+  - { src: "../../assets/images/unidades/unidad-3/ropa-de-cama.jpg", caption: "Toallas, ropa de cama y amenities" }
 blurb: "Dos dormitorios, living comedor amplio y dos aires frío-calor. Baño en la habitación principal."
 blurb_en: "Two bedrooms, a wide living-dining room and two heat-and-cool ACs. Bathroom inside the main room."
 airbnb_url: "https://airbnb.com.ar/h/capilladelmonte1"

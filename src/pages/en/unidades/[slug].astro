@@ -106,7 +106,7 @@ const crumbs = [
     </div>
   </section>
 
-  <PhotoMosaic images={data.gallery} lang={lang} group={`unit-${data.order}`} unitName={name} />
+  <PhotoMosaic images={data.gallery} lang={lang} group={`unit-${data.order}`} unitName={name} ctaHref={localizedPath(`/galeria/#${unit.slug.replace(/^en\//, '')}`, lang)} />
 
   <section class="d-slab">
     <div class="d-slab-head">
