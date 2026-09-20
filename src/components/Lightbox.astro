@@ -67,16 +67,34 @@ const fallbackWa = waHref ?? waLink(undefined, lang);
     // `inert` en vez de depender de la transicion de `visibility`: garantiza
     // que los botones salgan del tab order (y del arbol de accesibilidad)
     // aunque la transicion este pausada, y aisla el fondo mientras esta abierto.
-    function siblings() {
-      return Array.prototype.filter.call(document.body.children, function (el) { return el !== lb; });
-    }
+    //
+    // El visor NO cuelga de <body> sino de <main>, asi que hay que subir por la
+    // cadena de ancestros marcando los hermanos de cada nivel. Marcar los hijos
+    // directos de <body> incluia a <main> y el propio visor heredaba el `inert`:
+    // los clics en las flechas y en la cruz no llegaban (el teclado si, porque
+    // esos listeners viven en `document`).
+    let inerted = [];
+
     function setInert(closed) {
       if (closed) {
         lb.setAttribute('inert', '');
-        siblings().forEach(function (el) { el.removeAttribute('inert'); });
-      } else {
-        lb.removeAttribute('inert');
-        siblings().forEach(function (el) { el.setAttribute('inert', ''); });
+        inerted.forEach(function (el) { el.removeAttribute('inert'); });
+        inerted = [];
+        return;
+      }
+      lb.removeAttribute('inert');
+      inerted = [];
+      let node = lb;
+      while (node && node.parentElement) {
+        const parent = node.parentElement;
+        Array.prototype.forEach.call(parent.children, function (sib) {
+          if (sib !== node && !sib.hasAttribute('inert')) {
+            sib.setAttribute('inert', '');
+            inerted.push(sib);
+          }
+        });
+        if (parent === document.body) break;
+        node = parent;
       }
     }
 
@@ -330,6 +348,7 @@ const fallbackWa = waHref ?? waLink(undefined, lang);
 
   .lb-wa {
     position: absolute;
+    z-index: 2;
     right: 24px;
     bottom: 24px;
     display: inline-flex;
@@ -349,6 +368,9 @@ const fallbackWa = waHref ?? waLink(undefined, lang);
   .lb-close,
   .lb-nav {
     position: absolute;
+    /* `.lb-frame` es `position: relative` y viene despues en el DOM, asi que sin
+       z-index se pinta encima de las flechas y el clic aterriza en la foto. */
+    z-index: 2;
     background: rgba(244, 240, 230, 0.08);
     color: var(--mf-paper);
     border: 1px solid rgba(244, 240, 230, 0.18);
