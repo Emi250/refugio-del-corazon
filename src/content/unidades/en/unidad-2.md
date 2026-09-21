@@ -10,19 +10,17 @@ specs:
 chips: ["WiFi", "Equipped kitchen", "Heat-and-cool AC", "Grill", "Bed linens", "Towels", "Smart TV (no cable)", "Fridge with Freezer"]
 hero_image: "../../../assets/images/unidades/unidad-2/hero.jpg"
 gallery:
-  - { src: "../../../assets/images/unidades/unidad-2/living.jpg", caption: "Open space" }
-  - { src: "../../../assets/images/unidades/unidad-2/cocina.jpg", caption: "Kitchen with gas oven" }
-  - { src: "../../../assets/images/unidades/unidad-2/dormitorio.jpg", caption: "Main bedroom" }
-  - { src: "../../../assets/images/unidades/unidad-2/bano.jpg", caption: "Full bathroom" }
-  - { src: "../../../assets/images/unidades/unidad-2/exterior.jpg", caption: "Apartment #2 entrance" }
-  - { src: "../../../assets/images/unidades/unidad-2/dormitorio-02.jpg", caption: "Bedroom · another angle" }
-  - { src: "../../../assets/images/unidades/unidad-2/dormitorio-03.jpg", caption: "Bedroom with closet" }
-  - { src: "../../../assets/images/unidades/unidad-2/dormitorio-individual.jpg", caption: "Second room" }
-  - { src: "../../../assets/images/unidades/unidad-2/bano-02.jpg", caption: "Bathroom · vanity" }
-  - { src: "../../../assets/images/unidades/unidad-2/detalle.jpg", caption: "Linens and amenities" }
+  - { src: "../../../assets/images/unidades/unidad-2/hero.jpg", caption: "The bedroom, with a queen bed and the bathroom next door" }
+  - { src: "../../../assets/images/unidades/unidad-2/living.jpg", caption: "The open space: kitchen, table and the single bed" }
+  - { src: "../../../assets/images/unidades/unidad-2/dormitorio.jpg", caption: "The bedroom from the door, with Smart TV and wardrobe" }
+  - { src: "../../../assets/images/unidades/unidad-2/cocina.jpg", caption: "Kitchen with a gas oven and a table to eat at" }
+  - { src: "../../../assets/images/unidades/unidad-2/dormitorio-02.jpg", caption: "The single-bed corner, with natural light" }
+  - { src: "../../../assets/images/unidades/unidad-2/bano.jpg", caption: "Bathroom with shower, bidet and vanity" }
+  - { src: "../../../assets/images/unidades/unidad-2/exterior.jpg", caption: "The door to #2, at the end of the gravel path" }
+  - { src: "../../../assets/images/unidades/unidad-2/ropa-de-cama.jpg", caption: "Towels, ready on the bed" }
 blurb: "Two rooms with a queen bed and a single bed, a kitchen with gas oven and heat-and-cool AC."
 airbnb_url: "https://airbnb.com.ar/h/capilladelmonte"
-video_url: "https://drive.google.com/file/d/1HTGDUDwQ9NfqJJ9E7g9iLUK42VxMnwOr/view?usp=sharing"
+video_url: "https://drive.google.com/file/d/1gkoYvFfMm3PyNS9Yydnqpl8Uqytim7je/view?usp=sharing"
 ---
 
 Two rooms with a queen bed and a single bed: it sleeps up to 3. Linens included.
