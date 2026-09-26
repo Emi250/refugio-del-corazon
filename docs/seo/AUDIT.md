@@ -233,7 +233,7 @@ Logo por `astro:assets` (72 KB → 0,2–1,4 KB) + `build.inlineStylesheets: 'al
 
 **Lectura**: el texto aparece ~2 s antes y la página ya no se reacomoda, pero el LCP del laboratorio empeoró. La hipótesis más probable es que el `<h1>` se pinta a 1,0 s con la fuente de respaldo y Chrome vuelve a contar el LCP cuando Inter termina de llegar (3,9 s en 4G lenta), porque la descarga de la fuente compite con la foto `fetchpriority=high` del mosaico. Una sola ejecución: puede haber ruido. La segunda pasada quedó trabada (pagespeed.web.dev no termina con el panel del navegador oculto) → **NO_VERIFICADO**.
 
-**Próximo paso propuesto (decisión del dueño)**: `font-display: optional` para Inter. Si la fuente no llegó en ~100 ms, esa visita se queda con el respaldo y las siguientes páginas ya la tienen en caché: el LCP sería ≈ FCP y no habría cambio de fuente. Costo: en la primera visita con conexión lenta los títulos se verían con la fuente de respaldo y no con Inter.
+**Decisión del dueño (2026-09-26): se mantiene `swap` (opción A)**. Prioriza que la tipografía se vea siempre como Inter sobre el LCP de laboratorio. Lo que se había evaluado era `font-display: optional` para Inter. Si la fuente no llegó en ~100 ms, esa visita se queda con el respaldo y las siguientes páginas ya la tienen en caché: el LCP sería ≈ FCP y no habría cambio de fuente. Costo: en la primera visita con conexión lenta los títulos se verían con la fuente de respaldo y no con Inter.
 
 ## 9. Cambios de alto riesgo pendientes de aprobación
 
