@@ -12,6 +12,7 @@ import {
   getAlternates,
   getOgImage,
   getOgLocale,
+  BUSINESS,
 } from '~/utils/seo';
 
 interface Props {
@@ -82,8 +83,8 @@ const otherPath = otherLangPath(Astro.url.pathname, lang);
     <meta name="theme-color" content="#1B1A16" />
     <meta name="geo.region" content="AR-X" />
     <meta name="geo.placename" content="Capilla del Monte, Córdoba, Argentina" />
-    <meta name="geo.position" content="-30.8615;-64.5306" />
-    <meta name="ICBM" content="-30.8615, -64.5306" />
+    <meta name="geo.position" content={`${BUSINESS.latitude};${BUSINESS.longitude}`} />
+    <meta name="ICBM" content={`${BUSINESS.latitude}, ${BUSINESS.longitude}`} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/logo-refugio.jpeg" />
