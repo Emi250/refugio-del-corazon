@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import logo from '~/assets/images/brand/logo-refugio.jpeg';
+
 interface Props {
   inverted?: boolean;
   size?: number;
@@ -6,12 +9,16 @@ interface Props {
 }
 const { size = 36, class: cls = '' } = Astro.props;
 ---
-<img
-  src="/logo-refugio.jpeg"
+<Image
+  src={logo}
   alt="El Refugio del Corazón"
   class={`brand-mark-img ${cls}`}
   width={size}
   height={size}
+  densities={[1, 2, 3]}
+  loading="eager"
+  format="webp"
+  quality={80}
   style={`width:${size}px;height:${size}px;`}
 />
 
