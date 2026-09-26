@@ -389,7 +389,7 @@ Este proyecto se optimiza para **mínimo gasto de tokens** por sesión. Reglas:
 
 ## 13. Estado actual del proyecto
 
-**Última actualización**: 2026-09-21
+**Última actualización**: 2026-09-26
 
 - [x] CLAUDE.md creado
 - [x] Scaffold Astro inicial (configs + package.json) — 2026-05-21
@@ -418,6 +418,8 @@ Este proyecto se optimiza para **mínimo gasto de tokens** por sesión. Reglas:
   - Hero del sitio: `espacios/fachada.jpg` vía `astro:assets` en vez de `public/cerro uritorco.jpg` (paisaje genérico, sin optimizar, y era el LCP). `public/cerro uritorco.jpg` quedó huérfano
   - Bugs de contenido: `unidad-2` EN decía "Up to 2 guests" contra "Hasta 3 personas"; chips EN tenían "Linens" + "Bed linens" (sinónimos) → ahora "Bed linens" + "Towels", y en ES "Ropa blanca" → "Toallas"; los 6 captions de `GalleryStrip` estaban hardcodeados en español y la home EN mostraba "Baño"/"Dormitorio"
 - [x] **Fotos nuevas del Departamento #2** (`Airbnb 2/TERMINADOS/terminados magnific`, 9 tomas landscape) — 8 fotos en galería: 7 nuevas + `exterior.jpg` del set viejo, la única con la puerta y el número. Bajas: un tercer ángulo del dormitorio (redundante con el hero) y la toma del comedor con el matafuego y los carteles con QR. El set viejo mostraba las paredes celestes que ya se pintaron de blanco, así que se reemplazó completo (10 → 8 fotos, sin `detalle`/`bano-02`/`dormitorio-03`/`dormitorio-individual`). `video_url` del #2 actualizado al video nuevo de Drive — 2026-09-21
+- [x] **Auditoría SEO técnica** (informe en `docs/seo/AUDIT.md`) — 2026-09-26, local sin deploy. Detalle de unidad: se sacó el preload del hero (pedía una variante que no estaba en el `srcset`, 101–263 KB desperdiciados) y la foto 1 del mosaico pasó a `eager` + `fetchpriority=high` (prop `priority` de `PhotoMosaic`). `absoluteUrl()` preserva `#`/`?` (el breadcrumb generaba `/#unidades/`). `UnitSchema` sin `petsAllowed` (contradecía la FAQ) y con imágenes deduplicadas. Geo meta desde `BUSINESS`. Nuevo `npm run seo:check` (`scripts/seo-check.mjs`, sin deps) — correrlo después de cada build. **Ojo: el build real está en `.vercel/output/static/`, no en `dist/`**
+- [ ] **`www.refugiodelcorazon.com.ar` responde 200 en vez de 308 al apex** — configurarlo como redirect en Vercel → Domains (ver `docs/seo/AUDIT.md` §9)
 - [ ] **Rehacer la foto del baño del #3** — `bano.jpg` tiene la cortina de ducha amarillenta y las juntas sucias; se dio de baja y el depto quedó solo con `bano-02` (el lavatorio)
 - [ ] **Sacar el cartel plastificado del aire acondicionado** antes de refotografiar la cocina del #3: se lee dentro de la foto de galería
 - [ ] **Confirmar si `espacios/paso-mediasombra.jpg` es la cochera cubierta.** Si lo es, cambiar el caption (hoy dice "El acceso cubierto con media sombra") y subirla a las 5 celdas visibles: "Cochera privada" se promete en servicios sin ninguna foto

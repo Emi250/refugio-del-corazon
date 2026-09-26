@@ -10,9 +10,13 @@ interface Props {
   group?: string;
   unitName?: string;
   ctaHref?: string;
+  priority?: boolean;
 }
 
-const { images, lang = 'es', group, unitName, ctaHref } = Astro.props;
+const { images, lang = 'es', group, unitName, ctaHref, priority = false } = Astro.props;
+const loadAttrs = (i: number) => priority && i === 0
+  ? { loading: 'eager' as const, fetchpriority: 'high' as const }
+  : { loading: 'lazy' as const };
 const galleryHref = ctaHref ?? localizedPath('/galeria', lang);
 const altSuffix = unitName
   ? (lang === 'en' ? ` — ${unitName}, apartment in Capilla del Monte` : ` — ${unitName}, departamento en Capilla del Monte`)
@@ -38,12 +42,12 @@ const full = await lightboxVariants(images);
     <div class={`mos-cell mos-cell-${i + 1}`} style={`--i:${i}`}>
       {img && (group ? (
         <a href={full[i].lg} data-lb-sm={full[i].sm} class="mos-link" data-lb-group={group} data-lb-index={i} data-lb-title={unitName ?? ''} data-lb-caption={img.caption ?? ''} data-lb-alt={img.caption ? captionAlt(img.caption) : fallbackAlt(i)} aria-label={img.caption ?? `Foto ${i + 1}`}>
-          <Image src={img.src} alt={img.caption ? captionAlt(img.caption) : fallbackAlt(i)} width={1200} widths={[400, 800, 1200]} sizes="(max-width: 900px) 100vw, 45vw" loading="lazy" decoding="async" />
+          <Image src={img.src} alt={img.caption ? captionAlt(img.caption) : fallbackAlt(i)} width={1200} widths={[400, 800, 1200]} sizes="(max-width: 900px) 100vw, 45vw" {...loadAttrs(i)} decoding="async" />
           {img.caption && <span class="mos-cap">{img.caption}</span>}
         </a>
       ) : (
         <>
-          <Image src={img.src} alt={img.caption ? captionAlt(img.caption) : fallbackAlt(i)} width={1200} widths={[400, 800, 1200]} sizes="(max-width: 900px) 100vw, 45vw" loading="lazy" decoding="async" />
+          <Image src={img.src} alt={img.caption ? captionAlt(img.caption) : fallbackAlt(i)} width={1200} widths={[400, 800, 1200]} sizes="(max-width: 900px) 100vw, 45vw" {...loadAttrs(i)} decoding="async" />
           {img.caption && <span class="mos-cap">{img.caption}</span>}
         </>
       ))}

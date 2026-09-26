@@ -31,7 +31,8 @@ function ensureTrailingSlash(p: string): string {
 export function absoluteUrl(path: string): string {
   if (path.startsWith('http://') || path.startsWith('https://')) return path;
   const clean = path.startsWith('/') ? path : `/${path}`;
-  return `${SITE_URL}${ensureTrailingSlash(clean)}`;
+  const [, route, suffix = ''] = clean.match(/^([^#?]*)(.*)$/)!;
+  return `${SITE_URL}${ensureTrailingSlash(route)}${suffix}`;
 }
 
 /** URL absoluta para assets estáticos (sin trailing slash). */
