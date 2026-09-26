@@ -24,5 +24,5 @@ export default defineConfig({
       priority: 0.7,
     }),
   ],
-  build: { inlineStylesheets: 'auto' },
+  build: { inlineStylesheets: 'always' },
 });
