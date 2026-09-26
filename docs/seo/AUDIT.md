@@ -136,7 +136,7 @@
 | H6 | P1 | Host duplicado `www` | todo el sitio | Vercel → Domains | CORREGIDO_Y_PROBADO (producción, 2026-09-26) |
 | H2 | P2 | JSON-LD breadcrumb | 8 detalles | `src/utils/seo.ts` | CORREGIDO_Y_PROBADO (local) |
 | H3 | P2 | JSON-LD contradictorio | 8 detalles | `seo/UnitSchema.astro` | CORREGIDO_Y_PROBADO (local) |
-| H7 | P2 | H1 home | `/`, `/en/` | `Hero.astro` / i18n | PROPUESTO (editorial) |
+| H7 | P2 | H1 home | `/`, `/en/` | `Hero.astro` / i18n | CORREGIDO_Y_PROBADO (2026-09-26, aprobado por el dueño) |
 | H4 | P3 | Geo meta | todas | `Base.astro` | CORREGIDO_Y_PROBADO (local) |
 | H5 | P3 | JSON-LD imágenes | 8 detalles | `seo/UnitSchema.astro` | CORREGIDO_Y_PROBADO (local) |
 | H8 | P3 | robots vs. noindex 404 | `/404.html` | `public/robots.txt` | PROPUESTO |
@@ -186,7 +186,7 @@ No hay comparación de LCP en ms: sin PSI/Lighthouse disponible (§3).
 - *Reversión*: volver el dominio `www` a "Connect to environment: Production".
 - *Nota*: la memoria del proyecto decía que `www` ya redirigía; hoy responde 200.
 
-**H7 — H1 del home (P2, editorial/diseño)**
+**H7 — H1 del home (P2, editorial/diseño)** — ✅ aplicado el 2026-09-26: bajada `hero.deck` dentro del `<h1>` ("Alquiler temporario en Capilla del Monte" / "Vacation rentals in Capilla del Monte"), a 20–30px desktop y 18px mobile, mucho más chica que el nombre, a pedido del dueño.
 - *Propuesta*: incluir la propuesta de valor en el H1 sin perder la marca. Por ejemplo, un `<span>` de bajada dentro del `<h1>` con "Alquiler temporario en Capilla del Monte", como ya se hizo con `BigHeader.subtitle` en las páginas internas.
 - *Archivos*: `src/components/Hero.astro`, `src/i18n/es.json`, `en.json`.
 - *Riesgo*: cambia el diseño del hero; lo decide el dueño.

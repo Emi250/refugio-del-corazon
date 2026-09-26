@@ -8,6 +8,7 @@ interface Props {
   image?: string;
   kicker?: string;
   title?: string;
+  deck?: string;
   subtitle?: string;
 }
 const {
@@ -15,12 +16,14 @@ const {
   image,
   kicker,
   title,
+  deck,
   subtitle,
 } = Astro.props;
 
 const bg = image ?? await heroBackground();
 const k = kicker ?? t('hero.kicker', lang);
 const ti = title ?? t('hero.title', lang);
+const dk = deck ?? t('hero.deck', lang);
 const sub = subtitle ?? t('hero.subtitle', lang);
 ---
 <section class="hero">
@@ -34,7 +37,7 @@ const sub = subtitle ?? t('hero.subtitle', lang);
 
   <div class="hero-body">
     <span class="hero-kicker">{k}</span>
-    <h1 class="hero-title">{ti}</h1>
+    <h1 class="hero-title">{ti} <span class="hero-deck">{dk}</span></h1>
     <div class="hero-bottom">
       <p class="hero-sub">{sub}</p>
       <WhatsAppCTA lang={lang} variant="big" />
@@ -146,6 +149,16 @@ const sub = subtitle ?? t('hero.subtitle', lang);
     font-weight: 800;
     max-width: 14ch;
   }
+  .hero-deck {
+    display: block;
+    margin-top: 18px;
+    max-width: none;
+    font-size: clamp(20px, 2.1vw, 30px);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+    opacity: 0.92;
+  }
 
   .hero-bottom {
     display: flex;
@@ -188,6 +201,7 @@ const sub = subtitle ?? t('hero.subtitle', lang);
     .hero-top { padding: 14px 18px; font-size: 9px; }
     .hero-body { padding: 0 18px 24px; gap: 18px; }
     .hero-title { font-size: clamp(52px, 14vw, 80px); max-width: 100%; }
+    .hero-deck { font-size: 18px; margin-top: 12px; }
     .hero-sub { font-size: 14px; max-width: 30ch; }
     .hero-bottom { gap: 20px; }
     .hero-foot { padding: 12px 18px; font-size: 9px; }
