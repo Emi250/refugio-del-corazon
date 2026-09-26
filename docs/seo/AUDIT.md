@@ -174,7 +174,30 @@
 | Imagen LCP del detalle | `loading="lazy"` | `eager` + `fetchpriority="high"` |
 | Imágenes en `Accommodation` | 7 (1 duplicada) | 6 únicas |
 
-No hay comparación de LCP en ms: sin PSI/Lighthouse disponible (§3).
+No hay comparación de LCP en ms: la API de PSI seguía en 429 y no existe una medición previa al deploy (§3).
+
+### Medición post-deploy (laboratorio) — 2026-09-26 13:50 GMT-3
+
+pagespeed.web.dev · Lighthouse 13.5.0 · Moto G Power emulado · 4G lenta · **1 ejecución por URL** (con variabilidad esperable) · **sin datos de campo (CrUX: "No hay datos")**.
+
+| URL | Rend. | Acc. | Recom. | SEO | FCP | LCP | TBT | CLS | Elemento LCP | Mayor subparte del LCP |
+|---|---|---|---|---|---|---|---|---|---|---|
+| `/unidades/unidad-2/` | 72 | 95 | 100 | 100 | 3,5 s | 4,9 s | 70 ms | 0 | texto `<h1>` "Departamento #2" | retraso de renderizado 2,38 s |
+| `/` | 72 | 95 | 100 | 100 | 2,9 s | 5,3 s | 140 ms | 0 | `div.hero-bg` (fachada, 250 ms de descarga) | retraso de renderizado 1,99 s |
+
+**Lectura**: en las dos páginas el LCP no está limitado por el servidor (TTFB 0 ms) ni por la descarga de la imagen, sino por el **retraso de renderizado**. La causa principal que muestra Lighthouse son las **solicitudes que bloquean el render (~900 ms)**: el CSS de Google Fonts (750 ms) y dos hojas CSS propias (`_slug_.css` 560 ms y `faq.css` 190 ms, 6,7 KB en total). En celular, el LCP del detalle es el título y no la foto, así que el arreglo H1 (preload) ahorra bytes pero no mueve esta métrica.
+
+**Otros hallazgos del informe**:
+- `logo-refugio.jpeg`: 1000×1000 px y 72 KB para mostrarse a 36 px (ahorro estimado de 71,5 KB en todas las páginas).
+- gtag 191 KB / 157 ms de hilo principal. Es medición y no se toca sin decisión del dueño.
+- Imagen del lightbox sin `width`/`height`: está oculta hasta abrir el visor y no genera CLS (CLS = 0). Sin acción.
+
+**Propuesta J2 (P2, pendiente de aprobación)**:
+1. Logo con `astro:assets` a 72/108 px → de 72 KB a ~3 KB. Bajo riesgo.
+2. `build.inlineStylesheets: 'always'` en `astro.config.mjs` → elimina las 2 hojas CSS bloqueantes. Bajo riesgo; el HTML crece unos KB.
+3. Fuentes: hospedar Inter y JetBrains Mono en el propio sitio (paquete `@fontsource-variable/*`, **dependencia nueva**) con preload del peso del display, o cargar el CSS de Google Fonts sin bloquear. Riesgo medio: puede verse un parpadeo de fuente.
+
+Re-medir con 3 ejecuciones por URL antes y después de J2.
 
 ## 9. Cambios de alto riesgo pendientes de aprobación
 
