@@ -197,7 +197,26 @@ pagespeed.web.dev · Lighthouse 13.5.0 · Moto G Power emulado · 4G lenta · **
 2. `build.inlineStylesheets: 'always'` en `astro.config.mjs` → elimina las 2 hojas CSS bloqueantes. Bajo riesgo; el HTML crece unos KB.
 3. Fuentes: hospedar Inter y JetBrains Mono en el propio sitio (paquete `@fontsource-variable/*`, **dependencia nueva**) con preload del peso del display, o cargar el CSS de Google Fonts sin bloquear. Riesgo medio: puede verse un parpadeo de fuente.
 
-Re-medir con 3 ejecuciones por URL antes y después de J2.
+### J2 aplicado (puntos 1 y 2) — PR #8, 2026-09-26
+
+Logo por `astro:assets` (72 KB → 0,2–1,4 KB) + `build.inlineStylesheets: 'always'` (0 hojas CSS propias bloqueantes; HTML gzip del home 15,8 → 22,0 KB).
+
+| `/unidades/unidad-2/` (mobile, 1 ejecución) | Antes (13:50) | Después (~14:40) |
+|---|---|---|
+| Rendimiento | 72 | **89** |
+| FCP | 3,5 s | 2,9 s |
+| LCP | 4,9 s | **2,9 s** |
+| Retraso de renderizado del LCP | 2.380 ms | 370 ms |
+| Speed Index | 5,1 s | 2,9 s |
+| TBT | 70 ms | 120 ms |
+| CLS | 0 | **0,059** (sigue < 0,1) |
+| Bloqueo de render | CSS propio (750 ms) + Google Fonts (750 ms) | solo Google Fonts (750 ms) |
+
+- **CLS nuevo (0,059)**: Lighthouse lo atribuye al cambio de fuente (woff2 de fonts.gstatic.com) sobre `<main>` y el CTA. Como la página pinta antes, se ve primero la fuente de respaldo y después se reacomoda al llegar Inter. Se resuelve con el punto 3 (fuentes propias con preload, o `size-adjust` en la fuente de respaldo).
+- **Home**: la re-medición quedó trabada en "Ejecutando análisis" 2 veces → **NO_VERIFICADO**. Re-medir a mano en pagespeed.web.dev.
+- Son ejecuciones únicas: una mejora de 17 puntos supera con holgura la variabilidad típica, pero conviene confirmarla con 3 ejecuciones.
+
+**Pendiente: punto 3 (fuentes)**. Es la próxima palanca: elimina los 750 ms de bloqueo que quedan y el CLS del cambio de fuente. Requiere una dependencia nueva (`@fontsource-variable/inter`, `@fontsource-variable/jetbrains-mono`) → decisión del dueño.
 
 ## 9. Cambios de alto riesgo pendientes de aprobación
 
