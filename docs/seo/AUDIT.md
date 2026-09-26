@@ -216,7 +216,24 @@ Logo por `astro:assets` (72 KB → 0,2–1,4 KB) + `build.inlineStylesheets: 'al
 - **Home**: la re-medición quedó trabada en "Ejecutando análisis" 2 veces → **NO_VERIFICADO**. Re-medir a mano en pagespeed.web.dev.
 - Son ejecuciones únicas: una mejora de 17 puntos supera con holgura la variabilidad típica, pero conviene confirmarla con 3 ejecuciones.
 
-**Pendiente: punto 3 (fuentes)**. Es la próxima palanca: elimina los 750 ms de bloqueo que quedan y el CLS del cambio de fuente. Requiere una dependencia nueva (`@fontsource-variable/inter`, `@fontsource-variable/jetbrains-mono`) → decisión del dueño.
+### J2 punto 3 — fuentes propias (PR #9, 2026-09-26)
+
+`@fontsource-variable/inter` + `@fontsource-variable/jetbrains-mono`, preload de los woff2 latinos (48 + 40 KB, caché `immutable` de 1 año) y fallback `Inter Fallback` con métricas ajustadas (ancho a 40px: Inter 1452 vs fallback 1464 en regular; Arial sin ajustar 1363). 0 pedidos a Google.
+
+| `/unidades/unidad-2/` mobile (1 ejecución c/u) | Solo Google Fonts bloqueando (PR #8) | Fuentes propias (PR #9, 14:43) |
+|---|---|---|
+| Rendimiento | 89 | 87 |
+| FCP | 2,9 s | **1,0 s** |
+| LCP | 2,9 s | **3,9 s** ⚠ |
+| Retraso de renderizado del LCP | 370 ms | 1.550 ms |
+| Speed Index | 2,9 s | 3,2 s |
+| TBT | 120 ms | 100 ms |
+| CLS | 0,059 | **0** |
+| Bloqueo de render | Google Fonts 750 ms | ninguno |
+
+**Lectura**: el texto aparece ~2 s antes y la página ya no se reacomoda, pero el LCP del laboratorio empeoró. La hipótesis más probable es que el `<h1>` se pinta a 1,0 s con la fuente de respaldo y Chrome vuelve a contar el LCP cuando Inter termina de llegar (3,9 s en 4G lenta), porque la descarga de la fuente compite con la foto `fetchpriority=high` del mosaico. Una sola ejecución: puede haber ruido. La segunda pasada quedó trabada (pagespeed.web.dev no termina con el panel del navegador oculto) → **NO_VERIFICADO**.
+
+**Próximo paso propuesto (decisión del dueño)**: `font-display: optional` para Inter. Si la fuente no llegó en ~100 ms, esa visita se queda con el respaldo y las siguientes páginas ya la tienen en caché: el LCP sería ≈ FCP y no habría cambio de fuente. Costo: en la primera visita con conexión lenta los títulos se verían con la fuente de respaldo y no con Inter.
 
 ## 9. Cambios de alto riesgo pendientes de aprobación
 
