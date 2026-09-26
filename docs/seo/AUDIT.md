@@ -133,7 +133,7 @@
 | ID | P | Área | URL/plantilla | Archivo | Estado |
 |---|---|---|---|---|---|
 | H1 | P1 | Rendimiento/LCP | 8 detalles de unidad | `PhotoMosaic.astro`, `unidades/[slug].astro` ×2 | CORREGIDO_Y_PROBADO (local) |
-| H6 | P1 | Host duplicado `www` | todo el sitio | Vercel → Domains | PROPUESTO |
+| H6 | P1 | Host duplicado `www` | todo el sitio | Vercel → Domains | CORREGIDO_Y_PROBADO (producción, 2026-09-26) |
 | H2 | P2 | JSON-LD breadcrumb | 8 detalles | `src/utils/seo.ts` | CORREGIDO_Y_PROBADO (local) |
 | H3 | P2 | JSON-LD contradictorio | 8 detalles | `seo/UnitSchema.astro` | CORREGIDO_Y_PROBADO (local) |
 | H7 | P2 | H1 home | `/`, `/en/` | `Hero.astro` / i18n | PROPUESTO (editorial) |
@@ -178,7 +178,7 @@ No hay comparación de LCP en ms: sin PSI/Lighthouse disponible (§3).
 
 ## 9. Cambios de alto riesgo pendientes de aprobación
 
-**H6 — `www` → apex (P1)**
+**H6 — `www` → apex (P1)** — ✅ aplicado por el dueño el 2026-09-26. Verificado: `www/`, `www/faq/` y `www/unidades/unidad-1/` → 308 al apex con la ruta intacta; `http://www` → 2 saltos (https → apex), final 200.
 - *Propuesta*: en Vercel → Project → Settings → Domains, configurar `www.refugiodelcorazon.com.ar` como **Redirect to `refugiodelcorazon.com.ar` (308)**, con el apex como primario.
 - *Impacto*: un solo host. Las canónicas ya apuntan al apex, así que no cambia qué URL se indexa.
 - *Archivos*: ninguno (configuración externa).
