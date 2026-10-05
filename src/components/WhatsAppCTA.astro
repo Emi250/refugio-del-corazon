@@ -10,9 +10,10 @@ interface Props {
   label?: string;
   class?: string;
   fullWidth?: boolean;
+  placement?: string;
 }
 
-const { lang = 'es', variant = 'big', message, label, class: cls = '', fullWidth = false } = Astro.props;
+const { lang = 'es', variant = 'big', message, label, class: cls = '', fullWidth = false, placement = 'other' } = Astro.props;
 const href = waLink(message, lang);
 const text = label ?? t('hero.cta', lang);
 
@@ -21,6 +22,7 @@ const widthClass = fullWidth ? 'w-full justify-center' : '';
 ---
 <a
   href={href}
+  data-cta-location={placement}
   target="_blank"
   rel="noopener"
   class={`${variantClass} ${widthClass} ${cls}`}

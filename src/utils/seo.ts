@@ -14,13 +14,27 @@ export const BUSINESS = {
   postalCode: 'X5184',
   country: 'AR',
   countryName: 'Argentina',
-  latitude: -30.8652362,
-  longitude: -64.5283123,
+  // Pin de la ficha de Google Maps, confirmado por el propietario el 2026-10-05.
+  latitude: -30.8659207,
+  longitude: -64.5248283,
   priceRange: '$$',
   whatsapp: (import.meta.env.PUBLIC_WHATSAPP_NUMBER ?? '5493548000000').replace(/\D/g, ''),
-  bookingUrl: 'https://www.booking.com/hotel/ar/refugio-del-corazon.html',
+  bookingUrl: 'https://www.booking.com/hotel/ar/hospedaje-depto-tranquilo-en-capilla-del-monte.html',
   mapsUrl: 'https://maps.app.goo.gl/Zs3MGBP1naMxwqmt5',
 };
+
+export const MAP_EMBED_URL = `https://www.google.com/maps?q=${BUSINESS.latitude},${BUSINESS.longitude}&z=17&output=embed`;
+
+export function directionsUrl(origin?: string): string {
+  const url = new URL('https://www.google.com/maps/dir/');
+  url.searchParams.set('api', '1');
+  url.searchParams.set('destination', `${BUSINESS.latitude},${BUSINESS.longitude}`);
+  if (origin) {
+    url.searchParams.set('origin', origin);
+    url.searchParams.set('travelmode', 'driving');
+  }
+  return url.toString();
+}
 
 function ensureTrailingSlash(p: string): string {
   if (p === '/' || p === '') return '/';

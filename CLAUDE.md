@@ -389,7 +389,7 @@ Este proyecto se optimiza para **mínimo gasto de tokens** por sesión. Reglas:
 
 ## 13. Estado actual del proyecto
 
-**Última actualización**: 2026-09-26
+**Última actualización**: 2026-10-05
 
 - [x] CLAUDE.md creado
 - [x] Scaffold Astro inicial (configs + package.json) — 2026-05-21
@@ -424,6 +424,7 @@ Este proyecto se optimiza para **mínimo gasto de tokens** por sesión. Reglas:
 - [x] **Fuentes propias** (PR #9): `@fontsource-variable/inter` + `jetbrains-mono` importadas en `Base.astro`, preload de los woff2 latinos, `Inter Fallback` con métricas en `tokens.css`. PSI `/unidades/unidad-2/`: FCP 2,9 → 1,0 s, CLS 0,059 → 0, pero LCP 2,9 → 3,9 s (1 ejecución; ver AUDIT §8) — 2026-09-26
 - [x] **`font-display: optional` descartado** por el dueño (2026-09-26): prefiere que la tipografía se vea siempre como Inter antes que un mejor LCP de laboratorio. Queda `swap` (el default de Fontsource). No volver a proponerlo salvo que cambien los datos de campo
 - [x] **`www.refugiodelcorazon.com.ar` → 308 al apex** (Vercel → Domains → www → Redirect to, conserva la ruta). El apex sigue primario y el sitemap responde 200 — 2026-09-26
+- [x] **Auditoría SEO, tandas 1 y 2** — 2026-10-05: URLs EN de Accommodation corregidas y cubiertas por chequeo; pin de Google Maps confirmado y unificado; Booking centralizado; mascotas/estacionamiento condicionados; portada responsive con recorte móvil; títulos #2/#3 y bajadas ES/EN; indicaciones con Google Maps; `llms.txt` generado desde colecciones; robots permite leer noindex del 404. Evento GA4 `whatsapp_click` en todos los CTA, incluido lightbox, con pruebas (`npm test`). Ver `docs/seo/IMPLEMENTATION-2026-10-05.md` para evidencia y dependencias externas.
 - [ ] **Rehacer la foto del baño del #3** — `bano.jpg` tiene la cortina de ducha amarillenta y las juntas sucias; se dio de baja y el depto quedó solo con `bano-02` (el lavatorio)
 - [ ] **Sacar el cartel plastificado del aire acondicionado** antes de refotografiar la cocina del #3: se lee dentro de la foto de galería
 - [ ] **Confirmar si `espacios/paso-mediasombra.jpg` es la cochera cubierta.** Si lo es, cambiar el caption (hoy dice "El acceso cubierto con media sombra") y subirla a las 5 celdas visibles: "Cochera privada" se promete en servicios sin ninguna foto
@@ -443,7 +444,7 @@ Una vez en producción con dominio final:
 6. **OG/Twitter preview** — https://www.opengraph.xyz/ para `/`, `/en/`, `/unidades/*`.
 7. **Lighthouse mobile** — targets: SEO 100, Performance ≥ 90, CLS < 0.1, LCP < 2.5s.
 8. **Cuando se tenga `og/default.jpg` 1200×630** — editar `DEFAULT_OG_IMAGE` en `src/utils/seo.ts` y el array `image` en `OrganizationSchema.astro`.
-9. **Coordenadas exactas** — confirmar `BUSINESS.latitude/longitude` en `src/utils/seo.ts`. Hoy usan `-30.8615 / -64.5306` (aproximado Capilla del Monte centro).
+9. **Coordenadas exactas** — confirmado por el propietario el 2026-10-05: pin de la ficha Google Maps `-30.8659207 / -64.5248283`. Mapas, indicaciones y metadatos dependen de `src/utils/seo.ts`.
 10. **IndexNow (opcional)** — Bing/Yandex aceptan ping para indexación instantánea cuando se publica contenido nuevo.
 
 ### Dos numeraciones, a propósito
@@ -458,9 +459,9 @@ La galería usa además `0{order}` por unidad (`01`–`04`) y `00` para Espacios
 ### Sistema SEO técnico (referencia rápida)
 
 - **Dominio**: `https://refugiodelcorazon.com.ar` (configurado en `astro.config.mjs` y `src/utils/seo.ts`).
-- **Sitemap**: `@astrojs/sitemap` con `i18n.locales = { es: 'es-AR', en: 'en-US' }`. Output: `dist/sitemap-index.xml`.
-- **`public/robots.txt`**: incluye allowlist explícito para `GPTBot`, `PerplexityBot`, `ClaudeBot`, `Google-Extended`, etc. — habilita citas en LLMs.
-- **Base.astro**: canonical, hreflang (es-AR / en / x-default), og:url/og:locale dinámicos, geo.region/position, twitter card. Prop `preloadImage` para hint LCP del hero por página.
+- **Sitemap**: `@astrojs/sitemap` con `i18n.locales = { es: 'es-AR', en: 'en-US' }`. Output: `.vercel/output/static/sitemap-index.xml`.
+- **`public/robots.txt`**: permite el rastreo de los agentes especificados; no garantiza citas ni posicionamiento.
+- **Base.astro**: canonical, hreflang (es-AR / en / x-default), og:url/og:locale dinámicos, geo.region/position, twitter card. Hero usa `picture/srcset` y `fetchpriority=high`, sin precarga de una variante distinta.
 - **`src/utils/seo.ts`**: fuente de verdad — domain, address, coords, contacts. Cambiar acá y propaga a todos los schemas/metas.
 - **`src/components/seo/*`**: 4 componentes JSON-LD. `OrganizationSchema` inyectado global por `Base.astro`. `UnitSchema` + `BreadcrumbSchema` en `[slug]`. `FAQPageSchema` en `/faq`.
 

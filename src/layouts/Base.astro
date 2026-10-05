@@ -27,7 +27,6 @@ interface Props {
   navVariant?: 'hero' | 'paper';
   hideStickyCTA?: boolean;
   noindex?: boolean;
-  preloadImage?: string;
 }
 
 const {
@@ -38,7 +37,6 @@ const {
   navVariant = 'paper',
   hideStickyCTA = false,
   noindex = false,
-  preloadImage,
 } = Astro.props;
 
 const lang = detectLang(Astro.url.pathname);
@@ -94,14 +92,11 @@ const otherPath = otherLangPath(Astro.url.pathname, lang);
     <link rel="apple-touch-icon" href="/logo-refugio.jpeg" />
     <link rel="preload" as="font" type="font/woff2" href={interLatin} crossorigin />
     <link rel="preload" as="font" type="font/woff2" href={monoLatin} crossorigin />
-    {preloadImage && (
-      <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />
-    )}
     <meta name="generator" content={Astro.generator} />
 
     <OrganizationSchema lang={lang} />
 
-    <!-- Google tag (gtag.js) - Google Ads -->
+    <!-- Google Analytics 4 -->
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-0G62WCNHJG"></script>
     <script is:inline>
@@ -122,6 +117,7 @@ const otherPath = otherLangPath(Astro.url.pathname, lang);
     {!hideStickyCTA && <MobileStickyCTA lang={lang} />}
     <script>
       import '~/scripts/reveal';
+      import '~/scripts/whatsapp-analytics';
       import { inject } from '@vercel/analytics';
       inject();
     </script>

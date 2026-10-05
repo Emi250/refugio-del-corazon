@@ -40,3 +40,19 @@ export async function heroBackground(): Promise<string> {
   const out = await getImage({ src: fachada, width: 2000, format: 'webp', quality: 74 });
   return out.src;
 }
+
+/** Variantes de la fachada; el recorte móvil evita descargar el ancho de escritorio. */
+export async function heroSources() {
+  const [mobile, desktop] = await Promise.all([
+    Promise.all([600, 900].map(width => getImage({
+      src: fachada, width, height: Math.round(width * 4 / 3),
+      fit: 'cover', position: 'center', format: 'webp', quality: 74,
+    }))),
+    Promise.all([1200, 1600, 2000].map(width => getImage({
+      src: fachada, width, format: 'webp', quality: 74,
+    }))),
+  ]);
+  const srcset = (images: Awaited<ReturnType<typeof getImage>>[]) =>
+    images.map(img => `${img.src} ${img.options.width}w`).join(', ');
+  return { mobile: srcset(mobile), desktop: srcset(desktop), fallback: desktop[2] };
+}

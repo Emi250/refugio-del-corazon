@@ -33,7 +33,7 @@ const mapsLabel = lang === 'es' ? 'Ver en Google Maps' : 'View on Google Maps';
     <p>{subtitle ?? defaultSub}</p>
   </div>
   <div class="cta-actions">
-    <WhatsAppCTA lang={lang} variant="big" message={message} />
+    <WhatsAppCTA placement="contact_block" lang={lang} variant="big" message={message} />
     {mapsUrl && (
       <a href={mapsUrl} target="_blank" rel="noopener" class="cta-pill cta-pill-outline">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">

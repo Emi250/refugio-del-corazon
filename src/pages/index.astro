@@ -13,18 +13,15 @@ import CTABlock from '~/components/CTABlock.astro';
 import Lightbox from '~/components/Lightbox.astro';
 import { t } from '~/i18n';
 import { getCollection } from 'astro:content';
-import { heroBackground } from '~/utils/images';
 
 const lang = 'es' as const;
 const allUnits = await getCollection('unidades', ({ data }) => data.lang === 'es');
 const units = allUnits.sort((a, b) => a.data.order - b.data.order);
-const heroBg = await heroBackground();
 ---
 <Base
   title="Alquiler temporario en Capilla del Monte · El Refugio del Corazón"
   description="Cuatro departamentos de alquiler temporario en Río Negro 64, Capilla del Monte. A 800 m del centro y 2,3 km del Cerro Uritorco. Reservá por WhatsApp."
   navVariant="hero"
-  preloadImage={heroBg}
 >
   <Hero lang={lang} />
 

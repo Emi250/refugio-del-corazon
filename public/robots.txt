@@ -3,7 +3,6 @@
 
 User-agent: *
 Allow: /
-Disallow: /404
 
 # Crawlers de motores de búsqueda impulsados por IA
 User-agent: GPTBot

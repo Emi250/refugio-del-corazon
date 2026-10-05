@@ -1,6 +1,8 @@
 ---
 name: "Departamento #3"
 name_en: "Apartment #3"
+summary: "Dos dormitorios y living comedor en 60 m², para tres personas. El acceso al baño es por la habitación principal."
+seo_title: "Departamento de 2 dormitorios en Capilla del Monte · #3"
 order: 3
 lang: es
 specs:

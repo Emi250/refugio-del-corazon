@@ -3,14 +3,14 @@ import Base from '~/layouts/Base.astro';
 import BigHeader from '~/components/BigHeader.astro';
 import CTABlock from '~/components/CTABlock.astro';
 import { t } from '~/i18n';
-import { BUSINESS } from '~/utils/seo';
+import { BUSINESS, MAP_EMBED_URL, directionsUrl } from '~/utils/seo';
 
 const lang = 'en' as const;
 
 const origins = [
-  { name: 'From Córdoba City', distance: '105 km', time: '1h 45min', steps: ['Route E-53 to La Falda', 'Continue on Route 38 toward Cosquín', 'Take Route 38 north to Capilla del Monte'] },
-  { name: 'From Buenos Aires', distance: '780 km', time: '9h drive', steps: ['Highway to Córdoba', 'Continue on Route E-53 to Capilla del Monte', 'Or flight to Córdoba + 2h drive'] },
-  { name: 'From Rosario', distance: '460 km', time: '5h drive', steps: ['Autovía 9 to Villa María', 'Route 158 to Río Tercero', 'Route E-55 toward the Sierras'] },
+  { name: 'From Córdoba City', origin: 'Córdoba, Argentina' },
+  { name: 'From Buenos Aires', origin: 'Buenos Aires, Argentina' },
+  { name: 'From Rosario', origin: 'Rosario, Santa Fe, Argentina' },
 ];
 
 const nearGroups = [
@@ -53,7 +53,7 @@ const clima = [
     <div class="loc-map">
       <iframe
         class="loc-iframe"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3424.7409753491656!2d-64.52738632470985!3d-30.865926269856615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x942d8df5395e1ead%3A0xa4dc4f4097366c7f!2sR%C3%ADo%20Negro%2064%2C%20X5184%20Capilla%20del%20Monte%2C%20C%C3%B3rdoba!5e0!3m2!1ses!2sar!4v1779458249290!5m2!1ses!2sar"
+        src={MAP_EMBED_URL}
         loading="lazy"
         allowfullscreen
         referrerpolicy="no-referrer-when-downgrade"
@@ -62,12 +62,12 @@ const clima = [
       <article class="loc-card frame-card">
         <span class="kicker">PIN</span>
         <h3>Rio Negro 64</h3>
-        <p>Quiet street, parking included, steps away from the pedestrian center.</p>
+        <p>Río Negro 64, Capilla del Monte. On-site parking for two cars, subject to availability; please check before you arrive.</p>
         <div class="loc-chips">
           <span class="chip">Center · 800 m</span>
           <span class="chip">Terminal · 1 km</span>
           <span class="chip">Uritorco · 2.3 km</span>
-          <a class="chip chip-maps" href="https://maps.app.goo.gl/bq9HnLudj3jFDMWz9" target="_blank" rel="noopener">View on Google Maps ↗</a>
+          <a class="chip chip-maps" href={BUSINESS.mapsUrl} target="_blank" rel="noopener">View on Google Maps ↗</a>
         </div>
       </article>
     </div>
@@ -79,17 +79,21 @@ const clima = [
       <span class="spec-mono">3 ORIGINS</span>
     </div>
     <div class="origins-grid">
-      {origins.map(o => (
+      {origins.map((o, i) => (
         <div class="origin">
           <span class="kicker">{o.name}</span>
-          <div class="origin-dist display-no display-sm">{o.distance}</div>
-          <div class="origin-time spec-mono">≈ {o.time}</div>
-          <ol class="origin-steps">
-            {o.steps.map(s => <li>{s}</li>)}
-          </ol>
+          <div class="origin-dist display-no display-sm">0{i + 1}</div>
+          <p class="origin-info">Check the current route, traffic and estimated travel time to our entrance before setting off.</p>
+          <a class="link-acc" href={directionsUrl(o.origin)} target="_blank" rel="noopener">Get driving directions ↗</a>
         </div>
       ))}
     </div>
+  </section>
+
+  <section class="block">
+    <div class="block-head"><h2>Arriving without a car</h2></div>
+    <p>From the Capilla del Monte bus terminal, open the route to Río Negro 64 and select walking directions, or arrange a local taxi. If you have luggage, need a transfer or plan to arrive late, contact us before travelling so we can coordinate your arrival.</p>
+    <a class="link-acc" href={directionsUrl()} target="_blank" rel="noopener">Route to our entrance ↗</a>
   </section>
 
   <section class="block bg-paper-2">
@@ -136,6 +140,7 @@ const clima = [
 </Base>
 
 <style>
+  .origin-info { margin: 14px 0 18px; font-size: 14px; line-height: 1.6; color: var(--mf-ink-soft); }
   .bg-paper-2 { background: var(--mf-paper-2); }
   .chip-maps { background: var(--mf-accent); color: var(--mf-paper); border-color: var(--mf-accent); }
   .chip-maps:hover { background: var(--mf-ink); border-color: var(--mf-ink); color: var(--mf-paper); }

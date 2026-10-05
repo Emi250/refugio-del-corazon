@@ -1,6 +1,7 @@
 ---
 name: "Departamento #4"
 name_en: "Apartment #4"
+summary: "Para cinco personas, con tres dormitorios y lavadero con lavarropas. Aire frío-calor en las dos habitaciones principales."
 order: 4
 lang: es
 specs:

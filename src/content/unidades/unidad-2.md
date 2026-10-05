@@ -1,6 +1,8 @@
 ---
 name: "Departamento #2"
 name_en: "Apartment #2"
+summary: "Hasta tres personas en 40 m²: un dormitorio con cama queen y una individual en el ambiente de cocina y comedor. Horno a gas."
+seo_title: "Departamento para 3 en Capilla del Monte · #2, 40 m²"
 order: 2
 lang: es
 specs:

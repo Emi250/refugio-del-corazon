@@ -1,6 +1,7 @@
 ---
 name: "Departamento #1"
 name_en: "Apartment #1"
+summary: "For two guests, with a king bed or two singles. Electric kitchen open to the living room, without an oven."
 order: 1
 lang: en
 specs:

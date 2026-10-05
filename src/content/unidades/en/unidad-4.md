@@ -1,6 +1,7 @@
 ---
 name: "Departamento #4"
 name_en: "Apartment #4"
+summary: "For five guests, with three bedrooms and a laundry area with washing machine. Heat-and-cool AC in the two main bedrooms."
 order: 4
 lang: en
 specs:
