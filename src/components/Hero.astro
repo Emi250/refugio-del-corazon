@@ -1,11 +1,10 @@
 ---
 import WhatsAppCTA from './WhatsAppCTA.astro';
 import { t, type Lang, localizedPath } from '~/i18n';
-import { heroBackground } from '~/utils/images';
+import { heroSources } from '~/utils/images';
 
 interface Props {
   lang?: Lang;
-  image?: string;
   kicker?: string;
   title?: string;
   deck?: string;
@@ -13,21 +12,33 @@ interface Props {
 }
 const {
   lang = 'es',
-  image,
   kicker,
   title,
   deck,
   subtitle,
 } = Astro.props;
 
-const bg = image ?? await heroBackground();
+const photos = await heroSources();
 const k = kicker ?? t('hero.kicker', lang);
 const ti = title ?? t('hero.title', lang);
 const dk = deck ?? t('hero.deck', lang);
 const sub = subtitle ?? t('hero.subtitle', lang);
 ---
 <section class="hero">
-  <div class="hero-bg" style={`background-image:url('${bg}');`}></div>
+  <picture class="hero-bg">
+    <source media="(max-width: 720px)" srcset={photos.mobile} sizes="110vw" />
+    <img
+      src={photos.fallback.src}
+      srcset={photos.desktop}
+      sizes="110vw"
+      width={photos.fallback.options.width}
+      height={photos.fallback.options.height}
+      alt={lang === 'es' ? 'El frente de El Refugio del Corazón sobre Río Negro 64' : 'The front of El Refugio del Corazón at Río Negro 64'}
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+    />
+  </picture>
   <div class="hero-blur-overlay"></div>
   <div class="hero-overlay"></div>
 
@@ -40,7 +51,7 @@ const sub = subtitle ?? t('hero.subtitle', lang);
     <h1 class="hero-title">{ti} <span class="hero-deck">{dk}</span></h1>
     <div class="hero-bottom">
       <p class="hero-sub">{sub}</p>
-      <WhatsAppCTA lang={lang} variant="big" />
+      <WhatsAppCTA placement="hero" lang={lang} variant="big" />
     </div>
   </div>
 
@@ -66,11 +77,16 @@ const sub = subtitle ?? t('hero.subtitle', lang);
   .hero-bg {
     position: absolute;
     inset: -20px;
-    background-size: cover;
-    background-position: center;
     filter: brightness(0.9) saturate(1.1);
     transform: scale(1.08);
     z-index: -2;
+  }
+  .hero-bg img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 
   .hero-blur-overlay {

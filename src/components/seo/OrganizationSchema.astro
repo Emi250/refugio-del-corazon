@@ -18,7 +18,7 @@ const amenities = [
   'Heating',
   'Equipped kitchen',
   'Smart TV with streaming',
-  'Private parking',
+  lang === 'es' ? 'Estacionamiento para dos autos, sujeto a disponibilidad' : 'Parking for two cars, subject to availability',
   'BBQ',
   'Linens and towels',
 ];
@@ -62,8 +62,9 @@ const schema = {
     name,
     value: true,
   })),
-  numberOfRooms: 4,
-  petsAllowed: true,
+  petsAllowed: lang === 'es'
+    ? 'Se aceptan mascotas en algunos departamentos, según su tamaño y previa consulta al reservar.'
+    : 'Pets are allowed in some apartments, depending on their size. Please confirm when booking.',
   smokingAllowed: false,
   checkinTime: '14:00',
   checkoutTime: '10:00',

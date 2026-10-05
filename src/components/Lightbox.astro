@@ -39,7 +39,7 @@ const fallbackWa = waHref ?? waLink(undefined, lang);
       <span class="lb-counter spec-mono"></span>
     </figcaption>
   </figure>
-  <a class="lb-wa" href={fallbackWa} target="_blank" rel="noopener" data-lb-wa-btn>
+  <a class="lb-wa" data-cta-location="lightbox" href={fallbackWa} target="_blank" rel="noopener" data-lb-wa-btn>
     <WhatsAppIcon size={14} />
     <span>{t('hero.cta', lang)}</span>
   </a>
@@ -157,7 +157,10 @@ const fallbackWa = waHref ?? waLink(undefined, lang);
       if (!group.length) return;
       idx = Math.max(0, Math.min(startIdx | 0, group.length - 1));
       title = trigger.dataset.lbTitle || '';
-      if (waBtn) waBtn.setAttribute('href', trigger.dataset.lbWa || waFallback || '#');
+      if (waBtn) {
+        waBtn.setAttribute('href', trigger.dataset.lbWa || waFallback || '#');
+        waBtn.dataset.unit = /^unit-\d+$/.test(name) ? name.replace('unit-', 'unidad-') : '';
+      }
       lastFocus = document.activeElement;
       lb.setAttribute('aria-hidden', 'false');
       setInert(false);

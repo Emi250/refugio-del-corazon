@@ -29,7 +29,8 @@ const blurb = lang === 'en' && data.blurb_en ? data.blurb_en : data.blurb;
 const m2 = parseInt(String(data.specs.metros).replace(/\D/g, ''), 10);
 const cap = parseInt(String(data.specs.capacidad).match(/\d+/g)?.pop() ?? '0', 10);
 
-const unitPath = lang === 'es' ? `/unidades/${unit.slug}` : `/en/unidades/${unit.slug}`;
+const slug = unit.slug.replace(/^en\//, '');
+const unitPath = lang === 'es' ? `/unidades/${slug}` : `/en/unidades/${slug}`;
 const unitUrl = absoluteUrl(unitPath);
 
 const images = [...new Set(await Promise.all(

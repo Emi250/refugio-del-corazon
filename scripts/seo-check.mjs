@@ -55,8 +55,20 @@ for (const file of pages) {
   for (const [, json] of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
     let data;
     try { data = JSON.parse(json); } catch { fail(route, 'JSON-LD inválido'); continue; }
+    if (data['@type'] === 'Accommodation') {
+      if (data.url !== canonical) fail(route, `Accommodation.url ${data.url} ≠ canonical ${canonical}`);
+      if (data['@id'] !== `${canonical}#accommodation`) fail(route, `Accommodation.@id incoherente: ${data['@id']}`);
+      try {
+        const schemaPath = new URL(data.url).pathname;
+        if (!existsSync(join(DIST, schemaPath, 'index.html'))) fail(route, `Accommodation.url apunta a página inexistente: ${data.url}`);
+      } catch { fail(route, `Accommodation.url inválida: ${data.url}`); }
+    }
     const urls = JSON.stringify(data).match(/https:\/\/refugiodelcorazon\.com\.ar[^"]*/g) ?? [];
     for (const u of urls) if (/#[^"]*\/$/.test(u)) fail(route, `URL con fragmento y barra final: ${u}`);
+  }
+
+  for (const [link] of html.matchAll(/<a\b[^>]*href="https:\/\/wa\.me\/[^>]*>/g)) {
+    if (!/data-cta-location="(?!other)[^"]+"/.test(link)) fail(route, 'CTA de WhatsApp sin contexto de medición');
   }
 
   const preload = attr(html, /<link rel="preload" as="image" href="([^"]*)"/);

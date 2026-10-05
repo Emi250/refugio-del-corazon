@@ -1,6 +1,8 @@
 ---
 name: "Departamento #3"
 name_en: "Apartment #3"
+summary: "Two bedrooms and a living-dining room in 60 m², for three guests. The bathroom is accessed through the main bedroom."
+seo_title: "2-bedroom apartment in Capilla del Monte · #3"
 order: 3
 lang: en
 specs:

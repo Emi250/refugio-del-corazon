@@ -1,6 +1,8 @@
 ---
 name: "Departamento #2"
 name_en: "Apartment #2"
+summary: "Up to three guests in 40 m²: a bedroom with a queen bed and a single bed in the kitchen-dining area. Gas oven."
+seo_title: "Apartment for 3 in Capilla del Monte · #2, 40 m²"
 order: 2
 lang: en
 specs:

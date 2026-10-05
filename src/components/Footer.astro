@@ -2,6 +2,7 @@
 import BrandMark from './BrandMark.astro';
 import { t, type Lang, localizedPath } from '~/i18n';
 import { getCollection } from 'astro:content';
+import { BUSINESS } from '~/utils/seo';
 
 interface Props { lang?: Lang }
 const { lang = 'es' } = Astro.props;
@@ -42,7 +43,7 @@ const year = new Date().getFullYear();
     </div>
     <div>
       <div class="footer-kicker">{t('footer.contact', lang)}</div>
-      <a href="https://wa.me/message/G2SJBL3SDPAMB1" target="_blank" rel="noopener">WhatsApp</a>
+      <a data-cta-location="footer" href="https://wa.me/message/G2SJBL3SDPAMB1" target="_blank" rel="noopener">WhatsApp</a>
     </div>
     <div>
       <div class="footer-kicker">{lang === 'es' ? 'UBICACIÓN' : 'LOCATION'}</div>
@@ -50,7 +51,7 @@ const year = new Date().getFullYear();
     </div>
     <div>
       <div class="footer-kicker">SOCIAL</div>
-      <a href="https://www.booking.com/Share-hCZ4lTA" target="_blank" rel="noopener">Booking.com</a>
+      <a href={BUSINESS.bookingUrl} target="_blank" rel="noopener">Booking.com</a>
     </div>
   </div>
 

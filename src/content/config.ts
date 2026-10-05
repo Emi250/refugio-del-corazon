@@ -5,6 +5,8 @@ const unidades = defineCollection({
   schema: ({ image }) => z.object({
     name: z.string(),
     name_en: z.string().optional(),
+    seo_title: z.string().optional(),
+    summary: z.string(),
     order: z.number(),
     lang: z.enum(['es', 'en']).default('es'),
     specs: z.object({

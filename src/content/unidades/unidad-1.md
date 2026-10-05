@@ -1,6 +1,7 @@
 ---
 name: "Departamento #1"
 name_en: "Apartment #1"
+summary: "Para dos personas, con cama king o dos individuales. Cocina eléctrica integrada al living, sin horno."
 order: 1
 lang: es
 specs:

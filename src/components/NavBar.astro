@@ -46,7 +46,7 @@ const enPath = lang === 'en' ? withTrailingSlash(currentPath) : otherPath;
       <span class="nav-lang-sep">/</span>
       <a href={enPath} class={`nav-lang-btn ${lang === 'en' ? 'on' : ''}`} onclick="localStorage.setItem('pref-lang', 'en')">EN</a>
     </div>
-    <WhatsAppCTA lang={lang} variant="small" class="nav-cta" />
+    <WhatsAppCTA lang={lang} variant="small" placement="navigation" class="nav-cta" />
   </div>
 
   <button
@@ -73,7 +73,7 @@ const enPath = lang === 'en' ? withTrailingSlash(currentPath) : otherPath;
       <span class="nav-lang-sep">/</span>
       <a href={enPath} class={`nav-lang-btn ${lang === 'en' ? 'on' : ''}`} onclick="localStorage.setItem('pref-lang', 'en')">EN</a>
     </div>
-    <WhatsAppCTA lang={lang} variant="big" fullWidth />
+    <WhatsAppCTA lang={lang} variant="big" placement="mobile_menu" fullWidth />
   </div>
 </div>
 

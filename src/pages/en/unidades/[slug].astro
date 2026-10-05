@@ -45,7 +45,7 @@ const specs = [
 const waMessage = `Hi, I'm interested in the "${name}" unit at El Refugio del Corazón. Could we check availability?`;
 
 const blurbEn = data.blurb_en ?? data.blurb;
-const seoTitle = `${name} in Capilla del Monte · ${data.specs.capacidad}`;
+const seoTitle = data.seo_title ?? `${name} in Capilla del Monte · ${data.specs.capacidad}`;
 const clip = (s: string, max = 158) =>
   s.length <= max ? s : s.slice(0, s.lastIndexOf(' ', max)).replace(/[.,;·]$/, '') + '…';
 const seoDesc = clip(`${name} in Capilla del Monte, ${data.specs.metros}: ${blurbEn}`);
@@ -88,6 +88,7 @@ const crumbs = [
       <div>
         <span class="kicker kicker-lg">APARTMENT #{data.order} · {data.specs.metros}</span>
         <h1 class="d-title-h">{name}</h1>
+        <p class="d-summary">{data.summary}</p>
       </div>
       <div class="title-side">
         <div class="d-specs spec-mono">
@@ -97,7 +98,7 @@ const crumbs = [
         </div>
         <div class="title-actions">
           {data.video_url && <VideoCTA href={data.video_url} lang={lang} />}
-          <WhatsAppCTA lang={lang} variant="big" message={waMessage} />
+          <WhatsAppCTA placement="unit_header" lang={lang} variant="big" message={waMessage} />
         </div>
       </div>
     </div>
@@ -147,7 +148,7 @@ const crumbs = [
       </div>
       <div class="d-mini-faq-foot">
         <a href={localizedPath('/faq', lang)} class="link-acc">{t('unit.miniFaqAllLink', lang)}</a>
-        <WhatsAppCTA lang={lang} variant="big" message={waMessage} />
+        <WhatsAppCTA placement="unit_faq" lang={lang} variant="big" message={waMessage} />
       </div>
     </section>
   )}
@@ -170,6 +171,7 @@ const crumbs = [
 </Base>
 
 <style>
+  .d-summary { max-width: 58ch; margin: 16px 0 0; font-size: clamp(15px, 1.4vw, 18px); line-height: 1.6; color: var(--mf-ink-soft); }
   .d-title { padding: 30px 28px 36px; border-bottom: 1.5px solid var(--mf-ink); }
   .crumb {
     display: flex; gap: 8px;

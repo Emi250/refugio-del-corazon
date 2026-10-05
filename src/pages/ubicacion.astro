@@ -4,30 +4,15 @@ import BigHeader from '~/components/BigHeader.astro';
 import CTABlock from '~/components/CTABlock.astro';
 import { t } from '~/i18n';
 import { getCollection } from 'astro:content';
-import { BUSINESS } from '~/utils/seo';
+import { BUSINESS, MAP_EMBED_URL, directionsUrl } from '~/utils/seo';
 
 const lang = 'es' as const;
 const nearGroups = await getCollection('near');
 
 const origins = [
-  {
-    name: 'Desde Córdoba Capital',
-    distance: '105 km',
-    time: '1h 45min',
-    steps: ['Ruta E-53 hasta La Falda', 'Continuar por Ruta 38 hacia Cosquín', 'Tomar Ruta 38 norte hasta Capilla del Monte'],
-  },
-  {
-    name: 'Desde Buenos Aires',
-    distance: '780 km',
-    time: '9h en auto',
-    steps: ['Autopista hasta Córdoba', 'Continuar por Ruta E-53 a Capilla del Monte', 'O vuelo a Córdoba + 2h en auto'],
-  },
-  {
-    name: 'Desde Rosario',
-    distance: '460 km',
-    time: '5h en auto',
-    steps: ['Autovía 9 hasta Villa María', 'Ruta 158 hasta Río Tercero', 'Ruta E-55 hacia las Sierras'],
-  },
+  { name: 'Desde Córdoba Capital', origin: 'Córdoba, Argentina' },
+  { name: 'Desde Buenos Aires', origin: 'Buenos Aires, Argentina' },
+  { name: 'Desde Rosario', origin: 'Rosario, Santa Fe, Argentina' },
 ];
 
 const clima = [
@@ -54,7 +39,7 @@ const clima = [
     <div class="loc-map">
       <iframe
         class="loc-iframe"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3424.7409753491656!2d-64.52738632470985!3d-30.865926269856615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x942d8df5395e1ead%3A0xa4dc4f4097366c7f!2sR%C3%ADo%20Negro%2064%2C%20X5184%20Capilla%20del%20Monte%2C%20C%C3%B3rdoba!5e0!3m2!1ses!2sar!4v1779458249290!5m2!1ses!2sar"
+        src={MAP_EMBED_URL}
         loading="lazy"
         allowfullscreen
         referrerpolicy="no-referrer-when-downgrade"
@@ -63,12 +48,12 @@ const clima = [
       <article class="loc-card frame-card">
         <span class="kicker">PIN</span>
         <h3>Rio Negro 64</h3>
-        <p>Calle tranquila, parking incluido, a pasos de la peatonal y el centro.</p>
+        <p>Río Negro 64, Capilla del Monte. Hay estacionamiento para dos autos, sujeto a disponibilidad; consultanos antes de llegar.</p>
         <div class="loc-chips">
           <span class="chip">Centro · 800 m</span>
           <span class="chip">Terminal · 1 km</span>
           <span class="chip">Uritorco · 2,3 km</span>
-          <a class="chip chip-maps" href="https://maps.app.goo.gl/bq9HnLudj3jFDMWz9" target="_blank" rel="noopener">Ver en Google Maps ↗</a>
+          <a class="chip chip-maps" href={BUSINESS.mapsUrl} target="_blank" rel="noopener">Ver en Google Maps ↗</a>
         </div>
       </article>
     </div>
@@ -80,17 +65,21 @@ const clima = [
       <span class="spec-mono">3 ORÍGENES</span>
     </div>
     <div class="origins-grid">
-      {origins.map(o => (
+      {origins.map((o, i) => (
         <div class="origin">
           <span class="kicker">{o.name}</span>
-          <div class="origin-dist display-no display-sm">{o.distance}</div>
-          <div class="origin-time spec-mono">≈ {o.time}</div>
-          <ol class="origin-steps">
-            {o.steps.map(s => <li>{s}</li>)}
-          </ol>
+          <div class="origin-dist display-no display-sm">0{i + 1}</div>
+          <p class="origin-info">Consultá el recorrido, el tránsito y el tiempo estimado hasta nuestra entrada antes de salir.</p>
+          <a class="link-acc" href={directionsUrl(o.origin)} target="_blank" rel="noopener">Ver ruta en auto ↗</a>
         </div>
       ))}
     </div>
+  </section>
+
+  <section class="block">
+    <div class="block-head"><h2>Llegar sin auto</h2></div>
+    <p>Desde la Terminal de Ómnibus de Capilla del Monte, abrí la ruta a Río Negro 64 y elegí la opción a pie, o coordiná un taxi local. Si viajás con equipaje, necesitás traslado o llegás tarde, escribinos antes de viajar para coordinar tu llegada.</p>
+    <a class="link-acc" href={directionsUrl()} target="_blank" rel="noopener">Ruta hasta la entrada ↗</a>
   </section>
 
   <section class="block bg-paper-2">
@@ -137,6 +126,7 @@ const clima = [
 </Base>
 
 <style>
+  .origin-info { margin: 14px 0 18px; font-size: 14px; line-height: 1.6; color: var(--mf-ink-soft); }
   .bg-paper-2 { background: var(--mf-paper-2); }
   .chip-maps { background: var(--mf-accent); color: var(--mf-paper); border-color: var(--mf-accent); }
   .chip-maps:hover { background: var(--mf-ink); border-color: var(--mf-ink); color: var(--mf-paper); }
