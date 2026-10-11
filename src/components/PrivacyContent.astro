@@ -1,0 +1,42 @@
+---
+import type { Lang } from '~/i18n';
+import { waLink } from '~/utils/whatsapp';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const en = lang === 'en';
+const sections = en ? [
+  ['Your inquiry', 'Availability and prices are confirmed by WhatsApp. Clicking an inquiry link opens WhatsApp with an editable draft; it does not send a message automatically. Dates, party size and bed preferences help us answer your inquiry. This website has no accounts, payment forms or automatic bookings.'],
+  ['Website measurement', 'The site uses Google Analytics 4 and Vercel Web Analytics to measure visits and interactions. WhatsApp click events include the page, language, apartment and button location; our event code does not include message text. These providers can receive technical connection information. Google Analytics may store cookies in your browser.'],
+  ['Language preference', 'Your browser can store your language choice and whether you dismissed the language suggestion. You can delete these preferences using your browser’s site data settings.'],
+  ['External services', 'Maps are embedded from Google Maps. Videos open in Google Drive. Reviews link to Booking.com; the Spanish review panel connects to Elfsight only when you choose to load it. These services, and WhatsApp when you open it, operate under their own privacy policies.'],
+] : [
+  ['Tu consulta', 'La disponibilidad y los precios se confirman por WhatsApp. Al tocar un enlace de consulta, se abre WhatsApp con un borrador que podés editar: no se envía un mensaje automáticamente. Las fechas, la cantidad de personas y la preferencia de camas nos ayudan a responder. Este sitio no tiene cuentas, formularios de pago ni reservas automáticas.'],
+  ['Medición del sitio', 'El sitio utiliza Google Analytics 4 y Vercel Web Analytics para medir visitas e interacciones. Los eventos de clic en WhatsApp incluyen la página, el idioma, el departamento y la ubicación del botón; nuestro código de eventos no incluye el texto del mensaje. Estos proveedores pueden recibir información técnica de conexión. Google Analytics puede almacenar cookies en tu navegador.'],
+  ['Preferencia de idioma', 'El navegador puede guardar el idioma elegido y si descartaste la sugerencia de idioma. Podés borrar estas preferencias desde la configuración de datos del sitio de tu navegador.'],
+  ['Servicios externos', 'Los mapas se muestran desde Google Maps. Los videos se abren en Google Drive. Las reseñas enlazan a Booking.com; el panel de reseñas en español se conecta con Elfsight cuando elegís cargarlo. Estos servicios, y WhatsApp al abrirlo, funcionan bajo sus propias políticas de privacidad.'],
+];
+---
+<article class="privacy">
+  <h1>{en ? 'Privacy and data' : 'Privacidad y datos'}</h1>
+  <p>{en ? 'Services used by the El Refugio del Corazón website, Río Negro 64, Capilla del Monte, Córdoba, Argentina.' : 'Servicios que utiliza el sitio de El Refugio del Corazón, Río Negro 64, Capilla del Monte, Córdoba, Argentina.'}</p>
+  {sections.map(([heading, body]) => <section><h2>{heading}</h2><p>{body}</p></section>)}
+  <ul>
+    <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google ↗</a></li>
+    <li><a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">Vercel ↗</a></li>
+    <li><a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank" rel="noopener">WhatsApp ↗</a></li>
+    <li><a href="https://elfsight.com/privacy-policy/" target="_blank" rel="noopener">Elfsight ↗</a></li>
+    <li><a href="https://www.booking.com/content/privacy.html" target="_blank" rel="noopener">Booking.com ↗</a></li>
+  </ul>
+  <h2>{en ? 'Contact' : 'Contacto'}</h2>
+  <p>{en ? 'For questions about the information you share with the accommodation, contact us through WhatsApp.' : 'Para consultar sobre la información que compartís con el alojamiento, escribinos por WhatsApp.'}</p>
+  <a class="link-acc" data-cta-location="privacy" href={waLink(en ? 'Hello, I have a question about my personal data.' : 'Hola, quisiera hacer una consulta sobre mis datos personales.', lang)} target="_blank" rel="noopener">{en ? 'Ask about my data' : 'Consultar sobre mis datos'} ↗</a>
+</article>
+<style>
+  .privacy { max-width: 860px; margin: 0 auto; padding: 140px 28px 80px; }
+  h1 { font-size: clamp(36px,6vw,64px); line-height: 1.05; letter-spacing: -.04em; margin-bottom: 28px; }
+  h2 { font-size: 24px; margin: 32px 0 12px; }
+  p, li { font-size: 17px; line-height: 1.7; }
+  ul { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 20px; }
+  a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: underline; }
+  @media(max-width:720px) { .privacy { padding: 110px 18px 48px; } }
+</style>

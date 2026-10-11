@@ -2,6 +2,8 @@
 name: "Departamento #4"
 name_en: "Apartment #4"
 summary: "Para cinco personas, con tres dormitorios y lavadero con lavarropas. Aire frío-calor en las dos habitaciones principales."
+beds: "Queen + dos camas unibles + una individual"
+decision_note: "Lavadero propio con lavarropas."
 order: 4
 lang: es
 specs:
@@ -9,7 +11,7 @@ specs:
   ambientes: "3 dormitorios · living comedor"
   metros: "65 m²"
   bano: "1 baño completo"
-chips: ["WiFi", "Cocina equipada", "2 aires frío-calor", "Parrilla", "Ropa de cama", "Toallas", "Smart TV (sin cable)", "Heladera con Freezer"]
+chips: ["Lavarropas", "WiFi", "Cocina equipada", "2 aires frío-calor", "Ropa de cama", "Toallas", "Smart TV (sin cable)", "Heladera con Freezer"]
 hero_image: "../../assets/images/unidades/unidad-4/hero.jpg"
 gallery:
   - { src: "../../assets/images/unidades/unidad-4/hero.jpg", caption: "Cocina comedor, con el arco al living de fondo" }

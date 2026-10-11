@@ -15,16 +15,11 @@ const origins = [
   { name: 'Desde Rosario', origin: 'Rosario, Santa Fe, Argentina' },
 ];
 
-const clima = [
-  { k: 'VERANO', m: 'Dic · Ene · Feb', t: '28° / 16°', n: 'Calor seco, noches frescas. Ideal para río.' },
-  { k: 'OTOÑO', m: 'Mar · Abr · May', t: '22° / 8°', n: 'Días templados, mucha luz dorada.' },
-  { k: 'INVIERNO', m: 'Jun · Jul · Ago', t: '15° / 2°', n: 'Frío seco.' },
-  { k: 'PRIMAVERA', m: 'Sep · Oct · Nov', t: '24° / 10°', n: 'La mejor época. Verde y florido.' },
-];
+
 ---
 <Base
   title="Dónde alojarse en Capilla del Monte · Río Negro 64"
-  description="Cómo llegar a Capilla del Monte desde Córdoba Capital, Buenos Aires o Rosario. Distancias al Cerro Uritorco, El Zapato, Los Terrones. Clima por estación."
+  description="Cómo llegar a Capilla del Monte desde Córdoba Capital, Buenos Aires o Rosario. Distancias al Cerro Uritorco, El Zapato, Los Terrones. Información para planificar tu viaje."
   ogType="article"
 >
   <BigHeader
@@ -47,7 +42,7 @@ const clima = [
       ></iframe>
       <article class="loc-card frame-card">
         <span class="kicker">PIN</span>
-        <h3>Rio Negro 64</h3>
+        <h2>Rio Negro 64</h2>
         <p>Río Negro 64, Capilla del Monte. Hay estacionamiento para dos autos, sujeto a disponibilidad; consultanos antes de llegar.</p>
         <div class="loc-chips">
           <span class="chip">Centro · 800 m</span>
@@ -85,7 +80,7 @@ const clima = [
   <section class="block bg-paper-2">
     <div class="block-head">
       <h2>{t('location.nearby', lang)}</h2>
-      <span class="spec-mono">MEJOR PUNTUADOS</span>
+      <span class="spec-mono">DISTANCIAS APROXIMADAS</span>
     </div>
     <div class="near-grid">
       {nearGroups.map(g => (
@@ -94,7 +89,7 @@ const clima = [
           {g.data.items.map(it => (
             <div class="near-row">
               <div>
-                <div class="near-name">{it.name}</div>
+                <a class="near-name" href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(it.name + ", Capilla del Monte, Córdoba")}`} target="_blank" rel="noopener">{it.name} ↗</a>
                 {it.note && <div class="near-note">{it.note}</div>}
               </div>
               <span class="near-dist">{it.distance}</span>
@@ -105,30 +100,18 @@ const clima = [
     </div>
   </section>
 
-  <section class="block">
-    <div class="block-head">
-      <h2>{t('location.weather', lang)}</h2>
-      <span class="spec-mono">CUÁNDO VISITAR</span>
-    </div>
-    <div class="clima-grid">
-      {clima.map(c => (
-        <div class="clima-cell">
-          <div class="clima-k">{c.k}</div>
-          <div class="clima-m">{c.m}</div>
-          <div class="clima-t display-no display-sm">{c.t}</div>
-          <div class="clima-n">{c.n}</div>
-        </div>
-      ))}
-    </div>
-  </section>
+<section class="block"><div class="block-head"><h2>Antes de viajar</h2></div><p>Consultá el pronóstico para las fechas de tu viaje y las condiciones de acceso a los senderos antes de salir.</p><a class="link-acc" href="https://www.smn.gob.ar/" target="_blank" rel="noopener">Servicio Meteorológico Nacional ↗</a></section>
 
   <CTABlock lang={lang} background="paper-2" mapsUrl={BUSINESS.mapsUrl} />
 </Base>
 
 <style>
+  .near-name { display: inline-flex; align-items: center; min-height: 44px; text-decoration: underline; text-underline-offset: 3px; }
+  .near-row { min-width: 0; }
+  .near-row > div { min-width: 0; }
   .origin-info { margin: 14px 0 18px; font-size: 14px; line-height: 1.6; color: var(--mf-ink-soft); }
   .bg-paper-2 { background: var(--mf-paper-2); }
-  .chip-maps { background: var(--mf-accent); color: var(--mf-paper); border-color: var(--mf-accent); }
+  .chip-maps { background: var(--mf-action); color: var(--mf-paper); border-color: var(--mf-action); }
   .chip-maps:hover { background: var(--mf-ink); border-color: var(--mf-ink); color: var(--mf-paper); }
   .loc-map-wrap { background: var(--mf-paper-2); border-bottom: 1.5px solid var(--mf-ink); }
   .loc-map {
@@ -154,7 +137,7 @@ const clima = [
     max-width: 360px;
     z-index: 3;
   }
-  .loc-card h3 {
+  .loc-card h2 {
     font-size: 28px;
     margin: 12px 0 10px;
     letter-spacing: -0.02em;
@@ -240,43 +223,17 @@ const clima = [
   }
   .near-dist { font-size: 13px; font-weight: 600; }
 
-  .clima-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-    border: 1px solid var(--mf-ink);
-  }
-  .clima-cell {
-    padding: 20px 22px;
-    border-right: 1px solid var(--mf-hair);
-  }
-  .clima-cell:last-child { border-right: 0; }
-  .clima-k {
-    font-family: var(--mf-font-mono);
-    font-size: 10.5px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    color: var(--mf-ink-soft);
-    text-transform: uppercase;
-  }
-  .clima-m { font-size: 13px; font-weight: 600; margin-top: 10px; }
-  .clima-t { margin-top: 14px; }
-  .clima-n {
-    font-size: 12px;
-    line-height: 1.45;
-    color: var(--mf-ink-soft);
-    margin-top: 10px;
-  }
 
   @media (max-width: 900px) {
-    .origins-grid, .clima-grid { grid-template-columns: 1fr; }
-    .origin, .clima-cell { border-right: 0; border-bottom: 1px solid var(--mf-hair); }
-    .origin:last-child, .clima-cell:last-child { border-bottom: 0; }
+    .origins-grid { grid-template-columns: 1fr; }
+    .origin { border-right: 0; border-bottom: 1px solid var(--mf-hair); }
+    .origin:last-child { border-bottom: 0; }
     .near-grid { grid-template-columns: 1fr; }
   }
   @media (max-width: 720px) {
     .block { padding: 22px 18px; }
-    .loc-map { min-height: auto; padding: 18px; aspect-ratio: 4/3; }
-    .loc-card { position: static; max-width: none; }
+    .loc-map { min-height: auto; padding: 0; aspect-ratio: auto; }
+    .loc-card { position: relative; max-width: none; margin: 18px; }
   }
+@media (max-width: 720px) { .loc-iframe { position: static; height: 300px; } }
 </style>

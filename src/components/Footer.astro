@@ -1,11 +1,12 @@
 ---
+import { waLink } from '~/utils/whatsapp';
 import BrandMark from './BrandMark.astro';
 import { t, type Lang, localizedPath } from '~/i18n';
 import { getCollection } from 'astro:content';
 import { BUSINESS } from '~/utils/seo';
 
-interface Props { lang?: Lang }
-const { lang = 'es' } = Astro.props;
+interface Props { lang?: Lang; message?: string }
+const { lang = 'es', message } = Astro.props;
 
 const allUnits = await getCollection('unidades', ({ data }) => data.lang === lang);
 const units = allUnits.sort((a, b) => a.data.order - b.data.order);
@@ -15,7 +16,7 @@ const year = new Date().getFullYear();
 <footer class="footer">
   <div class="footer-top">
     <a href={localizedPath('/', lang)} class="footer-brand">
-      <BrandMark inverted />
+      <BrandMark inverted decorative />
       <span>El Refugio del Corazón</span>
     </a>
     <p class="footer-tag">{t('footer.tagline', lang)}</p>
@@ -43,7 +44,7 @@ const year = new Date().getFullYear();
     </div>
     <div>
       <div class="footer-kicker">{t('footer.contact', lang)}</div>
-      <a data-cta-location="footer" href="https://wa.me/message/G2SJBL3SDPAMB1" target="_blank" rel="noopener">WhatsApp</a>
+      <a data-cta-location="footer" href={waLink(message, lang)} target="_blank" rel="noopener">WhatsApp</a>
     </div>
     <div>
       <div class="footer-kicker">{lang === 'es' ? 'UBICACIÓN' : 'LOCATION'}</div>
@@ -57,7 +58,8 @@ const year = new Date().getFullYear();
 
   <div class="footer-bot">
     <span>{t('footer.rights', lang).replace('©', `© ${year}`)}</span>
-    <span>HECHO EN CAPILLA DEL MONTE</span>
+    <span>{lang === 'es' ? 'HECHO EN CAPILLA DEL MONTE' : 'MADE IN CAPILLA DEL MONTE'}</span>
+    <a href={localizedPath('/privacidad', lang)}>{lang === 'es' ? 'Privacidad y datos' : 'Privacy and data'}</a>
   </div>
 </footer>
 
@@ -106,7 +108,7 @@ const year = new Date().getFullYear();
     transition: background 0.15s, color 0.15s;
   }
   .footer-unit:last-child { border-right: 0; }
-  .footer-unit:hover { background: rgba(244, 240, 230, 0.06); color: var(--mf-accent); }
+  .footer-unit:hover { background: rgba(244, 240, 230, 0.06); color: var(--mf-accent-on-ink); }
   .footer-unit-name {
     display: flex;
     align-items: baseline;
@@ -117,12 +119,13 @@ const year = new Date().getFullYear();
   }
   .footer-unit-no {
     font-size: 12px;
-    color: var(--mf-accent);
+    color: var(--mf-accent-on-ink);
     font-weight: 500;
   }
   .footer-unit-meta {
+    color: var(--mf-paper);
     font-family: var(--mf-font-mono);
-    font-size: 10.5px;
+    font-size: 12px;
     font-weight: 500;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -138,13 +141,15 @@ const year = new Date().getFullYear();
   }
   .footer-kicker {
     font-family: var(--mf-font-mono);
-    font-size: 10.5px;
+    font-size: 12px;
     font-weight: 500;
     letter-spacing: 0.14em;
     opacity: 0.6;
     text-transform: uppercase;
     margin-bottom: 14px;
   }
+  .footer-cols a { min-height: 44px; display: flex; align-items: center; }
+  .footer-bot a { min-height: 44px; display: inline-flex; align-items: center; }
   .footer-cols a, .footer-addr {
     display: block;
     padding: 5px 0;
@@ -154,7 +159,7 @@ const year = new Date().getFullYear();
     opacity: 0.9;
     color: var(--mf-paper);
   }
-  .footer-cols a:hover { opacity: 1; color: var(--mf-accent); }
+  .footer-cols a:hover { opacity: 1; color: var(--mf-accent-on-ink); }
 
   .footer-bot {
     padding: 18px 28px;
@@ -162,7 +167,7 @@ const year = new Date().getFullYear();
     justify-content: space-between;
     gap: 14px;
     font-family: var(--mf-font-mono);
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 500;
     letter-spacing: 0.06em;
     opacity: 0.6;

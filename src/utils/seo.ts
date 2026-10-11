@@ -1,3 +1,4 @@
+import { WHATSAPP_NUMBER } from './whatsapp';
 import type { Lang } from '~/i18n';
 
 export const SITE_URL = 'https://refugiodelcorazon.com.ar';
@@ -18,7 +19,7 @@ export const BUSINESS = {
   latitude: -30.8659207,
   longitude: -64.5248283,
   priceRange: '$$',
-  whatsapp: (import.meta.env.PUBLIC_WHATSAPP_NUMBER ?? '5493548000000').replace(/\D/g, ''),
+  whatsapp: WHATSAPP_NUMBER,
   bookingUrl: 'https://www.booking.com/hotel/ar/hospedaje-depto-tranquilo-en-capilla-del-monte.html',
   mapsUrl: 'https://maps.app.goo.gl/Zs3MGBP1naMxwqmt5',
 };

@@ -16,7 +16,6 @@ const incluidos = [
   { k: 'Ropa de cama', v: 'INCLUIDO' },
   { k: 'Toallas', v: 'INCLUIDO' },
   { k: 'Aire acondicionado', v: 'INCLUIDO' },
-  { k: 'Cochera privada (sujeto a disponibilidad)', v: 'INCLUIDO' },
   { k: 'Parrillas (dos)', v: 'INCLUIDO' },
   { k: 'Patio interno compartido', v: 'INCLUIDO' },
   { k: 'Smart TV con streaming', v: 'INCLUIDO' },
@@ -28,7 +27,6 @@ const noTenemos = [
   { k: 'Servicio de habitación', v: 'Somos un alquiler temporario, no un hotel.' },
   { k: 'Desayuno incluido', v: 'La cocina equipada te permite armar tu propio ritmo.' },
   { k: 'TV por cable', v: 'Pero tenemos Smart TV con Netflix (cuenta incluida sin costo), YouTube y demás apps de streaming.' },
-  { k: 'Limpieza', v: 'Te dejamos artículos de limpieza. Si tu estadía es de más de 7 noches, ofrecemos limpieza sin costo adicional.' },
 ];
 ---
 <Base
@@ -37,7 +35,7 @@ const noTenemos = [
 >
   <BigHeader
     kicker="02 · SERVICIOS"
-    title="Todo incluido"
+    title="Tu estadía"
     subtitle="Servicios y equipamiento de los departamentos de alquiler temporario en Capilla del Monte"
     meta="04 DEPARTAMENTOS · CAPILLA DEL MONTE"
     blurb="Vení con lo justo. Cada departamento está equipado para que llegues, dejes la valija y arranques a descansar."
@@ -46,11 +44,12 @@ const noTenemos = [
   <section class="serv-section">
     <div class="serv-head">
       <h2>Lo que incluye tu estadía</h2>
-      <span class="spec-mono">10 ÍTEMS</span>
+      <span class="spec-mono">9 SERVICIOS</span>
     </div>
     <ServiceList lang={lang} items={incluidos} />
   </section>
 
+<section class="serv-section"><div class="serv-head"><h2>Servicios con condiciones</h2></div><div class="nt-grid"><div class="nt-row"><span aria-hidden="true">→</span><div><h3 class="nt-k">Estacionamiento</h3><p class="nt-v">Espacio para dos autos, sujeto a disponibilidad. Confirmalo antes de llegar.</p></div></div><div class="nt-row"><span aria-hidden="true">→</span><div><h3 class="nt-k">Limpieza durante la estadía</h3><p class="nt-v">Se incluyen artículos de limpieza. Para estadías de más de 7 noches, ofrecemos limpieza sin costo adicional.</p></div></div></div></section>
   <section class="serv-section bg-paper-2">
     <div class="serv-head">
       <h2>{t('services.noTenemosTitle', lang)}</h2>
@@ -144,7 +143,7 @@ const noTenemos = [
     letter-spacing: -0.005em;
   }
   .nt-v {
-    font-size: 12.5px;
+    font-size: 15px;
     line-height: 1.5;
     color: var(--mf-ink-soft);
     margin-top: 4px;
@@ -164,13 +163,13 @@ const noTenemos = [
   }
   .serv-units-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     border: 1px solid var(--mf-ink);
   }
   .serv-units-item {
     padding: 22px 24px;
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto minmax(0, 1fr) auto;
     align-items: center;
     gap: 18px;
     border-right: 1px solid var(--mf-hair);
@@ -178,7 +177,7 @@ const noTenemos = [
     transition: background 0.15s, color 0.15s;
   }
   .serv-units-item:last-child { border-right: 0; }
-  .serv-units-item:hover { background: var(--mf-paper-2); color: var(--mf-accent); }
+  .serv-units-item:hover { background: var(--mf-paper-2); color: var(--mf-action); }
   .serv-units-no { font-size: 36px; }
   .serv-units-name {
     font-size: 16px;
@@ -188,7 +187,7 @@ const noTenemos = [
   .serv-units-meta { margin-top: 4px; }
   .serv-units-arrow { font-size: 16px; }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1100px) {
     .serv-units-grid { grid-template-columns: 1fr 1fr; }
     .serv-units-item:nth-child(2n) { border-right: 0; }
     .serv-units-item { border-bottom: 1px solid var(--mf-hair); }
@@ -202,4 +201,6 @@ const noTenemos = [
     .serv-units-item:last-child { border-bottom: 0; }
     .serv-units-head h2 { font-size: 22px; }
   }
+.serv-head { gap: 16px; flex-wrap: wrap; }
+.serv-units-info { min-width: 0; overflow-wrap: anywhere; }
 </style>

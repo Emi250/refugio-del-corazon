@@ -1,0 +1,1273 @@
+{
+  "date": "2026-10-11T02:12:46.670Z",
+  "engine": "webkit",
+  "browser": "26.5",
+  "matrix": [
+    {
+      "path": "/en/faq/",
+      "width": 320,
+      "client": 320,
+      "scroll": 320,
+      "ok": true
+    },
+    {
+      "path": "/en/galeria/",
+      "width": 320,
+      "client": 320,
+      "scroll": 320,
+      "ok": true
+    },
+    {
+      "path": "/en/",
+      "width": 320,
+      "client": 320,
+      "scroll": 320,
+      "ok": true
+    },
+    {
+      "path": "/en/privacidad/",
+      "width": 320,
+      "client": 320,
+      "scroll": 320,
+      "ok": true
+    },
+    {
+      "path": "/en/servicios/",
+      "width": 320,
+      "client": 320,
+      "scroll": 320,
+      "ok": true
+    },
+    {
+      "path": "/en/ubicacion/",
+      "width": 320,
+      "client": 320,
+      "scroll": 320,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-1/",
+      "width": 320,
+      "client": 320,
+      "scroll": 320,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-2/",
+      "width": 320,
+      "client": 320,
+      "scroll": 320,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-3/",
+      "width": 320,
+      "client": 320,
+      "scroll": 320,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-4/",
+      "width": 320,
+      "client": 320,
+      "scroll": 320,
+      "ok": true
+    },
+    {
+      "path": "/faq/",
+      "width": 320,
+      "client": 320,
+      "scroll": 320,
+      "ok": true
+    },
+    {
+      "path": "/galeria/",
+      "width": 320,
+      "client": 320,
+      "scroll": 320,
+      "ok": true
+    },
+    {
+      "path": "/",
+      "width": 320,
+      "client": 320,
+      "scroll": 320,
+      "ok": true
+    },
+    {
+      "path": "/privacidad/",
+      "width": 320,
+      "client": 320,
+      "scroll": 320,
+      "ok": true
+    },
+    {
+      "path": "/servicios/",
+      "width": 320,
+      "client": 320,
+      "scroll": 320,
+      "ok": true
+    },
+    {
+      "path": "/ubicacion/",
+      "width": 320,
+      "client": 320,
+      "scroll": 320,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-1/",
+      "width": 320,
+      "client": 320,
+      "scroll": 320,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-2/",
+      "width": 320,
+      "client": 320,
+      "scroll": 320,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-3/",
+      "width": 320,
+      "client": 320,
+      "scroll": 320,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-4/",
+      "width": 320,
+      "client": 320,
+      "scroll": 320,
+      "ok": true
+    },
+    {
+      "path": "/404.html",
+      "width": 320,
+      "client": 320,
+      "scroll": 320,
+      "ok": true
+    },
+    {
+      "path": "/en/faq/",
+      "width": 390,
+      "client": 390,
+      "scroll": 390,
+      "ok": true
+    },
+    {
+      "path": "/en/galeria/",
+      "width": 390,
+      "client": 390,
+      "scroll": 390,
+      "ok": true
+    },
+    {
+      "path": "/en/",
+      "width": 390,
+      "client": 390,
+      "scroll": 390,
+      "ok": true
+    },
+    {
+      "path": "/en/privacidad/",
+      "width": 390,
+      "client": 390,
+      "scroll": 390,
+      "ok": true
+    },
+    {
+      "path": "/en/servicios/",
+      "width": 390,
+      "client": 390,
+      "scroll": 390,
+      "ok": true
+    },
+    {
+      "path": "/en/ubicacion/",
+      "width": 390,
+      "client": 390,
+      "scroll": 390,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-1/",
+      "width": 390,
+      "client": 390,
+      "scroll": 390,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-2/",
+      "width": 390,
+      "client": 390,
+      "scroll": 390,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-3/",
+      "width": 390,
+      "client": 390,
+      "scroll": 390,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-4/",
+      "width": 390,
+      "client": 390,
+      "scroll": 390,
+      "ok": true
+    },
+    {
+      "path": "/faq/",
+      "width": 390,
+      "client": 390,
+      "scroll": 390,
+      "ok": true
+    },
+    {
+      "path": "/galeria/",
+      "width": 390,
+      "client": 390,
+      "scroll": 390,
+      "ok": true
+    },
+    {
+      "path": "/",
+      "width": 390,
+      "client": 390,
+      "scroll": 390,
+      "ok": true
+    },
+    {
+      "path": "/privacidad/",
+      "width": 390,
+      "client": 390,
+      "scroll": 390,
+      "ok": true
+    },
+    {
+      "path": "/servicios/",
+      "width": 390,
+      "client": 390,
+      "scroll": 390,
+      "ok": true
+    },
+    {
+      "path": "/ubicacion/",
+      "width": 390,
+      "client": 390,
+      "scroll": 390,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-1/",
+      "width": 390,
+      "client": 390,
+      "scroll": 390,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-2/",
+      "width": 390,
+      "client": 390,
+      "scroll": 390,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-3/",
+      "width": 390,
+      "client": 390,
+      "scroll": 390,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-4/",
+      "width": 390,
+      "client": 390,
+      "scroll": 390,
+      "ok": true
+    },
+    {
+      "path": "/404.html",
+      "width": 390,
+      "client": 390,
+      "scroll": 390,
+      "ok": true
+    },
+    {
+      "path": "/en/faq/",
+      "width": 640,
+      "client": 640,
+      "scroll": 640,
+      "ok": true
+    },
+    {
+      "path": "/en/galeria/",
+      "width": 640,
+      "client": 640,
+      "scroll": 640,
+      "ok": true
+    },
+    {
+      "path": "/en/",
+      "width": 640,
+      "client": 640,
+      "scroll": 640,
+      "ok": true
+    },
+    {
+      "path": "/en/privacidad/",
+      "width": 640,
+      "client": 640,
+      "scroll": 640,
+      "ok": true
+    },
+    {
+      "path": "/en/servicios/",
+      "width": 640,
+      "client": 640,
+      "scroll": 640,
+      "ok": true
+    },
+    {
+      "path": "/en/ubicacion/",
+      "width": 640,
+      "client": 640,
+      "scroll": 640,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-1/",
+      "width": 640,
+      "client": 640,
+      "scroll": 640,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-2/",
+      "width": 640,
+      "client": 640,
+      "scroll": 640,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-3/",
+      "width": 640,
+      "client": 640,
+      "scroll": 640,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-4/",
+      "width": 640,
+      "client": 640,
+      "scroll": 640,
+      "ok": true
+    },
+    {
+      "path": "/faq/",
+      "width": 640,
+      "client": 640,
+      "scroll": 640,
+      "ok": true
+    },
+    {
+      "path": "/galeria/",
+      "width": 640,
+      "client": 640,
+      "scroll": 640,
+      "ok": true
+    },
+    {
+      "path": "/",
+      "width": 640,
+      "client": 640,
+      "scroll": 640,
+      "ok": true
+    },
+    {
+      "path": "/privacidad/",
+      "width": 640,
+      "client": 640,
+      "scroll": 640,
+      "ok": true
+    },
+    {
+      "path": "/servicios/",
+      "width": 640,
+      "client": 640,
+      "scroll": 640,
+      "ok": true
+    },
+    {
+      "path": "/ubicacion/",
+      "width": 640,
+      "client": 640,
+      "scroll": 640,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-1/",
+      "width": 640,
+      "client": 640,
+      "scroll": 640,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-2/",
+      "width": 640,
+      "client": 640,
+      "scroll": 640,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-3/",
+      "width": 640,
+      "client": 640,
+      "scroll": 640,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-4/",
+      "width": 640,
+      "client": 640,
+      "scroll": 640,
+      "ok": true
+    },
+    {
+      "path": "/404.html",
+      "width": 640,
+      "client": 640,
+      "scroll": 640,
+      "ok": true
+    },
+    {
+      "path": "/en/faq/",
+      "width": 768,
+      "client": 768,
+      "scroll": 768,
+      "ok": true
+    },
+    {
+      "path": "/en/galeria/",
+      "width": 768,
+      "client": 768,
+      "scroll": 768,
+      "ok": true
+    },
+    {
+      "path": "/en/",
+      "width": 768,
+      "client": 768,
+      "scroll": 768,
+      "ok": true
+    },
+    {
+      "path": "/en/privacidad/",
+      "width": 768,
+      "client": 768,
+      "scroll": 768,
+      "ok": true
+    },
+    {
+      "path": "/en/servicios/",
+      "width": 768,
+      "client": 768,
+      "scroll": 768,
+      "ok": true
+    },
+    {
+      "path": "/en/ubicacion/",
+      "width": 768,
+      "client": 768,
+      "scroll": 768,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-1/",
+      "width": 768,
+      "client": 768,
+      "scroll": 768,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-2/",
+      "width": 768,
+      "client": 768,
+      "scroll": 768,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-3/",
+      "width": 768,
+      "client": 768,
+      "scroll": 768,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-4/",
+      "width": 768,
+      "client": 768,
+      "scroll": 768,
+      "ok": true
+    },
+    {
+      "path": "/faq/",
+      "width": 768,
+      "client": 768,
+      "scroll": 768,
+      "ok": true
+    },
+    {
+      "path": "/galeria/",
+      "width": 768,
+      "client": 768,
+      "scroll": 768,
+      "ok": true
+    },
+    {
+      "path": "/",
+      "width": 768,
+      "client": 768,
+      "scroll": 768,
+      "ok": true
+    },
+    {
+      "path": "/privacidad/",
+      "width": 768,
+      "client": 768,
+      "scroll": 768,
+      "ok": true
+    },
+    {
+      "path": "/servicios/",
+      "width": 768,
+      "client": 768,
+      "scroll": 768,
+      "ok": true
+    },
+    {
+      "path": "/ubicacion/",
+      "width": 768,
+      "client": 768,
+      "scroll": 768,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-1/",
+      "width": 768,
+      "client": 768,
+      "scroll": 768,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-2/",
+      "width": 768,
+      "client": 768,
+      "scroll": 768,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-3/",
+      "width": 768,
+      "client": 768,
+      "scroll": 768,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-4/",
+      "width": 768,
+      "client": 768,
+      "scroll": 768,
+      "ok": true
+    },
+    {
+      "path": "/404.html",
+      "width": 768,
+      "client": 768,
+      "scroll": 768,
+      "ok": true
+    },
+    {
+      "path": "/en/faq/",
+      "width": 900,
+      "client": 900,
+      "scroll": 900,
+      "ok": true
+    },
+    {
+      "path": "/en/galeria/",
+      "width": 900,
+      "client": 900,
+      "scroll": 900,
+      "ok": true
+    },
+    {
+      "path": "/en/",
+      "width": 900,
+      "client": 900,
+      "scroll": 900,
+      "ok": true
+    },
+    {
+      "path": "/en/privacidad/",
+      "width": 900,
+      "client": 900,
+      "scroll": 900,
+      "ok": true
+    },
+    {
+      "path": "/en/servicios/",
+      "width": 900,
+      "client": 900,
+      "scroll": 900,
+      "ok": true
+    },
+    {
+      "path": "/en/ubicacion/",
+      "width": 900,
+      "client": 900,
+      "scroll": 900,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-1/",
+      "width": 900,
+      "client": 900,
+      "scroll": 900,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-2/",
+      "width": 900,
+      "client": 900,
+      "scroll": 900,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-3/",
+      "width": 900,
+      "client": 900,
+      "scroll": 900,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-4/",
+      "width": 900,
+      "client": 900,
+      "scroll": 900,
+      "ok": true
+    },
+    {
+      "path": "/faq/",
+      "width": 900,
+      "client": 900,
+      "scroll": 900,
+      "ok": true
+    },
+    {
+      "path": "/galeria/",
+      "width": 900,
+      "client": 900,
+      "scroll": 900,
+      "ok": true
+    },
+    {
+      "path": "/",
+      "width": 900,
+      "client": 900,
+      "scroll": 900,
+      "ok": true
+    },
+    {
+      "path": "/privacidad/",
+      "width": 900,
+      "client": 900,
+      "scroll": 900,
+      "ok": true
+    },
+    {
+      "path": "/servicios/",
+      "width": 900,
+      "client": 900,
+      "scroll": 900,
+      "ok": true
+    },
+    {
+      "path": "/ubicacion/",
+      "width": 900,
+      "client": 900,
+      "scroll": 900,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-1/",
+      "width": 900,
+      "client": 900,
+      "scroll": 900,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-2/",
+      "width": 900,
+      "client": 900,
+      "scroll": 900,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-3/",
+      "width": 900,
+      "client": 900,
+      "scroll": 900,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-4/",
+      "width": 900,
+      "client": 900,
+      "scroll": 900,
+      "ok": true
+    },
+    {
+      "path": "/404.html",
+      "width": 900,
+      "client": 900,
+      "scroll": 900,
+      "ok": true
+    },
+    {
+      "path": "/en/faq/",
+      "width": 901,
+      "client": 901,
+      "scroll": 901,
+      "ok": true
+    },
+    {
+      "path": "/en/galeria/",
+      "width": 901,
+      "client": 901,
+      "scroll": 901,
+      "ok": true
+    },
+    {
+      "path": "/en/",
+      "width": 901,
+      "client": 901,
+      "scroll": 901,
+      "ok": true
+    },
+    {
+      "path": "/en/privacidad/",
+      "width": 901,
+      "client": 901,
+      "scroll": 901,
+      "ok": true
+    },
+    {
+      "path": "/en/servicios/",
+      "width": 901,
+      "client": 901,
+      "scroll": 901,
+      "ok": true
+    },
+    {
+      "path": "/en/ubicacion/",
+      "width": 901,
+      "client": 901,
+      "scroll": 901,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-1/",
+      "width": 901,
+      "client": 901,
+      "scroll": 901,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-2/",
+      "width": 901,
+      "client": 901,
+      "scroll": 901,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-3/",
+      "width": 901,
+      "client": 901,
+      "scroll": 901,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-4/",
+      "width": 901,
+      "client": 901,
+      "scroll": 901,
+      "ok": true
+    },
+    {
+      "path": "/faq/",
+      "width": 901,
+      "client": 901,
+      "scroll": 901,
+      "ok": true
+    },
+    {
+      "path": "/galeria/",
+      "width": 901,
+      "client": 901,
+      "scroll": 901,
+      "ok": true
+    },
+    {
+      "path": "/",
+      "width": 901,
+      "client": 901,
+      "scroll": 901,
+      "ok": true
+    },
+    {
+      "path": "/privacidad/",
+      "width": 901,
+      "client": 901,
+      "scroll": 901,
+      "ok": true
+    },
+    {
+      "path": "/servicios/",
+      "width": 901,
+      "client": 901,
+      "scroll": 901,
+      "ok": true
+    },
+    {
+      "path": "/ubicacion/",
+      "width": 901,
+      "client": 901,
+      "scroll": 901,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-1/",
+      "width": 901,
+      "client": 901,
+      "scroll": 901,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-2/",
+      "width": 901,
+      "client": 901,
+      "scroll": 901,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-3/",
+      "width": 901,
+      "client": 901,
+      "scroll": 901,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-4/",
+      "width": 901,
+      "client": 901,
+      "scroll": 901,
+      "ok": true
+    },
+    {
+      "path": "/404.html",
+      "width": 901,
+      "client": 901,
+      "scroll": 901,
+      "ok": true
+    },
+    {
+      "path": "/en/faq/",
+      "width": 1280,
+      "client": 1280,
+      "scroll": 1280,
+      "ok": true
+    },
+    {
+      "path": "/en/galeria/",
+      "width": 1280,
+      "client": 1280,
+      "scroll": 1280,
+      "ok": true
+    },
+    {
+      "path": "/en/",
+      "width": 1280,
+      "client": 1280,
+      "scroll": 1280,
+      "ok": true
+    },
+    {
+      "path": "/en/privacidad/",
+      "width": 1280,
+      "client": 1280,
+      "scroll": 1280,
+      "ok": true
+    },
+    {
+      "path": "/en/servicios/",
+      "width": 1280,
+      "client": 1280,
+      "scroll": 1280,
+      "ok": true
+    },
+    {
+      "path": "/en/ubicacion/",
+      "width": 1280,
+      "client": 1280,
+      "scroll": 1280,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-1/",
+      "width": 1280,
+      "client": 1280,
+      "scroll": 1280,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-2/",
+      "width": 1280,
+      "client": 1280,
+      "scroll": 1280,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-3/",
+      "width": 1280,
+      "client": 1280,
+      "scroll": 1280,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-4/",
+      "width": 1280,
+      "client": 1280,
+      "scroll": 1280,
+      "ok": true
+    },
+    {
+      "path": "/faq/",
+      "width": 1280,
+      "client": 1280,
+      "scroll": 1280,
+      "ok": true
+    },
+    {
+      "path": "/galeria/",
+      "width": 1280,
+      "client": 1280,
+      "scroll": 1280,
+      "ok": true
+    },
+    {
+      "path": "/",
+      "width": 1280,
+      "client": 1280,
+      "scroll": 1280,
+      "ok": true
+    },
+    {
+      "path": "/privacidad/",
+      "width": 1280,
+      "client": 1280,
+      "scroll": 1280,
+      "ok": true
+    },
+    {
+      "path": "/servicios/",
+      "width": 1280,
+      "client": 1280,
+      "scroll": 1280,
+      "ok": true
+    },
+    {
+      "path": "/ubicacion/",
+      "width": 1280,
+      "client": 1280,
+      "scroll": 1280,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-1/",
+      "width": 1280,
+      "client": 1280,
+      "scroll": 1280,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-2/",
+      "width": 1280,
+      "client": 1280,
+      "scroll": 1280,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-3/",
+      "width": 1280,
+      "client": 1280,
+      "scroll": 1280,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-4/",
+      "width": 1280,
+      "client": 1280,
+      "scroll": 1280,
+      "ok": true
+    },
+    {
+      "path": "/404.html",
+      "width": 1280,
+      "client": 1280,
+      "scroll": 1280,
+      "ok": true
+    },
+    {
+      "path": "/en/faq/",
+      "width": 1440,
+      "client": 1440,
+      "scroll": 1440,
+      "ok": true
+    },
+    {
+      "path": "/en/galeria/",
+      "width": 1440,
+      "client": 1440,
+      "scroll": 1440,
+      "ok": true
+    },
+    {
+      "path": "/en/",
+      "width": 1440,
+      "client": 1440,
+      "scroll": 1440,
+      "ok": true
+    },
+    {
+      "path": "/en/privacidad/",
+      "width": 1440,
+      "client": 1440,
+      "scroll": 1440,
+      "ok": true
+    },
+    {
+      "path": "/en/servicios/",
+      "width": 1440,
+      "client": 1440,
+      "scroll": 1440,
+      "ok": true
+    },
+    {
+      "path": "/en/ubicacion/",
+      "width": 1440,
+      "client": 1440,
+      "scroll": 1440,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-1/",
+      "width": 1440,
+      "client": 1440,
+      "scroll": 1440,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-2/",
+      "width": 1440,
+      "client": 1440,
+      "scroll": 1440,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-3/",
+      "width": 1440,
+      "client": 1440,
+      "scroll": 1440,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-4/",
+      "width": 1440,
+      "client": 1440,
+      "scroll": 1440,
+      "ok": true
+    },
+    {
+      "path": "/faq/",
+      "width": 1440,
+      "client": 1440,
+      "scroll": 1440,
+      "ok": true
+    },
+    {
+      "path": "/galeria/",
+      "width": 1440,
+      "client": 1440,
+      "scroll": 1440,
+      "ok": true
+    },
+    {
+      "path": "/",
+      "width": 1440,
+      "client": 1440,
+      "scroll": 1440,
+      "ok": true
+    },
+    {
+      "path": "/privacidad/",
+      "width": 1440,
+      "client": 1440,
+      "scroll": 1440,
+      "ok": true
+    },
+    {
+      "path": "/servicios/",
+      "width": 1440,
+      "client": 1440,
+      "scroll": 1440,
+      "ok": true
+    },
+    {
+      "path": "/ubicacion/",
+      "width": 1440,
+      "client": 1440,
+      "scroll": 1440,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-1/",
+      "width": 1440,
+      "client": 1440,
+      "scroll": 1440,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-2/",
+      "width": 1440,
+      "client": 1440,
+      "scroll": 1440,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-3/",
+      "width": 1440,
+      "client": 1440,
+      "scroll": 1440,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-4/",
+      "width": 1440,
+      "client": 1440,
+      "scroll": 1440,
+      "ok": true
+    },
+    {
+      "path": "/404.html",
+      "width": 1440,
+      "client": 1440,
+      "scroll": 1440,
+      "ok": true
+    }
+  ],
+  "checks": [
+    {
+      "name": "Responsive: all pages at eight widths",
+      "ok": true
+    },
+    {
+      "name": "Skip link by keyboard",
+      "ok": true
+    },
+    {
+      "name": "Mobile menu: focus, tab confinement, Escape and breakpoint",
+      "ok": true
+    },
+    {
+      "name": "Lightbox: navigation, focus, history Back and small landscape",
+      "ok": true
+    },
+    {
+      "name": "Image failure and successful retry",
+      "ok": true
+    },
+    {
+      "name": "Language preserves gallery fragment",
+      "ok": true
+    },
+    {
+      "name": "No JavaScript: navigation, FAQ and gallery remain usable",
+      "ok": true
+    },
+    {
+      "name": "Reviews: blocked provider exposes Booking fallback",
+      "ok": true
+    },
+    {
+      "name": "Slow images: menu and inquiry link work while loading",
+      "ok": true
+    },
+    {
+      "name": "Final screenshots",
+      "ok": true
+    },
+    {
+      "name": "Reviews: live provider (only Elfsight network allowed)",
+      "ok": true,
+      "detail": {
+        "requests": [
+          {
+            "url": "https://static.elfsight.com/platform/platform.js",
+            "status": 200
+          },
+          {
+            "url": "https://core.service.elfsight.com/p/boot/",
+            "status": 200
+          },
+          {
+            "url": "https://universe-static.elfsightcdn.com/app-releases/booking-reviews/stable/v3.53.0/7efd9184817592fe6e8cf2f859dc9365f208b966/widget/bookingReviews.js",
+            "status": 200
+          },
+          {
+            "url": "https://universe-static.elfsightcdn.com/app-releases/booking-reviews/stable/v3.53.0/7efd9184817592fe6e8cf2f859dc9365f208b966/widget/languages/es-ar.json",
+            "status": 200
+          },
+          {
+            "url": "https://static.elfsight.com/icons/app-all-in-one-reviews-logos-booking-logo-multicolor.svg",
+            "status": 200
+          },
+          {
+            "url": "https://service-reviews-ultimate.elfsight.com/data/sources",
+            "status": 200
+          },
+          {
+            "url": "https://service-reviews-ultimate.elfsight.com/data/reviews",
+            "status": 200
+          }
+        ],
+        "text": "PALABRAS DE HUÉSPEDES\nLa experiencia de quienes se alojaron\n\nLeé las experiencias y puntuaciones de huéspedes en Booking.com.\n\nReseñas verificadas en Booking.com →\n\nReseñas\n9,7\n(213)\n10\n😀 - Atención, ubicación, cama!, cocina ...todo 😞 - Faltaría un banco en el dormi, para apoyar la valija y alguna reposera p ver la tv a la noche, pero son detalles mínimos... Todo lo demás extraordinario 😃\nLeer más\nAriel\n28 de septiembre\n10\nConfortable\n😀 - La ubicación, la comodidad, la atención de sus propietarios. Muy atentos y amables!! Sin dudas volveríamos y recomendamos\nSelva\n4 de septiembre\nFree Booking Reviews Widget\nAl mostrarlas, se conecta con Elfsight, el proveedor del panel de reseñas.",
+        "frameHeight": 458,
+        "status": ""
+      }
+    },
+    {
+      "name": "No uncaught application errors",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "Viewport reflow at 640/320 CSS px approximates 200/400% zoom on a 1280px display; it is not native browser zoom.",
+    "No physical iOS/Android device or screen reader is controlled by this test."
+  ]
+}

@@ -2,6 +2,8 @@
 name: "Departamento #1"
 name_en: "Apartment #1"
 summary: "Para dos personas, con cama king o dos individuales. Cocina eléctrica integrada al living, sin horno."
+beds: "King o dos individuales"
+decision_note: "Cocina eléctrica sin horno."
 order: 1
 lang: es
 specs:
@@ -9,7 +11,7 @@ specs:
   ambientes: "1 dormitorio · living"
   metros: "40 m²"
   vista: "Sierras al frente"
-chips: ["WiFi", "Cocina equipada", "Parrilla", "Ropa de cama", "Aire frío-calor", "Toallas", "Heladera con Freezer", "Smart TV (sin cable)"]
+chips: ["WiFi", "Cocina equipada", "Ropa de cama", "Aire frío-calor", "Toallas", "Heladera con Freezer", "Smart TV (sin cable)"]
 hero_image: "../../assets/images/unidades/unidad-1/hero.jpg"
 gallery:
   - { src: "../../assets/images/unidades/unidad-1/hero.jpg", caption: "El living comedor, con la cocina integrada" }

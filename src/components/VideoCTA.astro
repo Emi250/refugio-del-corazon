@@ -20,10 +20,12 @@ const { href, lang = 'es', variant = 'big', class: className = '' } = Astro.prop
     <rect x="2" y="4" width="14" height="16" rx="2" />
     <path d="M16 10l6-3v10l-6-3z" />
   </svg>
-  <span>{t('unit.videoCta', lang)}</span>
+  <span>{t('unit.videoCta', lang)}<small>{lang === 'es' ? 'Se abre en otra pestaña' : 'Opens in a new tab'}</small></span>
 </a>
 
 <style>
+  .video-cta { min-height: 44px; }
+  .video-cta small { display: block; font-size: 12px; font-weight: 400; margin-top: 3px; }
   .video-cta {
     display: inline-flex;
     align-items: center;

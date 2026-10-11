@@ -6,6 +6,8 @@
   --mf-ink-soft: #6B6357;
   --mf-hair:     rgba(27, 26, 22, 0.14);
   --mf-accent:   oklch(0.61 0.14 38);
+  --mf-action:   #A4472F;
+  --mf-accent-on-ink: #DC8A70;
 
   --mf-shadow-hard: 4px 6px 0 rgba(27, 26, 22, 0.85);
   --mf-shadow-card: 6px 6px 0 var(--mf-ink);

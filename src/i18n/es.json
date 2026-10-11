@@ -10,7 +10,7 @@
     "kicker": "Capilla del Monte · Córdoba",
     "title": "El Refugio del Corazón",
     "deck": "Alquiler temporario en Capilla del Monte",
-    "subtitle": "Cuatro departamentos de alquiler temporario en el corazón de las sierras.",
+    "subtitle": "Cuatro departamentos para 2 a 5 personas. Cocina propia, patio compartido y atención de sus dueños.",
     "cta": "Consultar por WhatsApp",
     "scrollHint": "Conocé los departamentos"
   },
@@ -22,7 +22,7 @@
     "gallery": "Galería",
     "galleryMeta": "Mirá cada rincón",
     "services": "Servicios",
-    "servicesMeta": "Todo incluido",
+    "servicesMeta": "Qué incluye tu estadía",
     "location": "Ubicación",
     "locationMeta": "Cómo llegar",
     "reviews": "Palabras de huéspedes",
@@ -31,7 +31,13 @@
   },
   "spaces": {
     "blurb": "Los cuatro departamentos dan al mismo patio interno: césped, reposeras, mesas al aire libre y dos parrillas para uso de todos los huéspedes. Entre los canteros de lavanda y rosas se ven las sierras de fondo.",
-    "chips": ["Patio compartido", "Dos parrillas", "Reposeras y mesas", "Tendedero", "Vista a las sierras"],
+    "chips": [
+      "Patio compartido",
+      "Dos parrillas",
+      "Reposeras y mesas",
+      "Tendedero",
+      "Vista a las sierras"
+    ],
     "captions": {
       "patio": "El patio interno compartido, con las sierras de fondo",
       "parrilla": "Una de las dos parrillas",
@@ -51,14 +57,14 @@
     "viewGallery": "Ver galería",
     "otherUnits": "Otros departamentos",
     "shortSpecs": "En pocas palabras",
-    "amenities": "Lo que incluye",
+    "amenities": "Dentro del departamento",
     "plan": "El espacio",
     "ctaTitle": "¿Te interesa este departamento?",
     "ctaSubtitle": "Respondemos por WhatsApp en el día · Capilla del Monte, Córdoba.",
     "miniFaqKicker": "Antes de consultar",
     "miniFaqTitle": "Lo que más nos preguntan",
     "miniFaqAllLink": "Ver todas las preguntas →",
-    "videoCta": "Ver video del departamento"
+    "videoCta": "Video en Google Drive ↗"
   },
   "services": {
     "title": "Todo lo que necesitás",

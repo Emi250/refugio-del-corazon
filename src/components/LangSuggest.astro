@@ -9,8 +9,10 @@ interface Props {
 const { lang, otherPath } = Astro.props;
 const other: Lang = lang === 'es' ? 'en' : 'es';
 ---
-<div
+<aside
   class="lang-suggest"
+  lang={other}
+  aria-label={other === 'es' ? 'Sugerencia de idioma' : 'Language suggestion'}
   data-lang-suggest
   data-page-lang={lang}
   data-other-lang={other}
@@ -19,7 +21,7 @@ const other: Lang = lang === 'es' ? 'en' : 'es';
   <span class="lang-suggest-text">{t('langSuggest.text', other)}</span>
   <a href={otherPath} class="lang-suggest-go" data-lang-go>{t('langSuggest.cta', other)}</a>
   <button type="button" class="lang-suggest-x" data-lang-dismiss aria-label={t('langSuggest.dismiss', other)}>×</button>
-</div>
+</aside>
 
 <style>
   .lang-suggest {
@@ -30,10 +32,10 @@ const other: Lang = lang === 'es' ? 'en' : 'es';
     background: var(--mf-paper-2);
     border-bottom: 1px solid var(--mf-hair);
     font-family: var(--mf-font-mono);
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    letter-spacing: 0;
+    text-transform: none;
     color: var(--mf-ink-soft);
   }
   .lang-suggest[hidden] { display: none; }
@@ -41,16 +43,17 @@ const other: Lang = lang === 'es' ? 'en' : 'es';
   .lang-suggest-text { flex: 1; }
 
   .lang-suggest-go {
-    color: var(--mf-accent);
+    display: inline-flex; align-items: center; min-height: 44px;
+    color: var(--mf-action);
     text-decoration: none;
-    border-bottom: 1px solid var(--mf-accent);
+    border-bottom: 1px solid var(--mf-action);
     padding-bottom: 2px;
     white-space: nowrap;
   }
 
   .lang-suggest-x {
-    width: 28px;
-    height: 28px;
+    width: 44px;
+    height: 44px;
     display: grid;
     place-items: center;
     border: 1px solid var(--mf-hair);
@@ -67,7 +70,7 @@ const other: Lang = lang === 'es' ? 'en' : 'es';
     .lang-suggest {
       padding: 10px 18px;
       gap: 12px;
-      font-size: 9.5px;
+      font-size: 12px;
     }
   }
 </style>
@@ -99,6 +102,8 @@ const other: Lang = lang === 'es' ? 'en' : 'es';
       } catch (e) {}
     });
 
+    const languageLink = bar.querySelector<HTMLAnchorElement>('[data-lang-go]');
+    if (languageLink) { const base = languageLink.getAttribute('href')!; const sync = () => { languageLink.href = base + location.hash; }; sync(); window.addEventListener('hashchange', sync); }
     bar.querySelector('[data-lang-go]')?.addEventListener('click', () => {
       try { localStorage.setItem('pref-lang', otherLang!); } catch (e) {}
     });

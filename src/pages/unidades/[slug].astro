@@ -1,4 +1,6 @@
 ---
+import StayEssentials from '~/components/StayEssentials.astro';
+import { inquiryMessage, waLink } from '~/utils/whatsapp';
 import Base from '~/layouts/Base.astro';
 import PhotoMosaic from '~/components/PhotoMosaic.astro';
 import EnPocasPalabras from '~/components/EnPocasPalabras.astro';
@@ -23,7 +25,7 @@ export async function getStaticPaths() {
 }
 
 interface Props { unit: CollectionEntry<'unidades'> }
-const { unit } = Astro.props;
+const { unit } = Astro.props as Props;
 const { data } = unit;
 const { Content } = await unit.render();
 
@@ -41,7 +43,7 @@ const specs = [
   { k: 'Baño', v: data.specs.bano ?? 'Privado' },
 ];
 
-const waMessage = `Hola, me interesa el ${data.name} de El Refugio del Corazón. ¿Podemos coordinar fechas?`;
+const waMessage = inquiryMessage(data.name, lang);
 
 const seoTitle = data.seo_title ?? `${data.name} en Capilla del Monte · ${data.specs.capacidad}`;
 const clip = (s: string, max = 158) =>
@@ -122,6 +124,8 @@ const crumbs = [
     <ServiceList lang={lang} items={data.chips.map(c => ({ k: c, v: 'INCLUIDO' }))} />
   </section>
 
+  <section class="d-slab"><h2>Espacios compartidos</h2><ServiceList lang={lang} items={[{k: 'Patio interno con reposeras y mesas'}, {k: 'Dos parrillas para todos los huéspedes'}]} /><a class="link-acc" href={localizedPath('/galeria/#espacios-comunes', lang)}>{lang === 'es' ? 'Ver espacios comunes' : 'View shared spaces'} →</a></section>
+  <StayEssentials lang={lang} />
   <CTABlock
     lang={lang}
     title={t('unit.ctaTitle', lang)}
@@ -130,7 +134,7 @@ const crumbs = [
     background="paper"
   />
 
-  <Lightbox lang={lang} />
+  <Lightbox lang={lang} waHref={waLink(waMessage, lang)} />
 
   {miniFaqEntries.length > 0 && (
     <section class="d-mini-faq">
@@ -177,7 +181,7 @@ const crumbs = [
     display: flex;
     gap: 8px;
     font-family: var(--mf-font-mono);
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 500;
     letter-spacing: 0.06em;
     color: var(--mf-ink-soft);
@@ -188,7 +192,7 @@ const crumbs = [
     text-decoration: underline;
     text-underline-offset: 3px;
   }
-  .crumb a:hover { color: var(--mf-accent); }
+  .crumb a:hover { color: var(--mf-action); }
   .crumb b { color: var(--mf-ink); }
 
   .title-row {
@@ -307,7 +311,7 @@ const crumbs = [
     transition: background 0.15s, color 0.15s;
   }
   .other-item:last-child { border-right: 0; }
-  .other-item:hover { background: var(--mf-paper-2); color: var(--mf-accent); }
+  .other-item:hover { background: var(--mf-paper-2); color: var(--mf-action); }
   .other-no { font-size: 36px; }
   .other-name {
     font-size: 18px;
@@ -332,4 +336,6 @@ const crumbs = [
     .d-mini-faq-list { margin: 0 -18px; }
     .d-mini-faq-foot { padding-top: 16px; }
   }
+.crumb { flex-wrap: wrap; line-height: 1.5; }
+@media(max-width:720px) { .title-side { align-items: flex-start; gap: 12px; } .title-actions { justify-content: flex-start; } .title-actions :global(.cta-pill) { display: none; } .title-row { gap: 18px; } .d-specs { flex-wrap: wrap; } .d-title-h { font-size: clamp(32px,9vw,64px); line-height: 1; } }
 </style>

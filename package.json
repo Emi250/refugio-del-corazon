@@ -11,6 +11,9 @@
     "astro": "astro",
     "check": "astro check",
     "seo:check": "node scripts/seo-check.mjs",
+    "ux:check": "node scripts/ux-check.mjs",
+    "ux:browser": "node scripts/ux-browser-check.mjs",
+    "ux:a11y": "node scripts/ux-accessibility-check.mjs",
     "test": "node --test scripts/*.test.mjs"
   },
   "dependencies": {
@@ -25,6 +28,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
+    "axe-core": "^4.14.0",
     "typescript": "^5.6.2"
   }
 }

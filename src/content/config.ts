@@ -7,6 +7,8 @@ const unidades = defineCollection({
     name_en: z.string().optional(),
     seo_title: z.string().optional(),
     summary: z.string(),
+    beds: z.string(),
+    decision_note: z.string(),
     order: z.number(),
     lang: z.enum(['es', 'en']).default('es'),
     specs: z.object({

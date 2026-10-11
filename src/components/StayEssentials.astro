@@ -1,0 +1,25 @@
+---
+import { localizedPath, type Lang } from '~/i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const es = lang === 'es';
+---
+<section class="essentials" aria-labelledby="essentials-title">
+  <span class="kicker">{es ? 'Antes de consultar' : 'Before you enquire'}</span>
+  <h2 id="essentials-title">{es ? 'Tu estadía, sin dudas' : 'Plan your stay'}</h2>
+  <dl>
+    <div><dt>{es ? 'Entrada y salida' : 'Arrival and departure'}</dt><dd>Check-in: 14:00–23:00.<br />Check-out: {es ? 'hasta las 10:00.' : 'by 10:00.'}</dd></div>
+    <div><dt>{es ? 'Reserva y pago' : 'Booking and payment'}</dt><dd>{es ? 'Seña del 20 %. El resto al llegar, por transferencia o efectivo. No aceptamos tarjetas.' : '20% deposit. Pay the balance on arrival by bank transfer or cash. Cards are not accepted.'}</dd></div>
+    <div><dt>{es ? 'Mascotas y cochera' : 'Pets and parking'}</dt><dd>{es ? 'Mascotas en algunas unidades, con confirmación previa. Hay lugar para dos autos, sujeto a disponibilidad.' : 'Pets in selected apartments, with prior confirmation. Parking for two cars, subject to availability.'}</dd></div>
+  </dl>
+  <p>{es ? 'Contanos las fechas de entrada y salida, cuántas personas viajan y cómo prefieren las camas. Te confirmamos disponibilidad y precio final por WhatsApp.' : 'Tell us your arrival and departure dates, number of guests and bed preferences. We will confirm availability and the final price on WhatsApp.'}</p>
+  <a class="link-acc" href={localizedPath('/faq/#cat-2',lang)}>{es ? 'Ver condiciones de reserva y cancelación' : 'Read booking and cancellation conditions'} →</a>
+</section>
+<style>
+ .essentials { padding: 36px 28px; border-bottom: 1px solid var(--mf-ink); background: var(--mf-paper-2); }
+ h2 { font-size: clamp(24px,3vw,36px); margin-top: 12px; line-height: 1.1; }
+ dl { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); margin: 26px 0; gap: 28px; }
+ dt { font-weight: 600; margin-bottom: 10px; } dd { margin: 0; font-size: 15px; line-height: 1.6; }
+ p { max-width: 70ch; font-size: 15px; line-height: 1.6; } a { display: inline-block; margin-top: 8px; }
+ @media(max-width:720px) { .essentials { padding: 28px 18px; } dl { grid-template-columns: 1fr; gap: 18px; } dl div { border-bottom: 1px solid var(--mf-hair); padding-bottom: 18px; } }
+</style>
