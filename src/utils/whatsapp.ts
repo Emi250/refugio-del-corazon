@@ -4,8 +4,8 @@ export const WHATSAPP_NUMBER = (import.meta.env.PUBLIC_WHATSAPP_NUMBER ?? '').re
 
 export function inquiryMessage(unitName?: string, lang: Lang = 'es'): string {
   return lang === 'es'
-    ? `Hola, quisiera consultar ${unitName ? `por el ${unitName}` : 'por un departamento'} en El Refugio del Corazón.\nFechas de entrada y salida: \nCantidad de personas: \nPreferencia de camas: `
-    : `Hi, I'd like to enquire about ${unitName ?? 'an apartment'} at El Refugio del Corazón.\nCheck-in and check-out dates: \nNumber of guests: \nBed preference: `;
+    ? `Hola, quisiera consultar ${unitName ? `por el ${unitName}` : 'por un departamento'} en El Refugio del Corazón.\nFechas de entrada y salida: \nCantidad de personas: `
+    : `Hi, I'd like to enquire about ${unitName ?? 'an apartment'} at El Refugio del Corazón.\nCheck-in and check-out dates: \nNumber of guests: `;
 }
 
 export function waLink(message?: string, lang: Lang = 'es'): string {
