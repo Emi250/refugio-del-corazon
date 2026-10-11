@@ -1,6 +1,6 @@
 ---
-import { t, type Lang, localizedPath } from '~/i18n';
-import { MAP_EMBED_URL } from '~/utils/seo';
+import { t, type Lang } from '~/i18n';
+import { MAP_EMBED_URL, directionsUrl } from '~/utils/seo';
 
 interface Props { lang?: Lang }
 const { lang = 'es' } = Astro.props;
@@ -29,7 +29,7 @@ const uritorco = lang === 'en' ? 'Uritorco · 2.3 km' : 'Uritorco · 2,3 km';
       <span class="chip">{terminal}</span>
       <span class="chip">{uritorco}</span>
     </div>
-    <a href={localizedPath('/ubicacion', lang)} class="link-acc">{t('location.howToGet', lang)} →</a>
+    <a href={directionsUrl()} class="link-acc" target="_blank" rel="noopener" aria-label={lang === 'es' ? 'Cómo llegar en Google Maps (se abre en otra pestaña)' : 'How to get here on Google Maps (opens in a new tab)'}>{t('location.howToGet', lang)} ↗</a>
   </article>
 
   <div class="loc-pin" data-reveal style="transition-delay: 120ms;">
