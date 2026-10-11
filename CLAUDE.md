@@ -391,6 +391,8 @@ Este proyecto se optimiza para **mínimo gasto de tokens** por sesión. Reglas:
 
 **Última actualización**: 2026-10-11
 
+**Seguimiento de galería y sitio anterior (2026-10-11):** primera foto de galería priorizada en ES/EN (PR #13). Miniaturas con calidad WebP 75 y variante de 800 px; visor ampliado intacto. Lovable eliminado por el propietario y verificado con HTTP 404 «Project not found». La retirada no implica desindexación instantánea en Google.
+
 **Estado vigente de publicación:** PR #11 (UX/UI y accesibilidad) y PR #12 (cancelación con reintegro de seña con al menos 5 días de anticipación) publicados y verificados en Vercel el 11 de octubre. Las menciones a «sin desplegar» de los registros anteriores describen el momento de esas pruebas. Teléfonos físicos y lectores reales pospuestos por el usuario, sin marcar como aprobados. Sitemap de 20 URLs reenviado a Search Console; recepción de `whatsapp_click`, evento clave y tres dimensiones personalizadas confirmados en GA4. Los informes de indexación reflejan rastreos históricos, no el estado instantáneo del sitio.
 
 - [x] CLAUDE.md creado

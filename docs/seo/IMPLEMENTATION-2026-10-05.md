@@ -58,7 +58,7 @@ Después del despliegue: comprobar las URLs públicas, reenviar el sitemap y reg
 - Inspección de las 20 URLs: 8 indexadas, 2 descubiertas sin indexar, 4 desconocidas (incluyen las dos nuevas páginas de privacidad), 3 alternativas con canonical, 2 duplicadas con canonical española elegida por Google y 1 con redirección histórica. `/servicios/` responde hoy 200 con canonical propia; su informe conserva un rastreo de junio. Las versiones inglesas de galería y ubicación también responden 200 con canonical propia. No cambiar redirecciones o canonicals actuales basándose solo en esos rastreos anteriores.
 - GA4 accesible y vinculado: recepción de `whatsapp_click` comprobada en datos del 5 al 10 de octubre; ya está marcado como evento clave. Registradas `unit`, `page_language` y `cta_location`. Esto confirma recepción histórica y configuración; no verifica DebugView en tiempo real ni atribuye cada clic a una consulta efectiva. Las métricas privadas de cuenta no se incorporan al repositorio público.
 - CrUX no consultable desde el conector por falta de clave API configurada; no se concluye que falten datos de campo.
-- El sitio antiguo de Lovable sigue respondiendo 200, sin redirección ni `noindex` en el HTML recibido. Su retiro/migración sigue pendiente de acceso de publicación.
+- El sitio antiguo de Lovable respondía 200 en la primera comprobación del día. Tras su eliminación por el propietario, una nueva consulta confirmó HTTP 404 y «Project not found», sin el título anterior. Retiro confirmado; no es una redirección ni confirma su eliminación inmediata de los resultados de Google.
 
 ### Rendimiento móvil de laboratorio
 
@@ -71,3 +71,11 @@ Lighthouse 13.5.0 ejecutado contra producción en Edge/Chromium aislado, emulaci
 | Galería, diagnóstico inicial | 78 | 4,90 s | 0,0162 |
 
 La variación exige conservar el rango y no presentar el mejor resultado como garantía. En galería Lighthouse identifica la foto inicial del patio como LCP, con `loading="lazy"` y sin prioridad alta. Se añade prioridad solo a la primera foto de la primera sección, en ES/EN; las restantes 39 siguen diferidas. No se cambian las fotos, la tipografía ni la analítica.
+
+La prioridad se publicó mediante PR #13. La medición posterior dio 88/100, LCP 3,8 s y CLS 0,016; Lighthouse confirmó que la foto ya no se difiere y tiene prioridad alta. Es una ejecución aislada, no una mejora sostenida demostrada.
+
+### Peso de las miniaturas
+
+Segunda optimización: calidad WebP explícita de 75 y variante adicional de 800 px, entre 600 y 1000 px, solo en `GallerySection`. Las 40 miniaturas de respaldo de 1000 px pasan de 2.991.244 a 2.426.574 bytes (19 % menos); ese total compara archivos, no la transferencia inicial, ya que hay carga diferida. La primera foto pasa de 124.772 a 104.718 bytes a 1000 px; a 800 px pesa 64.808 bytes. El navegador elige según tamaño y densidad de pantalla.
+
+Se conservaron exactamente los enlaces y variantes del visor ampliado, las 40 fotos y las descripciones. Compilación, chequeos UX/SEO y pruebas de visor, cambio de idioma y navegación sin JavaScript aprobadas; miniaturas revisadas visualmente en móvil y escritorio. Evidencia local en `.vercel/production-qa/gallery-images-comparison.json` y `.vercel/gallery-images-qa/`.
