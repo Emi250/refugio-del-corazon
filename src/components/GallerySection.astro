@@ -1,0 +1,47 @@
+---
+import { Image } from 'astro:assets';
+import { lightboxVariants } from '~/utils/images';
+import { waLinkForUnit } from '~/utils/whatsapp';
+import type { Lang } from '~/i18n';
+interface Props { id: string; title: string; no: string; images: {src: ImageMetadata; caption?: string}[]; lang: Lang; detail?: string; unit?: number; }
+const { id, title, no, images, lang, detail, unit } = Astro.props;
+const full = await lightboxVariants(images);
+const group = unit ? `unit-${unit}` : 'espacios';
+const wa = unit ? waLinkForUnit(title, lang) : undefined;
+const photo = (i: number) => `${lang === 'es' ? 'Foto' : 'Photo'} ${i + 1}`;
+---
+<section class="gal-section" id={id}>
+  <header class="gal-head">
+    <span class="display-no display-md">{no}</span>
+    <div><h2>{title}</h2>{detail && <a class="link-acc" href={detail}>{lang === 'es' ? 'Ver departamento' : 'View apartment'} →</a>}</div>
+    <span class="spec-mono">{images.length} {lang === 'es' ? 'fotos' : 'photos'}{!unit && (lang === 'es' ? ' · Uso compartido' : ' · Shared spaces')}</span>
+  </header>
+  {[false, true].map(extra => {
+    const grid = <div class="gal-grid">{images.map((img, i) => (extra ? i >= 3 : i < 3) && (
+      <figure>
+        <a href={full[i].lg} data-lb-sm={full[i].sm} data-lb-group={group} data-lb-index={i} data-lb-title={title} data-lb-caption={img.caption ?? photo(i)} data-lb-wa={wa} data-lb-unit={unit ? `unidad-${unit}` : ''} data-lb-detail={detail} aria-label={`${title} · ${img.caption ?? photo(i)}`}>
+          <Image src={img.src} alt={img.caption ?? `${title} · ${photo(i)}`} width={1000} widths={[320, 600, 1000]} sizes="(max-width: 600px) calc(100vw - 36px), 33vw" loading="lazy" decoding="async" />
+        </a>
+        <figcaption>{img.caption ?? photo(i)}</figcaption>
+      </figure>
+    ))}</div>;
+    return extra ? images.length > 3 && <details class="gal-more"><summary><span class="when-closed">{lang === 'es' ? `Ver las ${images.length} fotos` : `View all ${images.length} photos`}</span><span class="when-open">{lang === 'es' ? 'Mostrar menos fotos' : 'Show fewer photos'}</span></summary>{grid}</details> : grid;
+  })}
+</section>
+<style>
+  .gal-section { border-bottom: 1.5px solid var(--mf-ink); padding: 28px; }
+  .gal-head { display: flex; align-items: center; gap: 24px; margin-bottom: 24px; flex-wrap: wrap; }
+  .gal-head h2 { font-size: clamp(24px, 3vw, 36px); letter-spacing: -.035em; line-height: 1.15; }
+  .gal-head .spec-mono { margin-left: auto; }
+  .gal-head a { display: inline-flex; align-items: center; min-height: 44px; }
+  .gal-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; }
+  figure { margin: 0; min-width: 0; }
+  figure a { display: block; aspect-ratio: 4/3; overflow: hidden; cursor: zoom-in; }
+  img { width: 100%; height: 100%; object-fit: cover; }
+  figcaption { padding: 10px 0 18px; font-size: 14px; line-height: 1.5; color: var(--mf-ink-soft); }
+  summary { cursor: pointer; padding: 16px 0; min-height: 48px; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
+  .gal-more { border-top: 1px solid var(--mf-hair); }
+  .when-open, details[open] .when-closed { display: none; }
+  details[open] .when-open { display: inline; }
+  @media(max-width:600px) { .gal-section { padding: 24px 18px; } .gal-grid { grid-template-columns: 1fr; gap: 0; } .gal-head { gap: 16px; } .gal-head .spec-mono { margin-left: 0; width: 100%; } }
+</style>

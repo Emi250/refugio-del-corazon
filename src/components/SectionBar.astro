@@ -46,18 +46,21 @@ const href = metaHref ? withTrailingSlash(metaHref) : undefined;
   }
   .sec-meta {
     font-family: var(--mf-font-mono);
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 500;
     letter-spacing: 0.14em;
     color: var(--mf-ink-soft);
     text-transform: uppercase;
   }
   .sec-meta-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
     text-decoration: underline;
     text-underline-offset: 4px;
     transition: color 0.15s;
   }
-  .sec-meta-link:hover { color: var(--mf-accent); }
+  .sec-meta-link:hover { color: var(--mf-action); }
 
   @media (max-width: 720px) {
     .sec-bar { padding: 20px 18px 14px; gap: 12px; flex-wrap: wrap; }

@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import { photoLabel } from '~/utils/photo-label';
 import { t, type Lang, localizedPath } from '~/i18n';
 import { lightboxVariants } from '~/utils/images';
 
@@ -34,28 +35,25 @@ const full = await lightboxVariants(images);
 {group && (
   <div class="mos-hint">
     <span class="kicker">{t('unit.tapHint', lang)}</span>
-    <span class="spec-mono mos-hint-count">{images.length} {t('unit.photos', lang)}</span>
+    <span class="spec-mono mos-hint-count">{`${images.length} ${t('unit.photos', lang)}`}</span>
   </div>
 )}
 <div class="mosaic">
   {visible.map((img, i) => (
     <div class={`mos-cell mos-cell-${i + 1}`} style={`--i:${i}`}>
       {img && (group ? (
-        <a href={full[i].lg} data-lb-sm={full[i].sm} class="mos-link" data-lb-group={group} data-lb-index={i} data-lb-title={unitName ?? ''} data-lb-caption={img.caption ?? ''} data-lb-alt={img.caption ? captionAlt(img.caption) : fallbackAlt(i)} aria-label={img.caption ?? `Foto ${i + 1}`}>
-          <Image src={img.src} alt={img.caption ? captionAlt(img.caption) : fallbackAlt(i)} width={1200} widths={[400, 800, 1200]} sizes="(max-width: 900px) 100vw, 45vw" {...loadAttrs(i)} decoding="async" />
-          {img.caption && <span class="mos-cap">{img.caption}</span>}
+        <a href={full[i].lg} data-lb-sm={full[i].sm} class="mos-link" data-lb-group={group} data-lb-index={i} data-lb-title={unitName ?? ''} data-lb-caption={img.caption ?? ''} data-lb-alt={img.caption ? captionAlt(img.caption) : fallbackAlt(i)} aria-label={`${photoLabel(img.src.src, lang)}: ${img.caption ? captionAlt(img.caption) : fallbackAlt(i)}`}>
+          <Image src={img.src} alt={img.caption ? captionAlt(img.caption) : fallbackAlt(i)} width={1200} widths={[400, 800, 1200]} sizes={i === 0 ? "(max-width: 720px) calc(100vw - 36px), 50vw" : "(max-width: 720px) calc((100vw - 44px) / 2), 25vw"} {...loadAttrs(i)} decoding="async" />
+          {i !== 4 && <span class="mos-cap">{photoLabel(img.src.src, lang)}</span>}
         </a>
       ) : (
         <>
-          <Image src={img.src} alt={img.caption ? captionAlt(img.caption) : fallbackAlt(i)} width={1200} widths={[400, 800, 1200]} sizes="(max-width: 900px) 100vw, 45vw" {...loadAttrs(i)} decoding="async" />
-          {img.caption && <span class="mos-cap">{img.caption}</span>}
+          <Image src={img.src} alt={img.caption ? captionAlt(img.caption) : fallbackAlt(i)} width={1200} widths={[400, 800, 1200]} sizes={i === 0 ? "(max-width: 720px) calc(100vw - 36px), 50vw" : "(max-width: 720px) calc((100vw - 44px) / 2), 25vw"} {...loadAttrs(i)} decoding="async" />
+          {i !== 4 && <span class="mos-cap">{photoLabel(img.src.src, lang)}</span>}
         </>
       ))}
-      {i === 4 && hidden.length > 0 && (
-        <span class="mos-more" aria-hidden="true">+{hidden.length} {t('unit.photos', lang)}</span>
-      )}
       {i === 4 && (
-        <a href={galleryHref} class="mos-cta">{t('unit.viewGallery', lang)} →</a>
+        <a href={galleryHref} class="mos-cta">{lang === 'es' ? `Ver ${images.length} fotos` : `View ${images.length} photos`} →</a>
       )}
     </div>
   ))}
@@ -105,16 +103,17 @@ const full = await lightboxVariants(images);
     max-width: calc(100% - 20px);
     padding: 4px 8px;
     line-height: 1.35;
-    background: rgba(27, 26, 22, 0.55);
+    background: rgba(27, 26, 22, 0.78);
     backdrop-filter: blur(8px);
     color: var(--mf-paper);
     font-family: var(--mf-font-mono);
-    font-size: 9.5px;
+    font-size: 13px;
     font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+    letter-spacing: 0;
+    text-transform: none;
   }
   .mos-cta {
+    min-height: 44px;
     position: absolute;
     right: 14px;
     bottom: 14px;
@@ -132,24 +131,6 @@ const full = await lightboxVariants(images);
     transition: transform 0.15s;
   }
   .mos-cta:hover { transform: translate(-1px, -1px); }
-
-  /* Sin esto el usuario ve 5 fotos y no sabe que hay 4-7 mas detras. */
-  .mos-more {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    pointer-events: none;
-    display: grid;
-    place-items: center;
-    background: rgba(27, 26, 22, 0.5);
-    color: var(--mf-paper);
-    font-family: var(--mf-font-mono);
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding-bottom: 34px;
-  }
 
   .mos-hint {
     display: flex;
@@ -180,7 +161,6 @@ const full = await lightboxVariants(images);
       gap: 6px;
       box-shadow: 2px 2px 0 var(--mf-ink);
     }
-    .mos-more { font-size: 11px; padding-bottom: 28px; }
     .mos-hint { padding: 0 18px 10px; }
   }
 

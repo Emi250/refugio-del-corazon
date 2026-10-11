@@ -1,6 +1,6 @@
 ---
 import WhatsAppCTA from './WhatsAppCTA.astro';
-import { t, type Lang } from '~/i18n';
+import { type Lang } from '~/i18n';
 
 interface Props {
   lang?: Lang;
@@ -22,13 +22,13 @@ const {
 
 const defaultTitle = lang === 'es' ? 'Tu refugio te espera.' : 'Your refuge awaits.';
 const defaultSub = lang === 'es'
-  ? 'Escribinos por WhatsApp con las fechas que tenés en mente. Respondemos en el día desde Capilla del Monte.'
-  : "Message us on WhatsApp with the dates you have in mind. We reply within the day from Capilla del Monte.";
+  ? 'Escribinos por WhatsApp con tus fechas, cantidad de personas y departamento elegido. Respondemos en el día desde Capilla del Monte.'
+  : "Message us on WhatsApp with your dates, number of guests and chosen apartment. We reply within the day from Capilla del Monte.";
 const mapsLabel = lang === 'es' ? 'Ver en Google Maps' : 'View on Google Maps';
 ---
 <section class={`cta-block bg-${background}`}>
   <div>
-    <span class="kicker">CONSULTAR</span>
+    <span class="kicker">{lang === 'es' ? 'Consultar' : 'Enquire'}</span>
     <h2>{title ?? defaultTitle}</h2>
     <p>{subtitle ?? defaultSub}</p>
   </div>

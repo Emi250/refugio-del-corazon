@@ -35,8 +35,8 @@ const crumbs = [
   <section class="faq-layout">
     <aside class="faq-aside">
       <div class="kicker faq-aside-kicker">Categorías</div>
-      {sorted.map((g, i) => (
-        <a href={`#cat-${g.data.order}`} class={`faq-aside-item ${i === 0 ? 'on' : ''}`}>
+      {sorted.map(g => (
+        <a href={`#cat-${g.data.order}`} class="faq-aside-item" data-faq-category>
           <span class="faq-aside-no">0{g.data.order}</span>
           <span>{g.data.category}</span>
         </a>
@@ -52,7 +52,7 @@ const crumbs = [
         <section class="faq-group" id={`cat-${g.data.order}`}>
           <header class="faq-group-head">
             <span class="faq-group-no spec-mono">0{g.data.order}</span>
-            <h3>{g.data.category}</h3>
+            <h2>{g.data.category}</h2>
           </header>
           {g.data.qa.map((qa, i) => (
             <FAQItem no={`${g.data.order}.${i + 1}`} q={qa.q} a={qa.a} />
@@ -63,6 +63,7 @@ const crumbs = [
   </section>
 </Base>
 
+<script>import '~/scripts/faq-navigation';</script>
 <style>
   .faq-layout {
     display: grid;
@@ -74,11 +75,12 @@ const crumbs = [
     border-right: 1.5px solid var(--mf-ink);
     padding: 30px 24px;
     position: sticky;
-    top: 70px;
+    top: var(--mf-nav-h, 80px);
     height: fit-content;
   }
   .faq-aside-kicker { display: block; margin-bottom: 14px; }
   .faq-aside-item {
+    min-height: 44px;
     position: relative;
     display: flex;
     align-items: baseline;
@@ -142,7 +144,7 @@ const crumbs = [
     margin-bottom: 8px;
   }
   .faq-group-no { letter-spacing: 0.1em; }
-  .faq-group-head h3 {
+  .faq-group-head h2 {
     font-size: 14px;
     line-height: 1;
     letter-spacing: 0.14em;

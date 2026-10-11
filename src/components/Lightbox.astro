@@ -32,13 +32,14 @@ const fallbackWa = waHref ?? waLink(undefined, lang);
   <figure class="lb-stage">
     <div class="lb-frame">
       <span class="lb-spinner" aria-hidden="true"></span>
-      <img class="lb-img" alt="" />
+      <img class="lb-img" alt="" /><div class="lb-error" role="status" hidden><p>{lang === 'es' ? 'No pudimos cargar esta foto.' : 'This photo could not be loaded.'}</p><button type="button" class="lb-retry">{lang === 'es' ? 'Reintentar' : 'Try again'}</button></div>
     </div>
-    <figcaption class="lb-meta">
+    <figcaption class="lb-meta" aria-live="polite" aria-atomic="true">
       <span class="lb-caption"></span>
       <span class="lb-counter spec-mono"></span>
     </figcaption>
   </figure>
+  <a class="lb-detail" hidden>{lang === 'es' ? 'Ver departamento →' : 'View apartment →'}</a>
   <a class="lb-wa" data-cta-location="lightbox" href={fallbackWa} target="_blank" rel="noopener" data-lb-wa-btn>
     <WhatsAppIcon size={14} />
     <span>{t('hero.cta', lang)}</span>
@@ -56,6 +57,8 @@ const fallbackWa = waHref ?? waLink(undefined, lang);
     const btnPrev = lb.querySelector('.lb-prev');
     const btnNext = lb.querySelector('.lb-next');
     const waBtn = lb.querySelector('[data-lb-wa-btn]');
+    const errorEl = lb.querySelector('.lb-error');
+    const detailEl = lb.querySelector('.lb-detail');
     const waFallback = waBtn ? waBtn.getAttribute('href') : null;
 
     let group = [];
@@ -111,6 +114,7 @@ const fallbackWa = waHref ?? waLink(undefined, lang);
         const inner = el.querySelector('img');
         return {
           el: el,
+          title: el.dataset.lbTitle, wa: el.dataset.lbWa, unit: el.dataset.lbUnit, detail: el.dataset.lbDetail,
           lg: el.getAttribute('href') || el.dataset.lbSrc || (inner && inner.src),
           sm: el.dataset.lbSm || '',
           caption: el.dataset.lbCaption || '',
@@ -131,6 +135,13 @@ const fallbackWa = waHref ?? waLink(undefined, lang);
     function render() {
       const item = group[idx];
       if (!item) return;
+      title = item.title || '';
+      waBtn.href = item.wa || waFallback;
+      waBtn.dataset.unit = item.unit || (/^unit-\d+$/.test(item.el.dataset.lbGroup) ? item.el.dataset.lbGroup.replace('unit-', 'unidad-') : '');
+      detailEl.hidden = !item.detail;
+      if (item.detail) detailEl.href = item.detail; else detailEl.removeAttribute('href');
+      errorEl.hidden = true;
+      lb.classList.remove('is-error');
       const next = srcFor(item);
       if (imgEl.getAttribute('src') !== next) {
         lb.classList.add('is-loading');
@@ -147,8 +158,9 @@ const fallbackWa = waHref ?? waLink(undefined, lang);
       preloadNeighbours();
     }
 
-    imgEl.addEventListener('load', function () { lb.classList.remove('is-loading'); });
-    imgEl.addEventListener('error', function () { lb.classList.remove('is-loading'); });
+    imgEl.addEventListener('load', function () { lb.classList.remove('is-loading', 'is-error'); errorEl.hidden = true; });
+    imgEl.addEventListener('error', function () { if (!isOpen()) return; lb.classList.remove('is-loading'); lb.classList.add('is-error'); errorEl.hidden = false; });
+    lb.querySelector('.lb-retry').addEventListener('click', function () { imgEl.removeAttribute('src'); render(); });
 
     function isOpen() { return lb.getAttribute('aria-hidden') === 'false'; }
 
@@ -161,7 +173,9 @@ const fallbackWa = waHref ?? waLink(undefined, lang);
         waBtn.setAttribute('href', trigger.dataset.lbWa || waFallback || '#');
         waBtn.dataset.unit = /^unit-\d+$/.test(name) ? name.replace('unit-', 'unidad-') : '';
       }
-      lastFocus = document.activeElement;
+      // WebKit may not focus an anchor when clicked. Always return to the photo
+      // that opened the viewer, including after using the browser Back action.
+      lastFocus = trigger;
       lb.setAttribute('aria-hidden', 'false');
       setInert(false);
       document.documentElement.style.overflow = 'hidden';
@@ -226,7 +240,7 @@ const fallbackWa = waHref ?? waLink(undefined, lang);
     });
 
     function focusables() {
-      return Array.from(lb.querySelectorAll('button:not([hidden]), a[href]'));
+      return Array.from(lb.querySelectorAll('button:not([hidden]), a[href]:not([hidden])')).filter(el => el.getClientRects().length > 0);
     }
 
     document.addEventListener('keydown', function (e) {
@@ -238,15 +252,13 @@ const fallbackWa = waHref ?? waLink(undefined, lang);
       // Focus trap: sin esto se tabula hacia el footer, que sigue debajo del overlay.
       const items = focusables();
       if (!items.length) return;
-      const first = items[0];
-      const last = items[items.length - 1];
-      if (e.shiftKey && document.activeElement === first) {
-        e.preventDefault();
-        last.focus();
-      } else if (!e.shiftKey && document.activeElement === last) {
-        e.preventDefault();
-        first.focus();
-      }
+      // Some browser keyboard settings skip links. Cycle explicitly so the
+      // inquiry/detail links remain reachable and focus cannot leave the modal.
+      e.preventDefault();
+      const current = items.indexOf(document.activeElement);
+      const next = current < 0 ? (e.shiftKey ? items.length - 1 : 0)
+        : (current + (e.shiftKey ? -1 : 1) + items.length) % items.length;
+      items[next].focus();
     });
 
     let touchX = null;
@@ -264,6 +276,11 @@ const fallbackWa = waHref ?? waLink(undefined, lang);
 </script>
 
 <style>
+  .lb-error { color: var(--mf-paper); text-align: center; padding: 32px; }
+  .lb-error[hidden], .lb-detail[hidden], .lb.is-error .lb-img { display: none; }
+  .lb-retry { background: var(--mf-paper); color: var(--mf-ink); padding: 12px 24px; min-height: 44px; margin-top: 16px; cursor: pointer; }
+  .lb-detail { position: absolute; top: 18px; left: 18px; color: var(--mf-paper); min-height: 44px; display: inline-flex; align-items: center; text-decoration: underline; }
+  .lb-wa { min-height: 44px; width: max-content; max-width: 92vw; justify-content: center; }
   .lb {
     position: fixed;
     inset: 0;
@@ -345,7 +362,7 @@ const fallbackWa = waHref ?? waLink(undefined, lang);
   }
   .lb-counter {
     color: rgba(244, 240, 230, 0.6);
-    font-size: 10.5px;
+    font-size: 12px;
     white-space: nowrap;
   }
 
@@ -359,7 +376,7 @@ const fallbackWa = waHref ?? waLink(undefined, lang);
     gap: 8px;
     padding: 10px 16px;
     border-radius: 999px;
-    background: var(--mf-accent);
+    background: var(--mf-action);
     color: var(--mf-paper);
     font-size: 12.5px;
     font-weight: 600;
@@ -429,7 +446,7 @@ const fallbackWa = waHref ?? waLink(undefined, lang);
     .lb-nav { width: 44px; height: 44px; font-size: 26px; }
     .lb-prev { left: 8px; }
     .lb-next { right: 8px; }
-    .lb-img { max-height: 62vh; }
+    .lb-img { max-height: min(62vh, calc(100dvh - 210px)); }
     .lb-meta { flex-direction: column; gap: 4px; align-items: center; text-align: center; }
     .lb-wa {
       right: 50%;
@@ -437,5 +454,12 @@ const fallbackWa = waHref ?? waLink(undefined, lang);
       bottom: calc(14px + env(safe-area-inset-bottom));
       padding: 11px 18px;
     }
+  }
+  @media (max-height: 500px) {
+    .lb-img { max-height: calc(100dvh - 210px); }
+    .lb-stage { gap: 8px; }
+    .lb-frame { min-height: 0; }
+    .lb-meta { max-width: calc(100vw - 144px); }
+    .lb-error { padding: 12px; }
   }
 </style>

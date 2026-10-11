@@ -1,0 +1,2738 @@
+{
+  "date": "2026-10-11T14:10:19.878Z",
+  "browser": "151.0.7922.34",
+  "axe": "4.14.0",
+  "scans": [
+    {
+      "label": "/en/faq/ @ 390",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "label-content-name-mismatch",
+          "targets": [
+            [
+              ".lang-suggest-x"
+            ]
+          ]
+        }
+      ],
+      "passes": 39
+    },
+    {
+      "label": "/en/galeria/ @ 390",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "label-content-name-mismatch",
+          "targets": [
+            [
+              ".lang-suggest-x"
+            ]
+          ]
+        }
+      ],
+      "passes": 40
+    },
+    {
+      "label": "/en/ @ 390",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".lang-suggest-text"
+            ],
+            [
+              ".lang-suggest-go"
+            ],
+            [
+              ".lang-suggest-x"
+            ],
+            [
+              ".hero-meta"
+            ],
+            [
+              ".hero-kicker"
+            ],
+            [
+              "h1"
+            ],
+            [
+              ".hero-deck"
+            ],
+            [
+              ".hero-scroll"
+            ],
+            [
+              "#unidades > .bg-paper.sec-bar[data-reveal=\"\"] > .sec-no.display-lg.display-no"
+            ],
+            [
+              ".unit-image[href$=\"unidad-1/\"][aria-hidden=\"true\"] > .unit-caption[data-astro-cid-57i5mbrl=\"\"]"
+            ],
+            [
+              ".unit-image[href$=\"unidad-2/\"][aria-hidden=\"true\"] > .unit-caption[data-astro-cid-57i5mbrl=\"\"]"
+            ],
+            [
+              ".unit-image[href$=\"unidad-3/\"][aria-hidden=\"true\"] > .unit-caption[data-astro-cid-57i5mbrl=\"\"]"
+            ],
+            [
+              ".unit-image[href$=\"unidad-4/\"][aria-hidden=\"true\"] > .unit-caption[data-astro-cid-57i5mbrl=\"\"]"
+            ],
+            [
+              ".mos-link[data-lb-index=\"0\"][data-lb-group=\"espacios\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"One of the two grills\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"The front on Río Negro 64\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"Loungers and outdoor tables\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-title=\"Shared spaces\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-title=\"Apartment #4\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"Kitchen\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-title=\"Apartment #3\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"Details\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"Bathroom\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ]
+          ]
+        },
+        {
+          "id": "frame-tested",
+          "targets": [
+            [
+              "iframe"
+            ]
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "targets": [
+            [
+              ".lang-suggest-x"
+            ]
+          ]
+        }
+      ],
+      "passes": 44
+    },
+    {
+      "label": "/en/privacidad/ @ 390",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "label-content-name-mismatch",
+          "targets": [
+            [
+              ".lang-suggest-x"
+            ]
+          ]
+        }
+      ],
+      "passes": 39
+    },
+    {
+      "label": "/en/servicios/ @ 390",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".nt-row[data-astro-cid-hjjxmigt=\"\"]:nth-child(1) > span[aria-hidden=\"true\"]"
+            ],
+            [
+              ".nt-row[data-astro-cid-hjjxmigt=\"\"]:nth-child(2) > span[aria-hidden=\"true\"]"
+            ],
+            [
+              ".serv-units-item[href$=\"unidad-1/\"] > .serv-units-arrow"
+            ],
+            [
+              ".serv-units-item[href$=\"unidad-2/\"] > .serv-units-arrow"
+            ],
+            [
+              ".serv-units-item[href$=\"unidad-3/\"] > .serv-units-arrow"
+            ],
+            [
+              ".serv-units-item[href$=\"unidad-4/\"] > .serv-units-arrow"
+            ]
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "targets": [
+            [
+              ".lang-suggest-x"
+            ]
+          ]
+        }
+      ],
+      "passes": 38
+    },
+    {
+      "label": "/en/ubicacion/ @ 390",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "frame-tested",
+          "targets": [
+            [
+              "iframe"
+            ]
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "targets": [
+            [
+              ".lang-suggest-x"
+            ]
+          ]
+        }
+      ],
+      "passes": 40
+    },
+    {
+      "label": "/en/unidades/unidad-1/ @ 390",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              "a[data-lb-index=\"0\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"1\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"2\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"3\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-2/\"] > .other-arrow[data-astro-cid-ommxslls=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-3/\"] > .other-arrow[data-astro-cid-ommxslls=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-4/\"] > .other-arrow[data-astro-cid-ommxslls=\"\"]"
+            ]
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "targets": [
+            [
+              ".lang-suggest-x"
+            ]
+          ]
+        }
+      ],
+      "passes": 41
+    },
+    {
+      "label": "/en/unidades/unidad-2/ @ 390",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              "a[data-lb-index=\"0\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"1\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"2\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"3\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-1/\"] > .other-arrow[data-astro-cid-ommxslls=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-3/\"] > .other-arrow[data-astro-cid-ommxslls=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-4/\"] > .other-arrow[data-astro-cid-ommxslls=\"\"]"
+            ]
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "targets": [
+            [
+              ".lang-suggest-x"
+            ]
+          ]
+        }
+      ],
+      "passes": 41
+    },
+    {
+      "label": "/en/unidades/unidad-3/ @ 390",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              "a[data-lb-index=\"0\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"1\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"2\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"3\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-1/\"] > .other-arrow[data-astro-cid-ommxslls=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-2/\"] > .other-arrow[data-astro-cid-ommxslls=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-4/\"] > .other-arrow[data-astro-cid-ommxslls=\"\"]"
+            ]
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "targets": [
+            [
+              ".lang-suggest-x"
+            ]
+          ]
+        }
+      ],
+      "passes": 41
+    },
+    {
+      "label": "/en/unidades/unidad-4/ @ 390",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              "a[data-lb-index=\"0\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"1\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"2\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"3\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-1/\"] > .other-arrow[data-astro-cid-ommxslls=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-2/\"] > .other-arrow[data-astro-cid-ommxslls=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-3/\"] > .other-arrow[data-astro-cid-ommxslls=\"\"]"
+            ]
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "targets": [
+            [
+              ".lang-suggest-x"
+            ]
+          ]
+        }
+      ],
+      "passes": 41
+    },
+    {
+      "label": "/faq/ @ 390",
+      "violations": [],
+      "incomplete": [],
+      "passes": 38
+    },
+    {
+      "label": "/galeria/ @ 390",
+      "violations": [],
+      "incomplete": [],
+      "passes": 39
+    },
+    {
+      "label": "/ @ 390",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".nav-name"
+            ],
+            [
+              ".hero-meta"
+            ],
+            [
+              ".hero-kicker"
+            ],
+            [
+              "h1"
+            ],
+            [
+              ".hero-deck"
+            ],
+            [
+              ".hero-sub"
+            ],
+            [
+              "span[data-astro-cid-bbe6dxrz=\"\"][aria-hidden=\"true\"]"
+            ],
+            [
+              ".hero-scroll"
+            ],
+            [
+              ".unit-image[href$=\"unidad-1/\"][aria-hidden=\"true\"] > .unit-caption[data-astro-cid-57i5mbrl=\"\"]"
+            ],
+            [
+              ".unit-image[href$=\"unidad-2/\"][aria-hidden=\"true\"] > .unit-caption[data-astro-cid-57i5mbrl=\"\"]"
+            ],
+            [
+              ".unit-image[href$=\"unidad-3/\"][aria-hidden=\"true\"] > .unit-caption[data-astro-cid-57i5mbrl=\"\"]"
+            ],
+            [
+              ".unit-image[href$=\"unidad-4/\"][aria-hidden=\"true\"] > .unit-caption[data-astro-cid-57i5mbrl=\"\"]"
+            ],
+            [
+              ".mos-link[data-lb-index=\"0\"][data-lb-group=\"espacios\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"Una de las dos parrillas\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"El frente sobre Río Negro 64\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              ".mos-link[data-lb-index=\"3\"][data-lb-group=\"espacios\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-title=\"Espacios comunes\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-title=\"Departamento #4\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"Cocina\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-title=\"Departamento #3\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"Detalles\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"Baño\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ]
+          ]
+        },
+        {
+          "id": "frame-tested",
+          "targets": [
+            [
+              "iframe"
+            ]
+          ]
+        }
+      ],
+      "passes": 46
+    },
+    {
+      "label": "/privacidad/ @ 390",
+      "violations": [],
+      "incomplete": [],
+      "passes": 38
+    },
+    {
+      "label": "/servicios/ @ 390",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".nt-row[data-astro-cid-wrzvmyuk=\"\"]:nth-child(1) > span[aria-hidden=\"true\"]"
+            ],
+            [
+              ".nt-row[data-astro-cid-wrzvmyuk=\"\"]:nth-child(2) > span[aria-hidden=\"true\"]"
+            ],
+            [
+              ".serv-units-item[href$=\"unidad-1/\"] > .serv-units-arrow"
+            ],
+            [
+              ".serv-units-item[href$=\"unidad-2/\"] > .serv-units-arrow"
+            ],
+            [
+              ".serv-units-item[href$=\"unidad-3/\"] > .serv-units-arrow"
+            ],
+            [
+              ".serv-units-item[href$=\"unidad-4/\"] > .serv-units-arrow"
+            ]
+          ]
+        }
+      ],
+      "passes": 37
+    },
+    {
+      "label": "/ubicacion/ @ 390",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "frame-tested",
+          "targets": [
+            [
+              "iframe"
+            ]
+          ]
+        }
+      ],
+      "passes": 39
+    },
+    {
+      "label": "/unidades/unidad-1/ @ 390",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              "a[data-lb-index=\"0\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"1\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"2\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"3\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-2/\"] > .other-arrow[data-astro-cid-xc3ck3mn=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-3/\"] > .other-arrow[data-astro-cid-xc3ck3mn=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-4/\"] > .other-arrow[data-astro-cid-xc3ck3mn=\"\"]"
+            ]
+          ]
+        }
+      ],
+      "passes": 40
+    },
+    {
+      "label": "/unidades/unidad-2/ @ 390",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              "a[data-lb-index=\"0\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"1\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"2\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"3\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-1/\"] > .other-arrow[data-astro-cid-xc3ck3mn=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-3/\"] > .other-arrow[data-astro-cid-xc3ck3mn=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-4/\"] > .other-arrow[data-astro-cid-xc3ck3mn=\"\"]"
+            ]
+          ]
+        }
+      ],
+      "passes": 40
+    },
+    {
+      "label": "/unidades/unidad-3/ @ 390",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              "a[data-lb-index=\"0\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"1\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"2\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"3\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-1/\"] > .other-arrow[data-astro-cid-xc3ck3mn=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-2/\"] > .other-arrow[data-astro-cid-xc3ck3mn=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-4/\"] > .other-arrow[data-astro-cid-xc3ck3mn=\"\"]"
+            ]
+          ]
+        }
+      ],
+      "passes": 40
+    },
+    {
+      "label": "/unidades/unidad-4/ @ 390",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              "a[data-lb-index=\"0\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"1\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"2\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"3\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-1/\"] > .other-arrow[data-astro-cid-xc3ck3mn=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-2/\"] > .other-arrow[data-astro-cid-xc3ck3mn=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-3/\"] > .other-arrow[data-astro-cid-xc3ck3mn=\"\"]"
+            ]
+          ]
+        }
+      ],
+      "passes": 40
+    },
+    {
+      "label": "/404.html @ 390",
+      "violations": [],
+      "incomplete": [],
+      "passes": 37
+    },
+    {
+      "label": "/en/faq/ @ 1280",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "label-content-name-mismatch",
+          "targets": [
+            [
+              ".lang-suggest-x"
+            ]
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    {
+      "label": "/en/galeria/ @ 1280",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "label-content-name-mismatch",
+          "targets": [
+            [
+              ".lang-suggest-x"
+            ]
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    {
+      "label": "/en/ @ 1280",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".lang-suggest-text"
+            ],
+            [
+              ".lang-suggest-go"
+            ],
+            [
+              ".lang-suggest-x"
+            ],
+            [
+              ".hero-meta"
+            ],
+            [
+              ".hero-kicker"
+            ],
+            [
+              "h1"
+            ],
+            [
+              ".hero-deck"
+            ],
+            [
+              ".hero-scroll"
+            ],
+            [
+              ".unit-image[href$=\"unidad-1/\"][aria-hidden=\"true\"] > .unit-caption[data-astro-cid-57i5mbrl=\"\"]"
+            ],
+            [
+              ".unit-image[href$=\"unidad-2/\"][aria-hidden=\"true\"] > .unit-caption[data-astro-cid-57i5mbrl=\"\"]"
+            ],
+            [
+              ".unit-image[href$=\"unidad-3/\"][aria-hidden=\"true\"] > .unit-caption[data-astro-cid-57i5mbrl=\"\"]"
+            ],
+            [
+              ".unit-image[href$=\"unidad-4/\"][aria-hidden=\"true\"] > .unit-caption[data-astro-cid-57i5mbrl=\"\"]"
+            ],
+            [
+              ".mos-link[data-lb-index=\"0\"][data-lb-group=\"espacios\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"One of the two grills\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"The front on Río Negro 64\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"Loungers and outdoor tables\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-title=\"Shared spaces\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-title=\"Apartment #4\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"Kitchen\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-title=\"Apartment #3\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"Details\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"Bathroom\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ]
+          ]
+        },
+        {
+          "id": "frame-tested",
+          "targets": [
+            [
+              "iframe"
+            ]
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "targets": [
+            [
+              ".lang-suggest-x"
+            ]
+          ]
+        }
+      ],
+      "passes": 47
+    },
+    {
+      "label": "/en/privacidad/ @ 1280",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "label-content-name-mismatch",
+          "targets": [
+            [
+              ".lang-suggest-x"
+            ]
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    {
+      "label": "/en/servicios/ @ 1280",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".nt-row[data-astro-cid-hjjxmigt=\"\"]:nth-child(1) > span[aria-hidden=\"true\"]"
+            ],
+            [
+              ".nt-row[data-astro-cid-hjjxmigt=\"\"]:nth-child(2) > span[aria-hidden=\"true\"]"
+            ],
+            [
+              ".serv-units-item[href$=\"unidad-1/\"] > .serv-units-arrow"
+            ],
+            [
+              ".serv-units-item[href$=\"unidad-2/\"] > .serv-units-arrow"
+            ],
+            [
+              ".serv-units-item[href$=\"unidad-3/\"] > .serv-units-arrow"
+            ],
+            [
+              ".serv-units-item[href$=\"unidad-4/\"] > .serv-units-arrow"
+            ]
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "targets": [
+            [
+              ".lang-suggest-x"
+            ]
+          ]
+        }
+      ],
+      "passes": 41
+    },
+    {
+      "label": "/en/ubicacion/ @ 1280",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "frame-tested",
+          "targets": [
+            [
+              "iframe"
+            ]
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "targets": [
+            [
+              ".lang-suggest-x"
+            ]
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    {
+      "label": "/en/unidades/unidad-1/ @ 1280",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              "a[data-lb-index=\"0\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"1\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"2\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"3\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-2/\"] > .other-arrow[data-astro-cid-ommxslls=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-3/\"] > .other-arrow[data-astro-cid-ommxslls=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-4/\"] > .other-arrow[data-astro-cid-ommxslls=\"\"]"
+            ]
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "targets": [
+            [
+              ".lang-suggest-x"
+            ]
+          ]
+        }
+      ],
+      "passes": 44
+    },
+    {
+      "label": "/en/unidades/unidad-2/ @ 1280",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              "a[data-lb-index=\"0\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"1\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"2\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"3\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-1/\"] > .other-arrow[data-astro-cid-ommxslls=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-3/\"] > .other-arrow[data-astro-cid-ommxslls=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-4/\"] > .other-arrow[data-astro-cid-ommxslls=\"\"]"
+            ]
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "targets": [
+            [
+              ".lang-suggest-x"
+            ]
+          ]
+        }
+      ],
+      "passes": 44
+    },
+    {
+      "label": "/en/unidades/unidad-3/ @ 1280",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              "a[data-lb-index=\"0\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"1\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"2\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"3\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-1/\"] > .other-arrow[data-astro-cid-ommxslls=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-2/\"] > .other-arrow[data-astro-cid-ommxslls=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-4/\"] > .other-arrow[data-astro-cid-ommxslls=\"\"]"
+            ]
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "targets": [
+            [
+              ".lang-suggest-x"
+            ]
+          ]
+        }
+      ],
+      "passes": 44
+    },
+    {
+      "label": "/en/unidades/unidad-4/ @ 1280",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              "a[data-lb-index=\"0\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"1\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"2\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-1/\"] > .other-arrow[data-astro-cid-ommxslls=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-2/\"] > .other-arrow[data-astro-cid-ommxslls=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-3/\"] > .other-arrow[data-astro-cid-ommxslls=\"\"]"
+            ]
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "targets": [
+            [
+              ".lang-suggest-x"
+            ]
+          ]
+        }
+      ],
+      "passes": 44
+    },
+    {
+      "label": "/faq/ @ 1280",
+      "violations": [],
+      "incomplete": [],
+      "passes": 40
+    },
+    {
+      "label": "/galeria/ @ 1280",
+      "violations": [],
+      "incomplete": [],
+      "passes": 41
+    },
+    {
+      "label": "/ @ 1280",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".nav-name"
+            ],
+            [
+              ".nav-link[href$=\"/#unidades\"][data-astro-cid-ymhdp2rl=\"\"]"
+            ],
+            [
+              ".nav-link[href$=\"servicios/\"][data-astro-cid-ymhdp2rl=\"\"]"
+            ],
+            [
+              ".nav-link[href$=\"ubicacion/\"][data-astro-cid-ymhdp2rl=\"\"]"
+            ],
+            [
+              ".nav-link[href$=\"galeria/\"][data-astro-cid-ymhdp2rl=\"\"]"
+            ],
+            [
+              ".nav-link[href$=\"faq/\"][data-astro-cid-ymhdp2rl=\"\"]"
+            ],
+            [
+              "div[role=\"group\"] > .on.nav-lang-btn[data-switch-lang=\"es\"]"
+            ],
+            [
+              "div[role=\"group\"] > .nav-lang-btn[data-switch-lang=\"en\"][href$=\"en/\"]"
+            ],
+            [
+              ".hero-meta"
+            ],
+            [
+              ".hero-kicker"
+            ],
+            [
+              "h1"
+            ],
+            [
+              ".hero-deck"
+            ],
+            [
+              ".hero-scroll"
+            ],
+            [
+              ".unit-image[href$=\"unidad-1/\"][aria-hidden=\"true\"] > .unit-caption[data-astro-cid-57i5mbrl=\"\"]"
+            ],
+            [
+              ".unit-image[href$=\"unidad-2/\"][aria-hidden=\"true\"] > .unit-caption[data-astro-cid-57i5mbrl=\"\"]"
+            ],
+            [
+              ".unit-image[href$=\"unidad-3/\"][aria-hidden=\"true\"] > .unit-caption[data-astro-cid-57i5mbrl=\"\"]"
+            ],
+            [
+              ".unit-image[href$=\"unidad-4/\"][aria-hidden=\"true\"] > .unit-caption[data-astro-cid-57i5mbrl=\"\"]"
+            ],
+            [
+              ".mos-link[data-lb-index=\"0\"][data-lb-group=\"espacios\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"Una de las dos parrillas\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"El frente sobre Río Negro 64\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-title=\"Espacios comunes\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-title=\"Departamento #4\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"Cocina\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-title=\"Departamento #3\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"Detalles\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"Baño\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ]
+          ]
+        },
+        {
+          "id": "frame-tested",
+          "targets": [
+            [
+              "iframe"
+            ]
+          ]
+        }
+      ],
+      "passes": 46
+    },
+    {
+      "label": "/privacidad/ @ 1280",
+      "violations": [],
+      "incomplete": [],
+      "passes": 39
+    },
+    {
+      "label": "/servicios/ @ 1280",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".nt-row[data-astro-cid-wrzvmyuk=\"\"]:nth-child(1) > span[aria-hidden=\"true\"]"
+            ],
+            [
+              ".nt-row[data-astro-cid-wrzvmyuk=\"\"]:nth-child(2) > span[aria-hidden=\"true\"]"
+            ],
+            [
+              ".serv-units-item[href$=\"unidad-1/\"] > .serv-units-arrow"
+            ],
+            [
+              ".serv-units-item[href$=\"unidad-2/\"] > .serv-units-arrow"
+            ],
+            [
+              ".serv-units-item[href$=\"unidad-3/\"] > .serv-units-arrow"
+            ],
+            [
+              ".serv-units-item[href$=\"unidad-4/\"] > .serv-units-arrow"
+            ]
+          ]
+        }
+      ],
+      "passes": 38
+    },
+    {
+      "label": "/ubicacion/ @ 1280",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "frame-tested",
+          "targets": [
+            [
+              "iframe"
+            ]
+          ]
+        }
+      ],
+      "passes": 40
+    },
+    {
+      "label": "/unidades/unidad-1/ @ 1280",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              "a[data-lb-index=\"0\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"1\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"2\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"3\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-2/\"] > .other-arrow[data-astro-cid-xc3ck3mn=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-3/\"] > .other-arrow[data-astro-cid-xc3ck3mn=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-4/\"] > .other-arrow[data-astro-cid-xc3ck3mn=\"\"]"
+            ]
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    {
+      "label": "/unidades/unidad-2/ @ 1280",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              "a[data-lb-index=\"0\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"1\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"2\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-1/\"] > .other-arrow[data-astro-cid-xc3ck3mn=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-3/\"] > .other-arrow[data-astro-cid-xc3ck3mn=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-4/\"] > .other-arrow[data-astro-cid-xc3ck3mn=\"\"]"
+            ]
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    {
+      "label": "/unidades/unidad-3/ @ 1280",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              "a[data-lb-index=\"0\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"1\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"2\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-1/\"] > .other-arrow[data-astro-cid-xc3ck3mn=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-2/\"] > .other-arrow[data-astro-cid-xc3ck3mn=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-4/\"] > .other-arrow[data-astro-cid-xc3ck3mn=\"\"]"
+            ]
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    {
+      "label": "/unidades/unidad-4/ @ 1280",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              "a[data-lb-index=\"0\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"1\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"2\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"3\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-1/\"] > .other-arrow[data-astro-cid-xc3ck3mn=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-2/\"] > .other-arrow[data-astro-cid-xc3ck3mn=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-3/\"] > .other-arrow[data-astro-cid-xc3ck3mn=\"\"]"
+            ]
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    {
+      "label": "/404.html @ 1280",
+      "violations": [],
+      "incomplete": [],
+      "passes": 38
+    },
+    {
+      "label": "Mobile menu open",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".nav-name"
+            ],
+            [
+              ".hero-meta"
+            ],
+            [
+              ".hero-kicker"
+            ],
+            [
+              "h1"
+            ],
+            [
+              ".hero-deck"
+            ],
+            [
+              ".hero-scroll"
+            ],
+            [
+              ".unit-image[href$=\"unidad-1/\"][aria-hidden=\"true\"] > .unit-caption[data-astro-cid-57i5mbrl=\"\"]"
+            ],
+            [
+              ".unit-image[href$=\"unidad-2/\"][aria-hidden=\"true\"] > .unit-caption[data-astro-cid-57i5mbrl=\"\"]"
+            ],
+            [
+              ".unit-image[href$=\"unidad-3/\"][aria-hidden=\"true\"] > .unit-caption[data-astro-cid-57i5mbrl=\"\"]"
+            ],
+            [
+              ".unit-image[href$=\"unidad-4/\"][aria-hidden=\"true\"] > .unit-caption[data-astro-cid-57i5mbrl=\"\"]"
+            ],
+            [
+              ".mos-link[data-lb-index=\"0\"][data-lb-group=\"espacios\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"Una de las dos parrillas\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"El frente sobre Río Negro 64\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-title=\"Espacios comunes\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-title=\"Departamento #4\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"Cocina\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-title=\"Departamento #3\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"Detalles\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"Baño\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ]
+          ]
+        },
+        {
+          "id": "frame-tested",
+          "targets": [
+            [
+              "iframe"
+            ]
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "targets": [
+            [
+              ".menu-close"
+            ]
+          ]
+        }
+      ],
+      "passes": 46
+    },
+    {
+      "label": "Lightbox open",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".lb-caption"
+            ],
+            [
+              ".lb-counter"
+            ]
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "targets": [
+            [
+              ".lb-close"
+            ],
+            [
+              ".lb-prev"
+            ],
+            [
+              ".lb-next"
+            ]
+          ]
+        }
+      ],
+      "passes": 34
+    },
+    {
+      "label": "Hover .footer-unit",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".hero-meta"
+            ],
+            [
+              ".hero-kicker"
+            ],
+            [
+              "h1"
+            ],
+            [
+              ".hero-deck"
+            ],
+            [
+              ".hero-scroll"
+            ],
+            [
+              ".unit-image[href$=\"unidad-1/\"][aria-hidden=\"true\"] > .unit-caption[data-astro-cid-57i5mbrl=\"\"]"
+            ],
+            [
+              ".unit-image[href$=\"unidad-2/\"][aria-hidden=\"true\"] > .unit-caption[data-astro-cid-57i5mbrl=\"\"]"
+            ],
+            [
+              ".unit-image[href$=\"unidad-3/\"][aria-hidden=\"true\"] > .unit-caption[data-astro-cid-57i5mbrl=\"\"]"
+            ],
+            [
+              ".unit-image[href$=\"unidad-4/\"][aria-hidden=\"true\"] > .unit-caption[data-astro-cid-57i5mbrl=\"\"]"
+            ],
+            [
+              ".mos-link[data-lb-index=\"0\"][data-lb-group=\"espacios\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"Una de las dos parrillas\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"El frente sobre Río Negro 64\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-title=\"Espacios comunes\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-title=\"Departamento #4\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"Cocina\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-title=\"Departamento #3\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"Detalles\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"Baño\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ]
+          ]
+        },
+        {
+          "id": "frame-tested",
+          "targets": [
+            [
+              "iframe"
+            ]
+          ]
+        }
+      ],
+      "passes": 46
+    },
+    {
+      "label": "Hover .footer-cols a",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".hero-meta"
+            ],
+            [
+              ".hero-kicker"
+            ],
+            [
+              "h1"
+            ],
+            [
+              ".hero-deck"
+            ],
+            [
+              ".hero-sub"
+            ],
+            [
+              "span[data-astro-cid-bbe6dxrz=\"\"][aria-hidden=\"true\"]"
+            ],
+            [
+              ".hero-scroll"
+            ],
+            [
+              ".unit-image[href$=\"unidad-1/\"][aria-hidden=\"true\"] > .unit-caption[data-astro-cid-57i5mbrl=\"\"]"
+            ],
+            [
+              ".unit-image[href$=\"unidad-2/\"][aria-hidden=\"true\"] > .unit-caption[data-astro-cid-57i5mbrl=\"\"]"
+            ],
+            [
+              ".unit-image[href$=\"unidad-3/\"][aria-hidden=\"true\"] > .unit-caption[data-astro-cid-57i5mbrl=\"\"]"
+            ],
+            [
+              ".unit-image[href$=\"unidad-4/\"][aria-hidden=\"true\"] > .unit-caption[data-astro-cid-57i5mbrl=\"\"]"
+            ],
+            [
+              ".mos-link[data-lb-index=\"0\"][data-lb-group=\"espacios\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"Una de las dos parrillas\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"El frente sobre Río Negro 64\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              ".mos-link[data-lb-index=\"3\"][data-lb-group=\"espacios\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-title=\"Espacios comunes\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-title=\"Departamento #4\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"Cocina\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-title=\"Departamento #3\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"Detalles\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"Baño\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ]
+          ]
+        },
+        {
+          "id": "frame-tested",
+          "targets": [
+            [
+              "iframe"
+            ]
+          ]
+        }
+      ],
+      "passes": 46
+    },
+    {
+      "label": "Hover .gs-cta",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".hero-meta"
+            ],
+            [
+              ".hero-kicker"
+            ],
+            [
+              "h1"
+            ],
+            [
+              ".hero-deck"
+            ],
+            [
+              ".hero-sub"
+            ],
+            [
+              "span[data-astro-cid-bbe6dxrz=\"\"][aria-hidden=\"true\"]"
+            ],
+            [
+              ".hero-scroll"
+            ],
+            [
+              ".unit-image[href$=\"unidad-1/\"][aria-hidden=\"true\"] > .unit-caption[data-astro-cid-57i5mbrl=\"\"]"
+            ],
+            [
+              ".unit-image[href$=\"unidad-2/\"][aria-hidden=\"true\"] > .unit-caption[data-astro-cid-57i5mbrl=\"\"]"
+            ],
+            [
+              ".unit-image[href$=\"unidad-3/\"][aria-hidden=\"true\"] > .unit-caption[data-astro-cid-57i5mbrl=\"\"]"
+            ],
+            [
+              ".unit-image[href$=\"unidad-4/\"][aria-hidden=\"true\"] > .unit-caption[data-astro-cid-57i5mbrl=\"\"]"
+            ],
+            [
+              ".mos-link[data-lb-index=\"0\"][data-lb-group=\"espacios\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"Una de las dos parrillas\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"El frente sobre Río Negro 64\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              ".mos-link[data-lb-index=\"3\"][data-lb-group=\"espacios\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-title=\"Espacios comunes\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-title=\"Departamento #4\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"Cocina\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-title=\"Departamento #3\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"Detalles\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ],
+            [
+              "a[data-lb-caption=\"Baño\"] > .gs-cap[data-astro-cid-5t2c4zy5=\"\"]"
+            ]
+          ]
+        },
+        {
+          "id": "frame-tested",
+          "targets": [
+            [
+              "iframe"
+            ]
+          ]
+        }
+      ],
+      "passes": 46
+    },
+    {
+      "label": "Hover /servicios apartment link",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".nt-row[data-astro-cid-wrzvmyuk=\"\"]:nth-child(1) > span[aria-hidden=\"true\"]"
+            ],
+            [
+              ".nt-row[data-astro-cid-wrzvmyuk=\"\"]:nth-child(2) > span[aria-hidden=\"true\"]"
+            ],
+            [
+              ".serv-units-item[href$=\"unidad-1/\"] > .serv-units-arrow"
+            ],
+            [
+              ".serv-units-item[href$=\"unidad-2/\"] > .serv-units-arrow"
+            ],
+            [
+              ".serv-units-item[href$=\"unidad-3/\"] > .serv-units-arrow"
+            ],
+            [
+              ".serv-units-item[href$=\"unidad-4/\"] > .serv-units-arrow"
+            ]
+          ]
+        }
+      ],
+      "passes": 38
+    },
+    {
+      "label": "Hover  .crumb a",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              "a[data-lb-index=\"0\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"1\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"2\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-1/\"] > .other-arrow[data-astro-cid-xc3ck3mn=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-2/\"] > .other-arrow[data-astro-cid-xc3ck3mn=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-3/\"] > .other-arrow[data-astro-cid-xc3ck3mn=\"\"]"
+            ]
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    {
+      "label": "Hover  .other-item",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              "a[data-lb-index=\"0\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"1\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"2\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"3\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-1/\"] > .other-arrow[data-astro-cid-xc3ck3mn=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-2/\"] > .other-arrow[data-astro-cid-xc3ck3mn=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-3/\"] > .other-arrow[data-astro-cid-xc3ck3mn=\"\"]"
+            ]
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    {
+      "label": "Hover /en/servicios apartment link",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".nt-row[data-astro-cid-hjjxmigt=\"\"]:nth-child(1) > span[aria-hidden=\"true\"]"
+            ],
+            [
+              ".nt-row[data-astro-cid-hjjxmigt=\"\"]:nth-child(2) > span[aria-hidden=\"true\"]"
+            ],
+            [
+              ".serv-units-item[href$=\"unidad-1/\"] > .serv-units-arrow"
+            ],
+            [
+              ".serv-units-item[href$=\"unidad-2/\"] > .serv-units-arrow"
+            ],
+            [
+              ".serv-units-item[href$=\"unidad-3/\"] > .serv-units-arrow"
+            ],
+            [
+              ".serv-units-item[href$=\"unidad-4/\"] > .serv-units-arrow"
+            ]
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "targets": [
+            [
+              ".lang-suggest-x"
+            ]
+          ]
+        }
+      ],
+      "passes": 41
+    },
+    {
+      "label": "Hover /en .crumb a",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              "a[data-lb-index=\"0\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"1\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-1/\"] > .other-arrow[data-astro-cid-ommxslls=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-2/\"] > .other-arrow[data-astro-cid-ommxslls=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-3/\"] > .other-arrow[data-astro-cid-ommxslls=\"\"]"
+            ]
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "targets": [
+            [
+              ".lang-suggest-x"
+            ]
+          ]
+        }
+      ],
+      "passes": 44
+    },
+    {
+      "label": "Hover /en .other-item",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              "a[data-lb-index=\"0\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"1\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"2\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              "a[data-lb-index=\"3\"] > .mos-cap[data-astro-cid-fblylpot=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-1/\"] > .other-arrow[data-astro-cid-ommxslls=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-2/\"] > .other-arrow[data-astro-cid-ommxslls=\"\"]"
+            ],
+            [
+              ".other-item[href$=\"unidad-3/\"] > .other-arrow[data-astro-cid-ommxslls=\"\"]"
+            ]
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "targets": [
+            [
+              ".lang-suggest-x"
+            ]
+          ]
+        }
+      ],
+      "passes": 44
+    }
+  ],
+  "zoom": [
+    {
+      "path": "/en/faq/",
+      "factor": 2,
+      "width": 640,
+      "height": 480,
+      "dpr": 2,
+      "scroll": 640,
+      "client": 640,
+      "ok": true
+    },
+    {
+      "path": "/en/galeria/",
+      "factor": 2,
+      "width": 640,
+      "height": 480,
+      "dpr": 2,
+      "scroll": 640,
+      "client": 640,
+      "ok": true
+    },
+    {
+      "path": "/en/",
+      "factor": 2,
+      "width": 640,
+      "height": 480,
+      "dpr": 2,
+      "scroll": 640,
+      "client": 640,
+      "ok": true
+    },
+    {
+      "path": "/en/privacidad/",
+      "factor": 2,
+      "width": 640,
+      "height": 480,
+      "dpr": 2,
+      "scroll": 640,
+      "client": 640,
+      "ok": true
+    },
+    {
+      "path": "/en/servicios/",
+      "factor": 2,
+      "width": 640,
+      "height": 480,
+      "dpr": 2,
+      "scroll": 640,
+      "client": 640,
+      "ok": true
+    },
+    {
+      "path": "/en/ubicacion/",
+      "factor": 2,
+      "width": 640,
+      "height": 480,
+      "dpr": 2,
+      "scroll": 640,
+      "client": 640,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-1/",
+      "factor": 2,
+      "width": 640,
+      "height": 480,
+      "dpr": 2,
+      "scroll": 640,
+      "client": 640,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-2/",
+      "factor": 2,
+      "width": 640,
+      "height": 480,
+      "dpr": 2,
+      "scroll": 640,
+      "client": 640,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-3/",
+      "factor": 2,
+      "width": 640,
+      "height": 480,
+      "dpr": 2,
+      "scroll": 640,
+      "client": 640,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-4/",
+      "factor": 2,
+      "width": 640,
+      "height": 480,
+      "dpr": 2,
+      "scroll": 640,
+      "client": 640,
+      "ok": true
+    },
+    {
+      "path": "/faq/",
+      "factor": 2,
+      "width": 640,
+      "height": 480,
+      "dpr": 2,
+      "scroll": 640,
+      "client": 640,
+      "ok": true
+    },
+    {
+      "path": "/galeria/",
+      "factor": 2,
+      "width": 640,
+      "height": 480,
+      "dpr": 2,
+      "scroll": 640,
+      "client": 640,
+      "ok": true
+    },
+    {
+      "path": "/",
+      "factor": 2,
+      "width": 640,
+      "height": 480,
+      "dpr": 2,
+      "scroll": 640,
+      "client": 640,
+      "ok": true
+    },
+    {
+      "path": "/privacidad/",
+      "factor": 2,
+      "width": 640,
+      "height": 480,
+      "dpr": 2,
+      "scroll": 640,
+      "client": 640,
+      "ok": true
+    },
+    {
+      "path": "/servicios/",
+      "factor": 2,
+      "width": 640,
+      "height": 480,
+      "dpr": 2,
+      "scroll": 640,
+      "client": 640,
+      "ok": true
+    },
+    {
+      "path": "/ubicacion/",
+      "factor": 2,
+      "width": 640,
+      "height": 480,
+      "dpr": 2,
+      "scroll": 640,
+      "client": 640,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-1/",
+      "factor": 2,
+      "width": 640,
+      "height": 480,
+      "dpr": 2,
+      "scroll": 640,
+      "client": 640,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-2/",
+      "factor": 2,
+      "width": 640,
+      "height": 480,
+      "dpr": 2,
+      "scroll": 640,
+      "client": 640,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-3/",
+      "factor": 2,
+      "width": 640,
+      "height": 480,
+      "dpr": 2,
+      "scroll": 640,
+      "client": 640,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-4/",
+      "factor": 2,
+      "width": 640,
+      "height": 480,
+      "dpr": 2,
+      "scroll": 640,
+      "client": 640,
+      "ok": true
+    },
+    {
+      "path": "/404.html",
+      "factor": 2,
+      "width": 640,
+      "height": 480,
+      "dpr": 2,
+      "scroll": 640,
+      "client": 640,
+      "ok": true
+    },
+    {
+      "path": "/en/faq/",
+      "factor": 3.9999999999999996,
+      "width": 320,
+      "height": 240,
+      "dpr": 4,
+      "scroll": 320,
+      "client": 320,
+      "ok": true
+    },
+    {
+      "path": "/en/galeria/",
+      "factor": 3.9999999999999996,
+      "width": 320,
+      "height": 240,
+      "dpr": 4,
+      "scroll": 320,
+      "client": 320,
+      "ok": true
+    },
+    {
+      "path": "/en/",
+      "factor": 3.9999999999999996,
+      "width": 320,
+      "height": 240,
+      "dpr": 4,
+      "scroll": 320,
+      "client": 320,
+      "ok": true
+    },
+    {
+      "path": "/en/privacidad/",
+      "factor": 3.9999999999999996,
+      "width": 320,
+      "height": 240,
+      "dpr": 4,
+      "scroll": 320,
+      "client": 320,
+      "ok": true
+    },
+    {
+      "path": "/en/servicios/",
+      "factor": 3.9999999999999996,
+      "width": 320,
+      "height": 240,
+      "dpr": 4,
+      "scroll": 320,
+      "client": 320,
+      "ok": true
+    },
+    {
+      "path": "/en/ubicacion/",
+      "factor": 3.9999999999999996,
+      "width": 320,
+      "height": 240,
+      "dpr": 4,
+      "scroll": 320,
+      "client": 320,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-1/",
+      "factor": 3.9999999999999996,
+      "width": 320,
+      "height": 240,
+      "dpr": 4,
+      "scroll": 320,
+      "client": 320,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-2/",
+      "factor": 3.9999999999999996,
+      "width": 320,
+      "height": 240,
+      "dpr": 4,
+      "scroll": 320,
+      "client": 320,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-3/",
+      "factor": 3.9999999999999996,
+      "width": 320,
+      "height": 240,
+      "dpr": 4,
+      "scroll": 320,
+      "client": 320,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-4/",
+      "factor": 3.9999999999999996,
+      "width": 320,
+      "height": 240,
+      "dpr": 4,
+      "scroll": 320,
+      "client": 320,
+      "ok": true
+    },
+    {
+      "path": "/faq/",
+      "factor": 3.9999999999999996,
+      "width": 320,
+      "height": 240,
+      "dpr": 4,
+      "scroll": 320,
+      "client": 320,
+      "ok": true
+    },
+    {
+      "path": "/galeria/",
+      "factor": 3.9999999999999996,
+      "width": 320,
+      "height": 240,
+      "dpr": 4,
+      "scroll": 320,
+      "client": 320,
+      "ok": true
+    },
+    {
+      "path": "/",
+      "factor": 3.9999999999999996,
+      "width": 320,
+      "height": 240,
+      "dpr": 4,
+      "scroll": 320,
+      "client": 320,
+      "ok": true
+    },
+    {
+      "path": "/privacidad/",
+      "factor": 3.9999999999999996,
+      "width": 320,
+      "height": 240,
+      "dpr": 4,
+      "scroll": 320,
+      "client": 320,
+      "ok": true
+    },
+    {
+      "path": "/servicios/",
+      "factor": 3.9999999999999996,
+      "width": 320,
+      "height": 240,
+      "dpr": 4,
+      "scroll": 320,
+      "client": 320,
+      "ok": true
+    },
+    {
+      "path": "/ubicacion/",
+      "factor": 3.9999999999999996,
+      "width": 320,
+      "height": 240,
+      "dpr": 4,
+      "scroll": 320,
+      "client": 320,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-1/",
+      "factor": 3.9999999999999996,
+      "width": 320,
+      "height": 240,
+      "dpr": 4,
+      "scroll": 320,
+      "client": 320,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-2/",
+      "factor": 3.9999999999999996,
+      "width": 320,
+      "height": 240,
+      "dpr": 4,
+      "scroll": 320,
+      "client": 320,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-3/",
+      "factor": 3.9999999999999996,
+      "width": 320,
+      "height": 240,
+      "dpr": 4,
+      "scroll": 320,
+      "client": 320,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-4/",
+      "factor": 3.9999999999999996,
+      "width": 320,
+      "height": 240,
+      "dpr": 4,
+      "scroll": 320,
+      "client": 320,
+      "ok": true
+    },
+    {
+      "path": "/404.html",
+      "factor": 3.9999999999999996,
+      "width": 320,
+      "height": 240,
+      "dpr": 4,
+      "scroll": 320,
+      "client": 320,
+      "ok": true
+    }
+  ],
+  "spacing": [
+    {
+      "path": "/en/faq/",
+      "width": 390,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 390,
+      "client": 390,
+      "ok": true
+    },
+    {
+      "path": "/en/galeria/",
+      "width": 390,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 390,
+      "client": 390,
+      "ok": true
+    },
+    {
+      "path": "/en/",
+      "width": 390,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 390,
+      "client": 390,
+      "ok": true
+    },
+    {
+      "path": "/en/privacidad/",
+      "width": 390,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 390,
+      "client": 390,
+      "ok": true
+    },
+    {
+      "path": "/en/servicios/",
+      "width": 390,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 390,
+      "client": 390,
+      "ok": true
+    },
+    {
+      "path": "/en/ubicacion/",
+      "width": 390,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 390,
+      "client": 390,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-1/",
+      "width": 390,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 390,
+      "client": 390,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-2/",
+      "width": 390,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 390,
+      "client": 390,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-3/",
+      "width": 390,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 390,
+      "client": 390,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-4/",
+      "width": 390,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 390,
+      "client": 390,
+      "ok": true
+    },
+    {
+      "path": "/faq/",
+      "width": 390,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 390,
+      "client": 390,
+      "ok": true
+    },
+    {
+      "path": "/galeria/",
+      "width": 390,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 390,
+      "client": 390,
+      "ok": true
+    },
+    {
+      "path": "/",
+      "width": 390,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 390,
+      "client": 390,
+      "ok": true
+    },
+    {
+      "path": "/privacidad/",
+      "width": 390,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 390,
+      "client": 390,
+      "ok": true
+    },
+    {
+      "path": "/servicios/",
+      "width": 390,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 390,
+      "client": 390,
+      "ok": true
+    },
+    {
+      "path": "/ubicacion/",
+      "width": 390,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 390,
+      "client": 390,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-1/",
+      "width": 390,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 390,
+      "client": 390,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-2/",
+      "width": 390,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 390,
+      "client": 390,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-3/",
+      "width": 390,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 390,
+      "client": 390,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-4/",
+      "width": 390,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 390,
+      "client": 390,
+      "ok": true
+    },
+    {
+      "path": "/404.html",
+      "width": 390,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 390,
+      "client": 390,
+      "ok": true
+    },
+    {
+      "path": "/en/faq/",
+      "width": 1280,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 1280,
+      "client": 1280,
+      "ok": true
+    },
+    {
+      "path": "/en/galeria/",
+      "width": 1280,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 1280,
+      "client": 1280,
+      "ok": true
+    },
+    {
+      "path": "/en/",
+      "width": 1280,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 1280,
+      "client": 1280,
+      "ok": true
+    },
+    {
+      "path": "/en/privacidad/",
+      "width": 1280,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 1280,
+      "client": 1280,
+      "ok": true
+    },
+    {
+      "path": "/en/servicios/",
+      "width": 1280,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 1280,
+      "client": 1280,
+      "ok": true
+    },
+    {
+      "path": "/en/ubicacion/",
+      "width": 1280,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 1280,
+      "client": 1280,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-1/",
+      "width": 1280,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 1280,
+      "client": 1280,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-2/",
+      "width": 1280,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 1280,
+      "client": 1280,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-3/",
+      "width": 1280,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 1280,
+      "client": 1280,
+      "ok": true
+    },
+    {
+      "path": "/en/unidades/unidad-4/",
+      "width": 1280,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 1280,
+      "client": 1280,
+      "ok": true
+    },
+    {
+      "path": "/faq/",
+      "width": 1280,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 1280,
+      "client": 1280,
+      "ok": true
+    },
+    {
+      "path": "/galeria/",
+      "width": 1280,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 1280,
+      "client": 1280,
+      "ok": true
+    },
+    {
+      "path": "/",
+      "width": 1280,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 1280,
+      "client": 1280,
+      "ok": true
+    },
+    {
+      "path": "/privacidad/",
+      "width": 1280,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 1280,
+      "client": 1280,
+      "ok": true
+    },
+    {
+      "path": "/servicios/",
+      "width": 1280,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 1280,
+      "client": 1280,
+      "ok": true
+    },
+    {
+      "path": "/ubicacion/",
+      "width": 1280,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 1280,
+      "client": 1280,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-1/",
+      "width": 1280,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 1280,
+      "client": 1280,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-2/",
+      "width": 1280,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 1280,
+      "client": 1280,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-3/",
+      "width": 1280,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 1280,
+      "client": 1280,
+      "ok": true
+    },
+    {
+      "path": "/unidades/unidad-4/",
+      "width": 1280,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 1280,
+      "client": 1280,
+      "ok": true
+    },
+    {
+      "path": "/404.html",
+      "width": 1280,
+      "height": 960,
+      "dpr": 1,
+      "scroll": 1280,
+      "client": 1280,
+      "ok": true
+    }
+  ],
+  "interactions": [
+    {
+      "name": "Menu inquiry at 200%",
+      "ok": true
+    },
+    {
+      "name": "Lightbox controls at 200%",
+      "meta": {
+        "x": 179.1171875,
+        "y": 357.625,
+        "width": 281.765625,
+        "height": 42.7421875
+      },
+      "cta": {
+        "x": 217.09375,
+        "y": 422,
+        "width": 205.8125,
+        "height": 44
+      },
+      "close": {
+        "x": 584,
+        "y": 12,
+        "width": 44,
+        "height": 44
+      },
+      "hitTargets": true,
+      "ok": true
+    },
+    {
+      "name": "Menu inquiry at 400%",
+      "ok": true
+    },
+    {
+      "name": "Lightbox controls at 400%",
+      "meta": {
+        "x": 72,
+        "y": 107.55078125,
+        "width": 176,
+        "height": 62.89453125
+      },
+      "cta": {
+        "x": 57.095703125,
+        "y": 182,
+        "width": 205.80859375,
+        "height": 44
+      },
+      "close": {
+        "x": 264,
+        "y": 12,
+        "width": 44,
+        "height": 44
+      },
+      "hitTargets": true,
+      "ok": true
+    }
+  ],
+  "errors": []
+}

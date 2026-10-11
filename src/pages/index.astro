@@ -1,5 +1,7 @@
 ---
 import Base from '~/layouts/Base.astro';
+import UnitComparison from '~/components/UnitComparison.astro';
+import StayEssentials from '~/components/StayEssentials.astro';
 import Hero from '~/components/Hero.astro';
 import SectionBar from '~/components/SectionBar.astro';
 import UnitRow from '~/components/UnitRow.astro';
@@ -27,6 +29,7 @@ const units = allUnits.sort((a, b) => a.data.order - b.data.order);
 
   <section id="unidades">
     <SectionBar no="1" title={t('sections.units', lang)} meta={t('sections.unitsMeta', lang)} metaHref="/galeria" />
+    <UnitComparison units={units} lang={lang} />
     {units.map((unit, i) => (
       <UnitRow unit={unit} lang={lang} align={i % 2 === 0 ? 'left' : 'right'} />
     ))}
@@ -61,6 +64,7 @@ const units = allUnits.sort((a, b) => a.data.order - b.data.order);
     <FAQPreview lang={lang} limit={5} />
   </section>
 
+  <StayEssentials lang={lang} />
   <CTABlock lang={lang} />
   <Lightbox lang={lang} />
 </Base>

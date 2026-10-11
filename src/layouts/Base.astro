@@ -8,6 +8,7 @@ import NavBar from '~/components/NavBar.astro';
 import Footer from '~/components/Footer.astro';
 import MobileStickyCTA from '~/components/MobileStickyCTA.astro';
 import LangSuggest from '~/components/LangSuggest.astro';
+import { inquiryMessage } from '~/utils/whatsapp';
 import OrganizationSchema from '~/components/seo/OrganizationSchema.astro';
 import { detectLang, t, otherLangPath } from '~/i18n';
 import {
@@ -47,7 +48,9 @@ const ogUrl = canonical;
 const ogImageAbs = getOgImage(ogImage);
 const ogLocale = getOgLocale(lang);
 const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_AR';
-const otherPath = otherLangPath(Astro.url.pathname, lang);
+const otherPath = noindex ? '/en/' : otherLangPath(Astro.url.pathname, lang);
+const unitNumber = Astro.url.pathname.match(/\/unidades\/unidad-(\d+)\//)?.[1];
+const contactMessage = inquiryMessage(unitNumber ? `${lang === 'es' ? 'Departamento' : 'Apartment'} #${unitNumber}` : undefined, lang);
 ---
 
 <!doctype html>
@@ -108,15 +111,15 @@ const otherPath = otherLangPath(Astro.url.pathname, lang);
 
   </head>
   <body>
-    <NavBar variant={navVariant} lang={lang} />
+    <a class="skip-link" href="#contenido" tabindex="0">{lang === 'es' ? 'Saltar al contenido' : 'Skip to content'}</a>
+    <NavBar variant={navVariant} lang={lang} message={contactMessage} />
     <LangSuggest lang={lang} otherPath={otherPath} />
-    <main>
+    <main id="contenido" tabindex="-1">
       <slot />
     </main>
-    <Footer lang={lang} />
-    {!hideStickyCTA && <MobileStickyCTA lang={lang} />}
+    <Footer lang={lang} message={contactMessage} />
+    {!hideStickyCTA && <MobileStickyCTA lang={lang} message={contactMessage} />}
     <script>
-      import '~/scripts/reveal';
       import '~/scripts/whatsapp-analytics';
       import { inject } from '@vercel/analytics';
       inject();

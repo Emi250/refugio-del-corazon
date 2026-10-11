@@ -2,6 +2,8 @@
 name: "Departamento #4"
 name_en: "Apartment #4"
 summary: "For five guests, with three bedrooms and a laundry area with washing machine. Heat-and-cool AC in the two main bedrooms."
+beds: "Queen + two beds in the second bedroom + one single"
+decision_note: "Own laundry area with washing machine."
 order: 4
 lang: en
 specs:
@@ -9,7 +11,7 @@ specs:
   ambientes: "3 bedrooms · living-dining"
   metros: "65 m²"
   bano: "1 full bathroom"
-chips: ["WiFi", "Equipped kitchen", "2 heat-and-cool ACs", "Grill", "Bed linens", "Towels", "Smart TV (no cable)", "Fridge with Freezer"]
+chips: ["Washing machine", "WiFi", "Equipped kitchen", "2 heat-and-cool ACs", "Bed linens", "Towels", "Smart TV (no cable)", "Fridge with Freezer"]
 hero_image: "../../../assets/images/unidades/unidad-4/hero.jpg"
 gallery:
   - { src: "../../../assets/images/unidades/unidad-4/hero.jpg", caption: "Kitchen-dining room, with the arch through to the living room" }

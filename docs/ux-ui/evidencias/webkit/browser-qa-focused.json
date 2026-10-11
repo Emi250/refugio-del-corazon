@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-11T14:10:20.901Z",
+  "engine": "webkit",
+  "browser": "26.5",
+  "matrix": [],
+  "checks": [
+    {
+      "name": "Skip link by keyboard",
+      "ok": true
+    },
+    {
+      "name": "Mobile menu: focus, tab confinement, Escape and breakpoint",
+      "ok": true
+    },
+    {
+      "name": "Lightbox: navigation, focus, history Back and small landscape",
+      "ok": true
+    },
+    {
+      "name": "Language preserves gallery fragment",
+      "ok": true
+    },
+    {
+      "name": "No JavaScript: navigation, FAQ and gallery remain usable",
+      "ok": true
+    },
+    {
+      "name": "Final screenshots",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "Viewport reflow at 640/320 CSS px approximates 200/400% zoom on a 1280px display; it is not native browser zoom.",
+    "No physical iOS/Android device or screen reader is controlled by this test."
+  ]
+}

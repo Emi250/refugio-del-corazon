@@ -3,13 +3,15 @@ name: "Departamento #2"
 name_en: "Apartment #2"
 summary: "Up to three guests in 40 m²: a bedroom with a queen bed and a single bed in the kitchen-dining area. Gas oven."
 seo_title: "Apartment for 3 in Capilla del Monte · #2, 40 m²"
+beds: "Queen + one single in the kitchen-dining area"
+decision_note: "Kitchen with a gas oven."
 order: 2
 lang: en
 specs:
   capacidad: "Up to 3 guests"
   ambientes: "2 rooms"
   metros: "40 m²"
-chips: ["WiFi", "Equipped kitchen", "Heat-and-cool AC", "Grill", "Bed linens", "Towels", "Smart TV (no cable)", "Fridge with Freezer"]
+chips: ["WiFi", "Equipped kitchen", "Heat-and-cool AC", "Bed linens", "Towels", "Smart TV (no cable)", "Fridge with Freezer"]
 hero_image: "../../../assets/images/unidades/unidad-2/hero.jpg"
 gallery:
   - { src: "../../../assets/images/unidades/unidad-2/hero.jpg", caption: "The bedroom, with a queen bed and the bathroom next door" }

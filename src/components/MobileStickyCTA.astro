@@ -4,9 +4,9 @@ import type { Lang } from '~/i18n';
 interface Props { lang?: Lang; message?: string }
 const { lang = 'es', message } = Astro.props;
 ---
-<div class="m-sticky">
+<aside class="m-sticky" aria-label={lang === 'es' ? 'Consultar por tu estadía' : 'Ask about your stay'}>
   <WhatsAppCTA placement="mobile_sticky" lang={lang} variant="big" message={message} fullWidth />
-</div>
+</aside>
 
 <style>
   .m-sticky {

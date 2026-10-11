@@ -6,13 +6,14 @@ interface Props {
   inverted?: boolean;
   size?: number;
   class?: string;
+  decorative?: boolean;
 }
-const { size = 36, class: cls = '' } = Astro.props;
+const { size = 36, class: cls = '', inverted = false, decorative = false } = Astro.props;
 ---
 <Image
   src={logo}
-  alt="El Refugio del Corazón"
-  class={`brand-mark-img ${cls}`}
+  alt={decorative ? '' : 'El Refugio del Corazón'}
+  class={`brand-mark-img ${inverted ? 'inverted' : ''} ${cls}`}
   width={size}
   height={size}
   densities={[1, 2, 3]}
@@ -28,5 +29,7 @@ const { size = 36, class: cls = '' } = Astro.props;
     object-fit: cover;
     border-radius: 999px;
     flex-shrink: 0;
+    border: 1px solid var(--mf-ink-soft);
   }
+.brand-mark-img.inverted { border-color: var(--mf-paper); }
 </style>

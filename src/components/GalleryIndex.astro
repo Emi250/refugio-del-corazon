@@ -18,9 +18,9 @@ const { items, lang = 'es' } = Astro.props;
   <span class="gidx-label kicker">{t('galleryPage.jumpTo', lang)}</span>
   <div class="gidx-track">
     {items.map(({ anchor, no, label }) => (
-      <a href={`#${anchor}`} class="gidx-chip" data-gidx-link={anchor}>
+      <a href={`#${anchor}`} class="gidx-chip" aria-label={`${no} ${label}${no === '00' ? ' · Patio' : ''}`} data-gidx-link={anchor}>
         <span class="gidx-no">{no}</span>
-        <span class="gidx-name">{label}</span>
+        <span class="gidx-name">{label}</span><span class="gidx-short">{no === '00' ? (lang === 'es' ? 'Patio' : 'Patio') : `#${Number(no)}`}</span>
       </a>
     ))}
   </div>
@@ -45,7 +45,7 @@ const { items, lang = 'es' } = Astro.props;
       const setActive = (id: string) => {
         if (id === activeId) return;
         activeId = id;
-        for (const a of links) a.classList.toggle('on', a.dataset.gidxLink === id);
+        for (const a of links) { const on = a.dataset.gidxLink === id; a.classList.toggle('on', on); if (on) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current'); }
         // Mantiene el chip activo a la vista cuando la barra scrollea en mobile.
         const on = bar.querySelector<HTMLElement>('.gidx-chip.on');
         const track = bar.querySelector<HTMLElement>('.gidx-track');
@@ -98,11 +98,12 @@ const { items, lang = 'es' } = Astro.props;
     gap: 0;
     flex: 1;
     overflow-x: auto;
-    scrollbar-width: none;
+    scrollbar-width: thin;
   }
-  .gidx-track::-webkit-scrollbar { display: none; }
+  .gidx-short { display: none; }
 
   .gidx-chip {
+    min-height: 44px;
     display: inline-flex;
     align-items: baseline;
     gap: 7px;
@@ -133,7 +134,7 @@ const { items, lang = 'es' } = Astro.props;
     background: var(--mf-ink);
     color: var(--mf-paper);
   }
-  .gidx-chip.on .gidx-no { color: var(--mf-accent); }
+  .gidx-chip.on .gidx-no { color: var(--mf-accent-on-ink); }
 
   @media (max-width: 900px) {
     .gidx { top: var(--mf-nav-h, 61px); }
@@ -143,6 +144,6 @@ const { items, lang = 'es' } = Astro.props;
     .gidx-label { display: none; }
     .gidx-chip { padding: 11px 14px; }
     .gidx-track .gidx-chip:first-child { border-left: 0; }
-    .gidx-name { font-size: 12.5px; }
+    .gidx-name, .gidx-no { display: none; } .gidx-short { display: inline; font-size: 14px; } .gidx-chip { flex: 1; justify-content: center; padding: 14px 8px; }
   }
 </style>

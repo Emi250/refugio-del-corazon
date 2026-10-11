@@ -3,6 +3,8 @@ name: "Departamento #3"
 name_en: "Apartment #3"
 summary: "Two bedrooms and a living-dining room in 60 m², for three guests. The bathroom is accessed through the main bedroom."
 seo_title: "2-bedroom apartment in Capilla del Monte · #3"
+beds: "Queen + one single, in separate bedrooms"
+decision_note: "Bathroom accessed through the main bedroom."
 order: 3
 lang: en
 specs:
@@ -10,7 +12,7 @@ specs:
   ambientes: "2 bedrooms · living-dining"
   metros: "60 m²"
   bano: "Inside the main bedroom"
-chips: ["WiFi", "Equipped kitchen", "2 heat-and-cool ACs", "Grill", "Bed linens", "Towels", "Smart TV (no cable)", "Fridge with Freezer"]
+chips: ["WiFi", "Equipped kitchen", "2 heat-and-cool ACs", "Bed linens", "Towels", "Smart TV (no cable)", "Fridge with Freezer"]
 hero_image: "../../../assets/images/unidades/unidad-3/hero.jpg"
 gallery:
   - { src: "../../../assets/images/unidades/unidad-3/hero.jpg", caption: "The living-dining room seen from the entrance" }

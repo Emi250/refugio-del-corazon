@@ -47,12 +47,15 @@
      barra de sugerencia de idioma necesita reservar su alto para no quedar
      tapada. Vive aca y no en el componente porque cruza dos scopes. */
   body:has(> .nav-hero) > .lang-suggest { margin-top: 75px; }
+  /* The language banner pushes the photo below the fixed navigation. Keep its
+     light labels readable while the banner is visible. */
+  body:has(> .lang-suggest:not([hidden])) > .nav-hero:not(.is-scrolled) { background: var(--mf-ink); }
 
   /* El sticky CTA de mobile es `position: fixed`: sin este padding tapa el
      ultimo tramo del footer. Estaba en el <style> scoped de MobileStickyCTA,
      donde Astro lo compilaba a `body[data-astro-cid-...]` y nunca matcheaba. */
   @media (max-width: 900px) {
-    body { padding-bottom: 72px; }
+    body { padding-bottom: calc(82px + env(safe-area-inset-bottom)); }
     body:has(> .nav-hero) > .lang-suggest { margin-top: 61px; }
   }
   .sr-only {
@@ -70,22 +73,21 @@
   /* Kicker / meta uppercase */
   .kicker {
     font-family: var(--mf-font-mono);
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 500;
     line-height: 1;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--mf-ink-soft);
   }
-  .kicker-sm { font-size: 9.5px; letter-spacing: 0.14em; }
-  .kicker-lg { font-size: 11px; letter-spacing: 0.18em; }
+  .kicker-sm { font-size: 12px; letter-spacing: 0.14em; }
+  .kicker-lg { font-size: 12px; letter-spacing: 0.18em; }
 
   .spec-mono {
     font-family: var(--mf-font-mono);
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    letter-spacing: 0.025em;
     color: var(--mf-ink-soft);
   }
 
@@ -126,7 +128,7 @@
     gap: 10px;
     padding: 14px 22px;
     border-radius: 999px;
-    background: var(--mf-accent);
+    background: var(--mf-action);
     color: var(--mf-paper);
     font-size: 14px;
     font-weight: 600;
@@ -134,7 +136,7 @@
     box-shadow: var(--mf-shadow-cta);
     transition: filter 0.15s, transform 0.1s;
   }
-  .cta-pill:hover { filter: brightness(1.05); }
+  .cta-pill:hover { filter: brightness(0.92); }
   .cta-pill:active { transform: translateY(1px); }
   .cta-pill-sm { padding: 10px 16px; font-size: 12px; }
   .cta-pill-ink { background: var(--mf-ink); }
@@ -151,6 +153,9 @@
 
   /* Inline link with accent underline */
   .link-acc {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
     position: relative;
     color: var(--mf-ink);
     border-bottom: 2px solid var(--mf-accent);
@@ -170,15 +175,14 @@
     transform-origin: left center;
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .link-acc:hover { color: var(--mf-accent); }
+  .link-acc:hover { color: var(--mf-action); }
   .link-acc:hover::after { transform: scaleX(1); }
 
   /* Reveal on scroll */
   [data-reveal] {
-    opacity: 0;
-    transform: translateY(12px);
+    opacity: 1;
+    transform: none;
     transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: opacity, transform;
   }
   [data-reveal].is-revealed {
     opacity: 1;
@@ -203,3 +207,10 @@
     background: transparent;
   }
 }
+
+.skip-link { position: fixed; top: 8px; left: 8px; z-index: 10000; padding: 12px 18px; background: var(--mf-ink); color: var(--mf-paper); transform: translateY(-200%); }
+.skip-link:focus { transform: none; }
+main:focus { outline: none; }
+.cta-pill { text-align: center; min-height: 44px; }
+button, a { -webkit-tap-highlight-color: transparent; }
+h1, h2, h3, p { text-wrap: pretty; }

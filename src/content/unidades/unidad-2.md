@@ -3,13 +3,15 @@ name: "Departamento #2"
 name_en: "Apartment #2"
 summary: "Hasta tres personas en 40 m²: un dormitorio con cama queen y una individual en el ambiente de cocina y comedor. Horno a gas."
 seo_title: "Departamento para 3 en Capilla del Monte · #2, 40 m²"
+beds: "Queen + una individual en cocina/comedor"
+decision_note: "Cocina con horno a gas."
 order: 2
 lang: es
 specs:
   capacidad: "Hasta 3 personas"
   ambientes: "2 ambientes"
   metros: "40 m²"
-chips: ["WiFi", "Cocina equipada", "Aire frío-calor", "Parrilla", "Ropa de cama", "Toallas", "Smart TV (sin cable)", "Heladera con Freezer"]
+chips: ["WiFi", "Cocina equipada", "Aire frío-calor", "Ropa de cama", "Toallas", "Smart TV (sin cable)", "Heladera con Freezer"]
 hero_image: "../../assets/images/unidades/unidad-2/hero.jpg"
 gallery:
   - { src: "../../assets/images/unidades/unidad-2/hero.jpg", caption: "La habitación, con cama queen y el baño al lado" }

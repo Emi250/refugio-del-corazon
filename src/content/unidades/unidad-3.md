@@ -3,6 +3,8 @@ name: "Departamento #3"
 name_en: "Apartment #3"
 summary: "Dos dormitorios y living comedor en 60 m², para tres personas. El acceso al baño es por la habitación principal."
 seo_title: "Departamento de 2 dormitorios en Capilla del Monte · #3"
+beds: "Queen + una individual, en dormitorios separados"
+decision_note: "Acceso al baño por el dormitorio principal."
 order: 3
 lang: es
 specs:
@@ -10,7 +12,7 @@ specs:
   ambientes: "2 dormitorios · living comedor"
   metros: "60 m²"
   bano: "En la habitación principal"
-chips: ["WiFi", "Cocina equipada", "2 aires frío-calor", "Parrilla", "Ropa de cama", "Toallas", "Smart TV (sin cable)", "Heladera con Freezer"]
+chips: ["WiFi", "Cocina equipada", "2 aires frío-calor", "Ropa de cama", "Toallas", "Smart TV (sin cable)", "Heladera con Freezer"]
 hero_image: "../../assets/images/unidades/unidad-3/hero.jpg"
 gallery:
   - { src: "../../assets/images/unidades/unidad-3/hero.jpg", caption: "El living comedor visto desde la entrada" }

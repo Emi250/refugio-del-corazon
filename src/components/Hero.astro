@@ -1,5 +1,4 @@
 ---
-import WhatsAppCTA from './WhatsAppCTA.astro';
 import { t, type Lang, localizedPath } from '~/i18n';
 import { heroSources } from '~/utils/images';
 
@@ -51,7 +50,7 @@ const sub = subtitle ?? t('hero.subtitle', lang);
     <h1 class="hero-title">{ti} <span class="hero-deck">{dk}</span></h1>
     <div class="hero-bottom">
       <p class="hero-sub">{sub}</p>
-      <WhatsAppCTA placement="hero" lang={lang} variant="big" />
+      <a class="hero-choose" href={localizedPath('/#unidades', lang)}>{lang === 'es' ? 'Elegí tu departamento' : 'Choose your apartment'} <span aria-hidden="true">↓</span></a>
     </div>
   </div>
 
@@ -92,8 +91,8 @@ const sub = subtitle ?? t('hero.subtitle', lang);
   .hero-blur-overlay {
     position: absolute;
     inset: 0;
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     mask-image: linear-gradient(to bottom, transparent 30%, black 75%);
     -webkit-mask-image: linear-gradient(to bottom, transparent 30%, black 75%);
     z-index: -1;
@@ -191,6 +190,8 @@ const sub = subtitle ?? t('hero.subtitle', lang);
     margin: 0;
   }
 
+  .hero-choose { display: inline-flex; align-items: center; gap: 24px; padding: 14px 22px; min-height: 48px; border-radius: 999px; background: var(--mf-paper); color: var(--mf-ink); font-weight: 600; }
+  .hero-choose:hover { background: var(--mf-paper-2); }
   .hero-scroll {
     color: inherit;
     transition: opacity 0.15s;
@@ -213,18 +214,18 @@ const sub = subtitle ?? t('hero.subtitle', lang);
   }
 
   @media (max-width: 720px) {
-    .hero { min-height: 600px; padding-top: 64px; }
-    .hero-top { padding: 14px 18px; font-size: 9px; }
+    .hero { min-height: 600px; padding-top: var(--mf-nav-h, 72px); }
+    .hero-top { padding: 14px 18px; font-size: 11px; }
     .hero-body { padding: 0 18px 24px; gap: 18px; }
     .hero-title { font-size: clamp(52px, 14vw, 80px); max-width: 100%; }
     .hero-deck { font-size: 18px; margin-top: 12px; }
-    .hero-sub { font-size: 14px; max-width: 30ch; }
+    .hero-sub { font-size: 16px; max-width: 30ch; }
     .hero-bottom { gap: 20px; }
-    .hero-foot { padding: 12px 18px; font-size: 9px; }
+    .hero-foot { padding: 12px 18px; font-size: 12px; }
   }
 
   @media (max-width: 380px) {
     .hero-title { font-size: clamp(44px, 13.5vw, 56px); }
-    .hero-top span { font-size: 8.5px; }
+    .hero-top { flex-wrap: wrap; gap: 8px; } .hero-top span { font-size: 11px; }
   }
 </style>

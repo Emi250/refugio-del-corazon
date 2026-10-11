@@ -2,6 +2,8 @@
 name: "Departamento #1"
 name_en: "Apartment #1"
 summary: "For two guests, with a king bed or two singles. Electric kitchen open to the living room, without an oven."
+beds: "King or two singles"
+decision_note: "Electric kitchen without an oven."
 order: 1
 lang: en
 specs:
@@ -9,7 +11,7 @@ specs:
   ambientes: "1 bedroom · living room"
   metros: "40 m²"
   vista: "Hills out front"
-chips: ["WiFi", "Equipped kitchen", "Grill", "Bed linens", "Heat-and-cool AC", "Towels", "Fridge with Freezer", "Smart TV (no cable)"]
+chips: ["WiFi", "Equipped kitchen", "Bed linens", "Heat-and-cool AC", "Towels", "Fridge with Freezer", "Smart TV (no cable)"]
 hero_image: "../../../assets/images/unidades/unidad-1/hero.jpg"
 gallery:
   - { src: "../../../assets/images/unidades/unidad-1/hero.jpg", caption: "Living-dining room, with the kitchen built in" }

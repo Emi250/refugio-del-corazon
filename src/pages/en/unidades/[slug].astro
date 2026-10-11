@@ -1,4 +1,6 @@
 ---
+import StayEssentials from '~/components/StayEssentials.astro';
+import { inquiryMessage, waLink } from '~/utils/whatsapp';
 import Base from '~/layouts/Base.astro';
 import PhotoMosaic from '~/components/PhotoMosaic.astro';
 import EnPocasPalabras from '~/components/EnPocasPalabras.astro';
@@ -23,7 +25,7 @@ export async function getStaticPaths() {
 }
 
 interface Props { unit: CollectionEntry<'unidades'> }
-const { unit } = Astro.props;
+const { unit } = Astro.props as Props;
 const { data } = unit;
 const { Content } = await unit.render();
 
@@ -42,7 +44,7 @@ const specs = [
   { k: 'Bathroom', v: data.specs.bano ?? 'Private' },
 ];
 
-const waMessage = `Hi, I'm interested in the "${name}" unit at El Refugio del Corazón. Could we check availability?`;
+const waMessage = inquiryMessage(name, lang);
 
 const blurbEn = data.blurb_en ?? data.blurb;
 const seoTitle = data.seo_title ?? `${name} in Capilla del Monte · ${data.specs.capacidad}`;
@@ -125,6 +127,8 @@ const crumbs = [
     <ServiceList lang={lang} items={data.chips.map(c => ({ k: c, v: 'INCLUDED' }))} />
   </section>
 
+  <section class="d-slab"><h2>Shared spaces</h2><ServiceList lang={lang} items={[{k: 'Inner courtyard with loungers and tables'}, {k: 'Two grills shared by all guests'}]} /><a class="link-acc" href={localizedPath('/galeria/#espacios-comunes', lang)}>View shared spaces →</a></section>
+  <StayEssentials lang={lang} />
   <CTABlock
     lang={lang}
     title={t('unit.ctaTitle', lang)}
@@ -133,7 +137,7 @@ const crumbs = [
     background="paper"
   />
 
-  <Lightbox lang={lang} />
+  <Lightbox lang={lang} waHref={waLink(waMessage, lang)} />
 
   {miniFaqEntries.length > 0 && (
     <section class="d-mini-faq">
@@ -176,14 +180,14 @@ const crumbs = [
   .crumb {
     display: flex; gap: 8px;
     font-family: var(--mf-font-mono);
-    font-size: 11px; font-weight: 500;
+    font-size: 12px; font-weight: 500;
     letter-spacing: 0.06em;
     color: var(--mf-ink-soft);
     text-transform: uppercase;
     margin-bottom: 24px;
   }
   .crumb a { text-decoration: underline; text-underline-offset: 3px; }
-  .crumb a:hover { color: var(--mf-accent); }
+  .crumb a:hover { color: var(--mf-action); }
   .crumb b { color: var(--mf-ink); }
   .title-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; flex-wrap: wrap; }
   .d-title-h { font-size: clamp(38px, 9.5vw, 128px); overflow-wrap: break-word; line-height: 0.88; letter-spacing: -0.045em; font-weight: 800; margin-top: 14px; }
@@ -214,7 +218,7 @@ const crumbs = [
   .other-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--mf-ink); }
   .other-item { padding: 22px 24px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 18px; border-right: 1px solid var(--mf-hair); color: var(--mf-ink); transition: background 0.15s, color 0.15s; }
   .other-item:last-child { border-right: 0; }
-  .other-item:hover { background: var(--mf-paper-2); color: var(--mf-accent); }
+  .other-item:hover { background: var(--mf-paper-2); color: var(--mf-action); }
   .other-no { font-size: 36px; }
   .other-name { font-size: 18px; font-weight: 600; letter-spacing: -0.015em; }
   .other-meta { margin-top: 4px; }
@@ -234,4 +238,6 @@ const crumbs = [
     .d-mini-faq-list { margin: 0 -18px; }
     .d-mini-faq-foot { padding-top: 16px; }
   }
+.crumb { flex-wrap: wrap; line-height: 1.5; }
+@media(max-width:720px) { .title-side { align-items: flex-start; gap: 12px; } .title-actions { justify-content: flex-start; } .title-actions :global(.cta-pill) { display: none; } .title-row { gap: 18px; } .d-specs { flex-wrap: wrap; } .d-title-h { font-size: clamp(32px,9vw,64px); line-height: 1; } }
 </style>
