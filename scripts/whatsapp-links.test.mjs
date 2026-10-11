@@ -25,7 +25,9 @@ test('inquiries preserve apartment, accents and language in a single encoded que
     assert.ok(message.startsWith(intro));
     assert.ok(message.includes(unit));
     assert.ok(message.includes('El Refugio'));
-    assert.ok(message.split('\n').length >= 4);
+    assert.equal(message.split('\n').length, 3);
+    assert.ok(message.includes(lang === 'es' ? 'Fechas de entrada y salida:' : 'Check-in and check-out dates:'));
+    assert.ok(message.includes(lang === 'es' ? 'Cantidad de personas:' : 'Number of guests:'));
   }
 });
 
