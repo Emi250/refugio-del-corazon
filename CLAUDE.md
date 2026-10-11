@@ -391,6 +391,8 @@ Este proyecto se optimiza para **mínimo gasto de tokens** por sesión. Reglas:
 
 **Última actualización**: 2026-10-11
 
+**Estado vigente de publicación:** PR #11 (UX/UI y accesibilidad) y PR #12 (cancelación con reintegro de seña con al menos 5 días de anticipación) publicados y verificados en Vercel el 11 de octubre. Las menciones a «sin desplegar» de los registros anteriores describen el momento de esas pruebas. Teléfonos físicos y lectores reales pospuestos por el usuario, sin marcar como aprobados. Sitemap de 20 URLs reenviado a Search Console; recepción de `whatsapp_click`, evento clave y tres dimensiones personalizadas confirmados en GA4. Los informes de indexación reflejan rastreos históricos, no el estado instantáneo del sitio.
+
 - [x] CLAUDE.md creado
 - [x] Scaffold Astro inicial (configs + package.json) — 2026-05-21
 - [x] Tailwind + tokens.css — 2026-05-21
@@ -433,7 +435,7 @@ Este proyecto se optimiza para **mínimo gasto de tokens** por sesión. Reglas:
 - [ ] **Confirmar si `espacios/paso-mediasombra.jpg` es la cochera cubierta.** Si lo es, cambiar el caption (hoy dice "El acceso cubierto con media sombra") y subirla a las 5 celdas visibles: "Cochera privada" se promete en servicios sin ninguna foto
 - [ ] Sumar widgets Elfsight de Google y Airbnb cuando el cliente decida (mismo patrón que Booking)
 - [ ] Contenido real (scraping del sitio Lovable actual)
-- [ ] Deploy a Vercel + dominio (`refugiodelcorazon.com.ar`)
+- [x] Deploy a Vercel + dominio (`refugiodelcorazon.com.ar`) — producción verificada el 2026-10-11
 
 ### Checklist SEO post-deploy
 
