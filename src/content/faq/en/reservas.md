@@ -8,5 +8,5 @@ qa:
   - q: "How does payment and the deposit work?"
     a: "To secure the booking we ask for a 20% deposit of the total stay. The rest is paid on arrival, by bank transfer or cash (pesos or dollars). We don't accept card payments."
   - q: "Can I cancel my booking?"
-    a: "Cancellations more than 15 days ahead: full 100% deposit refund. Between 7 and 15 days: 50%. Less than 7 days: deposit is not refunded, but you can reschedule subject to availability."
+    a: "If you cancel at least 5 days before check-in, you will receive a full refund of your deposit. With less than 5 days' notice, the deposit is non-refundable, but you can reschedule your stay, subject to availability, and apply your deposit to the new booking."
 ---

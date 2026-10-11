@@ -9,5 +9,5 @@ qa:
   - q: "¿Cómo es el pago y la seña?"
     a: "Para asentar la reserva pedimos una seña del 20% del valor total de la estadía. El resto se abona al llegar, por transferencia bancaria o efectivo (pesos o dólares). No trabajamos con tarjeta."
   - q: "¿Puedo cancelar mi reserva?"
-    a: "Cancelaciones con más de 15 días de anticipación: devolvemos el 100% de la seña. Entre 7 y 15 días: 50%. Menos de 7 días: la seña no se reintegra, pero podés reprogramar para otra fecha sujeto a disponibilidad."
+    a: "Si cancelás con al menos 5 días de anticipación al check-in, te devolvemos el 100% de la seña. Con menos de 5 días de anticipación, la seña no se reintegra, pero podés reprogramar tu estadía para otra fecha, sujeta a disponibilidad, y aplicar la seña a la nueva reserva."
 ---
