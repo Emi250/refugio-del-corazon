@@ -36,7 +36,7 @@ const espacios = espaciosImages(lang);
 
   <GalleryIndex items={indexItems} lang={lang} />
 
-  <GallerySection id={ESPACIOS_ANCHOR} title={t('sections.spaces', lang)} no="00" images={espacios} lang={lang} />
+  <GallerySection id={ESPACIOS_ANCHOR} title={t('sections.spaces', lang)} no="00" images={espacios} lang={lang} priority />
   {sorted.map(unit => <GallerySection id={unit.slug.replace(/^en\//, '')} title={unit.data.name} no={`0${unit.data.order}`} images={unit.data.gallery} unit={unit.data.order} detail={localizedPath(`/unidades/${unit.slug.replace(/^en\//, '')}`, lang)} lang={lang} />)}
 
   <CTABlock lang={lang} />

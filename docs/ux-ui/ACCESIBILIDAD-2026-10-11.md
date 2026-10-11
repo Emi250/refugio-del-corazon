@@ -47,4 +47,4 @@ Reproducción: `npm run build` y `npm run ux:a11y`, con Playwright disponible me
 | Regreso desde WhatsApp | Abrir una consulta de la ficha #4 sin enviarla, volver al sitio y comprobar unidad, posición y respuesta del menú. Repetir desde el visor. |
 | Contenido externo y lectura sobre fotografías | Revisar el mapa y la reproducción de videos en el dispositivo; comprobar legibilidad sobre las fotografías. axe-core marca estos casos como revisión manual cuando no puede resolver el fondo o el iframe. |
 
-Estas comprobaciones necesitan un dispositivo con acceso a una versión de prueba del sitio. No se ejecutaron por simulación ni se marcaron como aprobadas. No hubo despliegue.
+Estas comprobaciones necesitan un dispositivo con acceso al sitio. No se ejecutaron por simulación ni se marcaron como aprobadas. El sitio se publicó el 11 de octubre (PR #11 y #12). El usuario decidió posponer las pruebas con teléfonos físicos y lectores de pantalla reales; permanecen pendientes.

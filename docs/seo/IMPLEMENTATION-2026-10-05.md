@@ -51,3 +51,23 @@ Resultados agregados del 5 de septiembre al 2 de octubre: 13 clics y 157 impresi
 **H07, Lovable:** se identificó el proyecto antiguo `a39bb25d-009f-4007-8660-054eada2d80f`, cuyo HTML aún usa el título `capilla-monte-apartments-web`. El conector permite leerlo pero no ofrece publicación directa; la sesión del navegador requiere iniciar sesión. El propietario está habilitando el acceso para resolver la migración. No considerar el sitio anterior redirigido o desindexado hasta verificar la respuesta pública. [Editor del proyecto](https://lovable.dev/projects/a39bb25d-009f-4007-8660-054eada2d80f).
 
 Después del despliegue: comprobar las URLs públicas, reenviar el sitemap y registrar las mediciones nuevas. Comparar tráfico orgánico, clics de contacto y consultas reales a los 28–30 días teniendo en cuenta estacionalidad; no equiparar clics a reservas.
+
+## Verificación posterior — 11 de octubre de 2026
+
+- PR #11 y #12 publicados y verificados en el dominio público. Sitemap actual con 20 URLs; reenvío aceptado por Search Console el 11 de octubre, pendiente de descarga. El envío no garantiza indexación.
+- Inspección de las 20 URLs: 8 indexadas, 2 descubiertas sin indexar, 4 desconocidas (incluyen las dos nuevas páginas de privacidad), 3 alternativas con canonical, 2 duplicadas con canonical española elegida por Google y 1 con redirección histórica. `/servicios/` responde hoy 200 con canonical propia; su informe conserva un rastreo de junio. Las versiones inglesas de galería y ubicación también responden 200 con canonical propia. No cambiar redirecciones o canonicals actuales basándose solo en esos rastreos anteriores.
+- GA4 accesible y vinculado: recepción de `whatsapp_click` comprobada en datos del 5 al 10 de octubre; ya está marcado como evento clave. Registradas `unit`, `page_language` y `cta_location`. Esto confirma recepción histórica y configuración; no verifica DebugView en tiempo real ni atribuye cada clic a una consulta efectiva. Las métricas privadas de cuenta no se incorporan al repositorio público.
+- CrUX no consultable desde el conector por falta de clave API configurada; no se concluye que falten datos de campo.
+- El sitio antiguo de Lovable sigue respondiendo 200, sin redirección ni `noindex` en el HTML recibido. Su retiro/migración sigue pendiente de acceso de publicación.
+
+### Rendimiento móvil de laboratorio
+
+Lighthouse 13.5.0 ejecutado contra producción en Edge/Chromium aislado, emulación móvil y ralentización simulada. Tres ejecuciones secuenciales para inicio y unidad #2. No son mediciones en un teléfono físico ni una comparación controlada con los informes antiguos de PageSpeed Insights.
+
+| Página | Puntuaciones | LCP por ejecución | CLS máximo |
+|---|---|---|---|
+| Inicio | 92 / 90 / 98 | 3,25 / 3,44 / 1,85 s | 0,00016 |
+| Unidad #2 | 88 / 94 / 99 | 3,15 / 1,77 / 1,56 s | 0,0162 |
+| Galería, diagnóstico inicial | 78 | 4,90 s | 0,0162 |
+
+La variación exige conservar el rango y no presentar el mejor resultado como garantía. En galería Lighthouse identifica la foto inicial del patio como LCP, con `loading="lazy"` y sin prioridad alta. Se añade prioridad solo a la primera foto de la primera sección, en ES/EN; las restantes 39 siguen diferidas. No se cambian las fotos, la tipografía ni la analítica.

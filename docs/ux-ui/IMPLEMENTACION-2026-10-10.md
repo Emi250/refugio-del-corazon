@@ -99,6 +99,8 @@ Permanecen fuera de lo comprobado en este entorno:
 
 Los recursos externos se bloquean en las pruebas generales para evitar enviar medición; el caso específico de reseñas permite solo los dominios de Elfsight. La suite no certifica el mapa externo ni la reproducción completa de los videos.
 
-Los cambios están en el repositorio local; **no se desplegaron**. Antes del despliegue, el entorno debe conservar `PUBLIC_WHATSAPP_NUMBER` con el número del negocio utilizado en la configuración local. El build falla si falta o es inválido, en vez de publicar un destino ficticio.
+**Actualización del 11 de octubre:** cambios publicados en producción mediante PR #11; política de cancelación actualizada en ES/EN mediante PR #12. Vercel confirmó ambos despliegues y se verificaron las páginas públicas. Se configuró `PUBLIC_WHATSAPP_NUMBER` también para vistas previas; producción conserva el número verificado. El build falla si falta o es inválido.
+
+En producción se comprobaron 20 páginas de contenido, plantilla 404 y respuesta 404 para una ruta inexistente, sitemap/robots, redirección www, 128 enlaces de WhatsApp y 40 fotos por galería. Pasaron menú, teclado, visor, cambio de idioma y navegación sin JavaScript en Chromium y WebKit. Las pruebas con teléfonos físicos y lectores de pantalla reales se pospusieron por indicación del usuario; siguen sin verificarse.
 
 La página de privacidad documenta la implementación técnica actual; no decide por el titular plazos de conservación, base legal o requisitos de consentimiento. Esas definiciones de operación no se inventaron. La cuenta/idioma/licencia de Elfsight y cualquier futura modificación de permisos de Drive se administran en sus servicios respectivos.
