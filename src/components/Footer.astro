@@ -4,6 +4,7 @@ import BrandMark from './BrandMark.astro';
 import { t, type Lang, localizedPath } from '~/i18n';
 import { getCollection } from 'astro:content';
 import { BUSINESS } from '~/utils/seo';
+import { GUIA_PATH } from '~/data/guia';
 
 interface Props { lang?: Lang; message?: string }
 const { lang = 'es', message } = Astro.props;
@@ -41,6 +42,7 @@ const year = new Date().getFullYear();
       <a href={localizedPath('/ubicacion', lang)}>{t('nav.location', lang)}</a>
       <a href={localizedPath('/galeria', lang)}>{t('nav.gallery', lang)}</a>
       <a href={localizedPath('/faq', lang)}>{t('nav.faq', lang)}</a>
+      <a href={localizedPath(GUIA_PATH, lang)}>{t('nav.guide', lang)}</a>
     </div>
     <div>
       <div class="footer-kicker">{t('footer.contact', lang)}</div>

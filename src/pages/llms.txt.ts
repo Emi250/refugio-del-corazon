@@ -27,7 +27,8 @@ export const GET: APIRoute = async () => {
     '## Más información',
     ...[
       ['Galería', '/galeria/'], ['Servicios', '/servicios/'],
-      ['Ubicación', '/ubicacion/'], ['Preguntas frecuentes', '/faq/'], ['English', '/en/'],
+      ['Ubicación', '/ubicacion/'], ['Preguntas frecuentes', '/faq/'],
+      ['Qué hacer en Capilla del Monte', '/que-hacer-en-capilla-del-monte/'], ['English', '/en/'],
     ].map(([label, path]) => `- [${label}](${absoluteUrl(path)})`),
   ].join('\n\n');
   return new Response(text + '\n', { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });

@@ -1,5 +1,6 @@
 ---
-import { t, type Lang } from '~/i18n';
+import { t, type Lang, localizedPath } from '~/i18n';
+import { GUIA_PATH } from '~/data/guia';
 import { MAP_EMBED_URL, directionsUrl } from '~/utils/seo';
 
 interface Props { lang?: Lang }
@@ -30,6 +31,7 @@ const uritorco = lang === 'en' ? 'Uritorco · 2.3 km' : 'Uritorco · 2,3 km';
       <span class="chip">{uritorco}</span>
     </div>
     <a href={directionsUrl()} class="link-acc" target="_blank" rel="noopener" aria-label={lang === 'es' ? 'Cómo llegar en Google Maps (se abre en otra pestaña)' : 'How to get here on Google Maps (opens in a new tab)'}>{t('location.howToGet', lang)} ↗</a>
+    <a href={localizedPath(GUIA_PATH, lang)} class="link-acc loc-guide">{t('nav.guide', lang)} →</a>
   </article>
 
   <div class="loc-pin" data-reveal style="transition-delay: 120ms;">
@@ -76,6 +78,7 @@ const uritorco = lang === 'en' ? 'Uritorco · 2.3 km' : 'Uritorco · 2,3 km';
     color: var(--mf-ink-soft);
     margin: 0 0 16px;
   }
+  .loc-guide { margin-left: 22px; }
   .loc-chips {
     display: flex;
     flex-wrap: wrap;
