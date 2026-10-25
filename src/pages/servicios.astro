@@ -12,13 +12,16 @@ const units = (await getCollection('unidades', ({ data }) => data.lang === 'es')
 
 const incluidos = [
   { k: 'WiFi fibra óptica (300 megas)', v: 'INCLUIDO' },
+  { k: 'Aire acondicionado split frío-calor', v: 'INCLUIDO' },
   { k: 'Cocina equipada + heladera con freezer', v: 'INCLUIDO' },
+  { k: 'Pava eléctrica y tostadora', v: 'INCLUIDO' },
+  { k: 'Termotanque eléctrico', v: 'INCLUIDO' },
+  { k: 'Secador de pelo', v: 'INCLUIDO' },
   { k: 'Ropa de cama', v: 'INCLUIDO' },
   { k: 'Toallas', v: 'INCLUIDO' },
-  { k: 'Aire acondicionado', v: 'INCLUIDO' },
-  { k: 'Parrillas (dos)', v: 'INCLUIDO' },
-  { k: 'Patio interno compartido', v: 'INCLUIDO' },
   { k: 'Smart TV con streaming', v: 'INCLUIDO' },
+  { k: 'Parque con reposeras y mesas', v: 'INCLUIDO' },
+  { k: 'Parrillas (dos)', v: 'INCLUIDO' },
   { k: 'Check-in con anfitrión', v: 'INCLUIDO' },
 ];
 
@@ -31,7 +34,7 @@ const noTenemos = [
 ---
 <Base
   title="Servicios incluidos · Alquiler en Capilla del Monte"
-  description="Departamentos en Capilla del Monte con cocina equipada, WiFi, aire acondicionado y parrillas. Estacionamiento para dos autos, sujeto a disponibilidad."
+  description="Departamentos a 800 m del centro de Capilla del Monte con cocina equipada, aire split, WiFi, parque y parrillas. Estacionamiento sujeto a disponibilidad."
 >
   <BigHeader
     kicker="02 · SERVICIOS"
@@ -44,7 +47,7 @@ const noTenemos = [
   <section class="serv-section">
     <div class="serv-head">
       <h2>Lo que incluye tu estadía</h2>
-      <span class="spec-mono">9 SERVICIOS</span>
+      <span class="spec-mono">{incluidos.length} SERVICIOS</span>
     </div>
     <ServiceList lang={lang} items={incluidos} />
   </section>

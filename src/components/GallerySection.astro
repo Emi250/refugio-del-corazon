@@ -14,7 +14,7 @@ const photo = (i: number) => `${lang === 'es' ? 'Foto' : 'Photo'} ${i + 1}`;
   <header class="gal-head">
     <span class="display-no display-md">{no}</span>
     <div><h2>{title}</h2>{detail && <a class="link-acc" href={detail}>{lang === 'es' ? 'Ver departamento' : 'View apartment'} →</a>}</div>
-    <span class="spec-mono">{images.length} {lang === 'es' ? 'fotos' : 'photos'}{!unit && (lang === 'es' ? ' · Uso compartido' : ' · Shared spaces')}</span>
+    <span class="spec-mono">{images.length} {lang === 'es' ? 'fotos' : 'photos'}</span>
   </header>
   {[false, true].map(extra => {
     const grid = <div class="gal-grid">{images.map((img, i) => (extra ? i >= 3 : i < 3) && (

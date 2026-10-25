@@ -11,15 +11,16 @@
     "kicker": "Capilla del Monte · Córdoba",
     "title": "El Refugio del Corazón",
     "deck": "Vacation rentals in Capilla del Monte",
-    "subtitle": "Four apartments for 2 to 5 guests. Your own kitchen, a shared courtyard and a welcome from the owners.",
+    "subtitle": "Four apartments for 2 to 5 guests, 800 m from downtown. Equipped kitchen, split heat-and-cool AC, WiFi and a garden with grills.",
     "cta": "Ask on WhatsApp",
     "scrollHint": "Meet the apartments"
   },
   "sections": {
     "units": "The apartments",
     "unitsMeta": "Four unique spaces",
-    "spaces": "Shared spaces",
-    "spacesMeta": "Courtyard, grills and garden",
+    "unitsIntro": "Four apartments for 2 to 5 guests, 800 meters from downtown Capilla del Monte. Each has an equipped kitchen, electric water heater, split heat-and-cool air conditioning and fiber-optic WiFi. Free access to the garden, with loungers, grills and tables.",
+    "spaces": "The garden",
+    "spacesMeta": "Loungers, grills and tables",
     "gallery": "Gallery",
     "galleryMeta": "Every corner",
     "services": "Services",
@@ -31,24 +32,24 @@
     "faqMeta": "Most asked"
   },
   "spaces": {
-    "blurb": "All four apartments open onto the same inner courtyard: lawn, loungers, outdoor tables and two grills for every guest to use. Lavender and rose beds frame the hills in the background.",
+    "blurb": "All four apartments have free access to the garden: lawn, loungers, tables and two grills, among lavender and rose beds, with the hills behind.",
     "chips": [
-      "Shared courtyard",
       "Two grills",
       "Loungers and tables",
+      "Lavender beds",
       "Clothesline",
       "Mountain views"
     ],
     "captions": {
-      "patio": "The shared inner courtyard, with the hills behind",
+      "parque": "The garden, with the hills behind",
       "parrilla": "One of the two grills",
       "fachada": "The front on Río Negro 64",
-      "jardin": "Loungers and outdoor tables",
-      "frenteJardin": "The front garden, among the lavender",
+      "jardin": "Loungers and tables in the garden",
+      "frenteJardin": "The front, among the lavender",
       "lateralCerro": "The side path, with the hill behind",
       "pasoMediasombra": "The covered entrance with shade cloth",
       "accesoPorton": "The way in through the gate",
-      "jazmin": "Jasmine in bloom over the garden"
+      "jazmin": "Jasmine in bloom in the garden"
     }
   },
   "unit": {
@@ -76,7 +77,7 @@
   },
   "location": {
     "title": "Rio Negro 64, Capilla del Monte",
-    "lead": "A few blocks from downtown Capilla del Monte. Perfect to rest and explore.",
+    "lead": "800 meters from downtown Capilla del Monte — a 10-minute walk.",
     "howToGet": "How to get here",
     "nearby": "Featured places",
     "weather": "Weather by season"
@@ -109,7 +110,7 @@
     "browseTitle": "Pick where to stay"
   },
   "galleryStrip": {
-    "exterior": "Courtyard",
+    "exterior": "Garden",
     "living": "Living room",
     "kitchen": "Kitchen",
     "bedroom": "Bedroom",

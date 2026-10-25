@@ -9,7 +9,7 @@ export const GET: APIRoute = async () => {
     .sort((a, b) => a.data.order - b.data.order);
   const text = [
     `# ${SITE_NAME}`,
-    '> Departamentos de alquiler temporario en Capilla del Monte, Córdoba, Argentina.',
+    '> Departamentos de alquiler temporario en Capilla del Monte, Córdoba, Argentina, a 800 m del centro.',
     `Dirección: ${BUSINESS.street}, ${BUSINESS.locality}, ${BUSINESS.region}, ${BUSINESS.countryName}.`,
     `Sitio oficial: ${SITE_URL}/`,
     `Ubicación: ${BUSINESS.mapsUrl}`,

@@ -1,11 +1,11 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { localizedPath, type Lang } from '~/i18n';
+import { localizedPath, t, type Lang } from '~/i18n';
 interface Props { units: CollectionEntry<'unidades'>[]; lang: Lang }
 const { units, lang } = Astro.props;
 ---
 <section class="comparison" aria-label={lang === 'es' ? 'Comparar departamentos' : 'Compare apartments'}>
-  <p class="comparison-intro">{lang === 'es' ? 'Encontrá el espacio para tu viaje. Todos tienen cocina propia y acceso al patio compartido.' : 'Find the right space for your stay. Every apartment has its own kitchen and access to the shared courtyard.'}</p>
+  <p class="comparison-intro">{t('sections.unitsIntro', lang)}</p>
   <div class="comparison-grid">
     {units.map(({slug, data}) => (
       <article class="comparison-unit">

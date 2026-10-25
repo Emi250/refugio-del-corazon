@@ -1,18 +1,17 @@
 ---
-name: "Departamento #3"
-name_en: "Apartment #3"
-summary: "Two bedrooms and a living-dining room in 60 m², for three guests. The bathroom is accessed through the main bedroom."
-seo_title: "2-bedroom apartment in Capilla del Monte · #3"
+name: "Departamento N° 3"
+name_en: "Apartment No. 3"
+summary: "Two bedrooms and a living-dining room in 60 m², for 3 guests. Private bathroom and two split heat-and-cool ACs."
+seo_title: "2-bedroom apartment in Capilla del Monte · No. 3"
 beds: "Queen + one single, in separate bedrooms"
-decision_note: "Bathroom accessed through the main bedroom."
+decision_note: "Two separate bedrooms and a separate kitchen."
 order: 3
 lang: en
 specs:
   capacidad: "Up to 3 guests"
   ambientes: "2 bedrooms · living-dining"
   metros: "60 m²"
-  bano: "Inside the main bedroom"
-chips: ["WiFi", "Equipped kitchen", "2 heat-and-cool ACs", "Bed linens", "Towels", "Smart TV (no cable)", "Fridge with Freezer"]
+chips: ["WiFi", "2 split heat-and-cool ACs", "Smart TV (no cable)", "Equipped kitchen", "Fridge with Freezer", "Electric kettle", "Toaster", "Electric water heater", "Hair dryer", "Bed linens", "Towels"]
 hero_image: "../../../assets/images/unidades/unidad-3/hero.jpg"
 gallery:
   - { src: "../../../assets/images/unidades/unidad-3/hero.jpg", caption: "The living-dining room seen from the entrance" }
@@ -20,18 +19,16 @@ gallery:
   - { src: "../../../assets/images/unidades/unidad-3/dormitorio.jpg", caption: "Main bedroom with a queen bed" }
   - { src: "../../../assets/images/unidades/unidad-3/dormitorio-02.jpg", caption: "Second bedroom with a single bed" }
   - { src: "../../../assets/images/unidades/unidad-3/cocina.jpg", caption: "Separate kitchen with a gas oven" }
-  - { src: "../../../assets/images/unidades/unidad-3/bano-02.jpg", caption: "The bathroom, off the main bedroom" }
-  - { src: "../../../assets/images/unidades/unidad-3/exterior.jpg", caption: "Private entrance to #3, with the number on the door" }
+  - { src: "../../../assets/images/unidades/unidad-3/bano-02.jpg", caption: "Private bathroom" }
+  - { src: "../../../assets/images/unidades/unidad-3/exterior.jpg", caption: "Private entrance to No. 3" }
   - { src: "../../../assets/images/unidades/unidad-3/ropa-de-cama.jpg", caption: "Towels, bed linens and amenities" }
-blurb: "Two bedrooms, a wide living-dining room and two heat-and-cool ACs. Bathroom inside the main room."
+blurb: "Two bedrooms, a wide living-dining room, a private bathroom and two split heat-and-cool ACs."
 airbnb_url: "https://airbnb.com.ar/h/capilladelmonte1"
 video_url: "https://drive.google.com/file/d/140Jm2sfPyLAq1fEbEtOASKrRAA_4QfZk/view?usp=sharing"
 ---
 
-Two bedrooms and a wide living-dining room. The main one has a queen bed; the second, a single bed.
+Two bedrooms — the main one with a queen bed, the second with a single — and a wide living-dining room with Smart TV.
 
-The bathroom is inside the main bedroom. The kitchen has a gas oven and is equipped for everyday cooking.
+Private bathroom. Separate kitchen with gas oven, fridge-freezer, electric kettle and toaster.
 
-It has two heat-and-cool air conditioners: one in the main bedroom and one in the living room.
-
-Like the other apartments, you get access to the shared inner courtyard and the grill.
+Two split heat-and-cool air conditioners (main bedroom and living room), electric water heater, hair dryer and fiber-optic WiFi. Bed linens and towels included.
