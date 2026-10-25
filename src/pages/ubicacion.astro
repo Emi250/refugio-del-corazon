@@ -2,7 +2,8 @@
 import Base from '~/layouts/Base.astro';
 import BigHeader from '~/components/BigHeader.astro';
 import CTABlock from '~/components/CTABlock.astro';
-import { t } from '~/i18n';
+import { t, localizedPath } from '~/i18n';
+import { GUIA_PATH } from '~/data/guia';
 import { getCollection } from 'astro:content';
 import { BUSINESS, MAP_EMBED_URL, directionsUrl } from '~/utils/seo';
 
@@ -98,6 +99,7 @@ const origins = [
         </div>
       ))}
     </div>
+    <a class="link-acc near-guide" href={localizedPath(GUIA_PATH, lang)}>Ver la guía de qué hacer →</a>
   </section>
 
 <section class="block"><div class="block-head"><h2>Antes de viajar</h2></div><p>Consultá el pronóstico para las fechas de tu viaje y las condiciones de acceso a los senderos antes de salir.</p><a class="link-acc" href="https://www.smn.gob.ar/" target="_blank" rel="noopener">Servicio Meteorológico Nacional ↗</a></section>
@@ -222,6 +224,7 @@ const origins = [
     margin-top: 2px;
   }
   .near-dist { font-size: 13px; font-weight: 600; }
+  .near-guide { margin-top: 22px; }
 
 
   @media (max-width: 900px) {

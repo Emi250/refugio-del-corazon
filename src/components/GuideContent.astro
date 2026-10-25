@@ -1,0 +1,248 @@
+---
+import BigHeader from '~/components/BigHeader.astro';
+import CTABlock from '~/components/CTABlock.astro';
+import BreadcrumbSchema from '~/components/seo/BreadcrumbSchema.astro';
+import { localizedPath, type Lang } from '~/i18n';
+import { BUSINESS } from '~/utils/seo';
+import { GUIA_PATH, GUIDE_GROUPS, GUIDE_SEASONS, GUIDE_TIPS, GUIDE_WEEKEND } from '~/data/guia';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const es = lang === 'es';
+
+const mapsHref = (query: string) =>
+  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${query}, Capilla del Monte, Córdoba`)}`;
+
+let n = 0;
+const groups = GUIDE_GROUPS.map(g => ({
+  ...g,
+  places: g.places.map(p => ({ ...p, no: String(++n).padStart(2, '0') })),
+}));
+
+const crumbs = [
+  { name: es ? 'Inicio' : 'Home', path: localizedPath('/', lang) },
+  { name: es ? 'Qué hacer en Capilla del Monte' : 'Things to do in Capilla del Monte', path: localizedPath(GUIA_PATH, lang) },
+];
+const mapsLabel = es ? 'Ver en Google Maps' : 'View on Google Maps';
+const newTab = es ? '(se abre en otra pestaña)' : '(opens in a new tab)';
+---
+<BreadcrumbSchema items={crumbs} />
+
+<BigHeader
+  kicker={es ? 'GUÍA LOCAL' : 'LOCAL GUIDE'}
+  title={es ? 'Qué hacer' : 'Things to do'}
+  subtitle={es ? 'en Capilla del Monte: guía de un local para tu estadía en las sierras' : 'in Capilla del Monte: a local’s guide to your stay in the hills'}
+  meta="CAPILLA DEL MONTE · CÓRDOBA"
+  blurb={es
+    ? 'Lo que les recomendamos a nuestros huéspedes: paseos a pie, naturaleza a minutos y excursiones de medio día, con la distancia desde Río Negro 64.'
+    : 'What we recommend to our guests: walks in town, nature minutes away and half-day trips, with distances from Río Negro 64.'}
+/>
+
+{groups.map(g => (
+  <section class="block" id={g.id} aria-labelledby={`${g.id}-title`}>
+    <div class="block-head">
+      <h2 id={`${g.id}-title`}>{g.title[lang]}</h2>
+      <span class="spec-mono">{g.meta[lang]}</span>
+    </div>
+    <div class="places">
+      {g.places.map(p => (
+        <article class="place">
+          <div class="place-top">
+            <span class="display-no display-sm" aria-hidden="true">{p.no}</span>
+            <div class="place-meta">
+              <span class="kicker">{p.kind[lang]}</span>
+              <span class="spec-mono place-dist">{p.distance[lang]}</span>
+            </div>
+          </div>
+          <h3>{p.name[lang]}</h3>
+          <p>{p.note[lang]}</p>
+          <a
+            class="link-acc"
+            href={mapsHref(p.mapsQuery)}
+            target="_blank"
+            rel="noopener"
+            aria-label={`${mapsLabel}: ${p.name[lang]} ${newTab}`}
+          >{mapsLabel} ↗</a>
+        </article>
+      ))}
+    </div>
+  </section>
+))}
+
+<section class="block bg-paper-2" aria-labelledby="temporada-title">
+  <div class="block-head">
+    <h2 id="temporada-title">{es ? 'Según la temporada' : 'By season'}</h2>
+    <span class="spec-mono">{es ? 'TODO EL AÑO' : 'ALL YEAR ROUND'}</span>
+  </div>
+  <div class="seasons">
+    {GUIDE_SEASONS.map(s => (
+      <div class="season">
+        <h3>{s.title[lang]}</h3>
+        <p>{s.body[lang]}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<section class="block" aria-labelledby="finde-title">
+  <div class="block-head">
+    <h2 id="finde-title">{es ? 'Un fin de semana en Capilla' : 'A weekend in Capilla'}</h2>
+    <span class="spec-mono">{es ? '2 DÍAS' : '2 DAYS'}</span>
+  </div>
+  <div class="weekend">
+    {GUIDE_WEEKEND.map(d => (
+      <div class="day">
+        <span class="kicker">{d.title[lang]}</span>
+        <ol>
+          {d.steps.map(s => <li>{s[lang]}</li>)}
+        </ol>
+      </div>
+    ))}
+  </div>
+  <div class="weekend-links">
+    <a class="link-acc" href={localizedPath('/#unidades', lang)}>{es ? 'Elegí tu departamento →' : 'Choose your apartment →'}</a>
+    <a class="link-acc" href={localizedPath('/ubicacion', lang)}>{es ? 'Cómo llegar al Refugio →' : 'How to get to the Refugio →'}</a>
+  </div>
+</section>
+
+<section class="block" aria-labelledby="consejos-title">
+  <div class="block-head">
+    <h2 id="consejos-title">{es ? 'Consejos de local' : 'Local tips'}</h2>
+  </div>
+  <ol class="tips">
+    {GUIDE_TIPS.map((tip, i) => (
+      <li><span class="spec-mono tip-no" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span><span>{tip[lang]}</span></li>
+    ))}
+  </ol>
+</section>
+
+<CTABlock lang={lang} background="paper-2" mapsUrl={BUSINESS.mapsUrl} />
+
+<style>
+  .block {
+    padding: 36px 28px;
+    border-bottom: 1.5px solid var(--mf-ink);
+    background: var(--mf-paper);
+  }
+  .bg-paper-2 { background: var(--mf-paper-2); }
+  .block-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--mf-hair);
+    padding-bottom: 14px;
+    margin-bottom: 4px;
+  }
+  .block-head h2 {
+    font-size: 26px;
+    letter-spacing: -0.025em;
+    font-weight: 700;
+  }
+
+  .places {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 40px;
+  }
+  .place {
+    padding: 22px 0 18px;
+    border-bottom: 1px solid var(--mf-hair);
+    min-width: 0;
+  }
+  .place-top {
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+  .place-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+  .place-dist { font-size: 12px; }
+  .place h3 {
+    font-size: 22px;
+    letter-spacing: -0.025em;
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0 0 8px;
+  }
+  .place p {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--mf-ink-soft);
+    margin: 0 0 8px;
+    max-width: 60ch;
+  }
+
+  .seasons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--mf-ink);
+    margin-top: 22px;
+    background: var(--mf-paper);
+  }
+  .season {
+    padding: 22px 24px;
+    border-right: 1px solid var(--mf-hair);
+  }
+  .season:last-child { border-right: 0; }
+  .season h3 {
+    font-size: 22px;
+    letter-spacing: -0.025em;
+    font-weight: 700;
+    margin: 0 0 10px;
+  }
+  .season p, .day li, .tips li {
+    font-size: 14.5px;
+    line-height: 1.6;
+  }
+  .season p { color: var(--mf-ink-soft); margin: 0; }
+
+  .weekend {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 40px;
+    margin-top: 18px;
+  }
+  .day ol {
+    margin: 12px 0 0;
+    padding-left: 20px;
+  }
+  .day li { margin-bottom: 6px; }
+  .weekend-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 28px;
+    margin-top: 20px;
+  }
+
+  .tips {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .tips li {
+    display: flex;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--mf-hair);
+  }
+  .tips li:last-child { border-bottom: 0; }
+  .tip-no { flex: none; padding-top: 2px; }
+
+  @media (max-width: 900px) {
+    .places, .weekend { grid-template-columns: 1fr; }
+    .seasons { grid-template-columns: 1fr; }
+    .season { border-right: 0; border-bottom: 1px solid var(--mf-hair); }
+    .season:last-child { border-bottom: 0; }
+    .day + .day { margin-top: 20px; }
+  }
+  @media (max-width: 720px) {
+    .block { padding: 22px 18px; }
+  }
+</style>
