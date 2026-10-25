@@ -13,7 +13,7 @@ import BreadcrumbSchema from '~/components/seo/BreadcrumbSchema.astro';
 import Lightbox from '~/components/Lightbox.astro';
 import VideoCTA from '~/components/VideoCTA.astro';
 import { ogVariant } from '~/utils/images';
-import { t, localizedPath } from '~/i18n';
+import { t, localizedPath, unitLabel } from '~/i18n';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -88,8 +88,8 @@ const crumbs = [
     </nav>
     <div class="title-row">
       <div>
-        <span class="kicker kicker-lg">APARTMENT #{data.order} · {data.specs.metros}</span>
-        <h1 class="d-title-h">{name}</h1>
+        <span class="kicker kicker-lg">{unitLabel(data.order, lang).toUpperCase()} · {data.specs.metros}</span>
+        <h1 class="d-title-h">{name.replace(/ (\d+)$/, String.fromCharCode(160) + '$1')}</h1>
         <p class="d-summary">{data.summary}</p>
       </div>
       <div class="title-side">
@@ -127,7 +127,7 @@ const crumbs = [
     <ServiceList lang={lang} items={data.chips.map(c => ({ k: c, v: 'INCLUDED' }))} />
   </section>
 
-  <section class="d-slab"><h2>Shared spaces</h2><ServiceList lang={lang} items={[{k: 'Inner courtyard with loungers and tables'}, {k: 'Two grills shared by all guests'}]} /><a class="link-acc" href={localizedPath('/galeria/#espacios-comunes', lang)}>View shared spaces →</a></section>
+  <section class="d-slab"><h2>The garden</h2><ServiceList lang={lang} items={[{k: 'Loungers and tables'}, {k: 'Two grills'}]} /><a class="link-acc" href={localizedPath('/galeria/#espacios-comunes', lang)}>View garden photos →</a></section>
   <StayEssentials lang={lang} />
   <CTABlock
     lang={lang}

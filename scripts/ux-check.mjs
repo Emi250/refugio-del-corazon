@@ -30,14 +30,14 @@ for (const file of pages) {
       const message = url.searchParams.get('text');
       assert.ok(message, `${route}: missing inquiry`);
       const unit = route.match(/unidad-(\d+)/)?.[1];
-      if (unit) assert.ok(message.includes(`#${unit}`), `${route}: lost unit context`);
+      if (unit) assert.ok(message.includes(route.startsWith('/en/') ? `No. ${unit}` : `N° ${unit}`), `${route}: lost unit context`);
       assert.match(message, route.startsWith('/en/') ? /^(Hi|Hello),/ : /^Hola[,]/, `${route}: lost language`);
     }
   }
   if (/\/(en\/)?galeria\/$/.test(route)) {
-    assert.equal([...html.matchAll(/<a\b[^>]*data-lb-group=/g)].length,40,`${route}: all photos retained`);
+    assert.equal([...html.matchAll(/<a\b[^>]*data-lb-group=/g)].length,39,`${route}: all photos retained`);
     assert.equal([...html.matchAll(/<details\b/g)].length,5,`${route}: expandable groups`);
     if (route.startsWith('/en/')) assert.ok(!html.includes('data-lb-title="Departamento'), 'English photo titles');
   }
 }
-console.log(`UX OK: ${pages.length} pages, ${links} internal links, inquiry context and 40 photos per language.`);
+console.log(`UX OK: ${pages.length} pages, ${links} internal links, inquiry context and 39 photos per language.`);

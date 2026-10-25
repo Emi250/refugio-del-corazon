@@ -26,6 +26,9 @@ export function tList(key: string, lang: Lang = 'es'): string[] {
   return Array.isArray(node) ? node : [];
 }
 
+export const unitNo = (n: number | string, lang: Lang) => `${lang === 'es' ? 'N°' : 'No.'} ${n}`;
+export const unitLabel = (n: number | string, lang: Lang) => `${lang === 'es' ? 'Departamento' : 'Apartment'} ${unitNo(n, lang)}`;
+
 export function detectLang(pathname: string): Lang {
   return pathname.startsWith('/en') ? 'en' : 'es';
 }

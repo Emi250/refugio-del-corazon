@@ -11,15 +11,16 @@
     "kicker": "Capilla del Monte · Córdoba",
     "title": "El Refugio del Corazón",
     "deck": "Alquiler temporario en Capilla del Monte",
-    "subtitle": "Cuatro departamentos para 2 a 5 personas. Cocina propia, patio compartido y atención de sus dueños.",
+    "subtitle": "Cuatro departamentos para 2 a 5 personas, a 800 m del centro. Cocina equipada, aire split frío-calor, WiFi y parque con parrillas.",
     "cta": "Consultar por WhatsApp",
     "scrollHint": "Conocé los departamentos"
   },
   "sections": {
     "units": "Los departamentos",
     "unitsMeta": "Cuatro espacios únicos",
-    "spaces": "Espacios comunes",
-    "spacesMeta": "Patio, parrillas y jardín",
+    "unitsIntro": "Cuatro departamentos para 2 a 5 personas, a 800 metros del centro de Capilla del Monte. Todos tienen cocina equipada, termotanque eléctrico, aire acondicionado split frío-calor y WiFi de fibra óptica. Libre acceso al parque, con reposeras, parrillas y mesas.",
+    "spaces": "El parque",
+    "spacesMeta": "Reposeras, parrillas y mesas",
     "gallery": "Galería",
     "galleryMeta": "Mirá cada rincón",
     "services": "Servicios",
@@ -31,24 +32,24 @@
     "faqMeta": "Lo que más nos consultan"
   },
   "spaces": {
-    "blurb": "Los cuatro departamentos dan al mismo patio interno: césped, reposeras, mesas al aire libre y dos parrillas para uso de todos los huéspedes. Entre los canteros de lavanda y rosas se ven las sierras de fondo.",
+    "blurb": "Los cuatro departamentos tienen libre acceso al parque: césped, reposeras, mesas y dos parrillas, entre canteros de lavanda y rosas, con las sierras de fondo.",
     "chips": [
-      "Patio compartido",
       "Dos parrillas",
       "Reposeras y mesas",
+      "Canteros de lavanda",
       "Tendedero",
       "Vista a las sierras"
     ],
     "captions": {
-      "patio": "El patio interno compartido, con las sierras de fondo",
+      "parque": "El parque, con las sierras de fondo",
       "parrilla": "Una de las dos parrillas",
       "fachada": "El frente sobre Río Negro 64",
-      "jardin": "Reposeras y mesas al aire libre",
-      "frenteJardin": "El jardín del frente, entre lavandas",
+      "jardin": "Reposeras y mesas en el parque",
+      "frenteJardin": "El frente, entre lavandas",
       "lateralCerro": "El lateral, con el cerro de fondo",
       "pasoMediasombra": "El acceso cubierto con media sombra",
       "accesoPorton": "La entrada por el portón",
-      "jazmin": "Jazmín en flor sobre el jardín"
+      "jazmin": "Jazmín en flor en el parque"
     }
   },
   "unit": {
@@ -76,7 +77,7 @@
   },
   "location": {
     "title": "Rio Negro 64, Capilla del Monte",
-    "lead": "A pocas cuadras del centro de Capilla del Monte. Ideal para descansar y recorrer la zona.",
+    "lead": "A 800 metros del centro de Capilla del Monte: 10 minutos a pie.",
     "howToGet": "Cómo llegar",
     "nearby": "Lugares destacados",
     "weather": "Clima por estación"
@@ -109,7 +110,7 @@
     "browseTitle": "Elegí dónde alojarte"
   },
   "galleryStrip": {
-    "exterior": "Patio",
+    "exterior": "Parque",
     "living": "Living",
     "kitchen": "Cocina",
     "bedroom": "Dormitorio",

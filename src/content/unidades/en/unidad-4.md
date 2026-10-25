@@ -1,7 +1,7 @@
 ---
-name: "Departamento #4"
-name_en: "Apartment #4"
-summary: "For five guests, with three bedrooms and a laundry area with washing machine. Heat-and-cool AC in the two main bedrooms."
+name: "Departamento N° 4"
+name_en: "Apartment No. 4"
+summary: "For 5 guests: three bedrooms, one bathroom and a laundry room with washing machine. Split heat-and-cool AC in the two main bedrooms."
 beds: "Queen + two beds in the second bedroom + one single"
 decision_note: "Own laundry area with washing machine."
 order: 4
@@ -11,23 +11,23 @@ specs:
   ambientes: "3 bedrooms · living-dining"
   metros: "65 m²"
   bano: "1 full bathroom"
-chips: ["Washing machine", "WiFi", "Equipped kitchen", "2 heat-and-cool ACs", "Bed linens", "Towels", "Smart TV (no cable)", "Fridge with Freezer"]
+chips: ["Washing machine", "WiFi", "2 split heat-and-cool ACs", "Smart TV (no cable)", "Equipped kitchen", "Fridge with Freezer", "Electric kettle", "Toaster", "Electric water heater", "Hair dryer", "Bed linens", "Towels"]
 hero_image: "../../../assets/images/unidades/unidad-4/hero.jpg"
 gallery:
   - { src: "../../../assets/images/unidades/unidad-4/hero.jpg", caption: "Kitchen-dining room, with the arch through to the living room" }
   - { src: "../../../assets/images/unidades/unidad-4/living.jpg", caption: "The living room, with the arch and the breakfast bar" }
-  - { src: "../../../assets/images/unidades/unidad-4/dormitorio.jpg", caption: "Main bedroom with a queen bed and heat-and-cool AC" }
-  - { src: "../../../assets/images/unidades/unidad-4/dormitorio-02.jpg", caption: "Second bedroom with two beds and heat-and-cool AC" }
+  - { src: "../../../assets/images/unidades/unidad-4/dormitorio.jpg", caption: "Main bedroom with a queen bed and split AC" }
+  - { src: "../../../assets/images/unidades/unidad-4/dormitorio-02.jpg", caption: "Second bedroom with two beds and split AC" }
   - { src: "../../../assets/images/unidades/unidad-4/dormitorio-03.jpg", caption: "Third bedroom with a single bed" }
-  - { src: "../../../assets/images/unidades/unidad-4/bano.jpg", caption: "The bathroom, full with shower" }
+  - { src: "../../../assets/images/unidades/unidad-4/bano.jpg", caption: "Full bathroom" }
   - { src: "../../../assets/images/unidades/unidad-4/lavadero.jpg", caption: "Own laundry room with a washing machine" }
-  - { src: "../../../assets/images/unidades/unidad-4/exterior.jpg", caption: "The entrance to #4, from the street on Rio Negro" }
-blurb: "The largest of the four: three bedrooms, one bathroom and a laundry area. Heat-and-cool AC in the two main ones."
+  - { src: "../../../assets/images/unidades/unidad-4/exterior.jpg", caption: "Private entrance to No. 4, on Río Negro" }
+blurb: "The largest: three bedrooms, one bathroom, a laundry room with washing machine and split AC in the two main bedrooms."
 video_url: "https://drive.google.com/file/d/1PJ_1UBRlw2IibLQtPFit2o78Nb4dq42H/view?usp=sharing"
 ---
 
-The largest of the four: three bedrooms and one bathroom. The main one has a queen bed; the second, two beds we leave single or push together as a double; and the third, a single bed. Five sleeping spots in total — tell us how you want them when you book.
+The largest of the four, for up to 5 guests. The main bedroom has a queen bed; the second, two beds used apart or pushed together as a double; the third, a single bed. Tell us your preference when you book.
 
-The living-dining room is large and the kitchen is open to it, with a gas oven and fully equipped. It also has a laundry with a washing machine.
+Wide living-dining room and an open kitchen with gas oven, fridge-freezer, electric kettle and toaster. Own laundry room with washing machine.
 
-The two main bedrooms have heat-and-cool air conditioning. Smart TV and fiber WiFi, like the rest of the apartments.
+Split heat-and-cool air conditioning in the two main bedrooms, electric water heater, hair dryer, Smart TV and fiber-optic WiFi. One full bathroom. Bed linens and towels included.

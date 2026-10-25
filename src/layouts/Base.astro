@@ -10,7 +10,7 @@ import MobileStickyCTA from '~/components/MobileStickyCTA.astro';
 import LangSuggest from '~/components/LangSuggest.astro';
 import { inquiryMessage } from '~/utils/whatsapp';
 import OrganizationSchema from '~/components/seo/OrganizationSchema.astro';
-import { detectLang, t, otherLangPath } from '~/i18n';
+import { detectLang, t, otherLangPath, unitLabel } from '~/i18n';
 import {
   SITE_NAME,
   getCanonical,
@@ -50,7 +50,7 @@ const ogLocale = getOgLocale(lang);
 const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_AR';
 const otherPath = noindex ? '/en/' : otherLangPath(Astro.url.pathname, lang);
 const unitNumber = Astro.url.pathname.match(/\/unidades\/unidad-(\d+)\//)?.[1];
-const contactMessage = inquiryMessage(unitNumber ? `${lang === 'es' ? 'Departamento' : 'Apartment'} #${unitNumber}` : undefined, lang);
+const contactMessage = inquiryMessage(unitNumber ? unitLabel(unitNumber, lang) : undefined, lang);
 ---
 
 <!doctype html>

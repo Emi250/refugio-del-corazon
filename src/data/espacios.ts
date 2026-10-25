@@ -1,4 +1,4 @@
-import patio from '~/assets/images/espacios/patio.jpg';
+import parque from '~/assets/images/espacios/parque.jpg';
 import parrilla from '~/assets/images/espacios/parrilla.jpg';
 import fachada from '~/assets/images/espacios/fachada.jpg';
 import jardin from '~/assets/images/espacios/jardin.jpg';
@@ -13,7 +13,7 @@ import { t, type Lang } from '~/i18n';
  *  para el lightbox. Se dieron de baja `rosa` y `rosa-lateral` (era la misma rosa
  *  desde un paso mas cerca) y `paso-lateral` (pasto pelado y los tanques del vecino). */
 export const ESPACIOS = [
-  { src: patio, key: 'patio' },
+  { src: parque, key: 'parque' },
   { src: parrilla, key: 'parrilla' },
   { src: fachada, key: 'fachada' },
   { src: jardin, key: 'jardin' },

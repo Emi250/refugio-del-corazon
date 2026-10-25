@@ -1,5 +1,5 @@
 ---
-import { t, type Lang } from '~/i18n';
+import { t, type Lang, unitNo } from '~/i18n';
 
 export interface GalleryIndexItem {
   anchor: string;
@@ -18,9 +18,9 @@ const { items, lang = 'es' } = Astro.props;
   <span class="gidx-label kicker">{t('galleryPage.jumpTo', lang)}</span>
   <div class="gidx-track">
     {items.map(({ anchor, no, label }) => (
-      <a href={`#${anchor}`} class="gidx-chip" aria-label={`${no} ${label}${no === '00' ? ' · Patio' : ''}`} data-gidx-link={anchor}>
+      <a href={`#${anchor}`} class="gidx-chip" aria-label={`${no} ${label}`} data-gidx-link={anchor}>
         <span class="gidx-no">{no}</span>
-        <span class="gidx-name">{label}</span><span class="gidx-short">{no === '00' ? (lang === 'es' ? 'Patio' : 'Patio') : `#${Number(no)}`}</span>
+        <span class="gidx-name">{label}</span><span class="gidx-short">{no === '00' ? (lang === 'es' ? 'Parque' : 'Garden') : unitNo(Number(no), lang)}</span>
       </a>
     ))}
   </div>

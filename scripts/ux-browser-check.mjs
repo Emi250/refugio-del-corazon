@@ -112,7 +112,7 @@ try {
     await page.waitForFunction(() => document.querySelector('.lb-img').naturalWidth > 0);
     await page.locator('.lb-next').click();
     assert.match(await page.locator('.lb-counter').innerText(), /2 \/ 8/);
-    assert.match(decodeURIComponent(await page.locator('.lb-wa').getAttribute('href')), /#4/);
+    assert.match(decodeURIComponent(await page.locator('.lb-wa').getAttribute('href')), /N° 4/);
     for (let i = 0; i < 12; i++) {
       await page.keyboard.press('Tab');
       assert.equal(await page.evaluate(() => !!document.activeElement.closest('#lightbox')), true);
@@ -145,7 +145,7 @@ try {
     await page.locator('[data-burger]').click();
     await page.locator('dialog [data-switch-lang="en"]').click();
     await page.waitForURL('**/en/galeria/#unidad-3');
-    assert.match(await page.locator('#unidad-3 h2').innerText(), /Apartment #3/);
+    assert.match(await page.locator('#unidad-3 h2').innerText(), /Apartment No\. 3/);
   });
   await test('No JavaScript: navigation, FAQ and gallery remain usable', async () => {
     const nojs = await context({ javaScriptEnabled: false });
@@ -180,7 +180,7 @@ try {
     await p.goto(base + '/unidades/unidad-4/', { waitUntil: 'domcontentloaded' });
     await p.locator('[data-burger]').click();
     assert.equal(await p.locator('dialog').evaluate(el => el.open), true);
-    assert.match(decodeURIComponent(await p.locator('dialog a[href*="wa.me"]').getAttribute('href')), /#4/);
+    assert.match(decodeURIComponent(await p.locator('dialog a[href*="wa.me"]').getAttribute('href')), /N° 4/);
     await p.keyboard.press('Escape');
     await p.waitForLoadState('load');
     await slow.unrouteAll({ behavior: 'wait' });

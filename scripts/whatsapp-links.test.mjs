@@ -15,7 +15,7 @@ function helper(number = '5493548406347') {
 
 test('inquiries preserve apartment, accents and language in a single encoded query', () => {
   const api = helper();
-  for (const [lang, unit, intro] of [['es', 'Departamento #4', 'Hola'], ['en', 'Apartment #3', 'Hi']]) {
+  for (const [lang, unit, intro] of [['es', 'Departamento N° 4', 'Hola'], ['en', 'Apartment No. 3', 'Hi']]) {
     const url = new URL(api.waLinkForUnit(unit, lang));
     assert.equal(url.hostname, 'wa.me');
     assert.equal(url.pathname, '/5493548406347');

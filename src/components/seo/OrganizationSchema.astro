@@ -7,8 +7,8 @@ interface Props { lang: Lang }
 const { lang } = Astro.props;
 
 const description = lang === 'es'
-  ? 'Cuatro departamentos de alquiler temporario en Río Negro 64, Capilla del Monte, Córdoba. A pasos del centro y del Cerro Uritorco, en las sierras de Córdoba.'
-  : 'Four short-term rental apartments at Río Negro 64, Capilla del Monte, Córdoba. Steps from downtown and Cerro Uritorco, in the Córdoba sierras.';
+  ? 'Cuatro departamentos de alquiler temporario en Río Negro 64, Capilla del Monte, Córdoba. A 800 m del centro y a 2,3 km del Cerro Uritorco.'
+  : 'Four short-term rental apartments at Río Negro 64, Capilla del Monte, Córdoba. 800 m from downtown and 2.3 km from Cerro Uritorco.';
 
 const fachadaUrl = absoluteAssetUrl(await heroBackground());
 
@@ -20,6 +20,11 @@ const amenities = [
   'Smart TV with streaming',
   lang === 'es' ? 'Estacionamiento para dos autos, sujeto a disponibilidad' : 'Parking for two cars, subject to availability',
   'BBQ',
+  'Garden',
+  'Electric kettle',
+  'Toaster',
+  'Hair dryer',
+  'Electric water heater',
   'Linens and towels',
 ];
 

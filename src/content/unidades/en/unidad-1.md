@@ -1,7 +1,7 @@
 ---
-name: "Departamento #1"
-name_en: "Apartment #1"
-summary: "For two guests, with a king bed or two singles. Electric kitchen open to the living room, without an oven."
+name: "Departamento N° 1"
+name_en: "Apartment No. 1"
+summary: "For 2 guests, with a king bed or two singles and a Smart TV in the bedroom. Electric kitchen without an oven, open to the living room."
 beds: "King or two singles"
 decision_note: "Electric kitchen without an oven."
 order: 1
@@ -11,23 +11,22 @@ specs:
   ambientes: "1 bedroom · living room"
   metros: "40 m²"
   vista: "Hills out front"
-chips: ["WiFi", "Equipped kitchen", "Bed linens", "Heat-and-cool AC", "Towels", "Fridge with Freezer", "Smart TV (no cable)"]
+chips: ["WiFi", "Split heat-and-cool AC", "Smart TV in the bedroom", "Equipped kitchen", "Fridge with Freezer", "Electric kettle", "Toaster", "Electric water heater", "Hair dryer", "Bed linens", "Towels"]
 hero_image: "../../../assets/images/unidades/unidad-1/hero.jpg"
 gallery:
   - { src: "../../../assets/images/unidades/unidad-1/hero.jpg", caption: "Living-dining room, with the kitchen built in" }
   - { src: "../../../assets/images/unidades/unidad-1/dormitorio.jpg", caption: "Bedroom with a king bed (it splits into two singles)" }
   - { src: "../../../assets/images/unidades/unidad-1/cocina.jpg", caption: "Equipped kitchen: fridge-freezer, microwave and cooktop" }
-  - { src: "../../../assets/images/unidades/unidad-1/living-tv.jpg", caption: "The other end of the living room, with Smart TV and heater" }
-  - { src: "../../../assets/images/unidades/unidad-1/bano.jpg", caption: "Full bathroom with shower" }
-  - { src: "../../../assets/images/unidades/unidad-1/exterior.jpg", caption: "Private entrance to #1, off the garden" }
-  - { src: "../../../assets/images/unidades/unidad-1/ropa-de-cama.jpg", caption: "Bed linens and towels, included" }
-blurb: "Electric kitchen open to the living room, no oven. The king bed stays joined or splits into two singles."
+  - { src: "../../../assets/images/unidades/unidad-1/bano.jpg", caption: "Full bathroom" }
+  - { src: "../../../assets/images/unidades/unidad-1/exterior.jpg", caption: "Private entrance to No. 1" }
+  - { src: "../../../assets/images/unidades/unidad-1/ropa-de-cama.jpg", caption: "Bed linens and towels" }
+blurb: "King bed or two singles, a Smart TV in the bedroom and an electric kitchen without an oven, open to the living room."
 airbnb_url: "https://airbnb.com.ar/h/capilladelmonte3"
 video_url: "https://drive.google.com/file/d/1R-VHFCUK1W0GpYPmW3cINT-zEhlbLNEZ/view?usp=sharing"
 ---
 
-One bedroom and a living-dining room open to the kitchen, which is electric and has no oven. The living room has a Smart TV with Netflix included and an electric heater.
+One bedroom with a king bed or two singles (tell us your preference when you book), a Smart TV with Netflix included, split heat-and-cool air conditioning and a large closet.
 
-The kitchen comes with a fridge-freezer, microwave, electric kettle and electric burners.
+The living-dining room is open to the kitchen, which is electric and has no oven: fridge-freezer, microwave, burners, electric kettle and toaster. The living room has an electric heater.
 
-The bedroom has a large closet and heat-and-cool air conditioning. There are two beds we leave joined as a king, or separated as singles: tell us what works for you when you book. Linens are included. The bathroom is full, with a shower.
+Full bathroom, electric water heater and hair dryer. Bed linens and towels included.
